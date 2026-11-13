@@ -20,6 +20,7 @@ import type { Account, Chain, PublicClient, Transport, WalletClient } from 'viem
 import { privateKeyToAccount } from 'viem/accounts'
 import { baseSepolia } from 'viem/chains'
 
+import { chainWriteFor } from './chainQueue.ts'
 import { CONTRACTS } from './netconfig.ts'
 import type { NetEnvironment } from './netconfig.ts'
 import { rpcTransport } from './rpc.ts'
@@ -400,7 +401,7 @@ export function walletAddress(key: `0x${string}`): `0x${string}` {
 /** Approve (only when the allowance is short) + open. The numeric escrow id
  *  is parsed from SessionOpened's OWN log — never from a counter probe (a
  *  concurrent open would desync the id). */
-export async function openEscrow(
+async function openEscrowUnqueued(
   publicC: GenkakuPublic,
   walletC: GenkakuWallet,
   env: NetEnvironment,
@@ -491,7 +492,7 @@ export async function openEscrow(
   return { escrowId: id, approved }
 }
 
-export async function settleSession(
+async function settleSessionUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
   args: { escrowId: bigint; receiptHash: `0x${string}`; spend: bigint; workerSig: `0x${string}` },
@@ -514,7 +515,7 @@ export async function settleSession(
 /** Mint test USDC to `to`. MockUSDC on Base Sepolia lets anyone mint; the
  *  canonical mainnet token has no such function, so the env check is load
  *  bearing, not a convenience. */
-export async function mintTestUsdc(
+async function mintTestUsdcUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
   to: `0x${string}`,
@@ -542,7 +543,7 @@ export async function mintTestUsdc(
 /** Reclaim an unsettled escrow. A short session can bill zero started minutes;
  *  without this the funds would sit in the contract until the user found a
  *  manual refund, which a non-technical user never will. */
-export async function refundSession(
+async function refundSessionUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
   escrowId: bigint,
@@ -558,7 +559,7 @@ export async function refundSession(
   })
 }
 
-export async function claimAccrual(walletC: GenkakuWallet, env: NetEnvironment): Promise<`0x${string}`> {
+async function claimAccrualUnqueued(walletC: GenkakuWallet, env: NetEnvironment): Promise<`0x${string}`> {
   return await walletC.writeContract({
     address: CONTRACTS[env].escrow as `0x${string}`,
     abi: ESCROW_ABI,
@@ -607,7 +608,7 @@ export async function readWorker(
  *  The caller is the worker wallet itself (msg.sender == the binding) — the
  *  desktop pays gas from the worker key. Testnet-only (viemChain refuses
  *  mainnet until P6). */
-export async function registerWorker(
+async function registerWorkerUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
   args: { peerIdDigest: `0x${string}`; policyHash: `0x${string}` },
@@ -770,7 +771,7 @@ export function parseLocator(locator: string): string[] {
 }
 
 /** Register (or re-pin) AND publish the locator in one transaction. */
-export async function registerWorkerWithLocator(
+async function registerWorkerWithLocatorUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
   args: { peerIdDigest: `0x${string}`; policyHash: `0x${string}`; locator: string },
@@ -796,7 +797,7 @@ export async function registerWorkerWithLocator(
 
 /** Publish a new locator for an already-registered worker. Only call this when
  *  the announced address set actually changed — each call is a chain write. */
-export async function advertiseWorker(
+async function advertiseWorkerUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
   locator: string,
@@ -822,7 +823,7 @@ export async function advertiseWorker(
 
 /** Remove this wallet from the live directory. Used when a worker loses the
  *  public address it advertised — a stale entry is worse than none. */
-export async function deactivateWorker(
+async function deactivateWorkerUnqueued(
   walletC: GenkakuWallet,
   env: NetEnvironment,
 ): Promise<`0x${string}`> {
@@ -1029,4 +1030,80 @@ export async function readWorkerDeactivations(
 /** Receipt signing re-export (single crypto door for callers). */
 export async function signReceiptPayload(key: `0x${string}`, receipt: ReceiptPayloadV1): Promise<string> {
   return await signDigest(key, toBytes(digestForHex(receipt)))
+}
+
+// ── serialized write entries ───────────────────────────────────────────────
+// Every state-changing call goes through the per-account queue in
+// chainQueue.ts. A write is a nonce, and two overlapping writes from one
+// wallet can be handed the same one; the queue is what keeps them apart.
+//
+// The whole operation is queued, not just the `writeContract` call: openEscrow
+// is approve → wait → open, and the pair must not interleave with another
+// session's submit. Different accounts never wait for each other.
+
+export function openEscrow(
+  publicC: GenkakuPublic,
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  worker: `0x${string}`,
+  amount: bigint,
+): Promise<{ escrowId: bigint; approved: bigint }> {
+  return chainWriteFor(walletC, () => openEscrowUnqueued(publicC, walletC, env, worker, amount))
+}
+
+export function settleSession(
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  args: { escrowId: bigint; receiptHash: `0x${string}`; spend: bigint; workerSig: `0x${string}` },
+): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => settleSessionUnqueued(walletC, env, args))
+}
+
+export function mintTestUsdc(
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  to: `0x${string}`,
+  amount: bigint,
+): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => mintTestUsdcUnqueued(walletC, env, to, amount))
+}
+
+export function refundSession(
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  escrowId: bigint,
+): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => refundSessionUnqueued(walletC, env, escrowId))
+}
+
+export function claimAccrual(walletC: GenkakuWallet, env: NetEnvironment): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => claimAccrualUnqueued(walletC, env))
+}
+
+export function registerWorker(
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  args: { peerIdDigest: `0x${string}`; policyHash: `0x${string}` },
+): Promise<{ txHash: `0x${string}`; rebind?: boolean }> {
+  return chainWriteFor(walletC, () => registerWorkerUnqueued(walletC, env, args))
+}
+
+export function registerWorkerWithLocator(
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  args: { peerIdDigest: `0x${string}`; policyHash: `0x${string}`; locator: string },
+): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => registerWorkerWithLocatorUnqueued(walletC, env, args))
+}
+
+export function advertiseWorker(
+  walletC: GenkakuWallet,
+  env: NetEnvironment,
+  locator: string,
+): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => advertiseWorkerUnqueued(walletC, env, locator))
+}
+
+export function deactivateWorker(walletC: GenkakuWallet, env: NetEnvironment): Promise<`0x${string}`> {
+  return chainWriteFor(walletC, () => deactivateWorkerUnqueued(walletC, env))
 }

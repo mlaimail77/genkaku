@@ -6,17 +6,26 @@
 // else's free tier) and rules out asking a non-technical operator to sign up.
 //
 // So: a small list of public endpoints, probed once at boot to find the fastest
-// healthy one, cached on disk, and wrapped in viem's `fallback` transport so a
+// healthy one, cached on disk, and wrapped in a failover transport so a
 // 429 / 5xx / timeout mid-session rolls to the next endpoint without user
-// involvement. `GENKAKU_RPC_URL` still wins when set — that is the escape hatch
-// for development and for a power user who wants privacy, never a product
-// requirement.
+// involvement. The failover is ours, not viem's `fallback`, so a total failure
+// reports every endpoint instead of only the last one. `GENKAKU_RPC_URL` still
+// wins when set — that is the escape hatch for development and for a power user
+// who wants privacy, never a product requirement.
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
-import { fallback, http, type Transport } from 'viem'
+import {
+  BaseError,
+  createTransport,
+  ExecutionRevertedError,
+  http,
+  TransactionRejectedRpcError,
+  UserRejectedRequestError,
+  type Transport,
+} from 'viem'
 
 import { CONTRACTS } from './netconfig.ts'
 import type { NetEnvironment } from './netconfig.ts'
@@ -117,14 +126,126 @@ export function rpcUrls(env: NetEnvironment): string[] {
   return [...new Set(ordered)]
 }
 
-/** Transport with automatic failover — the part the user never sees. */
+/** Transport with automatic failover — the part the user never sees.
+ *
+ *  This is viem's `fallback` reimplemented, for one reason: `fallback` keeps
+ *  only the LAST transport's error, so a request that failed on five endpoints
+ *  reports whatever the fifth one said. That is how a dead endpoint at the end
+ *  of the list once masked four healthy ones. Here every failure is collected
+ *  and reported together, so the message names each endpoint and what it said.
+ *
+ *  Semantics kept from `fallback`: endpoints are tried in order (no ranking —
+ *  probing is most expensive exactly when endpoints are unhealthy), a revert or
+ *  a user rejection is NOT retried elsewhere, and each endpoint gets one retry
+ *  of its own for a transient HTTP status. */
 export function rpcTransport(env: NetEnvironment): Transport {
-  return fallback(
-    rpcUrls(env).map(url => http(url, { timeout: REQUEST_TIMEOUT_MS, retryCount: 1 })),
-    // Keep the configured order: ranking samples would re-probe on every
-    // failure burst, which is exactly when the endpoints are least healthy.
-    { rank: false },
-  )
+  return rpcTransportFor(rpcUrls(env))
+}
+
+/** The transport itself, over an explicit list — the test seam, and the only
+ *  place the failover order is interpreted. */
+export function rpcTransportFor(urls: readonly string[]): Transport {
+  return ({ chain, pollingInterval = 4_000, timeout, ...rest }) => createTransport({
+    key: 'genkaku-failover',
+    name: 'GenKaKu RPC failover',
+    type: 'fallback',
+    retryCount: 0,
+    async request(body, options) {
+      const failures: RpcFailure[] = []
+
+      for (const url of urls) {
+        // Built per attempt: `http` binds its configured endpoint and timeout,
+        // and the client's own retry budget stays at zero so a dead endpoint
+        // cannot spend the whole request budget before the next one is tried.
+        // `http`'s generic request signature does not unify with the one
+        // `createTransport` expects (two independent `_returnType` parameters
+        // in viem's types), so the call is narrowed to its runtime shape: both
+        // sides are viem's own JSON-RPC request function.
+        const transport = http(url, {
+          timeout: timeout ?? REQUEST_TIMEOUT_MS,
+          retryCount: 1,
+        })({ ...rest, chain, pollingInterval }) as unknown as LooseTransport
+
+        try {
+          // `never` because createTransport's request is generic over the
+          // caller's expected return; the JSON-RPC response is that value.
+          return await transport.request(body, options) as never
+        } catch (error) {
+          // A revert is deterministic and a user rejection is final; asking
+          // five more endpoints the same question only delays the answer.
+          if (shouldThrow(error)) throw error
+          failures.push({ url, message: errorMessage(error) })
+        }
+      }
+
+      const last = failures.at(-1)
+      throw new BaseError(formatRpcFailures(body.method, failures), {
+        cause: last == null ? undefined : new Error(last.message),
+      })
+    },
+  })
+}
+
+/** Just enough of a viem transport to send one JSON-RPC request. */
+type LooseTransport = {
+  request: (body: unknown, options?: unknown) => Promise<unknown>
+}
+
+/** One endpoint's answer to one request: what failed and what it said. */
+export type RpcFailure = { url: string; message: string }
+
+/** Every endpoint failed; say so once, with all of them, instead of only the
+ *  last one. Kept as a pure function so the shape is testable without a node. */
+export function formatRpcFailures(method: string, failures: readonly RpcFailure[]): string {
+  if (failures.length === 0) {
+    return `genkaku: no RPC endpoint configured for ${method}`
+  }
+
+  const lines = failures.map(({ url, message }) => `  ${url} -> ${message}`)
+
+  return [
+    `genkaku: no RPC endpoint answered ${method} (${failures.length} tried)`,
+    ...lines,
+  ].join('\n')
+}
+
+/** viem's `fallback` rule, copied because it is not exported: these errors are
+ *  the answer, not a reason to ask another endpoint. */
+function shouldThrow(error: unknown): boolean {
+  if (error != null && typeof error === 'object' && 'code' in error) {
+    const code = (error as { code?: unknown }).code
+    if (typeof code === 'number') {
+      if (
+        code === TransactionRejectedRpcError.code
+        || code === UserRejectedRequestError.code
+        || code === 5000 // CAIP UserRejectedRequestError
+      ) {
+        return true
+      }
+    }
+  }
+
+  if (error instanceof BaseError) {
+    return error.walk((e: unknown) => ExecutionRevertedError.nodeMessage.test((e as { message?: string }).message ?? '')) != null
+  }
+
+  return false
+}
+
+/** One line per endpoint: the message, newlines flattened, length capped. */
+function errorMessage(error: unknown): string {
+  // `shortMessage` is all the user needs, but it drops the HTTP status (viem
+  // keeps that in metaMessages), and "HTTP request failed" alone does not say
+  // whether the endpoint was rate-limited, broken or gone.
+  const status = (error as { status?: unknown } | null)?.status
+  const raw = error instanceof BaseError ? error.shortMessage : messageOf(error)
+  const withStatus = typeof status === 'number' ? `${raw} (HTTP ${status})` : raw
+  const text = withStatus.replace(/\s+/g, ' ').trim().replace(/^\.+/, '')
+  return text.length > 240 ? `${text.slice(0, 237)}...` : text
+}
+
+function messageOf(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
 }
 
 /** One `eth_blockNumber` per endpoint, keep the fastest. Fire-and-forget at

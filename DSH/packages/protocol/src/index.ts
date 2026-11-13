@@ -8,6 +8,7 @@
  */
 export * from './bridge.ts'
 export * from './chain.ts'
+export * from './chainQueue.ts'
 export * from './cors.ts'
 export * from './credit.ts'
 export * from './dial.ts'

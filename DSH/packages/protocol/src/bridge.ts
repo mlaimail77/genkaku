@@ -161,37 +161,6 @@ function debugLog(line: string): void {
   }
 }
 
-/** Chain writes run one at a time per bridge.
- *
- *  A chat response is written to the client BEFORE its escrow is settled or
- *  refunded, so the next request can arrive while that transaction is still in
- *  flight. Both then ask an RPC endpoint for the account's "pending" nonce —
- *  and `fallback` may answer from a different endpoint than the one that
- *  accepted the first transaction. The second write reuses that nonce, every
- *  endpoint rejects it, and the user sees a 500 instead of an answer. A single
- *  queue removes the overlap; the retry covers the remaining window where the
- *  endpoint that served the nonce simply had not seen the previous receipt. */
-let chainQueue: Promise<unknown> = Promise.resolve()
-
-const NONCE_RACE = /nonce|already known|known transaction|replacement transaction|underpriced/i
-
-function chainWrite<T>(task: () => Promise<T>): Promise<T> {
-  const run = chainQueue.then(async () => {
-    try {
-      return await task()
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error)
-      if (!NONCE_RACE.test(message)) throw error
-      // The queue is what keeps writes apart; the retry only covers an RPC
-      // endpoint whose "pending" view had not caught up with the last receipt.
-      await new Promise(resolve => setTimeout(resolve, 2_000))
-      return await task()
-    }
-  })
-  chainQueue = run.then(() => undefined, () => undefined)
-  return run
-}
-
 /** Self-contained status dashboard: no external assets, polls /genkaku/status. */
 const DASHBOARD_HTML = `<!doctype html>
 <html lang="en">
@@ -507,10 +476,10 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
       opts.log(`session ${jobId}: ${picked.offer.model} is free — no escrow`)
     } else if (opts.settle && picked.offer.workerWallet?.startsWith('0x')) {
       walletC = walletClientFor(opts.env, opts.userKey())
-      const opened = await chainWrite(() => openEscrow(
+      const opened = await openEscrow(
         publicClientFor(opts.env), walletC!, opts.env,
         picked.offer.workerWallet as Hex, picked.offer.pricePerHour,
-      ))
+      )
       escrowId = opened.escrowId.toString()
     }
 
@@ -640,7 +609,7 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
           // The commitment the money is bound to — re-derive it offline from
           // the prompt/answer to audit a settle (P4.9f commit-challenge).
           debugLog(`receipt ${jobId}: hash=${receiptHash} billed=${result.billed} tokens=${result.tokens}`)
-          await chainWrite(() => settle({
+          await settle({
             node,
             // Co-sign over the same path the session used: a worker behind NAT
             // is only reachable through its relay address.
@@ -650,13 +619,12 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
             escrowId,
             receiptHash: receiptHash as Hex,
             spend: result.billed,
-          }))
+          })
         } else {
           // Nothing was billed (a session shorter than one started minute).
           // Return the escrow instead of leaving the user's money parked.
           try {
-            const tx = await chainWrite(() =>
-              refundSession(walletC!, opts.env, BigInt(escrowId)))
+            const tx = await refundSession(walletC!, opts.env, BigInt(escrowId))
             debugLog(`escrow ${escrowId}: nothing billed, refunded (tx ${tx})`)
             opts.log(`escrow ${escrowId}: nothing billed, refunded (tx ${tx})`)
           } catch (error) {
@@ -677,8 +645,7 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
       // (a non-technical user would never find the manual refund).
       if (opts.settle && walletC != null && escrowId !== '0') {
         try {
-          const tx = await chainWrite(() =>
-            refundSession(walletC!, opts.env, BigInt(escrowId)))
+          const tx = await refundSession(walletC!, opts.env, BigInt(escrowId))
           debugLog(`escrow ${escrowId}: session failed before settle, refunded (tx ${tx})`)
           opts.log(`escrow ${escrowId}: refunded after a failed session (tx ${tx})`)
         } catch (refundError) {
