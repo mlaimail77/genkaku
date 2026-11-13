@@ -34,7 +34,13 @@ export const TREASURY = '0x639a2B713041e15B0c5C18710536b661d5265b48'
 // The live GenKaKu bootstrap seed. It is addressed by URL rather than by
 // multiaddr because the process picks a new peer id on every restart; the URL
 // answers with the addresses that are true right now.
+//
+// `seed.genkaku.app` is the permanent address. `staging.genkaku.app/seed` is the
+// same process behind its old name and stays second so a DNS change on the new
+// hostname cannot strand a client: discovery queries every seed in parallel and
+// a dead one degrades to an empty list.
 const BAKED_SEEDS: string[] = [
+  'https://seed.genkaku.app/seed',
   'https://staging.genkaku.app/seed',
 ]
 
