@@ -1,0 +1,63 @@
+{
+  "name": "@genkaku/protocol",
+  "version": "0.1.24",
+  "description": "GenKaKu protocol core: on-chain worker directory, USDC escrow billing, libp2p transport, Ollama lifecycle",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test dist/*.test.js"
+  },
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "16.1.5",
+    "@chainsafe/libp2p-yamux": "7.0.4",
+    "@libp2p/circuit-relay-v2": "3.2.24",
+    "@libp2p/crypto": "5.1.8",
+    "@libp2p/identify": "3.0.39",
+    "@libp2p/peer-id": "5.1.9",
+    "@libp2p/tcp": "10.1.19",
+    "@multiformats/multiaddr": "12.5.1",
+    "libp2p": "2.10.0",
+    "viem": "2.57.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlaimail77/genkaku.git",
+    "directory": "DSH/packages/protocol"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "GenKaKu Labs",
+  "homepage": "https://staging.genkaku.app",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "p2p",
+    "libp2p",
+    "ollama",
+    "usdc",
+    "base"
+  ],
+  "engines": {
+    "node": ">=22"
+  }
+}

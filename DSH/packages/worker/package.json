@@ -1,0 +1,78 @@
+{
+  "name": "@genkaku/dsh-worker-plugin",
+  "version": "0.1.39",
+  "description": "Share this machine's Ollama models on the GenKaKu network",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "lib/client.js",
+    "README.md",
+    "LICENSE",
+    "cordis.patch.yml"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node ../../scripts/build-client.mjs . @genkaku/dsh-worker-plugin",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "./cordis.patch.yml"
+      ]
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "@genkaku/dsh-runtime": "workspace:*",
+    "@genkaku/protocol": "workspace:*"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0",
+    "@deepseek-ai/dsh-settings": "0.2.2-rc.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlaimail77/genkaku.git",
+    "directory": "DSH/packages/worker"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "GenKaKu Labs",
+  "homepage": "https://staging.genkaku.app",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "p2p",
+    "libp2p",
+    "ollama",
+    "usdc",
+    "base"
+  ],
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,6 @@
+# The GenKaKu user layer: the insert is what actually mounts the plugin. A patch
+# entry without `insert` only re-targets an existing row, and this bundle adds
+# a row that nothing else declares.
+- insert:
+    - id: genkaku-user
+      name: '@genkaku/dsh-user-plugin'

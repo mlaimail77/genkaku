@@ -1,0 +1,4 @@
+packages:
+  - 'DSH/packages/*'
+  - 'admin'
+  - 'seed'

@@ -1,0 +1,22 @@
+{
+  "name": "@genkaku/admin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GenKaKu admin console: seed VM usage, relay cost settings, worker/user counts and USDC flow",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@genkaku/protocol": "workspace:*",
+    "viem": "2.57.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlaimail77/genkaku.git",
+    "directory": "admin"
+  }
+}

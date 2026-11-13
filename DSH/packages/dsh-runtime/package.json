@@ -1,0 +1,65 @@
+{
+  "name": "@genkaku/dsh-runtime",
+  "version": "0.1.32",
+  "description": "DeepSeek Harness adapter layer for the GenKaKu protocol runtime",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@deepseek-ai/cosmokit": "1.9.0",
+    "@deepseek-ai/schemastery": "^3.19.0",
+    "@genkaku/protocol": "workspace:*"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0",
+    "@deepseek-ai/dsh-settings": "0.2.2-rc.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0",
+    "@deepseek-ai/dsh-settings": "0.2.2-rc.1",
+    "libp2p": "2.10.0",
+    "viem": "2.57.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlaimail77/genkaku.git",
+    "directory": "DSH/packages/dsh-runtime"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "GenKaKu Labs",
+  "homepage": "https://staging.genkaku.app",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "p2p",
+    "libp2p",
+    "ollama",
+    "usdc",
+    "base"
+  ],
+  "engines": {
+    "node": ">=22"
+  }
+}
