@@ -20,9 +20,17 @@ A failure in either source shows a message instead of breaking the page.
 
 ## First sign-in
 
-The initial password is `12345678`. Change it under **Settings** before the
-console is exposed. The hash (scrypt) lives in `~/.genkaku-admin/admin.json`;
-there is no recovery path, so keep a copy of that file if you need one.
+There is no baked password. On a fresh install the console either takes
+`GENKAKU_ADMIN_PASSWORD` or generates one and prints it once at boot:
+
+```bash
+sudo journalctl -u genkaku-admin -n 20 | grep 'generated initial password'
+```
+
+Change it under **Settings** on first sign-in — the console asks for that and
+keeps asking until it is done. The hash (scrypt) lives in
+`~/.genkaku-admin/admin.json`; the plaintext is never stored, so there is no
+recovery path. Keep a copy of that file if you need one.
 
 ## Environment
 
@@ -30,6 +38,7 @@ there is no recovery path, so keep a copy of that file if you need one.
 | --- | --- | --- |
 | `GENKAKU_ADMIN_PORT` | `8082` | HTTP port (bind loopback only) |
 | `GENKAKU_ADMIN_HOST` | `127.0.0.1` | bind address |
+| `GENKAKU_ADMIN_PASSWORD` | *(generated)* | initial password on a fresh install; printed once at boot if unset |
 | `GENKAKU_ADMIN_STATE` | `~/.genkaku-admin/admin.json` | password, pricing, baseline |
 | `GENKAKU_SEED_STATS_URL` | `http://127.0.0.1:8081/stats` | seed stats endpoint |
 | `GENKAKU_SEED_STATE_DIR` | `~/.genkaku-seed` | where the stats token lives |

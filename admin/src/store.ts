@@ -23,15 +23,16 @@ export type ProcessIo = { rchar: number; wchar: number }
 export type AdminState = {
   version: 1
   password: { salt: string; hash: string }
-  /** true until the operator replaces the shipped default password */
+  /** true until the operator replaces the initial password */
   mustChangePassword: boolean
+  /** Set once, on a fresh install whose password was generated: the console
+   *  prints it at boot and then forgets it (only the scrypt hash is kept). */
+  generatedPassword?: string | null
   pricing: Pricing
   /** process counters when the current usage window began */
   baseline: { at: number; rchar: number; wchar: number } | null
   updatedAt: number
 }
-
-export const DEFAULT_PASSWORD = '12345678'
 
 export const DEFAULT_PRICING: Pricing = {
   vmMonthlyUsdc: '24',
@@ -44,13 +45,31 @@ function hashOf(password: string, salt: string): string {
   return scryptSync(password, salt, 64).toString('hex')
 }
 
+/** The password a brand-new install starts with.
+ *
+ *  There is deliberately no baked default: this file is public source, and a
+ *  console reachable from the internet with a known password is a console with
+ *  no password (it would also let the first visitor set their own and lock the
+ *  operator out). An operator who wants to choose it sets
+ *  GENKAKU_ADMIN_PASSWORD; otherwise one is generated and printed once at boot,
+ *  where `journalctl -u genkaku-admin` can show it to whoever already has root
+ *  on the host. Either way the console forces a change on first sign-in. */
+function initialPassword(): { password: string; generated: boolean } {
+  const configured = (process.env.GENKAKU_ADMIN_PASSWORD ?? '').trim()
+  if (configured !== '') return { password: configured, generated: false }
+
+  return { password: randomBytes(18).toString('base64url'), generated: true }
+}
+
 function freshState(): AdminState {
   const salt = randomBytes(16).toString('hex')
+  const initial = initialPassword()
 
   return {
     version: 1,
-    password: { salt, hash: hashOf(DEFAULT_PASSWORD, salt) },
+    password: { salt, hash: hashOf(initial.password, salt) },
     mustChangePassword: true,
+    generatedPassword: initial.generated ? initial.password : null,
     pricing: { ...DEFAULT_PRICING },
     baseline: null,
     updatedAt: Date.now(),
@@ -85,6 +104,7 @@ export class AdminStore {
           version: 1,
           password: parsed.password,
           mustChangePassword: parsed.mustChangePassword !== false,
+          generatedPassword: parsed.generatedPassword ?? null,
           pricing: { ...DEFAULT_PRICING, ...(parsed.pricing ?? {}) },
           baseline: parsed.baseline ?? null,
           updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : Date.now(),
@@ -106,6 +126,18 @@ export class AdminStore {
 
   get mustChangePassword(): boolean {
     return this.state.mustChangePassword
+  }
+
+  /** The generated first-boot password, returned exactly once and then erased
+   *  from the state file — only the scrypt hash is kept after that. */
+  takeGeneratedPassword(): string | null {
+    const value = this.state.generatedPassword ?? null
+    if (value != null) {
+      this.state.generatedPassword = null
+      this.save()
+    }
+
+    return value
   }
 
   get pricing(): Pricing {

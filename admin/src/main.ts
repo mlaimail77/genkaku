@@ -367,7 +367,13 @@ server.on('listening', () => {
   const address = server.address()
   const port = typeof address === 'object' && address != null ? address.port : PORT
   console.log(`[admin] listening on http://${HOST}:${port}/admin`)
-  if (store.mustChangePassword) {
+
+  const generated = store.takeGeneratedPassword()
+  if (generated != null) {
+    // Printed exactly once, on the first boot of a fresh install. Anyone who
+    // can read the journal already has root on this host.
+    console.log('[admin] generated initial password: %s — change it in Settings', generated)
+  } else if (store.mustChangePassword) {
     console.log('[admin] WARNING: still using the initial password — change it in Settings')
   }
   if (statsToken === '') {
