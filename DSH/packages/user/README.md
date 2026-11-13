@@ -70,4 +70,9 @@ is ignored, not mistaken for the bridge.
 
 ## License
 
-MIT
+Dual licensed: **AGPL-3.0-or-later** for open-source use, or a **commercial
+license** for use that cannot accept AGPL's copyleft terms. See `LICENSE` in
+this package and <https://github.com/mlaimail77/genkaku/blob/main/LICENSING.md>.
+
+Versions published to npm before this change (protocol 0.1.24, dsh-runtime
+0.1.32, worker 0.1.39, user 0.1.35) remain available under MIT.
