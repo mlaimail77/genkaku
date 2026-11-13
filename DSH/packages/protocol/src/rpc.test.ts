@@ -66,6 +66,17 @@ test('every endpoint failing reports all of them, not just the last', async () =
   })
 })
 
+test('a refused connection says why, not just "HTTP request failed"', async () => {
+  const { url, server } = await endpoint(200, '0x2a')
+  await new Promise<void>(resolve => server.close(() => resolve()))
+
+  await assert.rejects(client([url]).getBlockNumber(), (error: Error) => {
+    assert.ok(error.message.includes(url))
+    assert.match(error.message, /ECONNREFUSED|fetch failed|bad port/)
+    return true
+  })
+})
+
 test('an execution revert is not retried on another endpoint', async () => {
   const { createServer: create } = await import('node:http')
   const hits: string[] = []

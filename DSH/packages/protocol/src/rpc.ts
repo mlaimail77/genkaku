@@ -235,13 +235,32 @@ function shouldThrow(error: unknown): boolean {
 /** One line per endpoint: the message, newlines flattened, length capped. */
 function errorMessage(error: unknown): string {
   // `shortMessage` is all the user needs, but it drops the HTTP status (viem
-  // keeps that in metaMessages), and "HTTP request failed" alone does not say
-  // whether the endpoint was rate-limited, broken or gone.
+  // keeps that in metaMessages) and the reason ("fetch failed", or the node's
+  // own text). Both live one level down; include them so a rate limit, a dead
+  // host and a DNS failure do not all read as "HTTP request failed".
   const status = (error as { status?: unknown } | null)?.status
-  const raw = error instanceof BaseError ? error.shortMessage : messageOf(error)
-  const withStatus = typeof status === 'number' ? `${raw} (HTTP ${status})` : raw
-  const text = withStatus.replace(/\s+/g, ' ').trim().replace(/^\.+/, '')
+  const parts = [error instanceof BaseError ? error.shortMessage : messageOf(error)]
+
+  if (typeof status === 'number') parts.push(`HTTP ${status}`)
+  if (error instanceof BaseError && error.details != null) parts.push(error.details)
+
+  const deep = deepestCause(error instanceof BaseError ? error.cause : undefined)
+  if (deep != null) parts.push(deep)
+
+  const text = [...new Set(parts)]
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^\.+/, '')
+
   return text.length > 240 ? `${text.slice(0, 237)}...` : text
+}
+
+/** Deepest non-empty `cause` message; the outer ones only say "fetch failed". */
+function deepestCause(error: unknown, depth = 0): string | null {
+  if (error == null || depth > 4) return null
+  const cause = (error as { cause?: unknown }).cause
+  return deepestCause(cause, depth + 1) ?? messageOf(error)
 }
 
 function messageOf(error: unknown): string {
