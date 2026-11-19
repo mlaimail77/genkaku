@@ -1120,7 +1120,10 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
               const index = Number(body.index)
               const price = BigInt(String(body.priceMicro ?? '0'))
               const budget = BigInt(String(body.budgetMicro ?? '0'))
-              const minClaim = BigInt(String(body.minClaimMicro ?? '30000'))
+              const requestedMinClaim = BigInt(String(body.minClaimMicro ?? '30000'))
+              // A threshold above the whole budget can never be reached. Keep
+              // every API-created campaign payable once it is spent.
+              const minClaim = requestedMinClaim > budget ? budget : requestedMinClaim
               if (!Number.isInteger(index) || index < 0 || price <= 0n || budget < price) throw new Error('invalid campaign funding')
 
               const payload = {
@@ -1646,7 +1649,7 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
           }
           const price = parse(body.priceMicro)
           const budget = parse(body.budgetMicro)
-          const minClaim = parse(body.minClaimMicro) ?? 5_000n
+          const requestedMinClaim = parse(body.minClaimMicro) ?? 30_000n
           const index = Number(body.index ?? -1)
 
           if (price == null || budget == null || price <= 0n || budget < price) {
@@ -1657,6 +1660,8 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
             failure(res, 400, 'index is required')
             return
           }
+
+          const minClaim = requestedMinClaim > budget ? budget : requestedMinClaim
 
           try {
             if (opts.walletPolicy != null) {
