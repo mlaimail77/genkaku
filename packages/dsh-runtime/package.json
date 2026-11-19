@@ -1,6 +1,6 @@
 {
   "name": "@genkaku/dsh-runtime",
-  "version": "0.5.0-rc.2",
+  "version": "0.5.0-rc.3",
   "description": "DeepSeek Harness adapter layer for the GenKaKu protocol runtime",
   "license": "AGPL-3.0-or-later",
   "type": "module",
