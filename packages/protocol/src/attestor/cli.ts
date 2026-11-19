@@ -23,6 +23,7 @@ import {
   keyOf,
   publicClientFor,
   readCampaignState,
+  readDayReputation,
   readWorker,
   readWorkerAccrual,
   settleCampaignDay,
@@ -211,7 +212,15 @@ async function main(): Promise<void> {
     if (state?.paused === true) paused.add(campaign.campaign)
   }
 
-  const work = plan({ report, ledger, tips, registered, paused, rootOf: lines => evidenceRoot(lines) })
+  // A lost ledger must not replay a nonce the chain already has. Read the
+  // reputation row for each wallet and let the plan start above it.
+  const onchainNonces = new Map<string, number>()
+  for (const wallet of new Set([...wallets, ...tips.keys()])) {
+    const rep = await readDayReputation(conn, wallet, dayIndex(options.day)).catch(() => null)
+    if (rep != null) onchainNonces.set(wallet, rep.nonce)
+  }
+
+  const work = plan({ report, ledger, tips, registered, paused, onchainNonces, rootOf: lines => evidenceRoot(lines) })
 
   console.log(`plan: ${work.accruals.length} accrual(s), ${work.attestations.length} attestation(s)`)
 

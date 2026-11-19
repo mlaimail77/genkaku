@@ -90,6 +90,8 @@ export function plan(input: {
   registered?: ReadonlySet<string>
   /** campaigns the chain says are paused; accruals against them are skipped */
   paused?: ReadonlySet<string>
+  /** nonce already written on chain for this day; the ledger can be lost, the chain cannot */
+  onchainNonces?: ReadonlyMap<string, number>
   rootOf: (evidence: string[]) => Uint8Array
 }): Plan {
   const { report, ledger, tips, rootOf } = input
@@ -200,7 +202,7 @@ export function plan(input: {
       tipMicro: tip?.totalMicro ?? 0n,
       tipCount: tip?.count ?? 0,
       tippers: tip?.distinctTippers ?? 0,
-      nonce: (ledger.nonce[wallet] ?? 0) + 1,
+      nonce: Math.max(ledger.nonce[wallet] ?? 0, input.onchainNonces?.get(wallet) ?? 0) + 1,
       evidenceRoot: rootOf(evidence),
     })
   }

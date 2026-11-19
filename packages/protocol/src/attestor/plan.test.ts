@@ -211,6 +211,18 @@ test('a paused campaign is skipped rather than failing the whole day', () => {
   assert.match(result.skipped[0]!.reason, /paused/)
 })
 
+test('a lost ledger does not replay a nonce the chain already has', () => {
+  const result = plan({
+    report: report({ W1: 3 }),
+    ledger: emptyLedger('2026-11-18'),
+    tips: new Map(),
+    onchainNonces: new Map([['W1', 5]]),
+    rootOf,
+  })
+
+  assert.equal(result.attestations[0]!.nonce, 6)
+})
+
 test('the evidence root is deterministic and order-independent', () => {
   const a = evidenceRoot(['day:1', 'worker:W1', 'minutes:5'])
   const b = evidenceRoot(['minutes:5', 'day:1', 'worker:W1'])
