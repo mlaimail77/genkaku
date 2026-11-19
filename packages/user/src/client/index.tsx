@@ -504,27 +504,31 @@ function Page() {
       if (budget == null) throw new Error(t('Enter a budget.'))
       if (budget < price) throw new Error(t('The budget must cover at least one impression.'))
 
+      const walletUsdc = BigInt(status?.balances?.usdc ?? '0')
+      if (budget > walletUsdc) throw new Error(t('Budget exceeds the wallet balance.'))
+
       const { index } = await get('/genkaku/ads/index') as { index: number }
       const funded = await post('/genkaku/ads/fund', {
         index,
         priceMicro: price.toString(),
         budgetMicro: budget.toString(),
-        // 0.05 USDC, as agreed for 0.4. The advertiser cannot change it from
-        // here; the operator can raise it on chain if they want.
-        minClaimMicro: '50000',
+        // A campaign whose whole budget is below the usual 0.05 threshold could
+        // never be claimed. Cap the threshold at the budget so every campaign is
+        // payable once it is spent.
+        minClaimMicro: (budget < 50_000n ? budget : 50_000n).toString(),
       })
       const campaign = typeof funded.campaign === 'string' ? funded.campaign : ''
       if (campaign === '') throw new Error(t('The campaign address was not returned.'))
 
       await post('/genkaku/ads/attach', { id: listing.id, campaign })
-      setAdNotice(t('Funded. The ad starts as soon as the operator-approved listing picks it up.'))
+      setAdNotice(t('Funded and attached. The ad is live.'))
       await loadAds()
     } catch (error) {
       setAdNotice(error instanceof Error ? error.message : String(error))
     } finally {
       setAdBusy(null)
     }
-  }, [adForm.budgetUsdc, get, loadAds, post, t])
+  }, [adForm.budgetUsdc, get, loadAds, post, status?.balances?.usdc, t])
 
   useEffect(() => {
     if (status != null) void loadAds()

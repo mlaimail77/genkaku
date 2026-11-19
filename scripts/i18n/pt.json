@@ -258,5 +258,6 @@
   "Key and identity operations are always owner-only.": "Operações de chave e identidade são sempre apenas do proprietário.",
   "Caps apply to tips and campaign funding; claims are not a spend.": "Os limites valem para gorjetas e financiamento de campanhas; receber não é um gasto.",
   "Save limits": "Salvar limites",
-  "Enter both limits in USDC.": "Informe os dois limites em USDC."
+  "Enter both limits in USDC.": "Informe os dois limites em USDC.",
+  "Budget exceeds the wallet balance.": "O orçamento excede o saldo da carteira."
 }

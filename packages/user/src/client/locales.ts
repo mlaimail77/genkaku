@@ -262,7 +262,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "密钥与身分操作永远只有所有者可以执行。",
     "Caps apply to tips and campaign funding; claims are not a spend.": "限额适用于打赏与广告充值；领取不算支出。",
     "Save limits": "保存限额",
-    "Enter both limits in USDC.": "请输入两个 USDC 上限。"
+    "Enter both limits in USDC.": "请输入两个 USDC 上限。",
+    "Budget exceeds the wallet balance.": "预算超过钱包余额。"
   },
   "en": {
     "Reconnecting to the bridge…": "Reconnecting to the bridge…",
@@ -524,7 +525,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "Key and identity operations are always owner-only.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Caps apply to tips and campaign funding; claims are not a spend.",
     "Save limits": "Save limits",
-    "Enter both limits in USDC.": "Enter both limits in USDC."
+    "Enter both limits in USDC.": "Enter both limits in USDC.",
+    "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance."
   },
   "ja": {
     "Reconnecting to the bridge…": "bridge に再接続しています…",
@@ -786,7 +788,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "鍵と身元の操作は常に所有者のみです。",
     "Caps apply to tips and campaign funding; claims are not a spend.": "上限はチップとキャンペーン入金に適用され、受け取りは支出ではありません。",
     "Save limits": "上限を保存",
-    "Enter both limits in USDC.": "両方の上限を USDC で入力してください。"
+    "Enter both limits in USDC.": "両方の上限を USDC で入力してください。",
+    "Budget exceeds the wallet balance.": "予算がウォレット残高を超えています。"
   },
   "ko": {
     "Reconnecting to the bridge…": "bridge에 다시 연결하는 중…",
@@ -1048,7 +1051,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "키와 신원 작업은 항상 소유자만 할 수 있습니다.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "한도는 팁과 캠페인 충전에 적용되며, 수령은 지출이 아닙니다.",
     "Save limits": "한도 저장",
-    "Enter both limits in USDC.": "두 한도를 USDC로 입력하세요."
+    "Enter both limits in USDC.": "두 한도를 USDC로 입력하세요.",
+    "Budget exceeds the wallet balance.": "예산이 지갑 잔액을 초과합니다."
   },
   "es": {
     "Reconnecting to the bridge…": "Reconectando con el bridge…",
@@ -1310,7 +1314,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "Las operaciones de clave e identidad son siempre solo del propietario.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Los límites se aplican a propinas y financiación de campañas; cobrar no es un gasto.",
     "Save limits": "Guardar límites",
-    "Enter both limits in USDC.": "Introduce ambos límites en USDC."
+    "Enter both limits in USDC.": "Introduce ambos límites en USDC.",
+    "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera."
   },
   "fr": {
     "Reconnecting to the bridge…": "Reconnexion au bridge…",
@@ -1572,7 +1577,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "Les opérations de clé et d’identité sont toujours réservées au propriétaire.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Les limites s’appliquent aux pourboires et au financement de campagnes ; un retrait n’est pas une dépense.",
     "Save limits": "Enregistrer les limites",
-    "Enter both limits in USDC.": "Saisissez les deux limites en USDC."
+    "Enter both limits in USDC.": "Saisissez les deux limites en USDC.",
+    "Budget exceeds the wallet balance.": "Le budget dépasse le solde du portefeuille."
   },
   "de": {
     "Reconnecting to the bridge…": "Verbindung zur Bridge wird wiederhergestellt…",
@@ -1834,7 +1840,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "Schlüssel- und Identitätsvorgänge sind immer nur für den Eigentümer.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Limits gelten für Trinkgeld und Kampagnenfinanzierung; Abholen ist keine Ausgabe.",
     "Save limits": "Limits speichern",
-    "Enter both limits in USDC.": "Gib beide Limits in USDC ein."
+    "Enter both limits in USDC.": "Gib beide Limits in USDC ein.",
+    "Budget exceeds the wallet balance.": "Das Budget übersteigt das Wallet-Guthaben."
   },
   "ru": {
     "Reconnecting to the bridge…": "Переподключение к bridge…",
@@ -2096,7 +2103,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "Операции с ключами и идентичностью всегда только для владельца.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Лимиты относятся к чаевым и пополнению кампаний; получение — не расход.",
     "Save limits": "Сохранить лимиты",
-    "Enter both limits in USDC.": "Введите оба лимита в USDC."
+    "Enter both limits in USDC.": "Введите оба лимита в USDC.",
+    "Budget exceeds the wallet balance.": "Бюджет превышает баланс кошелька."
   },
   "pt": {
     "Reconnecting to the bridge…": "Reconectando à bridge…",
@@ -2358,7 +2366,8 @@ export const MESSAGES = {
     "Key and identity operations are always owner-only.": "Operações de chave e identidade são sempre apenas do proprietário.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Os limites valem para gorjetas e financiamento de campanhas; receber não é um gasto.",
     "Save limits": "Salvar limites",
-    "Enter both limits in USDC.": "Informe os dois limites em USDC."
+    "Enter both limits in USDC.": "Informe os dois limites em USDC.",
+    "Budget exceeds the wallet balance.": "O orçamento excede o saldo da carteira."
   }
 } as const
 

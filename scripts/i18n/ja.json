@@ -258,5 +258,6 @@
   "Key and identity operations are always owner-only.": "鍵と身元の操作は常に所有者のみです。",
   "Caps apply to tips and campaign funding; claims are not a spend.": "上限はチップとキャンペーン入金に適用され、受け取りは支出ではありません。",
   "Save limits": "上限を保存",
-  "Enter both limits in USDC.": "両方の上限を USDC で入力してください。"
+  "Enter both limits in USDC.": "両方の上限を USDC で入力してください。",
+  "Budget exceeds the wallet balance.": "予算がウォレット残高を超えています。"
 }

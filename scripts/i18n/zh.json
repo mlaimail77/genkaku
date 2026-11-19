@@ -258,5 +258,6 @@
   "Key and identity operations are always owner-only.": "密钥与身分操作永远只有所有者可以执行。",
   "Caps apply to tips and campaign funding; claims are not a spend.": "限额适用于打赏与广告充值；领取不算支出。",
   "Save limits": "保存限额",
-  "Enter both limits in USDC.": "请输入两个 USDC 上限。"
+  "Enter both limits in USDC.": "请输入两个 USDC 上限。",
+  "Budget exceeds the wallet balance.": "预算超过钱包余额。"
 }

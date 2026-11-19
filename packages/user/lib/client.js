@@ -293,7 +293,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "\u5BC6\u94A5\u4E0E\u8EAB\u5206\u64CD\u4F5C\u6C38\u8FDC\u53EA\u6709\u6240\u6709\u8005\u53EF\u4EE5\u6267\u884C\u3002",
     "Caps apply to tips and campaign funding; claims are not a spend.": "\u9650\u989D\u9002\u7528\u4E8E\u6253\u8D4F\u4E0E\u5E7F\u544A\u5145\u503C\uFF1B\u9886\u53D6\u4E0D\u7B97\u652F\u51FA\u3002",
     "Save limits": "\u4FDD\u5B58\u9650\u989D",
-    "Enter both limits in USDC.": "\u8BF7\u8F93\u5165\u4E24\u4E2A USDC \u4E0A\u9650\u3002"
+    "Enter both limits in USDC.": "\u8BF7\u8F93\u5165\u4E24\u4E2A USDC \u4E0A\u9650\u3002",
+    "Budget exceeds the wallet balance.": "\u9884\u7B97\u8D85\u8FC7\u94B1\u5305\u4F59\u989D\u3002"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -555,7 +556,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "Key and identity operations are always owner-only.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Caps apply to tips and campaign funding; claims are not a spend.",
     "Save limits": "Save limits",
-    "Enter both limits in USDC.": "Enter both limits in USDC."
+    "Enter both limits in USDC.": "Enter both limits in USDC.",
+    "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance."
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -817,7 +819,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "\u9375\u3068\u8EAB\u5143\u306E\u64CD\u4F5C\u306F\u5E38\u306B\u6240\u6709\u8005\u306E\u307F\u3067\u3059\u3002",
     "Caps apply to tips and campaign funding; claims are not a spend.": "\u4E0A\u9650\u306F\u30C1\u30C3\u30D7\u3068\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3\u5165\u91D1\u306B\u9069\u7528\u3055\u308C\u3001\u53D7\u3051\u53D6\u308A\u306F\u652F\u51FA\u3067\u306F\u3042\u308A\u307E\u305B\u3093\u3002",
     "Save limits": "\u4E0A\u9650\u3092\u4FDD\u5B58",
-    "Enter both limits in USDC.": "\u4E21\u65B9\u306E\u4E0A\u9650\u3092 USDC \u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+    "Enter both limits in USDC.": "\u4E21\u65B9\u306E\u4E0A\u9650\u3092 USDC \u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    "Budget exceeds the wallet balance.": "\u4E88\u7B97\u304C\u30A6\u30A9\u30EC\u30C3\u30C8\u6B8B\u9AD8\u3092\u8D85\u3048\u3066\u3044\u307E\u3059\u3002"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1079,7 +1082,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "\uD0A4\uC640 \uC2E0\uC6D0 \uC791\uC5C5\uC740 \uD56D\uC0C1 \uC18C\uC720\uC790\uB9CC \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "\uD55C\uB3C4\uB294 \uD301\uACFC \uCEA0\uD398\uC778 \uCDA9\uC804\uC5D0 \uC801\uC6A9\uB418\uBA70, \uC218\uB839\uC740 \uC9C0\uCD9C\uC774 \uC544\uB2D9\uB2C8\uB2E4.",
     "Save limits": "\uD55C\uB3C4 \uC800\uC7A5",
-    "Enter both limits in USDC.": "\uB450 \uD55C\uB3C4\uB97C USDC\uB85C \uC785\uB825\uD558\uC138\uC694."
+    "Enter both limits in USDC.": "\uB450 \uD55C\uB3C4\uB97C USDC\uB85C \uC785\uB825\uD558\uC138\uC694.",
+    "Budget exceeds the wallet balance.": "\uC608\uC0B0\uC774 \uC9C0\uAC11 \uC794\uC561\uC744 \uCD08\uACFC\uD569\uB2C8\uB2E4."
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1341,7 +1345,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "Las operaciones de clave e identidad son siempre solo del propietario.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Los l\xEDmites se aplican a propinas y financiaci\xF3n de campa\xF1as; cobrar no es un gasto.",
     "Save limits": "Guardar l\xEDmites",
-    "Enter both limits in USDC.": "Introduce ambos l\xEDmites en USDC."
+    "Enter both limits in USDC.": "Introduce ambos l\xEDmites en USDC.",
+    "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera."
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -1603,7 +1608,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "Les op\xE9rations de cl\xE9 et d\u2019identit\xE9 sont toujours r\xE9serv\xE9es au propri\xE9taire.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Les limites s\u2019appliquent aux pourboires et au financement de campagnes ; un retrait n\u2019est pas une d\xE9pense.",
     "Save limits": "Enregistrer les limites",
-    "Enter both limits in USDC.": "Saisissez les deux limites en USDC."
+    "Enter both limits in USDC.": "Saisissez les deux limites en USDC.",
+    "Budget exceeds the wallet balance.": "Le budget d\xE9passe le solde du portefeuille."
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -1865,7 +1871,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "Schl\xFCssel- und Identit\xE4tsvorg\xE4nge sind immer nur f\xFCr den Eigent\xFCmer.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Limits gelten f\xFCr Trinkgeld und Kampagnenfinanzierung; Abholen ist keine Ausgabe.",
     "Save limits": "Limits speichern",
-    "Enter both limits in USDC.": "Gib beide Limits in USDC ein."
+    "Enter both limits in USDC.": "Gib beide Limits in USDC ein.",
+    "Budget exceeds the wallet balance.": "Das Budget \xFCbersteigt das Wallet-Guthaben."
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -2127,7 +2134,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "\u041E\u043F\u0435\u0440\u0430\u0446\u0438\u0438 \u0441 \u043A\u043B\u044E\u0447\u0430\u043C\u0438 \u0438 \u0438\u0434\u0435\u043D\u0442\u0438\u0447\u043D\u043E\u0441\u0442\u044C\u044E \u0432\u0441\u0435\u0433\u0434\u0430 \u0442\u043E\u043B\u044C\u043A\u043E \u0434\u043B\u044F \u0432\u043B\u0430\u0434\u0435\u043B\u044C\u0446\u0430.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "\u041B\u0438\u043C\u0438\u0442\u044B \u043E\u0442\u043D\u043E\u0441\u044F\u0442\u0441\u044F \u043A \u0447\u0430\u0435\u0432\u044B\u043C \u0438 \u043F\u043E\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044E \u043A\u0430\u043C\u043F\u0430\u043D\u0438\u0439; \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0435 \u2014 \u043D\u0435 \u0440\u0430\u0441\u0445\u043E\u0434.",
     "Save limits": "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043B\u0438\u043C\u0438\u0442\u044B",
-    "Enter both limits in USDC.": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u0431\u0430 \u043B\u0438\u043C\u0438\u0442\u0430 \u0432 USDC."
+    "Enter both limits in USDC.": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u0431\u0430 \u043B\u0438\u043C\u0438\u0442\u0430 \u0432 USDC.",
+    "Budget exceeds the wallet balance.": "\u0411\u044E\u0434\u0436\u0435\u0442 \u043F\u0440\u0435\u0432\u044B\u0448\u0430\u0435\u0442 \u0431\u0430\u043B\u0430\u043D\u0441 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0430."
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -2389,7 +2397,8 @@ var MESSAGES = {
     "Key and identity operations are always owner-only.": "Opera\xE7\xF5es de chave e identidade s\xE3o sempre apenas do propriet\xE1rio.",
     "Caps apply to tips and campaign funding; claims are not a spend.": "Os limites valem para gorjetas e financiamento de campanhas; receber n\xE3o \xE9 um gasto.",
     "Save limits": "Salvar limites",
-    "Enter both limits in USDC.": "Informe os dois limites em USDC."
+    "Enter both limits in USDC.": "Informe os dois limites em USDC.",
+    "Budget exceeds the wallet balance.": "O or\xE7amento excede o saldo da carteira."
   }
 };
 var LOCALE_LABELS = {
@@ -3126,26 +3135,29 @@ function Page() {
       const budget = microOf(adForm.budgetUsdc);
       if (budget == null) throw new Error(t("Enter a budget."));
       if (budget < price2) throw new Error(t("The budget must cover at least one impression."));
+      const walletUsdc = BigInt(status?.balances?.usdc ?? "0");
+      if (budget > walletUsdc) throw new Error(t("Budget exceeds the wallet balance."));
       const { index } = await get("/genkaku/ads/index");
       const funded = await post("/genkaku/ads/fund", {
         index,
         priceMicro: price2.toString(),
         budgetMicro: budget.toString(),
-        // 0.05 USDC, as agreed for 0.4. The advertiser cannot change it from
-        // here; the operator can raise it on chain if they want.
-        minClaimMicro: "50000"
+        // A campaign whose whole budget is below the usual 0.05 threshold could
+        // never be claimed. Cap the threshold at the budget so every campaign is
+        // payable once it is spent.
+        minClaimMicro: (budget < 50000n ? budget : 50000n).toString()
       });
       const campaign = typeof funded.campaign === "string" ? funded.campaign : "";
       if (campaign === "") throw new Error(t("The campaign address was not returned."));
       await post("/genkaku/ads/attach", { id: listing.id, campaign });
-      setAdNotice(t("Funded. The ad starts as soon as the operator-approved listing picks it up."));
+      setAdNotice(t("Funded and attached. The ad is live."));
       await loadAds();
     } catch (error2) {
       setAdNotice(error2 instanceof Error ? error2.message : String(error2));
     } finally {
       setAdBusy(null);
     }
-  }, [adForm.budgetUsdc, get, loadAds, post, t]);
+  }, [adForm.budgetUsdc, get, loadAds, post, status?.balances?.usdc, t]);
   (0, import_react3.useEffect)(() => {
     if (status != null) void loadAds();
   }, [status?.wallet, loadAds]);
