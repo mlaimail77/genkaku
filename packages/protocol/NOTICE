@@ -1,0 +1,18 @@
+GenKaKu protocol
+Copyright (C) 2026 GenKaKu Labs
+
+This package is licensed under the GNU Affero General Public License,
+version 3 or later. See LICENSE.
+
+It also contains, in bundled form, code from the following project:
+
+  @solana/web3.js (and its dependencies, including rpc-websockets, jayson,
+  superstruct, @noble/curves, @noble/hashes, borsh and bs58)
+  Copyright (c) 2017-2025 Solana Foundation and contributors
+  Licensed under the Apache License, Version 2.0
+  https://github.com/solana-labs/solana-web3.js
+
+The Solana client is inlined into dist/solana.js by scripts/bundle-solana.mjs
+so that installing this package from a registry does not pull `ws` and its
+optional native peers. The Apache-2.0 license text is available at
+https://www.apache.org/licenses/LICENSE-2.0 and in the upstream project.

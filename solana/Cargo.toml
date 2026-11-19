@@ -1,0 +1,27 @@
+[package]
+name = "genkaku"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.79"
+license = "AGPL-3.0-or-later"
+description = "GenKaKu settlement program: worker registry and USDC escrow in one program."
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+pinocchio = { version = "0.9.3", default-features = false }
+
+[features]
+# Test-only. Shortens `claim`'s wait from ten minutes to zero so a local
+# validator run does not have to fake the clock. Never build a deployable
+# artifact with this enabled.
+fast-claim = []
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+overflow-checks = false
+strip = true
+panic = "abort"

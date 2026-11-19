@@ -1,0 +1,86 @@
+{
+  "name": "@genkaku/protocol",
+  "version": "0.5.0-rc.2",
+  "description": "GenKaKu protocol core: on-chain worker directory, USDC escrow billing on Solana, libp2p transport, Ollama lifecycle",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "compile": "tsc -p tsconfig.json",
+    "bundle": "node ../../scripts/bundle-solana.mjs .",
+    "build": "pnpm compile && pnpm bundle",
+    "prepublishOnly": "pnpm build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "pnpm build && node --test dist/*.test.js dist/attestor/*.test.js",
+    "cluster:init": "tsx scripts/init-cluster.ts",
+    "cluster:smoke": "tsx scripts/devnet-smoke.ts",
+    "e2e:chain": "tsx scripts/local-e2e.ts",
+    "e2e:session": "tsx scripts/local-session-e2e.ts",
+    "e2e:pairing": "tsx scripts/pairing-e2e.ts",
+    "e2e:claim": "tsx scripts/devnet-claim-e2e.ts",
+    "e2e:policy": "tsx scripts/devnet-policy-e2e.ts",
+    "e2e:policy-http": "tsx scripts/policy-http-check.ts",
+    "e2e:tip": "tsx scripts/tip-e2e.ts",
+    "e2e:campaign": "tsx scripts/campaign-e2e.ts",
+    "attest": "tsx scripts/attest.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlaimail77/genkaku.git",
+    "directory": "packages/protocol"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "GenKaKu Labs",
+  "homepage": "https://genkaku.app",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "p2p",
+    "libp2p",
+    "ollama",
+    "usdc",
+    "solana"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "16.1.5",
+    "@chainsafe/libp2p-yamux": "7.0.4",
+    "@libp2p/circuit-relay-v2": "3.2.24",
+    "@libp2p/crypto": "5.1.8",
+    "@libp2p/identify": "3.0.39",
+    "@libp2p/peer-id": "5.1.9",
+    "@libp2p/tcp": "10.1.19",
+    "@multiformats/multiaddr": "12.5.1",
+    "@noble/curves": "^1.9.7",
+    "@noble/hashes": "^1.8.0",
+    "bs58": "^6.0.0",
+    "libp2p": "2.10.0"
+  },
+  "devDependencies": {
+    "@solana/web3.js": "^1.98.0"
+  },
+  "bin": {
+    "genkaku-attestor": "./dist/attestor/cli.js"
+  }
+}
