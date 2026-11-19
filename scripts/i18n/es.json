@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "Los límites se aplican a propinas y financiación de campañas; cobrar no es un gasto.",
   "Save limits": "Guardar límites",
   "Enter both limits in USDC.": "Introduce ambos límites en USDC.",
-  "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera."
+  "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera.",
+  "Below the minimum": "Por debajo del mínimo",
+  "Minimum claim per campaign:": "Importe mínimo por campaña:",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Por debajo del importe mínimo de retirada: {min}. Sin reclamar actual: {value}."
 }

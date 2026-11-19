@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "Limits gelten für Trinkgeld und Kampagnenfinanzierung; Abholen ist keine Ausgabe.",
   "Save limits": "Limits speichern",
   "Enter both limits in USDC.": "Gib beide Limits in USDC ein.",
-  "Budget exceeds the wallet balance.": "Das Budget übersteigt das Wallet-Guthaben."
+  "Budget exceeds the wallet balance.": "Das Budget übersteigt das Wallet-Guthaben.",
+  "Below the minimum": "Unter dem Minimum",
+  "Minimum claim per campaign:": "Mindestbetrag pro Kampagne:",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Unter dem Mindestbetrag für Auszahlungen: {min}. Aktuell nicht abgeholt: {value}."
 }

@@ -1120,7 +1120,7 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
               const index = Number(body.index)
               const price = BigInt(String(body.priceMicro ?? '0'))
               const budget = BigInt(String(body.budgetMicro ?? '0'))
-              const minClaim = BigInt(String(body.minClaimMicro ?? '50000'))
+              const minClaim = BigInt(String(body.minClaimMicro ?? '30000'))
               if (!Number.isInteger(index) || index < 0 || price <= 0n || budget < price) throw new Error('invalid campaign funding')
 
               const payload = {

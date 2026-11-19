@@ -512,10 +512,10 @@ function Page() {
         index,
         priceMicro: price.toString(),
         budgetMicro: budget.toString(),
-        // A campaign whose whole budget is below the usual 0.05 threshold could
+        // A campaign whose whole budget is below the usual 0.03 threshold could
         // never be claimed. Cap the threshold at the budget so every campaign is
         // payable once it is spent.
-        minClaimMicro: (budget < 50_000n ? budget : 50_000n).toString(),
+        minClaimMicro: (budget < 30_000n ? budget : 30_000n).toString(),
       })
       const campaign = typeof funded.campaign === 'string' ? funded.campaign : ''
       if (campaign === '') throw new Error(t('The campaign address was not returned.'))

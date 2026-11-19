@@ -263,7 +263,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "限额适用于打赏与广告充值；领取不算支出。",
     "Save limits": "保存限额",
     "Enter both limits in USDC.": "请输入两个 USDC 上限。",
-    "Budget exceeds the wallet balance.": "预算超过钱包余额。"
+    "Budget exceeds the wallet balance.": "预算超过钱包余额。",
+    "Below the minimum": "低於最低領取",
+    "Minimum claim per campaign:": "各 campaign 最低領取金額：",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "低於最低領取金額：{min}。目前未領取：{value}。"
   },
   "en": {
     "Reconnecting to the bridge…": "Reconnecting to the bridge…",
@@ -526,7 +529,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Caps apply to tips and campaign funding; claims are not a spend.",
     "Save limits": "Save limits",
     "Enter both limits in USDC.": "Enter both limits in USDC.",
-    "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance."
+    "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance.",
+    "Below the minimum": "Below the minimum",
+    "Minimum claim per campaign:": "Minimum claim per campaign:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Below the minimum claim amount: {min}. Current unclaimed: {value}."
   },
   "ja": {
     "Reconnecting to the bridge…": "bridge に再接続しています…",
@@ -789,7 +795,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "上限はチップとキャンペーン入金に適用され、受け取りは支出ではありません。",
     "Save limits": "上限を保存",
     "Enter both limits in USDC.": "両方の上限を USDC で入力してください。",
-    "Budget exceeds the wallet balance.": "予算がウォレット残高を超えています。"
+    "Budget exceeds the wallet balance.": "予算がウォレット残高を超えています。",
+    "Below the minimum": "最低受取額未満",
+    "Minimum claim per campaign:": "キャンペーンごとの最低受取額：",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "最低受取額を下回っています：{min}。現在の未受取額：{value}。"
   },
   "ko": {
     "Reconnecting to the bridge…": "bridge에 다시 연결하는 중…",
@@ -1052,7 +1061,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "한도는 팁과 캠페인 충전에 적용되며, 수령은 지출이 아닙니다.",
     "Save limits": "한도 저장",
     "Enter both limits in USDC.": "두 한도를 USDC로 입력하세요.",
-    "Budget exceeds the wallet balance.": "예산이 지갑 잔액을 초과합니다."
+    "Budget exceeds the wallet balance.": "예산이 지갑 잔액을 초과합니다.",
+    "Below the minimum": "최소 수령액 미만",
+    "Minimum claim per campaign:": "캠페인별 최소 수령액:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "최소 수령액 미만입니다: {min}. 현재 미수령액: {value}."
   },
   "es": {
     "Reconnecting to the bridge…": "Reconectando con el bridge…",
@@ -1315,7 +1327,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Los límites se aplican a propinas y financiación de campañas; cobrar no es un gasto.",
     "Save limits": "Guardar límites",
     "Enter both limits in USDC.": "Introduce ambos límites en USDC.",
-    "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera."
+    "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera.",
+    "Below the minimum": "Por debajo del mínimo",
+    "Minimum claim per campaign:": "Importe mínimo por campaña:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Por debajo del importe mínimo de retirada: {min}. Sin reclamar actual: {value}."
   },
   "fr": {
     "Reconnecting to the bridge…": "Reconnexion au bridge…",
@@ -1578,7 +1593,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Les limites s’appliquent aux pourboires et au financement de campagnes ; un retrait n’est pas une dépense.",
     "Save limits": "Enregistrer les limites",
     "Enter both limits in USDC.": "Saisissez les deux limites en USDC.",
-    "Budget exceeds the wallet balance.": "Le budget dépasse le solde du portefeuille."
+    "Budget exceeds the wallet balance.": "Le budget dépasse le solde du portefeuille.",
+    "Below the minimum": "Sous le minimum",
+    "Minimum claim per campaign:": "Montant minimum par campagne :",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Inférieur au montant minimum de retrait : {min}. Non réclamé actuel : {value}."
   },
   "de": {
     "Reconnecting to the bridge…": "Verbindung zur Bridge wird wiederhergestellt…",
@@ -1841,7 +1859,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Limits gelten für Trinkgeld und Kampagnenfinanzierung; Abholen ist keine Ausgabe.",
     "Save limits": "Limits speichern",
     "Enter both limits in USDC.": "Gib beide Limits in USDC ein.",
-    "Budget exceeds the wallet balance.": "Das Budget übersteigt das Wallet-Guthaben."
+    "Budget exceeds the wallet balance.": "Das Budget übersteigt das Wallet-Guthaben.",
+    "Below the minimum": "Unter dem Minimum",
+    "Minimum claim per campaign:": "Mindestbetrag pro Kampagne:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Unter dem Mindestbetrag für Auszahlungen: {min}. Aktuell nicht abgeholt: {value}."
   },
   "ru": {
     "Reconnecting to the bridge…": "Переподключение к bridge…",
@@ -2104,7 +2125,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Лимиты относятся к чаевым и пополнению кампаний; получение — не расход.",
     "Save limits": "Сохранить лимиты",
     "Enter both limits in USDC.": "Введите оба лимита в USDC.",
-    "Budget exceeds the wallet balance.": "Бюджет превышает баланс кошелька."
+    "Budget exceeds the wallet balance.": "Бюджет превышает баланс кошелька.",
+    "Below the minimum": "Ниже минимума",
+    "Minimum claim per campaign:": "Минимальная сумма по кампании:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Ниже минимальной суммы вывода: {min}. Текущая невостребованная сумма: {value}."
   },
   "pt": {
     "Reconnecting to the bridge…": "Reconectando à bridge…",
@@ -2367,7 +2391,10 @@ export const MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Os limites valem para gorjetas e financiamento de campanhas; receber não é um gasto.",
     "Save limits": "Salvar limites",
     "Enter both limits in USDC.": "Informe os dois limites em USDC.",
-    "Budget exceeds the wallet balance.": "O orçamento excede o saldo da carteira."
+    "Budget exceeds the wallet balance.": "O orçamento excede o saldo da carteira.",
+    "Below the minimum": "Abaixo do mínimo",
+    "Minimum claim per campaign:": "Valor mínimo por campanha:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Abaixo do valor mínimo de resgate: {min}. Não resgatado atual: {value}."
   }
 } as const
 

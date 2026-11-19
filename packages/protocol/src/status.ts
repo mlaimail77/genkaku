@@ -43,8 +43,16 @@ export type StatusSnapshot = {
   relayHints?: string[]
   /** Live wallet figures, base units as decimal strings (lamports / 6-dec
    *  USDC). `accrued` is money already settled INTO the session for this worker
-   *  but not claimed out of it yet — the worker's unclaimed earnings. */
-  balances?: { sol: string; usdc: string; accrued?: string }
+   *  but not claimed out of it yet — the worker's unclaimed earnings.
+   *  `claimable` is the part of `accrued` at or above its campaign's threshold;
+   *  `claims` carries the per-campaign figures for the panel's note. */
+  balances?: {
+    sol: string
+    usdc: string
+    accrued?: string
+    claimable?: string
+    claims?: Array<{ campaign: string; claimable: string; minClaim: string }>
+  }
   /** 0.3: tips received into this wallet, read from its own token history. */
   tips?: {
     count: number

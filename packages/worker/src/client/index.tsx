@@ -77,7 +77,13 @@ type Status = {
   publishForced?: boolean
   transport?: 'direct' | 'relay' | 'lan'
   relayHints?: string[]
-  balances?: { sol: string; usdc: string; accrued?: string }
+  balances?: {
+    sol: string
+    usdc: string
+    accrued?: string
+    claimable?: string
+    claims?: Array<{ campaign: string; claimable: string; minClaim: string }>
+  }
   /** 0.3: tips sent straight into this wallet by users, read from its own
    *  token history. GenKaKu never holds this money. */
   tips?: {
@@ -424,6 +430,23 @@ function Page() {
     setError(null)
 
     try {
+      const total = BigInt(status?.balances?.accrued ?? '0')
+      const ready = BigInt(status?.balances?.claimable ?? status?.balances?.accrued ?? '0')
+
+      // Every campaign has its own threshold. If none is ready, say which
+      // amount is missing instead of sending a claim the program would refuse.
+      if (total > 0n && ready === 0n) {
+        const below = (status?.balances?.claims ?? [])
+          .filter(row => BigInt(row.claimable) > 0n && BigInt(row.claimable) < BigInt(row.minClaim))
+          .sort((a, b) => (BigInt(b.claimable) > BigInt(a.claimable) ? 1 : -1))[0]
+        if (below != null) {
+          throw new Error(t(
+            'Below the minimum claim amount: {min}. Current unclaimed: {value}.',
+            { min: usdcFmt(below.minClaim), value: usdcFmt(status?.balances?.accrued) },
+          ))
+        }
+      }
+
       const doc = (await post('/genkaku/wallet/claim', {})) as { tx?: string }
       setNotice(t(
         `Claimed. USDC is in this wallet now${doc.tx == null ? '' : ` (transaction ${doc.tx.slice(0, 12)}…)`}.`,
@@ -435,7 +458,7 @@ function Page() {
     } finally {
       setBusy(null)
     }
-  }, [loadStatus, t])
+  }, [loadStatus, status?.balances?.accrued, status?.balances?.claimable, status?.balances?.claims, t])
 
   const loadOllama = useCallback(async () => {
     try {
@@ -824,6 +847,13 @@ function Page() {
   const noGas = (() => {
     if (status.balances?.sol == null) return false
     try { return BigInt(status.balances.sol) === 0n } catch { return false }
+  })()
+  const claims = status.balances?.claims ?? []
+  const accruedTotal = (() => {
+    try { return BigInt(status.balances?.accrued ?? '0') } catch { return 0n }
+  })()
+  const claimableTotal = (() => {
+    try { return BigInt(status.balances?.claimable ?? status.balances?.accrued ?? '0') } catch { return 0n }
   })()
   return (
     <div style={{
@@ -1417,12 +1447,20 @@ function Page() {
         <div style={row}>
           <span style={dim}>{t('Ready to claim')}</span>
           <span style={{ fontVariantNumeric: 'tabular-nums' }}>
-            {usdcFmt(status.balances?.accrued)} USDC
+            {usdcFmt(claimableTotal.toString())}
           </span>
         </div>
+        {accruedTotal > claimableTotal && (
+          <div style={row}>
+            <span style={dim}>{t('Below the minimum')}</span>
+            <span style={{ fontVariantNumeric: 'tabular-nums' }}>
+              {usdcFmt((accruedTotal - claimableTotal).toString())}
+            </span>
+          </div>
+        )}
         <div style={row}>
           <span style={dim}>{t('In this wallet')}</span>
-          <span style={{ fontVariantNumeric: 'tabular-nums' }}>{usdcFmt(status.balances?.usdc)} USDC</span>
+          <span style={{ fontVariantNumeric: 'tabular-nums' }}>{usdcFmt(status.balances?.usdc)}</span>
         </div>
         <div style={{ ...dim, fontSize: 12, marginTop: 4 }}>
           {t('Advertisers pay per sponsored minute. Each day’s minutes are booked to this worker on chain after the daily settlement, then they can be claimed here. The claim is a Solana transaction, so it needs a little SOL in the wallet above for the fee; the USDC goes straight into this wallet.')}
@@ -1430,16 +1468,22 @@ function Page() {
         <div style={{ ...dim, fontSize: 12, marginTop: 4 }}>
           {t('A campaign pays only when its own balance covers the minutes; a worker below that campaign’s claim threshold waits until more accrues.')}
         </div>
+        {claims.length > 0 && (
+          <div style={{ ...dim, fontSize: 12, marginTop: 4 }}>
+            {t('Minimum claim per campaign:')}{' '}
+            {claims.map(row => `${usdcFmt(row.minClaim)} (${row.campaign.slice(0, 6)}…)`).join(' · ')}
+          </div>
+        )}
         <div style={{ ...row, marginTop: 10, justifyContent: 'flex-start', gap: 8 }}>
           <Button
             variant="primary"
             size="sm"
-            disabled={busy !== null || BigInt(status.balances?.accrued ?? '0') === 0n}
+            disabled={busy !== null || accruedTotal === 0n}
             onClick={() => { void claimEarnings() }}
           >
             {busy === 'claim' ? t('Claiming…') : t('Claim')}
           </Button>
-          {BigInt(status.balances?.accrued ?? '0') === 0n && (
+          {accruedTotal === 0n && (
             <span style={{ ...dim, fontSize: 12 }}>
               {t('Nothing above a threshold yet.')}
             </span>

@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "Les limites s’appliquent aux pourboires et au financement de campagnes ; un retrait n’est pas une dépense.",
   "Save limits": "Enregistrer les limites",
   "Enter both limits in USDC.": "Saisissez les deux limites en USDC.",
-  "Budget exceeds the wallet balance.": "Le budget dépasse le solde du portefeuille."
+  "Budget exceeds the wallet balance.": "Le budget dépasse le solde du portefeuille.",
+  "Below the minimum": "Sous le minimum",
+  "Minimum claim per campaign:": "Montant minimum par campagne :",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Inférieur au montant minimum de retrait : {min}. Non réclamé actuel : {value}."
 }

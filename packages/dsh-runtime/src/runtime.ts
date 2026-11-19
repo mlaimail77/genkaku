@@ -947,6 +947,7 @@ export class GenkakuRuntime {
     // a slow public RPC, so the snapshot serves the last figure and refreshes
     // behind it (stale-while-revalidate), re-reading after twenty seconds.
     const publicC = publicClientFor(this.config.env)
+    type CampaignClaim = { campaign: string; claimable: bigint; minClaim: bigint }
     let balanceCache: {
       at: number
       wallet: string
@@ -954,6 +955,10 @@ export class GenkakuRuntime {
       usdc: bigint
       /** settled but not claimed — earnings sitting inside the session escrow */
       accrued: bigint
+      /** the part of `accrued` already at or above its campaign threshold */
+      claimable: bigint
+      /** per-campaign claimable and threshold, for the panel's note */
+      claims: CampaignClaim[]
       /** 0.3: tips this wallet received, read from its own token history */
       tips: { count: number; totalMicro: bigint; recent: Array<{ signature: string; at: number; micro: bigint }> }
     } | null = null
@@ -966,20 +971,29 @@ export class GenkakuRuntime {
         // It is NOT wallet USDC: it leaves the session escrow only when the
         // worker claims it, which is why the panel shows both figures.
         const campaigns = await fetchWorkerCampaigns(this.config.adsUrl)
-        const [value, accrued, tips] = await Promise.all([
+        const [value, claims, tips] = await Promise.all([
           readWalletBalances(publicC, this.config.env, workerWallet),
           (async () => {
-            let total = 0n
+            const rows: CampaignClaim[] = []
             for (const row of campaigns) {
-              const state = await readWorkerAccrual(publicC, new PublicKey(row.campaign), workerWallet)
+              const accrual = await readWorkerAccrual(publicC, new PublicKey(row.campaign), workerWallet)
                 .catch(() => null)
-              if (state != null) total += state.claimable
+              if (accrual == null || accrual.claimable === 0n) continue
+              const state = await readCampaignState(publicC, new PublicKey(row.campaign))
+                .catch(() => null)
+              if (state == null) continue
+              rows.push({ campaign: row.campaign, claimable: accrual.claimable, minClaim: state.minClaim })
             }
-            return total
+            return rows
           })(),
           readRecentTips(publicC, this.config.env, workerWallet).catch(() => EMPTY_TIPS),
         ])
-        balanceCache = { at: Date.now(), wallet: workerWallet, ...value, accrued, tips }
+        const accrued = claims.reduce((sum, row) => sum + row.claimable, 0n)
+        const claimable = claims.reduce(
+          (sum, row) => sum + (row.claimable >= row.minClaim ? row.claimable : 0n),
+          0n,
+        )
+        balanceCache = { at: Date.now(), wallet: workerWallet, ...value, accrued, claimable, claims, tips }
       } catch (error) {
         this.log.warn('balances: read failed (%s)', error instanceof Error ? error.message : String(error))
       } finally {
@@ -1037,6 +1051,12 @@ export class GenkakuRuntime {
             sol: value.sol.toString(),
             usdc: value.usdc.toString(),
             accrued: value.accrued.toString(),
+            claimable: value.claimable.toString(),
+            claims: value.claims.map(row => ({
+              campaign: row.campaign,
+              claimable: row.claimable.toString(),
+              minClaim: row.minClaim.toString(),
+            })),
           },
           tips: {
             count: value.tips.count,
@@ -1149,6 +1169,7 @@ export class GenkakuRuntime {
         // than by a rule this file invents; only eligible campaigns are sent.
         const campaigns = await fetchWorkerCampaigns(this.config.adsUrl)
         const eligible: PublicKey[] = []
+        let below: { claimable: bigint; minClaim: bigint } | null = null
 
         for (const row of campaigns) {
           const state = await readCampaignState(publicC, new PublicKey(row.campaign)).catch(() => null)
@@ -1157,10 +1178,19 @@ export class GenkakuRuntime {
           if (state == null || accrual == null) continue
           if (accrual.claimable >= state.minClaim && accrual.claimable > 0n) {
             eligible.push(new PublicKey(row.campaign))
+          } else if (accrual.claimable > 0n && (below == null || accrual.claimable > below.claimable)) {
+            below = { claimable: accrual.claimable, minClaim: state.minClaim }
           }
         }
 
         if (eligible.length === 0) {
+          if (below != null) {
+            const fmt = (micro: bigint): string => (Number(micro) / 1e6).toFixed(3)
+            throw new Error(
+              `Below the minimum claim amount: ${fmt(below.minClaim)} USDC `
+              + `(currently ${fmt(below.claimable)} USDC)`,
+            )
+          }
           throw new Error('nothing is above its campaign threshold yet')
         }
 

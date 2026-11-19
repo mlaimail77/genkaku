@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "上限はチップとキャンペーン入金に適用され、受け取りは支出ではありません。",
   "Save limits": "上限を保存",
   "Enter both limits in USDC.": "両方の上限を USDC で入力してください。",
-  "Budget exceeds the wallet balance.": "予算がウォレット残高を超えています。"
+  "Budget exceeds the wallet balance.": "予算がウォレット残高を超えています。",
+  "Below the minimum": "最低受取額未満",
+  "Minimum claim per campaign:": "キャンペーンごとの最低受取額：",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "最低受取額を下回っています：{min}。現在の未受取額：{value}。"
 }

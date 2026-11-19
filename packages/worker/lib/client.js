@@ -294,7 +294,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "\u9650\u989D\u9002\u7528\u4E8E\u6253\u8D4F\u4E0E\u5E7F\u544A\u5145\u503C\uFF1B\u9886\u53D6\u4E0D\u7B97\u652F\u51FA\u3002",
     "Save limits": "\u4FDD\u5B58\u9650\u989D",
     "Enter both limits in USDC.": "\u8BF7\u8F93\u5165\u4E24\u4E2A USDC \u4E0A\u9650\u3002",
-    "Budget exceeds the wallet balance.": "\u9884\u7B97\u8D85\u8FC7\u94B1\u5305\u4F59\u989D\u3002"
+    "Budget exceeds the wallet balance.": "\u9884\u7B97\u8D85\u8FC7\u94B1\u5305\u4F59\u989D\u3002",
+    "Below the minimum": "\u4F4E\u65BC\u6700\u4F4E\u9818\u53D6",
+    "Minimum claim per campaign:": "\u5404 campaign \u6700\u4F4E\u9818\u53D6\u91D1\u984D\uFF1A",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u4F4E\u65BC\u6700\u4F4E\u9818\u53D6\u91D1\u984D\uFF1A{min}\u3002\u76EE\u524D\u672A\u9818\u53D6\uFF1A{value}\u3002"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -557,7 +560,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Caps apply to tips and campaign funding; claims are not a spend.",
     "Save limits": "Save limits",
     "Enter both limits in USDC.": "Enter both limits in USDC.",
-    "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance."
+    "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance.",
+    "Below the minimum": "Below the minimum",
+    "Minimum claim per campaign:": "Minimum claim per campaign:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Below the minimum claim amount: {min}. Current unclaimed: {value}."
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -820,7 +826,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "\u4E0A\u9650\u306F\u30C1\u30C3\u30D7\u3068\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3\u5165\u91D1\u306B\u9069\u7528\u3055\u308C\u3001\u53D7\u3051\u53D6\u308A\u306F\u652F\u51FA\u3067\u306F\u3042\u308A\u307E\u305B\u3093\u3002",
     "Save limits": "\u4E0A\u9650\u3092\u4FDD\u5B58",
     "Enter both limits in USDC.": "\u4E21\u65B9\u306E\u4E0A\u9650\u3092 USDC \u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-    "Budget exceeds the wallet balance.": "\u4E88\u7B97\u304C\u30A6\u30A9\u30EC\u30C3\u30C8\u6B8B\u9AD8\u3092\u8D85\u3048\u3066\u3044\u307E\u3059\u3002"
+    "Budget exceeds the wallet balance.": "\u4E88\u7B97\u304C\u30A6\u30A9\u30EC\u30C3\u30C8\u6B8B\u9AD8\u3092\u8D85\u3048\u3066\u3044\u307E\u3059\u3002",
+    "Below the minimum": "\u6700\u4F4E\u53D7\u53D6\u984D\u672A\u6E80",
+    "Minimum claim per campaign:": "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3\u3054\u3068\u306E\u6700\u4F4E\u53D7\u53D6\u984D\uFF1A",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u6700\u4F4E\u53D7\u53D6\u984D\u3092\u4E0B\u56DE\u3063\u3066\u3044\u307E\u3059\uFF1A{min}\u3002\u73FE\u5728\u306E\u672A\u53D7\u53D6\u984D\uFF1A{value}\u3002"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1083,7 +1092,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "\uD55C\uB3C4\uB294 \uD301\uACFC \uCEA0\uD398\uC778 \uCDA9\uC804\uC5D0 \uC801\uC6A9\uB418\uBA70, \uC218\uB839\uC740 \uC9C0\uCD9C\uC774 \uC544\uB2D9\uB2C8\uB2E4.",
     "Save limits": "\uD55C\uB3C4 \uC800\uC7A5",
     "Enter both limits in USDC.": "\uB450 \uD55C\uB3C4\uB97C USDC\uB85C \uC785\uB825\uD558\uC138\uC694.",
-    "Budget exceeds the wallet balance.": "\uC608\uC0B0\uC774 \uC9C0\uAC11 \uC794\uC561\uC744 \uCD08\uACFC\uD569\uB2C8\uB2E4."
+    "Budget exceeds the wallet balance.": "\uC608\uC0B0\uC774 \uC9C0\uAC11 \uC794\uC561\uC744 \uCD08\uACFC\uD569\uB2C8\uB2E4.",
+    "Below the minimum": "\uCD5C\uC18C \uC218\uB839\uC561 \uBBF8\uB9CC",
+    "Minimum claim per campaign:": "\uCEA0\uD398\uC778\uBCC4 \uCD5C\uC18C \uC218\uB839\uC561:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\uCD5C\uC18C \uC218\uB839\uC561 \uBBF8\uB9CC\uC785\uB2C8\uB2E4: {min}. \uD604\uC7AC \uBBF8\uC218\uB839\uC561: {value}."
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1346,7 +1358,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Los l\xEDmites se aplican a propinas y financiaci\xF3n de campa\xF1as; cobrar no es un gasto.",
     "Save limits": "Guardar l\xEDmites",
     "Enter both limits in USDC.": "Introduce ambos l\xEDmites en USDC.",
-    "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera."
+    "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera.",
+    "Below the minimum": "Por debajo del m\xEDnimo",
+    "Minimum claim per campaign:": "Importe m\xEDnimo por campa\xF1a:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Por debajo del importe m\xEDnimo de retirada: {min}. Sin reclamar actual: {value}."
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -1609,7 +1624,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Les limites s\u2019appliquent aux pourboires et au financement de campagnes ; un retrait n\u2019est pas une d\xE9pense.",
     "Save limits": "Enregistrer les limites",
     "Enter both limits in USDC.": "Saisissez les deux limites en USDC.",
-    "Budget exceeds the wallet balance.": "Le budget d\xE9passe le solde du portefeuille."
+    "Budget exceeds the wallet balance.": "Le budget d\xE9passe le solde du portefeuille.",
+    "Below the minimum": "Sous le minimum",
+    "Minimum claim per campaign:": "Montant minimum par campagne :",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Inf\xE9rieur au montant minimum de retrait : {min}. Non r\xE9clam\xE9 actuel : {value}."
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -1872,7 +1890,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Limits gelten f\xFCr Trinkgeld und Kampagnenfinanzierung; Abholen ist keine Ausgabe.",
     "Save limits": "Limits speichern",
     "Enter both limits in USDC.": "Gib beide Limits in USDC ein.",
-    "Budget exceeds the wallet balance.": "Das Budget \xFCbersteigt das Wallet-Guthaben."
+    "Budget exceeds the wallet balance.": "Das Budget \xFCbersteigt das Wallet-Guthaben.",
+    "Below the minimum": "Unter dem Minimum",
+    "Minimum claim per campaign:": "Mindestbetrag pro Kampagne:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Unter dem Mindestbetrag f\xFCr Auszahlungen: {min}. Aktuell nicht abgeholt: {value}."
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -2135,7 +2156,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "\u041B\u0438\u043C\u0438\u0442\u044B \u043E\u0442\u043D\u043E\u0441\u044F\u0442\u0441\u044F \u043A \u0447\u0430\u0435\u0432\u044B\u043C \u0438 \u043F\u043E\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044E \u043A\u0430\u043C\u043F\u0430\u043D\u0438\u0439; \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0435 \u2014 \u043D\u0435 \u0440\u0430\u0441\u0445\u043E\u0434.",
     "Save limits": "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043B\u0438\u043C\u0438\u0442\u044B",
     "Enter both limits in USDC.": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u0431\u0430 \u043B\u0438\u043C\u0438\u0442\u0430 \u0432 USDC.",
-    "Budget exceeds the wallet balance.": "\u0411\u044E\u0434\u0436\u0435\u0442 \u043F\u0440\u0435\u0432\u044B\u0448\u0430\u0435\u0442 \u0431\u0430\u043B\u0430\u043D\u0441 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0430."
+    "Budget exceeds the wallet balance.": "\u0411\u044E\u0434\u0436\u0435\u0442 \u043F\u0440\u0435\u0432\u044B\u0448\u0430\u0435\u0442 \u0431\u0430\u043B\u0430\u043D\u0441 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0430.",
+    "Below the minimum": "\u041D\u0438\u0436\u0435 \u043C\u0438\u043D\u0438\u043C\u0443\u043C\u0430",
+    "Minimum claim per campaign:": "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u043F\u043E \u043A\u0430\u043C\u043F\u0430\u043D\u0438\u0438:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u041D\u0438\u0436\u0435 \u043C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0439 \u0441\u0443\u043C\u043C\u044B \u0432\u044B\u0432\u043E\u0434\u0430: {min}. \u0422\u0435\u043A\u0443\u0449\u0430\u044F \u043D\u0435\u0432\u043E\u0441\u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430: {value}."
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -2398,7 +2422,10 @@ var MESSAGES = {
     "Caps apply to tips and campaign funding; claims are not a spend.": "Os limites valem para gorjetas e financiamento de campanhas; receber n\xE3o \xE9 um gasto.",
     "Save limits": "Salvar limites",
     "Enter both limits in USDC.": "Informe os dois limites em USDC.",
-    "Budget exceeds the wallet balance.": "O or\xE7amento excede o saldo da carteira."
+    "Budget exceeds the wallet balance.": "O or\xE7amento excede o saldo da carteira.",
+    "Below the minimum": "Abaixo do m\xEDnimo",
+    "Minimum claim per campaign:": "Valor m\xEDnimo por campanha:",
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Abaixo do valor m\xEDnimo de resgate: {min}. N\xE3o resgatado atual: {value}."
   }
 };
 var LOCALE_LABELS = {
@@ -2762,6 +2789,17 @@ function Page() {
     setBusy("claim");
     setError(null);
     try {
+      const total = BigInt(status?.balances?.accrued ?? "0");
+      const ready = BigInt(status?.balances?.claimable ?? status?.balances?.accrued ?? "0");
+      if (total > 0n && ready === 0n) {
+        const below = (status?.balances?.claims ?? []).filter((row2) => BigInt(row2.claimable) > 0n && BigInt(row2.claimable) < BigInt(row2.minClaim)).sort((a, b) => BigInt(b.claimable) > BigInt(a.claimable) ? 1 : -1)[0];
+        if (below != null) {
+          throw new Error(t(
+            "Below the minimum claim amount: {min}. Current unclaimed: {value}.",
+            { min: usdcFmt(below.minClaim), value: usdcFmt(status?.balances?.accrued) }
+          ));
+        }
+      }
       const doc = await post("/genkaku/wallet/claim", {});
       setNotice(t(
         `Claimed. USDC is in this wallet now${doc.tx == null ? "" : ` (transaction ${doc.tx.slice(0, 12)}\u2026)`}.`,
@@ -2773,7 +2811,7 @@ function Page() {
     } finally {
       setBusy(null);
     }
-  }, [loadStatus, t]);
+  }, [loadStatus, status?.balances?.accrued, status?.balances?.claimable, status?.balances?.claims, t]);
   const loadOllama = (0, import_react2.useCallback)(async () => {
     try {
       const res = await fetch(`${originRef.current}/genkaku/ollama`, { cache: "no-store" });
@@ -3134,6 +3172,21 @@ function Page() {
       return BigInt(status.balances.sol) === 0n;
     } catch {
       return false;
+    }
+  })();
+  const claims = status.balances?.claims ?? [];
+  const accruedTotal = (() => {
+    try {
+      return BigInt(status.balances?.accrued ?? "0");
+    } catch {
+      return 0n;
+    }
+  })();
+  const claimableTotal = (() => {
+    try {
+      return BigInt(status.balances?.claimable ?? status.balances?.accrued ?? "0");
+    } catch {
+      return 0n;
     }
   })();
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
@@ -3663,34 +3716,37 @@ function Page() {
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Section, { title: t("Ad earnings"), children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: row, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: dim, children: t("Ready to claim") }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontVariantNumeric: "tabular-nums" }, children: [
-          usdcFmt(status.balances?.accrued),
-          " USDC"
-        ] })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontVariantNumeric: "tabular-nums" }, children: usdcFmt(claimableTotal.toString()) })
+      ] }),
+      accruedTotal > claimableTotal && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: row, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: dim, children: t("Below the minimum") }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontVariantNumeric: "tabular-nums" }, children: usdcFmt((accruedTotal - claimableTotal).toString()) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: row, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: dim, children: t("In this wallet") }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontVariantNumeric: "tabular-nums" }, children: [
-          usdcFmt(status.balances?.usdc),
-          " USDC"
-        ] })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontVariantNumeric: "tabular-nums" }, children: usdcFmt(status.balances?.usdc) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 4 }, children: t("Advertisers pay per sponsored minute. Each day\u2019s minutes are booked to this worker on chain after the daily settlement, then they can be claimed here. The claim is a Solana transaction, so it needs a little SOL in the wallet above for the fee; the USDC goes straight into this wallet.") }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 4 }, children: t("A campaign pays only when its own balance covers the minutes; a worker below that campaign\u2019s claim threshold waits until more accrues.") }),
+      claims.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...dim, fontSize: 12, marginTop: 4 }, children: [
+        t("Minimum claim per campaign:"),
+        " ",
+        claims.map((row2) => `${usdcFmt(row2.minClaim)} (${row2.campaign.slice(0, 6)}\u2026)`).join(" \xB7 ")
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...row, marginTop: 10, justifyContent: "flex-start", gap: 8 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           import_dsh_client_ui_primitives.Button,
           {
             variant: "primary",
             size: "sm",
-            disabled: busy !== null || BigInt(status.balances?.accrued ?? "0") === 0n,
+            disabled: busy !== null || accruedTotal === 0n,
             onClick: () => {
               void claimEarnings();
             },
             children: busy === "claim" ? t("Claiming\u2026") : t("Claim")
           }
         ),
-        BigInt(status.balances?.accrued ?? "0") === 0n && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { ...dim, fontSize: 12 }, children: t("Nothing above a threshold yet.") })
+        accruedTotal === 0n && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { ...dim, fontSize: 12 }, children: t("Nothing above a threshold yet.") })
       ] })
     ] })
   ] });

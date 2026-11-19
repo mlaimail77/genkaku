@@ -272,7 +272,7 @@ export async function readWalletBalances(
 // ── campaign writes ────────────────────────────────────────────────────────
 
 /**
- * Claim threshold: 3 USDC on mainnet, 0.05 on devnet.
+ * Claim threshold: 0.03 USDC by default.
  *
  * At 0.005 USDC a sponsored minute, 3 USDC is 600 minutes of work — a milestone,
  * not a routine. That is the right shape for real money (the claim's fee should
@@ -283,9 +283,9 @@ export async function readWalletBalances(
 export const DEVNET_MIN_CLAIM = PROTOCOL_DEFAULT_MIN_CLAIM
 
 export function defaultMinClaim(_env: NetEnvironment): bigint {
-  // 0.4: self-serve listings split a worker's revenue across campaigns, so the
-  // 3 USDC mainnet threshold would make small ads unclaimable forever. 0.05
-  // USDC plus batched claims keeps the fee a small fraction of the transfer.
+  // 0.4: self-serve listings split a worker's revenue across campaigns, so a
+  // high threshold would make small ads unclaimable forever. 0.03 USDC plus
+  // batched claims keeps the fee a small fraction of the transfer.
   return PROTOCOL_DEFAULT_MIN_CLAIM
 }
 

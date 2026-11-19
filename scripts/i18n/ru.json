@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "Лимиты относятся к чаевым и пополнению кампаний; получение — не расход.",
   "Save limits": "Сохранить лимиты",
   "Enter both limits in USDC.": "Введите оба лимита в USDC.",
-  "Budget exceeds the wallet balance.": "Бюджет превышает баланс кошелька."
+  "Budget exceeds the wallet balance.": "Бюджет превышает баланс кошелька.",
+  "Below the minimum": "Ниже минимума",
+  "Minimum claim per campaign:": "Минимальная сумма по кампании:",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Ниже минимальной суммы вывода: {min}. Текущая невостребованная сумма: {value}."
 }

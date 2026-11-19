@@ -68,10 +68,10 @@ export const MAX_PRICE_PER_MIN = 1_000_000n
  *  so a typo in a console cannot buy a 10 USDC minute. */
 export const MIN_AD_PRICE_PER_MIN = 100n
 export const MAX_AD_PRICE_PER_MIN = 100_000n
-/** Default claim threshold for a self-serve listing: 0.05 USDC. Low enough
+/** Default claim threshold for a self-serve listing: 0.03 USDC. Low enough
  *  that a small advertiser's minutes are reachable, high enough that the fee
  *  does not eat the transfer. */
-export const DEFAULT_MIN_CLAIM = 50_000n
+export const DEFAULT_MIN_CLAIM = 30_000n
 /** Ceiling on what one sponsored minute may be worth. */
 export const MAX_RATE_PER_MIN = 1_000_000n
 /** A single `accrue` may book at most a day of minutes. */

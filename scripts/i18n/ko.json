@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "한도는 팁과 캠페인 충전에 적용되며, 수령은 지출이 아닙니다.",
   "Save limits": "한도 저장",
   "Enter both limits in USDC.": "두 한도를 USDC로 입력하세요.",
-  "Budget exceeds the wallet balance.": "예산이 지갑 잔액을 초과합니다."
+  "Budget exceeds the wallet balance.": "예산이 지갑 잔액을 초과합니다.",
+  "Below the minimum": "최소 수령액 미만",
+  "Minimum claim per campaign:": "캠페인별 최소 수령액:",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "최소 수령액 미만입니다: {min}. 현재 미수령액: {value}."
 }

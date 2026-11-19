@@ -259,5 +259,8 @@
   "Caps apply to tips and campaign funding; claims are not a spend.": "Caps apply to tips and campaign funding; claims are not a spend.",
   "Save limits": "Save limits",
   "Enter both limits in USDC.": "Enter both limits in USDC.",
-  "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance."
+  "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance.",
+  "Below the minimum": "Below the minimum",
+  "Minimum claim per campaign:": "Minimum claim per campaign:",
+  "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Below the minimum claim amount: {min}. Current unclaimed: {value}."
 }
