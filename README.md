@@ -1,6 +1,6 @@
 # GenKaKu — DSH worker and user plugins
 
-**GenKaKu** is a peer-to-peer AI compute market for **[DeepSeek Harness (DSH)](https://www.deepseek.com/en/harness/)**.
+**GenKaKu** is a peer-to-peer AI compute network for **[DeepSeek Harness (DSH)](https://www.deepseek.com/en/harness/)**.
 Workers serve their local Ollama models over libp2p. Users pay nothing; a clearly
 labelled sponsored placement at the end of an answer pays the worker, and an
 optional tip goes straight from the user's wallet to the worker's.
@@ -26,15 +26,15 @@ Keywords: `DeepSeek Harness`, `DSH`, `DSH plugin`, `libp2p`, `Ollama`,
 Inside DeepSeek Harness: **Plugins → Add plugin**, then paste one package name.
 
 ```
-@genkaku/dsh-worker-plugin@0.5.0-rc.3   # serve this machine's models
-@genkaku/dsh-user-plugin@0.5.0-rc.3     # use the network inside DSH
+@genkaku/dsh-worker-plugin@0.5.0-rc.8   # serve this machine's models
+@genkaku/dsh-user-plugin@0.5.0-rc.8     # use the network inside DSH
 ```
 
 From a shell:
 
 ```bash
-dsh plugin add @genkaku/dsh-worker-plugin@0.5.0-rc.3
-dsh plugin add @genkaku/dsh-user-plugin@0.5.0-rc.3
+dsh plugin add @genkaku/dsh-worker-plugin@0.5.0-rc.8
+dsh plugin add @genkaku/dsh-user-plugin@0.5.0-rc.8
 ```
 
 The user panel follows DSH's language (Chinese, English, Japanese, Spanish,

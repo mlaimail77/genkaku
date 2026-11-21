@@ -1,10 +1,10 @@
 # @genkaku/dsh-worker-plugin
 
 Share the Ollama models already installed on this machine on the GenKaKu
-network, at a price you set. Payments settle in USDC on Solana, per started
-minute.
+network, at a price you set. Advertisers' sponsored placements pay you in USDC
+on Solana for the minutes you serve.
 
-GenKaKu is a peer-to-peer compute market for DeepSeek Harness: no account, no
+GenKaKu is a peer-to-peer compute network for DeepSeek Harness: no account, no
 central orchestrator, and no GenKaKu token.
 
 ## Install
@@ -17,13 +17,13 @@ leave the install source on **Default registry** (`registry.npmjs.org`), and
 restart DSH.
 
 ```
-@genkaku/dsh-worker-plugin@0.2.0-rc.7
+@genkaku/dsh-worker-plugin@0.5.0-rc.8
 ```
 
 Or from a shell:
 
 ```bash
-dsh plugin add @genkaku/dsh-worker-plugin@0.2.0-rc.7
+dsh plugin add @genkaku/dsh-worker-plugin@0.5.0-rc.8
 ```
 
 ## What it does

@@ -1,7 +1,7 @@
 # @genkaku/protocol
 
 Solana bindings, tips and sponsored minutes, the libp2p sidecar and the Ollama bridge for
-[GenKaKu](https://genkaku.app/en/) — a peer-to-peer market for AI compute
+[GenKaKu](https://genkaku.app/en/) — a peer-to-peer network for AI compute
 settled in USDC on Solana.
 
 The protocol core has no dependency on DeepSeek Harness. The two plugins are

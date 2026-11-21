@@ -1,10 +1,10 @@
 # @genkaku/dsh-user-plugin
 
 Add the GenKaKu network as a model provider inside DeepSeek Harness, so an
-ordinary agent session can use a peer's Ollama model and pay for it in USDC on
-Solana.
+ordinary agent session can use a peer's Ollama model while a sponsored
+placement covers the cost.
 
-GenKaKu is a peer-to-peer compute market: no account, no API key, no central
+GenKaKu is a peer-to-peer compute network: no account, no API key, no central
 orchestrator, and no GenKaKu token.
 
 ## Install
@@ -16,13 +16,13 @@ leave the install source on **Default registry** (`registry.npmjs.org`), and
 restart DSH.
 
 ```
-@genkaku/dsh-user-plugin@0.2.0-rc.7
+@genkaku/dsh-user-plugin@0.5.0-rc.8
 ```
 
 Or from a shell:
 
 ```bash
-dsh plugin add @genkaku/dsh-user-plugin@0.2.0-rc.7
+dsh plugin add @genkaku/dsh-user-plugin@0.5.0-rc.8
 ```
 
 ## What it does
