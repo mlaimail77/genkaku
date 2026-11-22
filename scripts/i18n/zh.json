@@ -302,5 +302,8 @@
   "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "已保存 Agent Routes。在聊天模型选择器中选择「GenKaKu · Agent Routes」即可使用。",
   "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "已保存，但 Agent Routes 需要一个主模型和至少一位专家才会开启。",
   "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "专家是完整的 agent：可以读取文件、使用工具。他们不能再委派，所以团队只有一层。",
-  "Reload": "重新载入"
+  "Reload": "重新载入",
+  "When the main model should hand work here": "主模型应在什么时候把工作交给它",
+  "Translate or proofread text between Chinese and English.": "在中英文之间翻译或校对文字。",
+  "Funded and attached. The ad is live.": "已充值并关联。广告已上线。"
 }

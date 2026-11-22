@@ -306,7 +306,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "已保存 Agent Routes。在聊天模型选择器中选择「GenKaKu · Agent Routes」即可使用。",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "已保存，但 Agent Routes 需要一个主模型和至少一位专家才会开启。",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "专家是完整的 agent：可以读取文件、使用工具。他们不能再委派，所以团队只有一层。",
-    "Reload": "重新载入"
+    "Reload": "重新载入",
+    "When the main model should hand work here": "主模型应在什么时候把工作交给它",
+    "Translate or proofread text between Chinese and English.": "在中英文之间翻译或校对文字。",
+    "Funded and attached. The ad is live.": "已充值并关联。广告已上线。"
   },
   "en": {
     "Reconnecting to the bridge…": "Reconnecting to the bridge…",
@@ -612,7 +615,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Saved, but Agent Routes stays off until it has a main model and at least one specialist.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.",
-    "Reload": "Reload"
+    "Reload": "Reload",
+    "When the main model should hand work here": "When the main model should hand work here",
+    "Translate or proofread text between Chinese and English.": "Translate or proofread text between Chinese and English.",
+    "Funded and attached. The ad is live.": "Funded and attached. The ad is live."
   },
   "ja": {
     "Reconnecting to the bridge…": "bridge に再接続しています…",
@@ -918,7 +924,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes を保存しました。チャットのモデル選択で「GenKaKu · Agent Routes」を選ぶと使えます。",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "保存しましたが、メインモデルとスペシャリストが 1 名以上になるまで Agent Routes はオフのままです。",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "スペシャリストは完全なエージェントで、ファイルの読み取りやツールの使用ができます。さらに委任はできないため、チームは 1 階層です。",
-    "Reload": "再読み込み"
+    "Reload": "再読み込み",
+    "When the main model should hand work here": "メインモデルがいつ作業を任せるべきか",
+    "Translate or proofread text between Chinese and English.": "中国語と英語の間で翻訳または校正する。",
+    "Funded and attached. The ad is live.": "入金して紐付けました。広告は配信中です。"
   },
   "ko": {
     "Reconnecting to the bridge…": "bridge에 다시 연결하는 중…",
@@ -1224,7 +1233,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes를 저장했습니다. 채팅 모델 선택에서 \"GenKaKu · Agent Routes\"를 고르면 사용됩니다.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "저장했지만, 메인 모델과 전문가가 최소 한 명 있어야 Agent Routes가 켜집니다.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "전문가는 완전한 에이전트로 파일을 읽고 도구를 쓸 수 있습니다. 다시 위임할 수 없으므로 팀은 한 단계입니다.",
-    "Reload": "새로 고침"
+    "Reload": "새로 고침",
+    "When the main model should hand work here": "메인 모델이 언제 작업을 맡겨야 하는지",
+    "Translate or proofread text between Chinese and English.": "중국어와 영어 사이에서 번역하거나 교정합니다.",
+    "Funded and attached. The ad is live.": "충전 및 연결 완료. 광고가 게시 중입니다."
   },
   "es": {
     "Reconnecting to the bridge…": "Reconectando con el bridge…",
@@ -1530,7 +1542,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes guardado. Elige «GenKaKu · Agent Routes» en el selector de modelos del chat para usarlo.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Guardado, pero Agent Routes seguirá desactivado hasta que tenga un modelo principal y al menos un especialista.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar más, así que el equipo tiene un solo nivel.",
-    "Reload": "Recargar"
+    "Reload": "Recargar",
+    "When the main model should hand work here": "Cuándo debe el modelo principal pasarle trabajo",
+    "Translate or proofread text between Chinese and English.": "Traduce o corrige texto entre chino e inglés.",
+    "Funded and attached. The ad is live.": "Financiado y vinculado. El anuncio está activo."
   },
   "fr": {
     "Reconnecting to the bridge…": "Reconnexion au bridge…",
@@ -1836,7 +1851,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes enregistré. Choisissez « GenKaKu · Agent Routes » dans le sélecteur de modèles du chat pour l'utiliser.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Enregistré, mais Agent Routes reste désactivé tant qu'il n'a pas de modèle principal et au moins un spécialiste.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les spécialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas déléguer davantage, donc l'équipe n'a qu'un niveau.",
-    "Reload": "Recharger"
+    "Reload": "Recharger",
+    "When the main model should hand work here": "Quand le modèle principal doit lui confier du travail",
+    "Translate or proofread text between Chinese and English.": "Traduire ou relire un texte entre le chinois et l'anglais.",
+    "Funded and attached. The ad is live.": "Financé et associé. L'annonce est en ligne."
   },
   "de": {
     "Reconnecting to the bridge…": "Verbindung zur Bridge wird wiederhergestellt…",
@@ -2142,7 +2160,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes gespeichert. Wähle „GenKaKu · Agent Routes“ im Chat-Modellauswahldialog, um es zu nutzen.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Gespeichert, aber Agent Routes bleibt aus, bis ein Hauptmodell und mindestens ein Spezialist vorhanden sind.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie können Dateien lesen und Tools nutzen. Sie können nicht weiter delegieren, daher ist das Team eine Ebene tief.",
-    "Reload": "Neu laden"
+    "Reload": "Neu laden",
+    "When the main model should hand work here": "Wann das Hauptmodell Arbeit hierher geben sollte",
+    "Translate or proofread text between Chinese and English.": "Text zwischen Chinesisch und Englisch übersetzen oder Korrektur lesen.",
+    "Funded and attached. The ad is live.": "Finanziert und verknüpft. Die Anzeige ist live."
   },
   "ru": {
     "Reconnecting to the bridge…": "Переподключение к bridge…",
@@ -2448,7 +2469,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes сохранено. Выберите «GenKaKu · Agent Routes» в списке моделей чата.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Сохранено, но Agent Routes останется выключенным, пока нет основной модели и хотя бы одного специалиста.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Специалисты — полноценные агенты: они читают файлы и используют инструменты. Дальше делегировать они не могут, поэтому команда одноуровневая.",
-    "Reload": "Обновить"
+    "Reload": "Обновить",
+    "When the main model should hand work here": "Когда основная модель должна передавать работу",
+    "Translate or proofread text between Chinese and English.": "Переводить или вычитывать текст между китайским и английским.",
+    "Funded and attached. The ad is live.": "Оплачено и привязано. Объявление показывается."
   },
   "pt": {
     "Reconnecting to the bridge…": "Reconectando à bridge…",
@@ -2754,7 +2778,10 @@ export const MESSAGES = {
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes salvo. Escolha \"GenKaKu · Agent Routes\" no seletor de modelos do chat para usar.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Salvo, mas o Agent Routes fica desativado até ter um modelo principal e pelo menos um especialista.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas são agentes completos: podem ler arquivos e usar ferramentas. Não podem delegar mais, então a equipe tem um nível só.",
-    "Reload": "Recarregar"
+    "Reload": "Recarregar",
+    "When the main model should hand work here": "Quando o modelo principal deve passar trabalho",
+    "Translate or proofread text between Chinese and English.": "Traduzir ou revisar texto entre chinês e inglês.",
+    "Funded and attached. The ad is live.": "Financiado e vinculado. O anúncio está no ar."
   }
 } as const
 

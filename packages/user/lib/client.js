@@ -337,7 +337,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "\u5DF2\u4FDD\u5B58 Agent Routes\u3002\u5728\u804A\u5929\u6A21\u578B\u9009\u62E9\u5668\u4E2D\u9009\u62E9\u300CGenKaKu \xB7 Agent Routes\u300D\u5373\u53EF\u4F7F\u7528\u3002",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u5DF2\u4FDD\u5B58\uFF0C\u4F46 Agent Routes \u9700\u8981\u4E00\u4E2A\u4E3B\u6A21\u578B\u548C\u81F3\u5C11\u4E00\u4F4D\u4E13\u5BB6\u624D\u4F1A\u5F00\u542F\u3002",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u4E13\u5BB6\u662F\u5B8C\u6574\u7684 agent\uFF1A\u53EF\u4EE5\u8BFB\u53D6\u6587\u4EF6\u3001\u4F7F\u7528\u5DE5\u5177\u3002\u4ED6\u4EEC\u4E0D\u80FD\u518D\u59D4\u6D3E\uFF0C\u6240\u4EE5\u56E2\u961F\u53EA\u6709\u4E00\u5C42\u3002",
-    "Reload": "\u91CD\u65B0\u8F7D\u5165"
+    "Reload": "\u91CD\u65B0\u8F7D\u5165",
+    "When the main model should hand work here": "\u4E3B\u6A21\u578B\u5E94\u5728\u4EC0\u4E48\u65F6\u5019\u628A\u5DE5\u4F5C\u4EA4\u7ED9\u5B83",
+    "Translate or proofread text between Chinese and English.": "\u5728\u4E2D\u82F1\u6587\u4E4B\u95F4\u7FFB\u8BD1\u6216\u6821\u5BF9\u6587\u5B57\u3002",
+    "Funded and attached. The ad is live.": "\u5DF2\u5145\u503C\u5E76\u5173\u8054\u3002\u5E7F\u544A\u5DF2\u4E0A\u7EBF\u3002"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -643,7 +646,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Saved, but Agent Routes stays off until it has a main model and at least one specialist.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.",
-    "Reload": "Reload"
+    "Reload": "Reload",
+    "When the main model should hand work here": "When the main model should hand work here",
+    "Translate or proofread text between Chinese and English.": "Translate or proofread text between Chinese and English.",
+    "Funded and attached. The ad is live.": "Funded and attached. The ad is live."
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -949,7 +955,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes \u3092\u4FDD\u5B58\u3057\u307E\u3057\u305F\u3002\u30C1\u30E3\u30C3\u30C8\u306E\u30E2\u30C7\u30EB\u9078\u629E\u3067\u300CGenKaKu \xB7 Agent Routes\u300D\u3092\u9078\u3076\u3068\u4F7F\u3048\u307E\u3059\u3002",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u4FDD\u5B58\u3057\u307E\u3057\u305F\u304C\u3001\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u3068\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u304C 1 \u540D\u4EE5\u4E0A\u306B\u306A\u308B\u307E\u3067 Agent Routes \u306F\u30AA\u30D5\u306E\u307E\u307E\u3067\u3059\u3002",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306F\u5B8C\u5168\u306A\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3067\u3001\u30D5\u30A1\u30A4\u30EB\u306E\u8AAD\u307F\u53D6\u308A\u3084\u30C4\u30FC\u30EB\u306E\u4F7F\u7528\u304C\u3067\u304D\u307E\u3059\u3002\u3055\u3089\u306B\u59D4\u4EFB\u306F\u3067\u304D\u306A\u3044\u305F\u3081\u3001\u30C1\u30FC\u30E0\u306F 1 \u968E\u5C64\u3067\u3059\u3002",
-    "Reload": "\u518D\u8AAD\u307F\u8FBC\u307F"
+    "Reload": "\u518D\u8AAD\u307F\u8FBC\u307F",
+    "When the main model should hand work here": "\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u304C\u3044\u3064\u4F5C\u696D\u3092\u4EFB\u305B\u308B\u3079\u304D\u304B",
+    "Translate or proofread text between Chinese and English.": "\u4E2D\u56FD\u8A9E\u3068\u82F1\u8A9E\u306E\u9593\u3067\u7FFB\u8A33\u307E\u305F\u306F\u6821\u6B63\u3059\u308B\u3002",
+    "Funded and attached. The ad is live.": "\u5165\u91D1\u3057\u3066\u7D10\u4ED8\u3051\u307E\u3057\u305F\u3002\u5E83\u544A\u306F\u914D\u4FE1\u4E2D\u3067\u3059\u3002"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1255,7 +1264,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": 'Agent Routes\uB97C \uC800\uC7A5\uD588\uC2B5\uB2C8\uB2E4. \uCC44\uD305 \uBAA8\uB378 \uC120\uD0DD\uC5D0\uC11C "GenKaKu \xB7 Agent Routes"\uB97C \uACE0\uB974\uBA74 \uC0AC\uC6A9\uB429\uB2C8\uB2E4.',
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\uC800\uC7A5\uD588\uC9C0\uB9CC, \uBA54\uC778 \uBAA8\uB378\uACFC \uC804\uBB38\uAC00\uAC00 \uCD5C\uC18C \uD55C \uBA85 \uC788\uC5B4\uC57C Agent Routes\uAC00 \uCF1C\uC9D1\uB2C8\uB2E4.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\uC804\uBB38\uAC00\uB294 \uC644\uC804\uD55C \uC5D0\uC774\uC804\uD2B8\uB85C \uD30C\uC77C\uC744 \uC77D\uACE0 \uB3C4\uAD6C\uB97C \uC4F8 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uB2E4\uC2DC \uC704\uC784\uD560 \uC218 \uC5C6\uC73C\uBBC0\uB85C \uD300\uC740 \uD55C \uB2E8\uACC4\uC785\uB2C8\uB2E4.",
-    "Reload": "\uC0C8\uB85C \uACE0\uCE68"
+    "Reload": "\uC0C8\uB85C \uACE0\uCE68",
+    "When the main model should hand work here": "\uBA54\uC778 \uBAA8\uB378\uC774 \uC5B8\uC81C \uC791\uC5C5\uC744 \uB9E1\uACA8\uC57C \uD558\uB294\uC9C0",
+    "Translate or proofread text between Chinese and English.": "\uC911\uAD6D\uC5B4\uC640 \uC601\uC5B4 \uC0AC\uC774\uC5D0\uC11C \uBC88\uC5ED\uD558\uAC70\uB098 \uAD50\uC815\uD569\uB2C8\uB2E4.",
+    "Funded and attached. The ad is live.": "\uCDA9\uC804 \uBC0F \uC5F0\uACB0 \uC644\uB8CC. \uAD11\uACE0\uAC00 \uAC8C\uC2DC \uC911\uC785\uB2C8\uB2E4."
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1561,7 +1573,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes guardado. Elige \xABGenKaKu \xB7 Agent Routes\xBB en el selector de modelos del chat para usarlo.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Guardado, pero Agent Routes seguir\xE1 desactivado hasta que tenga un modelo principal y al menos un especialista.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar m\xE1s, as\xED que el equipo tiene un solo nivel.",
-    "Reload": "Recargar"
+    "Reload": "Recargar",
+    "When the main model should hand work here": "Cu\xE1ndo debe el modelo principal pasarle trabajo",
+    "Translate or proofread text between Chinese and English.": "Traduce o corrige texto entre chino e ingl\xE9s.",
+    "Funded and attached. The ad is live.": "Financiado y vinculado. El anuncio est\xE1 activo."
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -1867,7 +1882,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes enregistr\xE9. Choisissez \xAB GenKaKu \xB7 Agent Routes \xBB dans le s\xE9lecteur de mod\xE8les du chat pour l'utiliser.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Enregistr\xE9, mais Agent Routes reste d\xE9sactiv\xE9 tant qu'il n'a pas de mod\xE8le principal et au moins un sp\xE9cialiste.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les sp\xE9cialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas d\xE9l\xE9guer davantage, donc l'\xE9quipe n'a qu'un niveau.",
-    "Reload": "Recharger"
+    "Reload": "Recharger",
+    "When the main model should hand work here": "Quand le mod\xE8le principal doit lui confier du travail",
+    "Translate or proofread text between Chinese and English.": "Traduire ou relire un texte entre le chinois et l'anglais.",
+    "Funded and attached. The ad is live.": "Financ\xE9 et associ\xE9. L'annonce est en ligne."
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -2173,7 +2191,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes gespeichert. W\xE4hle \u201EGenKaKu \xB7 Agent Routes\u201C im Chat-Modellauswahldialog, um es zu nutzen.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Gespeichert, aber Agent Routes bleibt aus, bis ein Hauptmodell und mindestens ein Spezialist vorhanden sind.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie k\xF6nnen Dateien lesen und Tools nutzen. Sie k\xF6nnen nicht weiter delegieren, daher ist das Team eine Ebene tief.",
-    "Reload": "Neu laden"
+    "Reload": "Neu laden",
+    "When the main model should hand work here": "Wann das Hauptmodell Arbeit hierher geben sollte",
+    "Translate or proofread text between Chinese and English.": "Text zwischen Chinesisch und Englisch \xFCbersetzen oder Korrektur lesen.",
+    "Funded and attached. The ad is live.": "Finanziert und verkn\xFCpft. Die Anzeige ist live."
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -2479,7 +2500,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \xABGenKaKu \xB7 Agent Routes\xBB \u0432 \u0441\u043F\u0438\u0441\u043A\u0435 \u043C\u043E\u0434\u0435\u043B\u0435\u0439 \u0447\u0430\u0442\u0430.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u0421\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E, \u043D\u043E Agent Routes \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u0432\u044B\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u043C, \u043F\u043E\u043A\u0430 \u043D\u0435\u0442 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u043C\u043E\u0434\u0435\u043B\u0438 \u0438 \u0445\u043E\u0442\u044F \u0431\u044B \u043E\u0434\u043D\u043E\u0433\u043E \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B \u2014 \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u044B\u0435 \u0430\u0433\u0435\u043D\u0442\u044B: \u043E\u043D\u0438 \u0447\u0438\u0442\u0430\u044E\u0442 \u0444\u0430\u0439\u043B\u044B \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044E\u0442 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B. \u0414\u0430\u043B\u044C\u0448\u0435 \u0434\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043E\u043D\u0438 \u043D\u0435 \u043C\u043E\u0433\u0443\u0442, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043E\u0434\u043D\u043E\u0443\u0440\u043E\u0432\u043D\u0435\u0432\u0430\u044F.",
-    "Reload": "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C"
+    "Reload": "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C",
+    "When the main model should hand work here": "\u041A\u043E\u0433\u0434\u0430 \u043E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043C\u043E\u0434\u0435\u043B\u044C \u0434\u043E\u043B\u0436\u043D\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044C \u0440\u0430\u0431\u043E\u0442\u0443",
+    "Translate or proofread text between Chinese and English.": "\u041F\u0435\u0440\u0435\u0432\u043E\u0434\u0438\u0442\u044C \u0438\u043B\u0438 \u0432\u044B\u0447\u0438\u0442\u044B\u0432\u0430\u0442\u044C \u0442\u0435\u043A\u0441\u0442 \u043C\u0435\u0436\u0434\u0443 \u043A\u0438\u0442\u0430\u0439\u0441\u043A\u0438\u043C \u0438 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u043C.",
+    "Funded and attached. The ad is live.": "\u041E\u043F\u043B\u0430\u0447\u0435\u043D\u043E \u0438 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D\u043E. \u041E\u0431\u044A\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F."
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -2785,7 +2809,10 @@ var MESSAGES = {
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": 'Agent Routes salvo. Escolha "GenKaKu \xB7 Agent Routes" no seletor de modelos do chat para usar.',
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Salvo, mas o Agent Routes fica desativado at\xE9 ter um modelo principal e pelo menos um especialista.",
     "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas s\xE3o agentes completos: podem ler arquivos e usar ferramentas. N\xE3o podem delegar mais, ent\xE3o a equipe tem um n\xEDvel s\xF3.",
-    "Reload": "Recarregar"
+    "Reload": "Recarregar",
+    "When the main model should hand work here": "Quando o modelo principal deve passar trabalho",
+    "Translate or proofread text between Chinese and English.": "Traduzir ou revisar texto entre chin\xEAs e ingl\xEAs.",
+    "Funded and attached. The ad is live.": "Financiado e vinculado. O an\xFAncio est\xE1 no ar."
   }
 };
 var LOCALE_LABELS = {

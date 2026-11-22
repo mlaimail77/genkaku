@@ -302,5 +302,8 @@
   "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.",
   "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Saved, but Agent Routes stays off until it has a main model and at least one specialist.",
   "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.",
-  "Reload": "Reload"
+  "Reload": "Reload",
+  "When the main model should hand work here": "When the main model should hand work here",
+  "Translate or proofread text between Chinese and English.": "Translate or proofread text between Chinese and English.",
+  "Funded and attached. The ad is live.": "Funded and attached. The ad is live."
 }

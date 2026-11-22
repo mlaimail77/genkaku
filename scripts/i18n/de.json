@@ -302,5 +302,8 @@
   "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes gespeichert. Wähle „GenKaKu · Agent Routes“ im Chat-Modellauswahldialog, um es zu nutzen.",
   "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Gespeichert, aber Agent Routes bleibt aus, bis ein Hauptmodell und mindestens ein Spezialist vorhanden sind.",
   "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie können Dateien lesen und Tools nutzen. Sie können nicht weiter delegieren, daher ist das Team eine Ebene tief.",
-  "Reload": "Neu laden"
+  "Reload": "Neu laden",
+  "When the main model should hand work here": "Wann das Hauptmodell Arbeit hierher geben sollte",
+  "Translate or proofread text between Chinese and English.": "Text zwischen Chinesisch und Englisch übersetzen oder Korrektur lesen.",
+  "Funded and attached. The ad is live.": "Finanziert und verknüpft. Die Anzeige ist live."
 }

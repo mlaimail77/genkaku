@@ -302,5 +302,8 @@
   "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes сохранено. Выберите «GenKaKu · Agent Routes» в списке моделей чата.",
   "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Сохранено, но Agent Routes останется выключенным, пока нет основной модели и хотя бы одного специалиста.",
   "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Специалисты — полноценные агенты: они читают файлы и используют инструменты. Дальше делегировать они не могут, поэтому команда одноуровневая.",
-  "Reload": "Обновить"
+  "Reload": "Обновить",
+  "When the main model should hand work here": "Когда основная модель должна передавать работу",
+  "Translate or proofread text between Chinese and English.": "Переводить или вычитывать текст между китайским и английским.",
+  "Funded and attached. The ad is live.": "Оплачено и привязано. Объявление показывается."
 }

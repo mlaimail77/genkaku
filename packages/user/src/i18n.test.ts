@@ -3,7 +3,10 @@
 // to stop.
 
 import assert from 'node:assert/strict'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 import { test } from 'node:test'
+import { fileURLToPath } from 'node:url'
 
 import { MESSAGES } from './client/locales.ts'
 
@@ -31,4 +34,25 @@ test('the Simplified Chinese dictionary has no Traditional-only forms', () => {
   for (const traditional of ['個', '這', '說', '連線', '廣告', '錢包', '設', '為']) {
     assert.equal(zh.includes(traditional), false, `Traditional character ${traditional} in zh`)
   }
+})
+
+test('every string the panel asks for exists in the dictionary', () => {
+  // The dictionary can be complete and still miss a key the UI uses, which is
+  // how one label shipped in English inside a Chinese panel. Scan the sources
+  // for `t('…')` and require each key.
+  const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'client')
+  // A published tarball ships dist only; there is nothing to scan there.
+  if (!existsSync(dir)) return
+
+  const used = new Set<string>()
+  for (const name of readdirSync(dir)) {
+    if (!name.endsWith('.tsx') && !name.endsWith('.ts')) continue
+    const source = readFileSync(join(dir, name), 'utf8')
+    for (const match of source.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) {
+      used.add(match[1]!.replace(/\\(.)/g, '$1'))
+    }
+  }
+
+  const missing = [...used].filter(key => !(key in MESSAGES.en))
+  assert.deepEqual(missing, [], `keys used by the panel but absent from en.json: ${missing.join(' | ')}`)
 })
