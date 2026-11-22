@@ -336,7 +336,8 @@ var MESSAGES = {
     "agent-ready": "\u53EF\u4F5C agent",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "\u5DF2\u4FDD\u5B58 Agent Routes\u3002\u5728\u804A\u5929\u6A21\u578B\u9009\u62E9\u5668\u4E2D\u9009\u62E9\u300CGenKaKu \xB7 Agent Routes\u300D\u5373\u53EF\u4F7F\u7528\u3002",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u5DF2\u4FDD\u5B58\uFF0C\u4F46 Agent Routes \u9700\u8981\u4E00\u4E2A\u4E3B\u6A21\u578B\u548C\u81F3\u5C11\u4E00\u4F4D\u4E13\u5BB6\u624D\u4F1A\u5F00\u542F\u3002",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u4E13\u5BB6\u662F\u5B8C\u6574\u7684 agent\uFF1A\u53EF\u4EE5\u8BFB\u53D6\u6587\u4EF6\u3001\u4F7F\u7528\u5DE5\u5177\u3002\u4ED6\u4EEC\u4E0D\u80FD\u518D\u59D4\u6D3E\uFF0C\u6240\u4EE5\u56E2\u961F\u53EA\u6709\u4E00\u5C42\u3002"
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u4E13\u5BB6\u662F\u5B8C\u6574\u7684 agent\uFF1A\u53EF\u4EE5\u8BFB\u53D6\u6587\u4EF6\u3001\u4F7F\u7528\u5DE5\u5177\u3002\u4ED6\u4EEC\u4E0D\u80FD\u518D\u59D4\u6D3E\uFF0C\u6240\u4EE5\u56E2\u961F\u53EA\u6709\u4E00\u5C42\u3002",
+    "Reload": "\u91CD\u65B0\u8F7D\u5165"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -641,7 +642,8 @@ var MESSAGES = {
     "agent-ready": "agent-ready",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Saved, but Agent Routes stays off until it has a main model and at least one specialist.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.",
+    "Reload": "Reload"
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -946,7 +948,8 @@ var MESSAGES = {
     "agent-ready": "\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u5BFE\u5FDC",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes \u3092\u4FDD\u5B58\u3057\u307E\u3057\u305F\u3002\u30C1\u30E3\u30C3\u30C8\u306E\u30E2\u30C7\u30EB\u9078\u629E\u3067\u300CGenKaKu \xB7 Agent Routes\u300D\u3092\u9078\u3076\u3068\u4F7F\u3048\u307E\u3059\u3002",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u4FDD\u5B58\u3057\u307E\u3057\u305F\u304C\u3001\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u3068\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u304C 1 \u540D\u4EE5\u4E0A\u306B\u306A\u308B\u307E\u3067 Agent Routes \u306F\u30AA\u30D5\u306E\u307E\u307E\u3067\u3059\u3002",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306F\u5B8C\u5168\u306A\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3067\u3001\u30D5\u30A1\u30A4\u30EB\u306E\u8AAD\u307F\u53D6\u308A\u3084\u30C4\u30FC\u30EB\u306E\u4F7F\u7528\u304C\u3067\u304D\u307E\u3059\u3002\u3055\u3089\u306B\u59D4\u4EFB\u306F\u3067\u304D\u306A\u3044\u305F\u3081\u3001\u30C1\u30FC\u30E0\u306F 1 \u968E\u5C64\u3067\u3059\u3002"
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306F\u5B8C\u5168\u306A\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3067\u3001\u30D5\u30A1\u30A4\u30EB\u306E\u8AAD\u307F\u53D6\u308A\u3084\u30C4\u30FC\u30EB\u306E\u4F7F\u7528\u304C\u3067\u304D\u307E\u3059\u3002\u3055\u3089\u306B\u59D4\u4EFB\u306F\u3067\u304D\u306A\u3044\u305F\u3081\u3001\u30C1\u30FC\u30E0\u306F 1 \u968E\u5C64\u3067\u3059\u3002",
+    "Reload": "\u518D\u8AAD\u307F\u8FBC\u307F"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1251,7 +1254,8 @@ var MESSAGES = {
     "agent-ready": "\uC5D0\uC774\uC804\uD2B8 \uC0AC\uC6A9 \uAC00\uB2A5",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": 'Agent Routes\uB97C \uC800\uC7A5\uD588\uC2B5\uB2C8\uB2E4. \uCC44\uD305 \uBAA8\uB378 \uC120\uD0DD\uC5D0\uC11C "GenKaKu \xB7 Agent Routes"\uB97C \uACE0\uB974\uBA74 \uC0AC\uC6A9\uB429\uB2C8\uB2E4.',
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\uC800\uC7A5\uD588\uC9C0\uB9CC, \uBA54\uC778 \uBAA8\uB378\uACFC \uC804\uBB38\uAC00\uAC00 \uCD5C\uC18C \uD55C \uBA85 \uC788\uC5B4\uC57C Agent Routes\uAC00 \uCF1C\uC9D1\uB2C8\uB2E4.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\uC804\uBB38\uAC00\uB294 \uC644\uC804\uD55C \uC5D0\uC774\uC804\uD2B8\uB85C \uD30C\uC77C\uC744 \uC77D\uACE0 \uB3C4\uAD6C\uB97C \uC4F8 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uB2E4\uC2DC \uC704\uC784\uD560 \uC218 \uC5C6\uC73C\uBBC0\uB85C \uD300\uC740 \uD55C \uB2E8\uACC4\uC785\uB2C8\uB2E4."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\uC804\uBB38\uAC00\uB294 \uC644\uC804\uD55C \uC5D0\uC774\uC804\uD2B8\uB85C \uD30C\uC77C\uC744 \uC77D\uACE0 \uB3C4\uAD6C\uB97C \uC4F8 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uB2E4\uC2DC \uC704\uC784\uD560 \uC218 \uC5C6\uC73C\uBBC0\uB85C \uD300\uC740 \uD55C \uB2E8\uACC4\uC785\uB2C8\uB2E4.",
+    "Reload": "\uC0C8\uB85C \uACE0\uCE68"
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1556,7 +1560,8 @@ var MESSAGES = {
     "agent-ready": "listo para agentes",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes guardado. Elige \xABGenKaKu \xB7 Agent Routes\xBB en el selector de modelos del chat para usarlo.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Guardado, pero Agent Routes seguir\xE1 desactivado hasta que tenga un modelo principal y al menos un especialista.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar m\xE1s, as\xED que el equipo tiene un solo nivel."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar m\xE1s, as\xED que el equipo tiene un solo nivel.",
+    "Reload": "Recargar"
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -1861,7 +1866,8 @@ var MESSAGES = {
     "agent-ready": "pr\xEAt pour agent",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes enregistr\xE9. Choisissez \xAB GenKaKu \xB7 Agent Routes \xBB dans le s\xE9lecteur de mod\xE8les du chat pour l'utiliser.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Enregistr\xE9, mais Agent Routes reste d\xE9sactiv\xE9 tant qu'il n'a pas de mod\xE8le principal et au moins un sp\xE9cialiste.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les sp\xE9cialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas d\xE9l\xE9guer davantage, donc l'\xE9quipe n'a qu'un niveau."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les sp\xE9cialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas d\xE9l\xE9guer davantage, donc l'\xE9quipe n'a qu'un niveau.",
+    "Reload": "Recharger"
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -2166,7 +2172,8 @@ var MESSAGES = {
     "agent-ready": "agent-tauglich",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes gespeichert. W\xE4hle \u201EGenKaKu \xB7 Agent Routes\u201C im Chat-Modellauswahldialog, um es zu nutzen.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Gespeichert, aber Agent Routes bleibt aus, bis ein Hauptmodell und mindestens ein Spezialist vorhanden sind.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie k\xF6nnen Dateien lesen und Tools nutzen. Sie k\xF6nnen nicht weiter delegieren, daher ist das Team eine Ebene tief."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie k\xF6nnen Dateien lesen und Tools nutzen. Sie k\xF6nnen nicht weiter delegieren, daher ist das Team eine Ebene tief.",
+    "Reload": "Neu laden"
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -2471,7 +2478,8 @@ var MESSAGES = {
     "agent-ready": "\u0433\u043E\u0442\u043E\u0432 \u0434\u043B\u044F \u0430\u0433\u0435\u043D\u0442\u0430",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \xABGenKaKu \xB7 Agent Routes\xBB \u0432 \u0441\u043F\u0438\u0441\u043A\u0435 \u043C\u043E\u0434\u0435\u043B\u0435\u0439 \u0447\u0430\u0442\u0430.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u0421\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E, \u043D\u043E Agent Routes \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u0432\u044B\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u043C, \u043F\u043E\u043A\u0430 \u043D\u0435\u0442 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u043C\u043E\u0434\u0435\u043B\u0438 \u0438 \u0445\u043E\u0442\u044F \u0431\u044B \u043E\u0434\u043D\u043E\u0433\u043E \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B \u2014 \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u044B\u0435 \u0430\u0433\u0435\u043D\u0442\u044B: \u043E\u043D\u0438 \u0447\u0438\u0442\u0430\u044E\u0442 \u0444\u0430\u0439\u043B\u044B \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044E\u0442 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B. \u0414\u0430\u043B\u044C\u0448\u0435 \u0434\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043E\u043D\u0438 \u043D\u0435 \u043C\u043E\u0433\u0443\u0442, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043E\u0434\u043D\u043E\u0443\u0440\u043E\u0432\u043D\u0435\u0432\u0430\u044F."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B \u2014 \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u044B\u0435 \u0430\u0433\u0435\u043D\u0442\u044B: \u043E\u043D\u0438 \u0447\u0438\u0442\u0430\u044E\u0442 \u0444\u0430\u0439\u043B\u044B \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044E\u0442 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B. \u0414\u0430\u043B\u044C\u0448\u0435 \u0434\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043E\u043D\u0438 \u043D\u0435 \u043C\u043E\u0433\u0443\u0442, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043E\u0434\u043D\u043E\u0443\u0440\u043E\u0432\u043D\u0435\u0432\u0430\u044F.",
+    "Reload": "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C"
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -2776,7 +2784,8 @@ var MESSAGES = {
     "agent-ready": "pronto para agente",
     "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": 'Agent Routes salvo. Escolha "GenKaKu \xB7 Agent Routes" no seletor de modelos do chat para usar.',
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Salvo, mas o Agent Routes fica desativado at\xE9 ter um modelo principal e pelo menos um especialista.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas s\xE3o agentes completos: podem ler arquivos e usar ferramentas. N\xE3o podem delegar mais, ent\xE3o a equipe tem um n\xEDvel s\xF3."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas s\xE3o agentes completos: podem ler arquivos e usar ferramentas. N\xE3o podem delegar mais, ent\xE3o a equipe tem um n\xEDvel s\xF3.",
+    "Reload": "Recarregar"
   }
 };
 var LOCALE_LABELS = {
@@ -3231,6 +3240,7 @@ function AgentRoutes({ get, post, onNotice }) {
   const [busy, setBusy] = (0, import_react3.useState)(null);
   const [error, setError] = (0, import_react3.useState)(null);
   const [openAgent, setOpenAgent] = (0, import_react3.useState)(null);
+  const dirtyRef = (0, import_react3.useRef)(false);
   const apply2 = (0, import_react3.useCallback)((doc) => {
     const next = doc.config;
     if (next == null) return;
@@ -3249,6 +3259,12 @@ function AgentRoutes({ get, post, onNotice }) {
   }, [apply2, get]);
   (0, import_react3.useEffect)(() => {
     void load();
+  }, [load]);
+  (0, import_react3.useEffect)(() => {
+    const timer = setInterval(() => {
+      if (!dirtyRef.current) void load();
+    }, 2e4);
+    return () => clearInterval(timer);
   }, [load]);
   const save = (0, import_react3.useCallback)(async (next) => {
     setBusy("save");
@@ -3294,8 +3310,8 @@ function AgentRoutes({ get, post, onNotice }) {
     patch({ agents: draft.agents.map((agent) => agent.id === id ? { ...agent, ...changes } : agent) });
   };
   const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config);
+  dirtyRef.current = dirty;
   const mainKey = routeKey(draft.main);
-  const mainLabel = mainKey === "" ? t("Choose a model") : mainKey === "genkaku|" ? t("Any local worker (auto)") : mainKey;
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
@@ -3345,7 +3361,6 @@ function AgentRoutes({ get, post, onNotice }) {
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: -2, marginBottom: 6 }, children: mainLabel }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "inline-flex", gap: 6, alignItems: "center", fontSize: 12, ...dim }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
         "input",
@@ -3548,7 +3563,10 @@ function AgentRoutes({ get, post, onNotice }) {
         void save(draft);
       }, children: busy === "save" ? t("Saving\u2026") : t("Save Agent Routes") }),
       dirty && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("Unsaved changes") }),
-      !dirty && config != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: config.updatedAt > 0 ? t("Saved {value}", { value: new Date(config.updatedAt).toLocaleString() }) : "" })
+      !dirty && config != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: config.updatedAt > 0 ? t("Saved {value}", { value: new Date(config.updatedAt).toLocaleString() }) : "" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
+        void load();
+      }, children: t("Reload") })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 16 }, children: t("Recent delegations") }),
     decisions.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No delegation yet. Ask something a specialist covers.") }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4 }, children: [

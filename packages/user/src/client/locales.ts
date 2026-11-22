@@ -305,7 +305,8 @@ export const MESSAGES = {
     "agent-ready": "可作 agent",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "已保存 Agent Routes。在聊天模型选择器中选择「GenKaKu · Agent Routes」即可使用。",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "已保存，但 Agent Routes 需要一个主模型和至少一位专家才会开启。",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "专家是完整的 agent：可以读取文件、使用工具。他们不能再委派，所以团队只有一层。"
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "专家是完整的 agent：可以读取文件、使用工具。他们不能再委派，所以团队只有一层。",
+    "Reload": "重新载入"
   },
   "en": {
     "Reconnecting to the bridge…": "Reconnecting to the bridge…",
@@ -610,7 +611,8 @@ export const MESSAGES = {
     "agent-ready": "agent-ready",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Saved, but Agent Routes stays off until it has a main model and at least one specialist.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.",
+    "Reload": "Reload"
   },
   "ja": {
     "Reconnecting to the bridge…": "bridge に再接続しています…",
@@ -915,7 +917,8 @@ export const MESSAGES = {
     "agent-ready": "エージェント対応",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes を保存しました。チャットのモデル選択で「GenKaKu · Agent Routes」を選ぶと使えます。",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "保存しましたが、メインモデルとスペシャリストが 1 名以上になるまで Agent Routes はオフのままです。",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "スペシャリストは完全なエージェントで、ファイルの読み取りやツールの使用ができます。さらに委任はできないため、チームは 1 階層です。"
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "スペシャリストは完全なエージェントで、ファイルの読み取りやツールの使用ができます。さらに委任はできないため、チームは 1 階層です。",
+    "Reload": "再読み込み"
   },
   "ko": {
     "Reconnecting to the bridge…": "bridge에 다시 연결하는 중…",
@@ -1220,7 +1223,8 @@ export const MESSAGES = {
     "agent-ready": "에이전트 사용 가능",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes를 저장했습니다. 채팅 모델 선택에서 \"GenKaKu · Agent Routes\"를 고르면 사용됩니다.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "저장했지만, 메인 모델과 전문가가 최소 한 명 있어야 Agent Routes가 켜집니다.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "전문가는 완전한 에이전트로 파일을 읽고 도구를 쓸 수 있습니다. 다시 위임할 수 없으므로 팀은 한 단계입니다."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "전문가는 완전한 에이전트로 파일을 읽고 도구를 쓸 수 있습니다. 다시 위임할 수 없으므로 팀은 한 단계입니다.",
+    "Reload": "새로 고침"
   },
   "es": {
     "Reconnecting to the bridge…": "Reconectando con el bridge…",
@@ -1525,7 +1529,8 @@ export const MESSAGES = {
     "agent-ready": "listo para agentes",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes guardado. Elige «GenKaKu · Agent Routes» en el selector de modelos del chat para usarlo.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Guardado, pero Agent Routes seguirá desactivado hasta que tenga un modelo principal y al menos un especialista.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar más, así que el equipo tiene un solo nivel."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar más, así que el equipo tiene un solo nivel.",
+    "Reload": "Recargar"
   },
   "fr": {
     "Reconnecting to the bridge…": "Reconnexion au bridge…",
@@ -1830,7 +1835,8 @@ export const MESSAGES = {
     "agent-ready": "prêt pour agent",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes enregistré. Choisissez « GenKaKu · Agent Routes » dans le sélecteur de modèles du chat pour l'utiliser.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Enregistré, mais Agent Routes reste désactivé tant qu'il n'a pas de modèle principal et au moins un spécialiste.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les spécialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas déléguer davantage, donc l'équipe n'a qu'un niveau."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les spécialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas déléguer davantage, donc l'équipe n'a qu'un niveau.",
+    "Reload": "Recharger"
   },
   "de": {
     "Reconnecting to the bridge…": "Verbindung zur Bridge wird wiederhergestellt…",
@@ -2135,7 +2141,8 @@ export const MESSAGES = {
     "agent-ready": "agent-tauglich",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes gespeichert. Wähle „GenKaKu · Agent Routes“ im Chat-Modellauswahldialog, um es zu nutzen.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Gespeichert, aber Agent Routes bleibt aus, bis ein Hauptmodell und mindestens ein Spezialist vorhanden sind.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie können Dateien lesen und Tools nutzen. Sie können nicht weiter delegieren, daher ist das Team eine Ebene tief."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie können Dateien lesen und Tools nutzen. Sie können nicht weiter delegieren, daher ist das Team eine Ebene tief.",
+    "Reload": "Neu laden"
   },
   "ru": {
     "Reconnecting to the bridge…": "Переподключение к bridge…",
@@ -2440,7 +2447,8 @@ export const MESSAGES = {
     "agent-ready": "готов для агента",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes сохранено. Выберите «GenKaKu · Agent Routes» в списке моделей чата.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Сохранено, но Agent Routes останется выключенным, пока нет основной модели и хотя бы одного специалиста.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Специалисты — полноценные агенты: они читают файлы и используют инструменты. Дальше делегировать они не могут, поэтому команда одноуровневая."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Специалисты — полноценные агенты: они читают файлы и используют инструменты. Дальше делегировать они не могут, поэтому команда одноуровневая.",
+    "Reload": "Обновить"
   },
   "pt": {
     "Reconnecting to the bridge…": "Reconectando à bridge…",
@@ -2745,7 +2753,8 @@ export const MESSAGES = {
     "agent-ready": "pronto para agente",
     "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes salvo. Escolha \"GenKaKu · Agent Routes\" no seletor de modelos do chat para usar.",
     "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Salvo, mas o Agent Routes fica desativado até ter um modelo principal e pelo menos um especialista.",
-    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas são agentes completos: podem ler arquivos e usar ferramentas. Não podem delegar mais, então a equipe tem um nível só."
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas são agentes completos: podem ler arquivos e usar ferramentas. Não podem delegar mais, então a equipe tem um nível só.",
+    "Reload": "Recarregar"
   }
 } as const
 

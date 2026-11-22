@@ -12,7 +12,7 @@
 //     that actually ran, so "why did the answer come from that model" has an
 //     answer in the same screen.
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button, Input } from '@deepseek-ai/dsh-client-ui-primitives'
 
@@ -134,6 +134,8 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
   const [busy, setBusy] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [openAgent, setOpenAgent] = useState<string | null>(null)
+  /** A background refresh must never overwrite an edit in progress. */
+  const dirtyRef = useRef(false)
 
   const apply = useCallback((doc: Record<string, unknown>): void => {
     const next = doc.config as Config | undefined
@@ -154,6 +156,14 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
   }, [apply, get])
 
   useEffect(() => { void load() }, [load])
+
+  // The record is written by the adapter on the other side of the same
+  // process, so a slow poll is how the panel notices a delegation it did not
+  // start. Skipped while the form is dirty, or the poll would eat the edit.
+  useEffect(() => {
+    const timer = setInterval(() => { if (!dirtyRef.current) void load() }, 20_000)
+    return () => clearInterval(timer)
+  }, [load])
 
   const save = useCallback(async (next: Config): Promise<void> => {
     setBusy('save')
@@ -207,12 +217,8 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
     patch({ agents: draft.agents.map(agent => agent.id === id ? { ...agent, ...changes } : agent) })
   }
   const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config)
+  dirtyRef.current = dirty
   const mainKey = routeKey(draft.main)
-  const mainLabel = mainKey === ''
-    ? t('Choose a model')
-    : mainKey === 'genkaku|'
-      ? t('Any local worker (auto)')
-      : mainKey
 
   return (
     <div style={box}>
@@ -258,7 +264,6 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
           <RouteOptions catalog={catalog} />
         </select>
       </div>
-      <div style={{ ...dim, fontSize: 11, marginTop: -2, marginBottom: 6 }}>{mainLabel}</div>
 
       <label style={{ display: 'inline-flex', gap: 6, alignItems: 'center', fontSize: 12, ...dim }}>
         <input
@@ -441,6 +446,9 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
             {config.updatedAt > 0 ? t('Saved {value}', { value: new Date(config.updatedAt).toLocaleString() }) : ''}
           </span>
         )}
+        <Button variant="ghost" size="sm" disabled={busy !== null} onClick={() => { void load() }}>
+          {t('Reload')}
+        </Button>
       </div>
 
       <div style={{ ...caption, marginTop: 16 }}>{t('Recent delegations')}</div>

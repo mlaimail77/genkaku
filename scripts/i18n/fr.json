@@ -301,5 +301,6 @@
   "agent-ready": "prêt pour agent",
   "Agent Routes saved. Pick “GenKaKu · Agent Routes” in the chat model picker to use it.": "Agent Routes enregistré. Choisissez « GenKaKu · Agent Routes » dans le sélecteur de modèles du chat pour l'utiliser.",
   "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Enregistré, mais Agent Routes reste désactivé tant qu'il n'a pas de modèle principal et au moins un spécialiste.",
-  "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les spécialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas déléguer davantage, donc l'équipe n'a qu'un niveau."
+  "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les spécialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas déléguer davantage, donc l'équipe n'a qu'un niveau.",
+  "Reload": "Recharger"
 }
