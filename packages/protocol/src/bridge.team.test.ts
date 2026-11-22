@@ -249,3 +249,31 @@ test('a failing advisor keeps the question and records the error', async () => {
     await h.close()
   }
 })
+
+test('a rewrite is recorded as a replacement, not a new specialist', async () => {
+  const h = await start({
+    teamAdvisor: async (input) => {
+      assert.equal(input.mode, 'rewrite')
+      assert.equal(input.agentId, 'translator')
+      return {
+        reply: 'Tighter.',
+        cards: [card],
+        model: { provider: 'deepseek', model: 'chat' },
+        ms: 5,
+      }
+    },
+  })
+  try {
+    const doc = await json(await post(h.root, '/genkaku/team/advice', {
+      mode: 'rewrite',
+      question: 'make it shorter',
+      agentId: 'translator',
+      locale: 'en',
+    }))
+    const thread = doc.thread as { messages: Array<{ role: string; mode?: string; agentId?: string }> }
+    assert.equal(thread.messages.at(-1)!.mode, 'rewrite')
+    assert.equal(thread.messages.at(-1)!.agentId, 'translator')
+  } finally {
+    await h.close()
+  }
+})

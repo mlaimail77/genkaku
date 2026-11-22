@@ -383,5 +383,10 @@
   "tpl.coder.ex2": "이 파일의 빈 입력 경우에 테스트를 추가해 줘",
   "tpl.coder.ex3": "이 모듈이 무엇을 하고 무엇을 다루지 않는지 설명해 줘",
   "tpl.coder.prompt": "당신은 프로그래머입니다. 답하기 전에 코드를 읽고 파일과 줄 번호를 인용합니다. 가장 작은 변경을 우선합니다. diff 또는 바꿀 줄만 보여 주고 파일 전체를 붙이지 않습니다. 테스트로 증명할 수 있으면 테스트를 씁니다.",
-  "Download file": "파일 다운로드"
+  "Download file": "파일 다운로드",
+  "Rewrite one specialist": "전문가 다시 쓰기",
+  "Choose a specialist": "전문가 선택",
+  "Rewrite": "다시 쓰기",
+  "Replace {name}": "{name} 바꾸기",
+  "Replaced {name} in the draft. Save to keep it.": "초안에서 {name}을(를) 바꿨습니다. 저장해야 반영됩니다."
 }

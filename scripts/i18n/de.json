@@ -383,5 +383,10 @@
   "tpl.coder.ex2": "Ergänze einen Test für den Leereingabe-Fall in dieser Datei",
   "tpl.coder.ex3": "Erkläre, was dieses Modul tut und was es nicht abdeckt",
   "tpl.coder.prompt": "Du bist Programmierer. Lies den Code, bevor du antwortest, und nenne Datei und Zeile. Nimm die kleinste Änderung. Zeig den Diff oder die genauen Zeilen, nicht die ganze Datei. Wenn ein Test den Fix beweist, schreib ihn.",
-  "Download file": "Datei herunterladen"
+  "Download file": "Datei herunterladen",
+  "Rewrite one specialist": "Einen Spezialisten umschreiben",
+  "Choose a specialist": "Spezialist wählen",
+  "Rewrite": "Umschreiben",
+  "Replace {name}": "„{name}“ ersetzen",
+  "Replaced {name} in the draft. Save to keep it.": "„{name}“ wurde im Entwurf ersetzt. Speichern, um es zu behalten."
 }

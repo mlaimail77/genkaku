@@ -418,7 +418,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "\u4E3A\u8FD9\u4E2A\u6587\u4EF6\u7684\u7A7A\u8F93\u5165\u60C5\u51B5\u8865\u4E00\u4E2A\u6D4B\u8BD5",
     "tpl.coder.ex3": "\u8BF4\u660E\u8FD9\u4E2A\u6A21\u5757\u505A\u4EC0\u4E48\uFF0C\u4EE5\u53CA\u5B83\u6CA1\u6709\u5904\u7406\u4EC0\u4E48",
     "tpl.coder.prompt": "\u4F60\u662F\u7A0B\u5E8F\u5458\u3002\u56DE\u7B54\u524D\u5148\u8BFB\u4EE3\u7801\uFF0C\u5F15\u7528\u6587\u4EF6\u4E0E\u884C\u53F7\u3002\u4F18\u5148\u6700\u5C0F\u6539\u52A8\u3002\u7ED9\u51FA diff \u6216\u8981\u66FF\u6362\u7684\u786E\u5207\u884C\uFF0C\u4E0D\u8981\u8D34\u6574\u4E2A\u6587\u4EF6\u3002\u5982\u679C\u6D4B\u8BD5\u80FD\u8BC1\u660E\u4FEE\u590D\uFF0C\u5C31\u628A\u6D4B\u8BD5\u5199\u51FA\u6765\u3002",
-    "Download file": "\u4E0B\u8F7D\u6587\u4EF6"
+    "Download file": "\u4E0B\u8F7D\u6587\u4EF6",
+    "Rewrite one specialist": "\u6539\u5199\u4E00\u4F4D\u4E13\u5BB6",
+    "Choose a specialist": "\u9009\u62E9\u4E13\u5BB6",
+    "Rewrite": "\u6539\u5199",
+    "Replace {name}": "\u53D6\u4EE3\u300C{name}\u300D",
+    "Replaced {name} in the draft. Save to keep it.": "\u5DF2\u5728\u8349\u7A3F\u4E2D\u53D6\u4EE3\u300C{name}\u300D\u3002\u4FDD\u5B58\u540E\u624D\u4F1A\u751F\u6548\u3002"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -805,7 +810,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "tpl.coder.ex2",
     "tpl.coder.ex3": "tpl.coder.ex3",
     "tpl.coder.prompt": "tpl.coder.prompt",
-    "Download file": "Download file"
+    "Download file": "Download file",
+    "Rewrite one specialist": "Rewrite one specialist",
+    "Choose a specialist": "Choose a specialist",
+    "Rewrite": "Rewrite",
+    "Replace {name}": "Replace {name}",
+    "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it."
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -1192,7 +1202,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "\u3053\u306E\u30D5\u30A1\u30A4\u30EB\u306E\u7A7A\u5165\u529B\u30B1\u30FC\u30B9\u306B\u30C6\u30B9\u30C8\u3092\u8DB3\u3057\u3066",
     "tpl.coder.ex3": "\u3053\u306E\u30E2\u30B8\u30E5\u30FC\u30EB\u304C\u4F55\u3092\u3057\u3066\u3001\u4F55\u3092\u6271\u3063\u3066\u3044\u306A\u3044\u304B\u3092\u8AAC\u660E\u3057\u3066",
     "tpl.coder.prompt": "\u3042\u306A\u305F\u306F\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\u3067\u3059\u3002\u7B54\u3048\u308B\u524D\u306B\u30B3\u30FC\u30C9\u3092\u8AAD\u307F\u3001\u30D5\u30A1\u30A4\u30EB\u3068\u884C\u756A\u53F7\u3092\u793A\u3059\u3002\u6700\u5C0F\u306E\u5909\u66F4\u3092\u512A\u5148\u3002\u5DEE\u5206\u304B\u7F6E\u304D\u63DB\u3048\u308B\u884C\u3060\u3051\u3092\u793A\u3057\u3001\u30D5\u30A1\u30A4\u30EB\u5168\u4F53\u306F\u8CBC\u3089\u306A\u3044\u3002\u30C6\u30B9\u30C8\u3067\u793A\u305B\u308B\u306A\u3089\u30C6\u30B9\u30C8\u3082\u66F8\u304F\u3002",
-    "Download file": "\u30D5\u30A1\u30A4\u30EB\u3092\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9"
+    "Download file": "\u30D5\u30A1\u30A4\u30EB\u3092\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9",
+    "Rewrite one specialist": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u3092\u66F8\u304D\u76F4\u3059",
+    "Choose a specialist": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u3092\u9078\u629E",
+    "Rewrite": "\u66F8\u304D\u76F4\u3059",
+    "Replace {name}": "\u300C{name}\u300D\u3092\u7F6E\u304D\u63DB\u3048",
+    "Replaced {name} in the draft. Save to keep it.": "\u4E0B\u66F8\u304D\u306E\u300C{name}\u300D\u3092\u7F6E\u304D\u63DB\u3048\u307E\u3057\u305F\u3002\u4FDD\u5B58\u3059\u308B\u3068\u78BA\u5B9A\u3057\u307E\u3059\u3002"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1579,7 +1594,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "\uC774 \uD30C\uC77C\uC758 \uBE48 \uC785\uB825 \uACBD\uC6B0\uC5D0 \uD14C\uC2A4\uD2B8\uB97C \uCD94\uAC00\uD574 \uC918",
     "tpl.coder.ex3": "\uC774 \uBAA8\uB4C8\uC774 \uBB34\uC5C7\uC744 \uD558\uACE0 \uBB34\uC5C7\uC744 \uB2E4\uB8E8\uC9C0 \uC54A\uB294\uC9C0 \uC124\uBA85\uD574 \uC918",
     "tpl.coder.prompt": "\uB2F9\uC2E0\uC740 \uD504\uB85C\uADF8\uB798\uBA38\uC785\uB2C8\uB2E4. \uB2F5\uD558\uAE30 \uC804\uC5D0 \uCF54\uB4DC\uB97C \uC77D\uACE0 \uD30C\uC77C\uACFC \uC904 \uBC88\uD638\uB97C \uC778\uC6A9\uD569\uB2C8\uB2E4. \uAC00\uC7A5 \uC791\uC740 \uBCC0\uACBD\uC744 \uC6B0\uC120\uD569\uB2C8\uB2E4. diff \uB610\uB294 \uBC14\uAFC0 \uC904\uB9CC \uBCF4\uC5EC \uC8FC\uACE0 \uD30C\uC77C \uC804\uCCB4\uB97C \uBD99\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uD14C\uC2A4\uD2B8\uB85C \uC99D\uBA85\uD560 \uC218 \uC788\uC73C\uBA74 \uD14C\uC2A4\uD2B8\uB97C \uC501\uB2C8\uB2E4.",
-    "Download file": "\uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC"
+    "Download file": "\uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC",
+    "Rewrite one specialist": "\uC804\uBB38\uAC00 \uB2E4\uC2DC \uC4F0\uAE30",
+    "Choose a specialist": "\uC804\uBB38\uAC00 \uC120\uD0DD",
+    "Rewrite": "\uB2E4\uC2DC \uC4F0\uAE30",
+    "Replace {name}": "{name} \uBC14\uAFB8\uAE30",
+    "Replaced {name} in the draft. Save to keep it.": "\uCD08\uC548\uC5D0\uC11C {name}\uC744(\uB97C) \uBC14\uAFE8\uC2B5\uB2C8\uB2E4. \uC800\uC7A5\uD574\uC57C \uBC18\uC601\uB429\uB2C8\uB2E4."
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1966,7 +1986,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "A\xF1ade una prueba para el caso de entrada vac\xEDa en este archivo",
     "tpl.coder.ex3": "Explica qu\xE9 hace este m\xF3dulo y qu\xE9 no cubre",
     "tpl.coder.prompt": "Eres programador. Lee el c\xF3digo antes de responder y cita archivo y l\xEDnea. Prefiere el cambio m\xE1s peque\xF1o. Muestra el diff o las l\xEDneas exactas, no el archivo entero. Si una prueba demuestra el arreglo, escr\xEDbela.",
-    "Download file": "Descargar archivo"
+    "Download file": "Descargar archivo",
+    "Rewrite one specialist": "Reescribir un especialista",
+    "Choose a specialist": "Elige un especialista",
+    "Rewrite": "Reescribir",
+    "Replace {name}": "Sustituir \xAB{name}\xBB",
+    "Replaced {name} in the draft. Save to keep it.": "Se sustituy\xF3 \xAB{name}\xBB en el borrador. Guarda para conservarlo."
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -2353,7 +2378,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "Ajoute un test pour le cas d'entr\xE9e vide dans ce fichier",
     "tpl.coder.ex3": "Explique ce que fait ce module et ce qu'il ne g\xE8re pas",
     "tpl.coder.prompt": "Vous \xEAtes programmeur. Lisez le code avant de r\xE9pondre et citez fichier et ligne. Pr\xE9f\xE9rez le plus petit changement. Montrez le diff ou les lignes exactes, pas le fichier entier. Si un test prouve le correctif, \xE9crivez-le.",
-    "Download file": "T\xE9l\xE9charger le fichier"
+    "Download file": "T\xE9l\xE9charger le fichier",
+    "Rewrite one specialist": "R\xE9\xE9crire un sp\xE9cialiste",
+    "Choose a specialist": "Choisir un sp\xE9cialiste",
+    "Rewrite": "R\xE9\xE9crire",
+    "Replace {name}": "Remplacer \xAB {name} \xBB",
+    "Replaced {name} in the draft. Save to keep it.": "\xAB {name} \xBB a \xE9t\xE9 remplac\xE9 dans le brouillon. Enregistrez pour le garder."
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -2740,7 +2770,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "Erg\xE4nze einen Test f\xFCr den Leereingabe-Fall in dieser Datei",
     "tpl.coder.ex3": "Erkl\xE4re, was dieses Modul tut und was es nicht abdeckt",
     "tpl.coder.prompt": "Du bist Programmierer. Lies den Code, bevor du antwortest, und nenne Datei und Zeile. Nimm die kleinste \xC4nderung. Zeig den Diff oder die genauen Zeilen, nicht die ganze Datei. Wenn ein Test den Fix beweist, schreib ihn.",
-    "Download file": "Datei herunterladen"
+    "Download file": "Datei herunterladen",
+    "Rewrite one specialist": "Einen Spezialisten umschreiben",
+    "Choose a specialist": "Spezialist w\xE4hlen",
+    "Rewrite": "Umschreiben",
+    "Replace {name}": "\u201E{name}\u201C ersetzen",
+    "Replaced {name} in the draft. Save to keep it.": "\u201E{name}\u201C wurde im Entwurf ersetzt. Speichern, um es zu behalten."
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -3127,7 +3162,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "\u0414\u043E\u0431\u0430\u0432\u044C \u0442\u0435\u0441\u0442 \u0434\u043B\u044F \u0441\u043B\u0443\u0447\u0430\u044F \u043F\u0443\u0441\u0442\u043E\u0433\u043E \u0432\u0432\u043E\u0434\u0430 \u0432 \u044D\u0442\u043E\u043C \u0444\u0430\u0439\u043B\u0435",
     "tpl.coder.ex3": "\u041E\u0431\u044A\u044F\u0441\u043D\u0438, \u0447\u0442\u043E \u0434\u0435\u043B\u0430\u0435\u0442 \u044D\u0442\u043E\u0442 \u043C\u043E\u0434\u0443\u043B\u044C \u0438 \u0447\u0435\u0433\u043E \u043E\u043D \u043D\u0435 \u043F\u043E\u043A\u0440\u044B\u0432\u0430\u0435\u0442",
     "tpl.coder.prompt": "\u0412\u044B \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0441\u0442. \u041F\u0440\u043E\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u043A\u043E\u0434 \u043F\u0435\u0440\u0435\u0434 \u043E\u0442\u0432\u0435\u0442\u043E\u043C \u0438 \u0441\u0441\u044B\u043B\u0430\u0439\u0442\u0435\u0441\u044C \u043D\u0430 \u0444\u0430\u0439\u043B \u0438 \u0441\u0442\u0440\u043E\u043A\u0443. \u0412\u044B\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u043C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0439\u0442\u0435 diff \u0438\u043B\u0438 \u0442\u043E\u0447\u043D\u044B\u0435 \u0441\u0442\u0440\u043E\u043A\u0438, \u0430 \u043D\u0435 \u0432\u0435\u0441\u044C \u0444\u0430\u0439\u043B. \u0415\u0441\u043B\u0438 \u0442\u0435\u0441\u0442 \u0434\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0438\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u2014 \u043D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u0435\u0433\u043E.",
-    "Download file": "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0444\u0430\u0439\u043B"
+    "Download file": "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0444\u0430\u0439\u043B",
+    "Rewrite one specialist": "\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u0430\u0442\u044C \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "Choose a specialist": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "Rewrite": "\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u0430\u0442\u044C",
+    "Replace {name}": "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \xAB{name}\xBB",
+    "Replaced {name} in the draft. Save to keep it.": "\xAB{name}\xBB \u0437\u0430\u043C\u0435\u043D\u0451\u043D \u0432 \u0447\u0435\u0440\u043D\u043E\u0432\u0438\u043A\u0435. \u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C."
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -3514,7 +3554,12 @@ var MESSAGES = {
     "tpl.coder.ex2": "Adicione um teste para o caso de entrada vazia neste arquivo",
     "tpl.coder.ex3": "Explique o que este m\xF3dulo faz e o que ele n\xE3o cobre",
     "tpl.coder.prompt": "Voc\xEA \xE9 programador. Leia o c\xF3digo antes de responder e cite arquivo e linha. Prefira a menor mudan\xE7a. Mostre o diff ou as linhas exatas, n\xE3o o arquivo inteiro. Se um teste prova a corre\xE7\xE3o, escreva-o.",
-    "Download file": "Baixar arquivo"
+    "Download file": "Baixar arquivo",
+    "Rewrite one specialist": "Reescrever um especialista",
+    "Choose a specialist": "Escolher um especialista",
+    "Rewrite": "Reescrever",
+    "Replace {name}": "Substituir \u201C{name}\u201D",
+    "Replaced {name} in the draft. Save to keep it.": "\u201C{name}\u201D foi substitu\xEDdo no rascunho. Salve para manter."
   }
 };
 var LOCALE_LABELS = {
@@ -4132,6 +4177,12 @@ function AgentRoutes({ get, post, onNotice }) {
     patch({ agents: [...draft.agents, { ...agent, id }] });
     onNotice(note);
   };
+  const replaceAgent = (id, agent) => {
+    patch({
+      agents: draft.agents.map((row3) => row3.id === id ? { ...agent, id } : row3)
+    });
+    onNotice(t("Replaced {name} in the draft. Save to keep it.", { name: agent.name }));
+  };
   const addTemplate = (template) => {
     addAgent({
       id: template.agent.id,
@@ -4242,7 +4293,8 @@ function AgentRoutes({ get, post, onNotice }) {
         setBusy,
         onNotice,
         patch,
-        addAgent
+        addAgent,
+        replaceAgent
       }
     ),
     tab === "cards" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
@@ -4587,7 +4639,8 @@ function AdvisorTab({
   setBusy,
   onNotice,
   patch,
-  addAgent
+  addAgent,
+  replaceAgent
 }) {
   const [thread, setThread] = (0, import_react3.useState)({ version: 1, messages: [], updatedAt: 0 });
   const [previews, setPreviews] = (0, import_react3.useState)([]);
@@ -4606,14 +4659,15 @@ function AdvisorTab({
   (0, import_react3.useEffect)(() => {
     void load();
   }, [load]);
-  const ask = (0, import_react3.useCallback)(async (mode, text) => {
+  const ask = (0, import_react3.useCallback)(async (mode, text, agentId) => {
     setBusy("advice");
     onNotice(null);
     try {
       const doc = await post("/genkaku/team/advice", {
         mode,
         question: text,
-        locale: activeLocale()
+        locale: activeLocale(),
+        ...agentId == null ? {} : { agentId }
       });
       setThread(doc.thread ?? thread);
       setPreviews(doc.previews ?? []);
@@ -4636,7 +4690,7 @@ function AdvisorTab({
       setBusy(null);
     }
   }, [onNotice, post, setBusy]);
-  const applyCard = (0, import_react3.useCallback)(async (card) => {
+  const applyCard = (0, import_react3.useCallback)(async (card, replaceId) => {
     setBusy("advice-apply");
     try {
       const doc = await post("/genkaku/team/cards", { card, save: false });
@@ -4645,14 +4699,21 @@ function AdvisorTab({
         onNotice(t("That card could not be read."));
         return;
       }
+      if (replaceId != null) {
+        replaceAgent(replaceId, first.agent);
+        return;
+      }
       addAgent(first.agent, t("{name} was added to the draft. Save to keep it.", { name: first.agent.name }));
     } catch (e) {
       onNotice(e instanceof Error ? e.message : String(e));
     } finally {
       setBusy(null);
     }
-  }, [addAgent, onNotice, post, setBusy]);
+  }, [addAgent, onNotice, post, replaceAgent, setBusy]);
   const advisorRoute = draft.advisor ?? draft.main;
+  const lastAdvisor = [...thread.messages].reverse().find((message) => message.role === "advisor");
+  const rewriteTarget = lastAdvisor?.mode === "rewrite" && lastAdvisor.agentId != null && draft.agents.some((agent) => agent.id === lastAdvisor.agentId) ? lastAdvisor.agentId : void 0;
+  const [rewriteId, setRewriteId] = (0, import_react3.useState)("");
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.") }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
@@ -4713,6 +4774,36 @@ function AdvisorTab({
         void clear();
       }, children: t("Clear") })
     ] }),
+    draft.agents.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, marginTop: 8, alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 12 }, children: t("Rewrite one specialist") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "inline-flex", gap: 6, alignItems: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+          "select",
+          {
+            style: { ...select, maxWidth: 180 },
+            value: rewriteId,
+            "aria-label": t("Rewrite one specialist"),
+            onChange: (e) => setRewriteId(e.target.value),
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "", children: t("Choose a specialist") }),
+              draft.agents.map((agent) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: agent.id, children: agent.name }, agent.id))
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          import_dsh_client_ui_primitives.Button,
+          {
+            variant: "ghost",
+            size: "sm",
+            disabled: busy !== null || rewriteId === "",
+            onClick: () => {
+              void ask("rewrite", question, rewriteId);
+            },
+            children: t("Rewrite")
+          }
+        )
+      ] })
+    ] }),
     !loaded && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 10 }, children: t("Loading\u2026") }),
     loaded && thread.messages.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 10 }, children: t("Nothing asked yet. Three sentences about your work is enough to start.") }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 10, marginTop: 10 }, children: thread.messages.map((message, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
@@ -4723,18 +4814,27 @@ function AdvisorTab({
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 12, whiteSpace: "pre-wrap", marginTop: 2 }, children: message.role === "user" && message.text === "" ? t("Review my team") : message.text }),
       message.role === "advisor" && message.cards != null && message.cards.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 6, marginTop: 8 }, children: message.cards.map((card, cardIndex) => {
         const preview = index === thread.messages.length - 1 ? previews[cardIndex] : void 0;
+        const replaces = message.mode === "rewrite" && rewriteTarget != null;
+        const replaceId = replaces ? rewriteTarget : void 0;
         return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
           CardView,
           {
             card,
             preview,
             busy: busy !== null,
+            applyLabel: replaceId == null ? void 0 : t("Replace {name}", {
+              name: draft.agents.find((agent) => agent.id === replaceId)?.name ?? ""
+            }),
             onApply: () => {
-              if (preview != null) {
-                addAgent(preview.agent, t("{name} was added to the draft. Save to keep it.", { name: preview.agent.name }));
+              if (preview == null) {
+                void applyCard(card, replaceId);
                 return;
               }
-              void applyCard(card);
+              if (replaceId != null) {
+                replaceAgent(replaceId, preview.agent);
+                return;
+              }
+              addAgent(preview.agent, t("{name} was added to the draft. Save to keep it.", { name: preview.agent.name }));
             }
           },
           `${card.name}-${cardIndex}`
@@ -4909,6 +5009,7 @@ function CardView({
   preview,
   busy,
   onApply,
+  applyLabel,
   extra
 }) {
   const [open, setOpen] = (0, import_react3.useState)(false);
@@ -4917,7 +5018,7 @@ function CardView({
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("strong", { style: { fontSize: 13 }, children: card.name }),
       preview != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: routeLabel(preview.route) }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { marginLeft: "auto", display: "inline-flex", gap: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy, onClick: onApply, children: t("Apply") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy, onClick: onApply, children: applyLabel ?? t("Apply") }),
         extra
       ] })
     ] }),

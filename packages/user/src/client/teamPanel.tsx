@@ -130,6 +130,8 @@ type AdviceMessage = {
   text: string
   cards?: Card[]
   model?: { provider: string; model: string }
+  mode?: 'advise' | 'review' | 'rewrite'
+  agentId?: string
 }
 
 type Thread = { version: 1; messages: AdviceMessage[]; updatedAt: number }
@@ -330,6 +332,14 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
     onNotice(note)
   }
 
+  /** A rewrite replaces the specialist in place; the id stays, so the record does too. */
+  const replaceAgent = (id: string, agent: Agent): void => {
+    patch({
+      agents: draft.agents.map(row => row.id === id ? { ...agent, id } : row),
+    })
+    onNotice(t('Replaced {name} in the draft. Save to keep it.', { name: agent.name }))
+  }
+
   const addTemplate = (template: Template): void => {
     addAgent({
       id: template.agent.id,
@@ -452,6 +462,7 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
           onNotice={onNotice}
           patch={patch}
           addAgent={addAgent}
+          replaceAgent={replaceAgent}
         />
       )}
 
@@ -818,6 +829,7 @@ function AdvisorTab({
   onNotice,
   patch,
   addAgent,
+  replaceAgent,
 }: {
   get: (path: string) => Promise<Record<string, unknown>>
   post: (path: string, body: unknown) => Promise<Record<string, unknown>>
@@ -828,6 +840,7 @@ function AdvisorTab({
   onNotice: (text: string | null) => void
   patch: (changes: Partial<Config>) => void
   addAgent: (agent: Agent, note: string) => void
+  replaceAgent: (id: string, agent: Agent) => void
 }) {
   const [thread, setThread] = useState<Thread>({ version: 1, messages: [], updatedAt: 0 })
   const [previews, setPreviews] = useState<Preview[]>([])
@@ -848,7 +861,11 @@ function AdvisorTab({
 
   useEffect(() => { void load() }, [load])
 
-  const ask = useCallback(async (mode: 'advise' | 'review', text: string): Promise<void> => {
+  const ask = useCallback(async (
+    mode: 'advise' | 'review' | 'rewrite',
+    text: string,
+    agentId?: string,
+  ): Promise<void> => {
     setBusy('advice')
     onNotice(null)
     try {
@@ -856,6 +873,7 @@ function AdvisorTab({
         mode,
         question: text,
         locale: activeLocale(),
+        ...(agentId == null ? {} : { agentId }),
       })
       setThread((doc.thread as Thread | undefined) ?? thread)
       setPreviews((doc.previews as Preview[] | undefined) ?? [])
@@ -881,7 +899,7 @@ function AdvisorTab({
   }, [onNotice, post, setBusy])
 
   /** Apply an older suggestion: the bridge resolves the route again. */
-  const applyCard = useCallback(async (card: Card): Promise<void> => {
+  const applyCard = useCallback(async (card: Card, replaceId?: string): Promise<void> => {
     setBusy('advice-apply')
     try {
       const doc = await post('/genkaku/team/cards', { card, save: false })
@@ -890,15 +908,28 @@ function AdvisorTab({
         onNotice(t('That card could not be read.'))
         return
       }
+      if (replaceId != null) {
+        replaceAgent(replaceId, first.agent)
+        return
+      }
       addAgent(first.agent, t('{name} was added to the draft. Save to keep it.', { name: first.agent.name }))
     } catch (e) {
       onNotice(e instanceof Error ? e.message : String(e))
     } finally {
       setBusy(null)
     }
-  }, [addAgent, onNotice, post, setBusy])
+  }, [addAgent, onNotice, post, replaceAgent, setBusy])
 
   const advisorRoute = draft.advisor ?? draft.main
+  const lastAdvisor = [...thread.messages].reverse().find(message => message.role === 'advisor')
+  // A rewrite replaces a specialist; it must not append a second one with the
+  // same job. The target comes from the thread, so a reload behaves the same.
+  const rewriteTarget = lastAdvisor?.mode === 'rewrite'
+    && lastAdvisor.agentId != null
+    && draft.agents.some(agent => agent.id === lastAdvisor.agentId)
+    ? lastAdvisor.agentId
+    : undefined
+  const [rewriteId, setRewriteId] = useState('')
 
   return (
     <>
@@ -958,6 +989,33 @@ function AdvisorTab({
         )}
       </div>
 
+      {draft.agents.length > 0 && (
+        <div style={{ ...row, marginTop: 8, alignItems: 'center' }}>
+          <span style={{ ...dim, fontSize: 12 }}>{t('Rewrite one specialist')}</span>
+          <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}>
+            <select
+              style={{ ...select, maxWidth: 180 }}
+              value={rewriteId}
+              aria-label={t('Rewrite one specialist')}
+              onChange={e => setRewriteId(e.target.value)}
+            >
+              <option value="">{t('Choose a specialist')}</option>
+              {draft.agents.map(agent => (
+                <option key={agent.id} value={agent.id}>{agent.name}</option>
+              ))}
+            </select>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={busy !== null || rewriteId === ''}
+              onClick={() => { void ask('rewrite', question, rewriteId) }}
+            >
+              {t('Rewrite')}
+            </Button>
+          </span>
+        </div>
+      )}
+
       {!loaded && <div style={{ ...dim, fontSize: 12, marginTop: 10 }}>{t('Loading…')}</div>}
 
       {loaded && thread.messages.length === 0 && (
@@ -984,18 +1042,27 @@ function AdvisorTab({
                   const preview = index === thread.messages.length - 1
                     ? previews[cardIndex]
                     : undefined
+                  const replaces = message.mode === 'rewrite' && rewriteTarget != null
+                  const replaceId = replaces ? rewriteTarget : undefined
                   return (
                     <CardView
                       key={`${card.name}-${cardIndex}`}
                       card={card}
                       preview={preview}
                       busy={busy !== null}
+                      applyLabel={replaceId == null ? undefined : t('Replace {name}', {
+                        name: draft.agents.find(agent => agent.id === replaceId)?.name ?? '',
+                      })}
                       onApply={() => {
-                        if (preview != null) {
-                          addAgent(preview.agent, t('{name} was added to the draft. Save to keep it.', { name: preview.agent.name }))
+                        if (preview == null) {
+                          void applyCard(card, replaceId)
                           return
                         }
-                        void applyCard(card)
+                        if (replaceId != null) {
+                          replaceAgent(replaceId, preview.agent)
+                          return
+                        }
+                        addAgent(preview.agent, t('{name} was added to the draft. Save to keep it.', { name: preview.agent.name }))
                       }}
                     />
                   )
@@ -1201,12 +1268,15 @@ function CardView({
   preview,
   busy,
   onApply,
+  applyLabel,
   extra,
 }: {
   card: Card
   preview?: Preview
   busy: boolean
   onApply: () => void
+  /** "Replace Translator" when the card is a rewrite rather than an addition. */
+  applyLabel?: string
   extra?: React.ReactNode
 }) {
   const [open, setOpen] = useState(false)
@@ -1220,7 +1290,7 @@ function CardView({
         )}
         <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 8 }}>
           <Button variant="outline" size="sm" disabled={busy} onClick={onApply}>
-            {t('Apply')}
+            {applyLabel ?? t('Apply')}
           </Button>
           {extra}
         </span>

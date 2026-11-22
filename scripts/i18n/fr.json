@@ -383,5 +383,10 @@
   "tpl.coder.ex2": "Ajoute un test pour le cas d'entrée vide dans ce fichier",
   "tpl.coder.ex3": "Explique ce que fait ce module et ce qu'il ne gère pas",
   "tpl.coder.prompt": "Vous êtes programmeur. Lisez le code avant de répondre et citez fichier et ligne. Préférez le plus petit changement. Montrez le diff ou les lignes exactes, pas le fichier entier. Si un test prouve le correctif, écrivez-le.",
-  "Download file": "Télécharger le fichier"
+  "Download file": "Télécharger le fichier",
+  "Rewrite one specialist": "Réécrire un spécialiste",
+  "Choose a specialist": "Choisir un spécialiste",
+  "Rewrite": "Réécrire",
+  "Replace {name}": "Remplacer « {name} »",
+  "Replaced {name} in the draft. Save to keep it.": "« {name} » a été remplacé dans le brouillon. Enregistrez pour le garder."
 }

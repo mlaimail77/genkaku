@@ -196,3 +196,27 @@ test('the advice thread is capped and clearable', () => {
     rmSync(dir, { recursive: true, force: true })
   }
 })
+
+test('a rewrite remembers which specialist it replaces, across a reload', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'genkaku-advice-'))
+  try {
+    appendAdviceMessage(dir, { role: 'user', at: 1, text: '', mode: 'rewrite', agentId: 'translator' })
+    appendAdviceMessage(dir, {
+      role: 'advisor',
+      at: 2,
+      text: 'rewritten',
+      mode: 'rewrite',
+      agentId: 'translator',
+      cards: [],
+    })
+    const thread = readAdviceThread(dir)
+    assert.equal(thread.messages[1]!.mode, 'rewrite')
+    assert.equal(thread.messages[1]!.agentId, 'translator')
+
+    // Junk in the file does not become a rewrite target.
+    appendAdviceMessage(dir, { role: 'advisor', at: 3, text: 'x', mode: 'rewrite', agentId: '' })
+    assert.equal(readAdviceThread(dir).messages.at(-1)!.agentId, undefined)
+  } finally {
+    rmSync(dir, { recursive: true, force: true })
+  }
+})

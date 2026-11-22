@@ -46,6 +46,14 @@ export type AdviceMessage = {
   text: string
   cards?: AgentCard[]
   model?: { provider: string; model: string }
+  /**
+   * Which question produced this answer. Kept on the message so a reloaded
+   * panel still knows that a card is a *rewrite of an existing specialist*
+   * rather than a new one — otherwise applying it would duplicate the agent.
+   */
+  mode?: AdviceMode
+  /** For a rewrite: the specialist it replaces. */
+  agentId?: string
 }
 
 export type AdviceThread = {
@@ -489,6 +497,12 @@ export function readAdviceThread(keyDir: string): AdviceThread {
         text: row.text.slice(0, 20_000),
         ...(cards.length === 0 ? {} : { cards }),
         ...(row.model == null ? {} : { model: row.model }),
+        ...(row.mode === 'advise' || row.mode === 'review' || row.mode === 'rewrite'
+          ? { mode: row.mode }
+          : {}),
+        ...(typeof row.agentId === 'string' && row.agentId !== ''
+          ? { agentId: row.agentId.slice(0, 32) }
+          : {}),
       })
     }
     return {

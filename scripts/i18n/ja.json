@@ -383,5 +383,10 @@
   "tpl.coder.ex2": "このファイルの空入力ケースにテストを足して",
   "tpl.coder.ex3": "このモジュールが何をして、何を扱っていないかを説明して",
   "tpl.coder.prompt": "あなたはプログラマーです。答える前にコードを読み、ファイルと行番号を示す。最小の変更を優先。差分か置き換える行だけを示し、ファイル全体は貼らない。テストで示せるならテストも書く。",
-  "Download file": "ファイルをダウンロード"
+  "Download file": "ファイルをダウンロード",
+  "Rewrite one specialist": "スペシャリストを書き直す",
+  "Choose a specialist": "スペシャリストを選択",
+  "Rewrite": "書き直す",
+  "Replace {name}": "「{name}」を置き換え",
+  "Replaced {name} in the draft. Save to keep it.": "下書きの「{name}」を置き換えました。保存すると確定します。"
 }

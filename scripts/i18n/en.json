@@ -383,5 +383,10 @@
   "tpl.coder.ex2": "tpl.coder.ex2",
   "tpl.coder.ex3": "tpl.coder.ex3",
   "tpl.coder.prompt": "tpl.coder.prompt",
-  "Download file": "Download file"
+  "Download file": "Download file",
+  "Rewrite one specialist": "Rewrite one specialist",
+  "Choose a specialist": "Choose a specialist",
+  "Rewrite": "Rewrite",
+  "Replace {name}": "Replace {name}",
+  "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it."
 }

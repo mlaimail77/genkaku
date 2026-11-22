@@ -1766,6 +1766,8 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
             text: output.reply === '' && output.error != null ? output.error : output.reply,
             ...(output.cards.length === 0 ? {} : { cards: output.cards }),
             ...(output.model == null ? {} : { model: output.model }),
+            mode,
+            ...(mode === 'rewrite' && agentId != null ? { agentId } : {}),
           })
 
           if (output.error != null && output.reply === '') {

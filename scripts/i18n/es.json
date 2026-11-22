@@ -383,5 +383,10 @@
   "tpl.coder.ex2": "Añade una prueba para el caso de entrada vacía en este archivo",
   "tpl.coder.ex3": "Explica qué hace este módulo y qué no cubre",
   "tpl.coder.prompt": "Eres programador. Lee el código antes de responder y cita archivo y línea. Prefiere el cambio más pequeño. Muestra el diff o las líneas exactas, no el archivo entero. Si una prueba demuestra el arreglo, escríbela.",
-  "Download file": "Descargar archivo"
+  "Download file": "Descargar archivo",
+  "Rewrite one specialist": "Reescribir un especialista",
+  "Choose a specialist": "Elige un especialista",
+  "Rewrite": "Reescribir",
+  "Replace {name}": "Sustituir «{name}»",
+  "Replaced {name} in the draft. Save to keep it.": "Se sustituyó «{name}» en el borrador. Guarda para conservarlo."
 }

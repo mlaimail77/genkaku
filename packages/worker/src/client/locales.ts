@@ -387,7 +387,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "为这个文件的空输入情况补一个测试",
     "tpl.coder.ex3": "说明这个模块做什么，以及它没有处理什么",
     "tpl.coder.prompt": "你是程序员。回答前先读代码，引用文件与行号。优先最小改动。给出 diff 或要替换的确切行，不要贴整个文件。如果测试能证明修复，就把测试写出来。",
-    "Download file": "下载文件"
+    "Download file": "下载文件",
+    "Rewrite one specialist": "改写一位专家",
+    "Choose a specialist": "选择专家",
+    "Rewrite": "改写",
+    "Replace {name}": "取代「{name}」",
+    "Replaced {name} in the draft. Save to keep it.": "已在草稿中取代「{name}」。保存后才会生效。"
   },
   "en": {
     "Reconnecting to the bridge…": "Reconnecting to the bridge…",
@@ -774,7 +779,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "tpl.coder.ex2",
     "tpl.coder.ex3": "tpl.coder.ex3",
     "tpl.coder.prompt": "tpl.coder.prompt",
-    "Download file": "Download file"
+    "Download file": "Download file",
+    "Rewrite one specialist": "Rewrite one specialist",
+    "Choose a specialist": "Choose a specialist",
+    "Rewrite": "Rewrite",
+    "Replace {name}": "Replace {name}",
+    "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it."
   },
   "ja": {
     "Reconnecting to the bridge…": "bridge に再接続しています…",
@@ -1161,7 +1171,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "このファイルの空入力ケースにテストを足して",
     "tpl.coder.ex3": "このモジュールが何をして、何を扱っていないかを説明して",
     "tpl.coder.prompt": "あなたはプログラマーです。答える前にコードを読み、ファイルと行番号を示す。最小の変更を優先。差分か置き換える行だけを示し、ファイル全体は貼らない。テストで示せるならテストも書く。",
-    "Download file": "ファイルをダウンロード"
+    "Download file": "ファイルをダウンロード",
+    "Rewrite one specialist": "スペシャリストを書き直す",
+    "Choose a specialist": "スペシャリストを選択",
+    "Rewrite": "書き直す",
+    "Replace {name}": "「{name}」を置き換え",
+    "Replaced {name} in the draft. Save to keep it.": "下書きの「{name}」を置き換えました。保存すると確定します。"
   },
   "ko": {
     "Reconnecting to the bridge…": "bridge에 다시 연결하는 중…",
@@ -1548,7 +1563,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "이 파일의 빈 입력 경우에 테스트를 추가해 줘",
     "tpl.coder.ex3": "이 모듈이 무엇을 하고 무엇을 다루지 않는지 설명해 줘",
     "tpl.coder.prompt": "당신은 프로그래머입니다. 답하기 전에 코드를 읽고 파일과 줄 번호를 인용합니다. 가장 작은 변경을 우선합니다. diff 또는 바꿀 줄만 보여 주고 파일 전체를 붙이지 않습니다. 테스트로 증명할 수 있으면 테스트를 씁니다.",
-    "Download file": "파일 다운로드"
+    "Download file": "파일 다운로드",
+    "Rewrite one specialist": "전문가 다시 쓰기",
+    "Choose a specialist": "전문가 선택",
+    "Rewrite": "다시 쓰기",
+    "Replace {name}": "{name} 바꾸기",
+    "Replaced {name} in the draft. Save to keep it.": "초안에서 {name}을(를) 바꿨습니다. 저장해야 반영됩니다."
   },
   "es": {
     "Reconnecting to the bridge…": "Reconectando con el bridge…",
@@ -1935,7 +1955,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "Añade una prueba para el caso de entrada vacía en este archivo",
     "tpl.coder.ex3": "Explica qué hace este módulo y qué no cubre",
     "tpl.coder.prompt": "Eres programador. Lee el código antes de responder y cita archivo y línea. Prefiere el cambio más pequeño. Muestra el diff o las líneas exactas, no el archivo entero. Si una prueba demuestra el arreglo, escríbela.",
-    "Download file": "Descargar archivo"
+    "Download file": "Descargar archivo",
+    "Rewrite one specialist": "Reescribir un especialista",
+    "Choose a specialist": "Elige un especialista",
+    "Rewrite": "Reescribir",
+    "Replace {name}": "Sustituir «{name}»",
+    "Replaced {name} in the draft. Save to keep it.": "Se sustituyó «{name}» en el borrador. Guarda para conservarlo."
   },
   "fr": {
     "Reconnecting to the bridge…": "Reconnexion au bridge…",
@@ -2322,7 +2347,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "Ajoute un test pour le cas d'entrée vide dans ce fichier",
     "tpl.coder.ex3": "Explique ce que fait ce module et ce qu'il ne gère pas",
     "tpl.coder.prompt": "Vous êtes programmeur. Lisez le code avant de répondre et citez fichier et ligne. Préférez le plus petit changement. Montrez le diff ou les lignes exactes, pas le fichier entier. Si un test prouve le correctif, écrivez-le.",
-    "Download file": "Télécharger le fichier"
+    "Download file": "Télécharger le fichier",
+    "Rewrite one specialist": "Réécrire un spécialiste",
+    "Choose a specialist": "Choisir un spécialiste",
+    "Rewrite": "Réécrire",
+    "Replace {name}": "Remplacer « {name} »",
+    "Replaced {name} in the draft. Save to keep it.": "« {name} » a été remplacé dans le brouillon. Enregistrez pour le garder."
   },
   "de": {
     "Reconnecting to the bridge…": "Verbindung zur Bridge wird wiederhergestellt…",
@@ -2709,7 +2739,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "Ergänze einen Test für den Leereingabe-Fall in dieser Datei",
     "tpl.coder.ex3": "Erkläre, was dieses Modul tut und was es nicht abdeckt",
     "tpl.coder.prompt": "Du bist Programmierer. Lies den Code, bevor du antwortest, und nenne Datei und Zeile. Nimm die kleinste Änderung. Zeig den Diff oder die genauen Zeilen, nicht die ganze Datei. Wenn ein Test den Fix beweist, schreib ihn.",
-    "Download file": "Datei herunterladen"
+    "Download file": "Datei herunterladen",
+    "Rewrite one specialist": "Einen Spezialisten umschreiben",
+    "Choose a specialist": "Spezialist wählen",
+    "Rewrite": "Umschreiben",
+    "Replace {name}": "„{name}“ ersetzen",
+    "Replaced {name} in the draft. Save to keep it.": "„{name}“ wurde im Entwurf ersetzt. Speichern, um es zu behalten."
   },
   "ru": {
     "Reconnecting to the bridge…": "Переподключение к bridge…",
@@ -3096,7 +3131,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "Добавь тест для случая пустого ввода в этом файле",
     "tpl.coder.ex3": "Объясни, что делает этот модуль и чего он не покрывает",
     "tpl.coder.prompt": "Вы программист. Прочитайте код перед ответом и ссылайтесь на файл и строку. Выбирайте минимальное изменение. Показывайте diff или точные строки, а не весь файл. Если тест доказывает исправление — напишите его.",
-    "Download file": "Скачать файл"
+    "Download file": "Скачать файл",
+    "Rewrite one specialist": "Переписать специалиста",
+    "Choose a specialist": "Выберите специалиста",
+    "Rewrite": "Переписать",
+    "Replace {name}": "Заменить «{name}»",
+    "Replaced {name} in the draft. Save to keep it.": "«{name}» заменён в черновике. Сохраните, чтобы оставить."
   },
   "pt": {
     "Reconnecting to the bridge…": "Reconectando à bridge…",
@@ -3483,7 +3523,12 @@ export const MESSAGES = {
     "tpl.coder.ex2": "Adicione um teste para o caso de entrada vazia neste arquivo",
     "tpl.coder.ex3": "Explique o que este módulo faz e o que ele não cobre",
     "tpl.coder.prompt": "Você é programador. Leia o código antes de responder e cite arquivo e linha. Prefira a menor mudança. Mostre o diff ou as linhas exatas, não o arquivo inteiro. Se um teste prova a correção, escreva-o.",
-    "Download file": "Baixar arquivo"
+    "Download file": "Baixar arquivo",
+    "Rewrite one specialist": "Reescrever um especialista",
+    "Choose a specialist": "Escolher um especialista",
+    "Rewrite": "Reescrever",
+    "Replace {name}": "Substituir “{name}”",
+    "Replaced {name} in the draft. Save to keep it.": "“{name}” foi substituído no rascunho. Salve para manter."
   }
 } as const
 
