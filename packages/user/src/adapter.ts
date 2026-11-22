@@ -320,7 +320,19 @@ export class GenkakuAdapter extends LlmAdapter {
       throw new Error('GenKaKu Agent Routes: no model is available for the main route (is a worker online?).')
     }
 
-    let messages = withSystemAddendum(options.messages, teamPolicy(config))
+    // An auxiliary call — compaction, a title, a summary — is not a
+    // conversation turn: it must run on the main model with its own prompt and
+    // without a team policy, a router or a delegation.
+    if (options.purpose != null) {
+      if (route.provider === 'genkaku') {
+        yield* this.streamDirect({ ...options, provider: 'genkaku', model: route.model })
+        return
+      }
+      yield* team.stream({ ...options, provider: route.provider, model: route.model })
+      return
+    }
+
+    let prompt = withSystemAddendum(options, teamPolicy(config))
     const localTier = route.provider === 'genkaku'
       ? local.find(model => model.id === route.model)?.tier
       : undefined
@@ -329,7 +341,7 @@ export class GenkakuAdapter extends LlmAdapter {
       || localTier === 'chat'
 
     if (routerMode) {
-      const task = lastUserText(messages)
+      const task = lastUserText(prompt.messages)
       const agentId = task === '' ? null : team.route(task)
       if (agentId != null) {
         const signal = options.signal ?? new AbortController().signal
@@ -340,22 +352,18 @@ export class GenkakuAdapter extends LlmAdapter {
           this.options.log?.(`genkaku adapter: router delegation failed (${String(error)})`)
         }
         if (result != null && result.ok && result.output.trim() !== '') {
-          messages = withSystemAddendum(messages, routerNote(result))
+          prompt = withSystemAddendum({ ...options, ...prompt }, routerNote(result))
         }
       }
     }
 
+    const routed = { ...options, ...prompt }
     if (route.provider === 'genkaku') {
-      yield* this.streamDirect({ ...options, provider: 'genkaku', model: route.model, messages })
+      yield* this.streamDirect({ ...routed, provider: 'genkaku', model: route.model })
       return
     }
 
-    yield* team.stream({
-      ...options,
-      provider: route.provider,
-      model: route.model,
-      messages,
-    })
+    yield* team.stream({ ...routed, provider: route.provider, model: route.model })
   }
 
   /** Stream one completion from the network. */
@@ -532,30 +540,48 @@ function teamPolicy(config: TeamConfig): string {
 }
 
 /**
- * Add a paragraph to the leading system prompt without replacing its identity.
- * Loop-built requests carry the system prompt as messages[0]; a hand-built
- * one-shot may carry none, which is the only case that mints a new message.
+ * Add a paragraph to the system prompt without replacing its identity.
+ *
+ * Three shapes exist in practice: a loop-built request carries the prompt as
+ * messages[0]; a hand-built one-shot sets `system`; and a bare one-shot has
+ * neither, which is the only case that mints a message.
  */
-function withSystemAddendum(
-  messages: readonly RequestMessage[],
+export function withSystemAddendum(
+  options: GenerateOptions,
   addendum: string,
-): RequestMessage[] {
+): { messages: RequestMessage[]; system?: string } {
   const text = addendum.trim()
-  if (text === '') return [...messages]
+  if (text === '') {
+    return {
+      messages: options.messages,
+      ...(options.system === undefined ? {} : { system: options.system }),
+    }
+  }
 
-  const first = messages[0]
+  if (options.system != null && options.system.trim() !== '') {
+    return { messages: options.messages, system: `${options.system.trim()}\n\n${text}` }
+  }
+
+  const first = options.messages[0]
   if (first != null && first.role === 'system') {
     const head = textOf(first.content).trim()
-    return [
-      { ...first, content: [{ type: 'text', text: head === '' ? text : `${head}\n\n${text}` }] },
-      ...messages.slice(1),
-    ]
+    return {
+      messages: [
+        { ...first, content: [{ type: 'text', text: head === '' ? text : `${head}\n\n${text}` }] },
+        ...options.messages.slice(1),
+      ],
+      ...(options.system === undefined ? {} : { system: options.system }),
+    }
   }
-  return [createSystemMessage(text), ...messages]
+
+  return {
+    messages: [createSystemMessage(text), ...options.messages],
+    ...(options.system === undefined ? {} : { system: options.system }),
+  }
 }
 
 /** The last user turn, which is what a router can actually reason about. */
-function lastUserText(messages: readonly RequestMessage[]): string {
+export function lastUserText(messages: readonly RequestMessage[]): string {
   for (let index = messages.length - 1; index >= 0; index--) {
     const message = messages[index]!
     if (message.role === 'user') return textOf(message.content).trim()
