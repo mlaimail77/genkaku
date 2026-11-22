@@ -6,7 +6,7 @@
 // wallet, and the sponsored placement whose impression pays for a minute.
 
 import { randomBytes } from 'node:crypto'
-import { appendFileSync } from 'node:fs'
+import { appendFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 
@@ -49,6 +49,15 @@ import {
   type PrivatePeer,
   type UserPrefs,
 } from './userPrefs.ts'
+import {
+  readTeamConfig,
+  readTeamDecisions,
+  teamCatalogProvider,
+  writeTeamConfig,
+  type TeamCatalog,
+  type TeamConfig,
+  type TeamRoute,
+} from './team.ts'
 import { runUserSession } from './userSession.ts'
 import type { WalletPolicy } from './walletPolicy.ts'
 
@@ -87,6 +96,14 @@ export type BridgeStatus = {
   /** 0.3: whether sponsored placements are being served, and how fresh that
    *  answer is. Absent on a bridge without an ad feed. */
   ads?: AdMode
+  /** Agent Routes: whether the team is on, so the panel can paint the header
+   *  without a second request. The full config lives on /genkaku/team. */
+  team?: {
+    enabled: boolean
+    mode: TeamConfig['mode']
+    agents: number
+    main: TeamRoute | null
+  }
 }
 
 export type BridgeOptions = {
@@ -120,6 +137,9 @@ export type BridgeOptions = {
   privatePeers?: () => PrivatePeer[]
   /** Persist the paired-worker list after a pairing or an unpair. */
   onPrivatePeers?: (next: PrivatePeer[]) => void | Promise<void>
+  /** Agent Routes: cloud providers the host has already configured in dsh.
+   *  The bridge never sees an API key; it only lists routes. */
+  teamCatalog?: () => Promise<{ providers: TeamCatalog['providers'] }>
   /** Where `policy.json` and `spend.jsonl` live (the same `~/.dsh/genkaku`). */
   keyDir: string
   /** 0.3: the sponsored-placement catalog. Absent = this bridge serves no ads. */
@@ -690,6 +710,7 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
       }
     })
     const peers = opts.privatePeers?.() ?? []
+    const team = readTeamConfig(opts.keyDir)
     const base: BridgeStatus = {
       role: mode,
       workers: opts.workers,
@@ -710,6 +731,12 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
       })),
       ...(opts.ads == null ? {} : { ads: opts.ads.snapshot() }),
       ...(transports.size === 0 ? {} : { transports: Object.fromEntries(transports) }),
+      team: {
+        enabled: team.enabled,
+        mode: team.mode,
+        agents: team.agents.length,
+        main: team.main,
+      },
     }
     const extra = opts.status == null ? undefined : await opts.status(base)
     json(res, 200, extra == null ? base : { ...base, ...extra })
@@ -1384,6 +1411,77 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
             selected: prefs.selected,
             sort: prefs.sort,
           })
+          return
+        }
+
+        // ── Agent Routes ────────────────────────────────────────────────────
+        // The panel edits one JSON file; the adapter reads the same file, so a
+        // save takes effect without a bridge restart. The catalog is assembled
+        // from what this bridge already knows (local offers) plus the cloud
+        // routes the host reports. API keys never enter this response.
+        if (req.method === 'GET' && (path === '/genkaku/team' || path === '/genkaku/team/')) {
+          let providers: TeamCatalog['providers'] = []
+          // The user plugin registers this in-process provider on start; the
+          // option exists for hosts that prefer to pass it explicitly.
+          const catalog = opts.teamCatalog ?? teamCatalogProvider()
+          if (catalog != null) {
+            try {
+              providers = (await catalog()).providers
+            } catch {
+              providers = []
+            }
+          }
+          const local: TeamCatalog['local'] = []
+          const seen = new Set<string>()
+          for (const row of boardNow()) {
+            const model = row.offer.model
+            if (model == null || model === '') continue
+            if (seen.has(row.key)) continue
+            seen.add(row.key)
+            const worker = row.workerLabel ?? row.offer.workerName
+            local.push({
+              id: row.key,
+              name: `${worker == null || worker === '' ? row.addr.slice(0, 8) : worker} · ${model}`,
+              ...(worker == null || worker === '' ? {} : { worker }),
+              ...(row.offer.workerWallet == null ? {} : { workerWallet: row.offer.workerWallet }),
+              ...(row.offer.tier == null ? {} : { tier: row.offer.tier }),
+              pricePerHour: row.offer.pricePerHour.toString(),
+              ...(row.offer.latencyMs == null ? {} : { latencyMs: row.offer.latencyMs }),
+            })
+          }
+          json(res, 200, {
+            ok: true,
+            config: readTeamConfig(opts.keyDir),
+            decisions: readTeamDecisions(opts.keyDir),
+            catalog: { providers, local },
+          })
+          return
+        }
+
+        if (req.method === 'POST' && (path === '/genkaku/team' || path === '/genkaku/team/')) {
+          let body: { config?: unknown }
+          try {
+            body = await readJson<{ config?: unknown }>(req)
+          } catch {
+            failure(res, 400, 'invalid JSON body')
+            return
+          }
+          const config = writeTeamConfig(opts.keyDir, body.config)
+          json(res, 200, {
+            ok: true,
+            config,
+            decisions: readTeamDecisions(opts.keyDir),
+          })
+          return
+        }
+
+        if (req.method === 'POST' && (path === '/genkaku/team/decisions/clear' || path === '/genkaku/team/decisions/clear/')) {
+          try {
+            writeFileSync(join(opts.keyDir, 'team-decisions.json'), '[]\n', { mode: 0o600 })
+          } catch {
+            // The log is diagnostics; a read-only directory is not a request error.
+          }
+          json(res, 200, { ok: true })
           return
         }
 

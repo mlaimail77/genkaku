@@ -62,14 +62,44 @@ was ticked — including empty, which is remembered by storing `seeded` next to
 
 | Item | Who pays |
 | --- | --- |
-| Inference | You, in USDC, per started minute |
-| Network fee to open | You, a fraction of a cent in SOL |
-| Network fee to settle | The worker |
-| Platform fee | 1% of the settlement |
+| Inference | Nobody — a session is free |
+| Sponsored placement | The advertiser, per impression |
+| Tip to a worker | You, straight to the worker's wallet |
+| Network fee for a tip | You, a fraction of a cent in SOL |
 
-A paid session is **two** chain transactions, one from each side. On devnet the
-panel can mint test USDC, which has no value; on mainnet USDC is Circle's token
-and SOL covers fees.
+There is no platform fee and no escrow on this path: the advertiser's campaign
+pays the worker for the minute its placement was shown, and a tip is a plain
+transfer from your wallet to the worker's. GenKaKu never holds either. On devnet
+the panel can mint test USDC, which has no value; on mainnet USDC is Circle's
+token and SOL covers fees.
+
+## Agent Routes
+
+Agent Routes turns one model picker row into a small team: a main model plus up
+to eight specialists, each on a model you choose. It is off by default and
+changes nothing until you turn it on **and** pick `GenKaKu · Agent Routes` in
+the chat model picker — every other row behaves exactly as before.
+
+- **Main model** — answers you. It may be a cloud model the harness already has
+  configured (the panel never sees an API key) or a model on the network. An
+  empty local choice means "any worker", resolved at call time so a worker going
+  away does not break the team.
+- **Specialists** — a name, when the main model should hand work over, when it
+  should not, optional examples, a model, and role instructions. They are full
+  agents: they can read files and use tools. They cannot delegate further, so
+  the tree is one level deep.
+- **Who picks** — `model-decides` gives the main model one `delegate` tool whose
+  enum is your specialists, so a tool-capable model chooses. `router-decides`
+  picks with a local heuristic before the main call; it is also selected
+  automatically when the main model is chat-only or the tools box is unticked.
+  That is what lets a weak model still run a team.
+- **Delegation record** — the last twenty handoffs are listed in the panel with
+  the specialist, the model that actually ran, how long it took, and any error.
+
+The config lives in `~/.dsh/genkaku/team.json` and the record in
+`team-decisions.json`, both mode `0600` next to the wallet. A save takes effect
+on the next turn: the panel, the bridge and the model adapter share one process.
+Nothing in this feature touches money — sessions stay free and tips stay direct.
 
 ## Spending limits
 

@@ -29,7 +29,7 @@ __export(index_exports, {
   inject: () => inject
 });
 module.exports = __toCommonJS(index_exports);
-var import_react3 = require("react");
+var import_react4 = require("react");
 
 // src/client/locales.ts
 var MESSAGES = {
@@ -297,7 +297,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "\u9884\u7B97\u8D85\u8FC7\u94B1\u5305\u4F59\u989D\u3002",
     "Below the minimum": "\u4F4E\u65BC\u6700\u4F4E\u9818\u53D6",
     "Minimum claim per campaign:": "\u5404 campaign \u6700\u4F4E\u9818\u53D6\u91D1\u984D\uFF1A",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u4F4E\u65BC\u6700\u4F4E\u9818\u53D6\u91D1\u984D\uFF1A{min}\u3002\u76EE\u524D\u672A\u9818\u53D6\uFF1A{value}\u3002"
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u4F4E\u65BC\u6700\u4F4E\u9818\u53D6\u91D1\u984D\uFF1A{min}\u3002\u76EE\u524D\u672A\u9818\u53D6\uFF1A{value}\u3002",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "\u6B63\u5728\u52A0\u8F7D\u2026",
+    "Choose a model": "\u9009\u62E9\u6A21\u578B",
+    "Any local worker (auto)": "\u4EFB\u4F55\u672C\u5730 worker\uFF08\u81EA\u52A8\uFF09",
+    "On": "\u5F00\u542F",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "\u4E00\u4E2A\u4E3B\u6A21\u578B\u56DE\u7B54\u4F60\uFF0C\u5E76\u628A\u660E\u786E\u5339\u914D\u7684\u5DE5\u4F5C\u4EA4\u7ED9\u6700\u591A\u516B\u4F4D\u4E13\u5BB6\u3002\u5728\u4F60\u5F00\u542F\u6B64\u529F\u80FD\u5E76\u5728\u804A\u5929\u6A21\u578B\u9009\u62E9\u5668\u4E2D\u9009\u62E9 Agent Routes \u6A21\u578B\u4E4B\u524D\uFF0C\u4EC0\u4E48\u90FD\u4E0D\u4F1A\u6539\u53D8\u3002\u4F1A\u8BDD\u4ECD\u7136\u4E0D\u5411\u4F60\u6536\u8D39\u3002",
+    "Who picks the specialist": "\u7531\u8C01\u6311\u9009\u4E13\u5BB6",
+    "The main model (delegate tool)": "\u4E3B\u6A21\u578B\uFF08delegate \u5DE5\u5177\uFF09",
+    "The router (works with chat-only models)": "\u8DEF\u7531\u5668\uFF08\u9002\u7528\u4E8E\u7EAF\u804A\u5929\u6A21\u578B\uFF09",
+    "Main model": "\u4E3B\u6A21\u578B",
+    "The main model can call tools (turn this off for a chat-only model)": "\u4E3B\u6A21\u578B\u53EF\u4EE5\u8C03\u7528\u5DE5\u5177\uFF08\u7EAF\u804A\u5929\u6A21\u578B\u8BF7\u5173\u95ED\uFF09",
+    "Specialists": "\u4E13\u5BB6",
+    "No specialists yet. Add one below.": "\u5C1A\u65E0\u4E13\u5BB6\u3002\u8BF7\u5728\u4E0B\u65B9\u6DFB\u52A0\u3002",
+    "Name, e.g. Translator": "\u540D\u79F0\uFF0C\u4F8B\u5982\uFF1A\u7FFB\u8BD1",
+    "Specialist name": "\u4E13\u5BB6\u540D\u79F0",
+    "Model": "\u6A21\u578B",
+    "Fewer options": "\u6536\u8D77\u9009\u9879",
+    "More options": "\u66F4\u591A\u9009\u9879",
+    "When it should not be used": "\u4E0D\u5E94\u4F7F\u7528\u7684\u60C5\u51B5",
+    "Example tasks, one per line": "\u793A\u4F8B\u4EFB\u52A1\uFF0C\u6BCF\u884C\u4E00\u9879",
+    "Role instructions given to the specialist": "\u7ED9\u4E13\u5BB6\u7684\u89D2\u8272\u6307\u793A",
+    "Max output tokens": "\u6700\u5927\u8F93\u51FA token \u6570",
+    "Specialist id": "\u4E13\u5BB6 ID",
+    "Add specialist": "\u6DFB\u52A0\u4E13\u5BB6",
+    "Eight is the maximum.": "\u6700\u591A\u516B\u4F4D\u3002",
+    "Orchestration notes": "\u7F16\u6392\u5907\u6CE8",
+    "Maximum delegations per turn": "\u6BCF\u56DE\u5408\u6700\u5927\u59D4\u6D3E\u6B21\u6570",
+    "Save Agent Routes": "\u4FDD\u5B58 Agent Routes",
+    "Unsaved changes": "\u6709\u672A\u4FDD\u5B58\u7684\u66F4\u6539",
+    "Saved {value}": "\u5DF2\u4FDD\u5B58 {value}",
+    "Recent delegations": "\u6700\u8FD1\u7684\u59D4\u6D3E",
+    "No delegation yet. Ask something a specialist covers.": "\u5C1A\u65E0\u59D4\u6D3E\u3002\u95EE\u4E00\u4E2A\u4E13\u5BB6\u8D1F\u8D23\u7684\u95EE\u9898\u5427\u3002",
+    "router": "\u8DEF\u7531\u5668",
+    "model": "\u6A21\u578B",
+    "Clear history": "\u6E05\u9664\u8BB0\u5F55",
+    "agent-ready": "\u53EF\u4F5C agent",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "\u5DF2\u4FDD\u5B58 Agent Routes\u3002\u5728\u804A\u5929\u6A21\u578B\u9009\u62E9\u5668\u4E2D\u9009\u62E9\u300CGenKaKu \xB7 Agent Routes\u300D\u5373\u53EF\u4F7F\u7528\u3002",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u5DF2\u4FDD\u5B58\uFF0C\u4F46 Agent Routes \u9700\u8981\u4E00\u4E2A\u4E3B\u6A21\u578B\u548C\u81F3\u5C11\u4E00\u4F4D\u4E13\u5BB6\u624D\u4F1A\u5F00\u542F\u3002",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u4E13\u5BB6\u662F\u5B8C\u6574\u7684 agent\uFF1A\u53EF\u4EE5\u8BFB\u53D6\u6587\u4EF6\u3001\u4F7F\u7528\u5DE5\u5177\u3002\u4ED6\u4EEC\u4E0D\u80FD\u518D\u59D4\u6D3E\uFF0C\u6240\u4EE5\u56E2\u961F\u53EA\u6709\u4E00\u5C42\u3002"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -563,7 +602,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "Budget exceeds the wallet balance.",
     "Below the minimum": "Below the minimum",
     "Minimum claim per campaign:": "Minimum claim per campaign:",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Below the minimum claim amount: {min}. Current unclaimed: {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Below the minimum claim amount: {min}. Current unclaimed: {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "Loading\u2026",
+    "Choose a model": "Choose a model",
+    "Any local worker (auto)": "Any local worker (auto)",
+    "On": "On",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.",
+    "Who picks the specialist": "Who picks the specialist",
+    "The main model (delegate tool)": "The main model (delegate tool)",
+    "The router (works with chat-only models)": "The router (works with chat-only models)",
+    "Main model": "Main model",
+    "The main model can call tools (turn this off for a chat-only model)": "The main model can call tools (turn this off for a chat-only model)",
+    "Specialists": "Specialists",
+    "No specialists yet. Add one below.": "No specialists yet. Add one below.",
+    "Name, e.g. Translator": "Name, e.g. Translator",
+    "Specialist name": "Specialist name",
+    "Model": "Model",
+    "Fewer options": "Fewer options",
+    "More options": "More options",
+    "When it should not be used": "When it should not be used",
+    "Example tasks, one per line": "Example tasks, one per line",
+    "Role instructions given to the specialist": "Role instructions given to the specialist",
+    "Max output tokens": "Max output tokens",
+    "Specialist id": "Specialist id",
+    "Add specialist": "Add specialist",
+    "Eight is the maximum.": "Eight is the maximum.",
+    "Orchestration notes": "Orchestration notes",
+    "Maximum delegations per turn": "Maximum delegations per turn",
+    "Save Agent Routes": "Save Agent Routes",
+    "Unsaved changes": "Unsaved changes",
+    "Saved {value}": "Saved {value}",
+    "Recent delegations": "Recent delegations",
+    "No delegation yet. Ask something a specialist covers.": "No delegation yet. Ask something a specialist covers.",
+    "router": "router",
+    "model": "model",
+    "Clear history": "Clear history",
+    "agent-ready": "agent-ready",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Saved, but Agent Routes stays off until it has a main model and at least one specialist.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep."
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -829,7 +907,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "\u4E88\u7B97\u304C\u30A6\u30A9\u30EC\u30C3\u30C8\u6B8B\u9AD8\u3092\u8D85\u3048\u3066\u3044\u307E\u3059\u3002",
     "Below the minimum": "\u6700\u4F4E\u53D7\u53D6\u984D\u672A\u6E80",
     "Minimum claim per campaign:": "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3\u3054\u3068\u306E\u6700\u4F4E\u53D7\u53D6\u984D\uFF1A",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u6700\u4F4E\u53D7\u53D6\u984D\u3092\u4E0B\u56DE\u3063\u3066\u3044\u307E\u3059\uFF1A{min}\u3002\u73FE\u5728\u306E\u672A\u53D7\u53D6\u984D\uFF1A{value}\u3002"
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u6700\u4F4E\u53D7\u53D6\u984D\u3092\u4E0B\u56DE\u3063\u3066\u3044\u307E\u3059\uFF1A{min}\u3002\u73FE\u5728\u306E\u672A\u53D7\u53D6\u984D\uFF1A{value}\u3002",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "\u8AAD\u307F\u8FBC\u307F\u4E2D\u2026",
+    "Choose a model": "\u30E2\u30C7\u30EB\u3092\u9078\u629E",
+    "Any local worker (auto)": "\u4EFB\u610F\u306E\u30ED\u30FC\u30AB\u30EB worker\uFF08\u81EA\u52D5\uFF09",
+    "On": "\u30AA\u30F3",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "\u30E1\u30A4\u30F3\u306E\u30E2\u30C7\u30EB\u304C\u56DE\u7B54\u3057\u3001\u660E\u78BA\u306B\u4E00\u81F4\u3059\u308B\u4F5C\u696D\u3092\u6700\u5927 8 \u540D\u306E\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306B\u6E21\u3057\u307E\u3059\u3002\u3053\u308C\u3092\u30AA\u30F3\u306B\u3057\u3066\u30C1\u30E3\u30C3\u30C8\u306E\u30E2\u30C7\u30EB\u9078\u629E\u3067 Agent Routes \u30E2\u30C7\u30EB\u3092\u9078\u3076\u307E\u3067\u3001\u52D5\u4F5C\u306F\u5909\u308F\u308A\u307E\u305B\u3093\u3002\u30BB\u30C3\u30B7\u30E7\u30F3\u306F\u5F15\u304D\u7D9A\u304D\u7121\u6599\u3067\u3059\u3002",
+    "Who picks the specialist": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u3092\u9078\u3076\u306E\u306F",
+    "The main model (delegate tool)": "\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\uFF08delegate \u30C4\u30FC\u30EB\uFF09",
+    "The router (works with chat-only models)": "\u30EB\u30FC\u30BF\u30FC\uFF08\u30C1\u30E3\u30C3\u30C8\u5C02\u7528\u30E2\u30C7\u30EB\u3067\u3082\u52D5\u4F5C\uFF09",
+    "Main model": "\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB",
+    "The main model can call tools (turn this off for a chat-only model)": "\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u306F\u30C4\u30FC\u30EB\u3092\u547C\u3073\u51FA\u305B\u307E\u3059\uFF08\u30C1\u30E3\u30C3\u30C8\u5C02\u7528\u30E2\u30C7\u30EB\u3067\u306F\u30AA\u30D5\u306B\uFF09",
+    "Specialists": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8",
+    "No specialists yet. Add one below.": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306F\u307E\u3060\u3044\u307E\u305B\u3093\u3002\u4E0B\u3067\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    "Name, e.g. Translator": "\u540D\u524D\uFF08\u4F8B\uFF1A\u7FFB\u8A33\u8005\uFF09",
+    "Specialist name": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u540D",
+    "Model": "\u30E2\u30C7\u30EB",
+    "Fewer options": "\u30AA\u30D7\u30B7\u30E7\u30F3\u3092\u6E1B\u3089\u3059",
+    "More options": "\u305D\u306E\u4ED6\u306E\u30AA\u30D7\u30B7\u30E7\u30F3",
+    "When it should not be used": "\u4F7F\u3046\u3079\u304D\u3067\u306A\u3044\u5834\u9762",
+    "Example tasks, one per line": "\u30BF\u30B9\u30AF\u4F8B\uFF081 \u884C\u306B 1 \u4EF6\uFF09",
+    "Role instructions given to the specialist": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306B\u6E21\u3059\u5F79\u5272\u6307\u793A",
+    "Max output tokens": "\u6700\u5927\u51FA\u529B\u30C8\u30FC\u30AF\u30F3\u6570",
+    "Specialist id": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8 ID",
+    "Add specialist": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u3092\u8FFD\u52A0",
+    "Eight is the maximum.": "\u6700\u5927 8 \u540D\u3067\u3059\u3002",
+    "Orchestration notes": "\u30AA\u30FC\u30B1\u30B9\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3\u306E\u30E1\u30E2",
+    "Maximum delegations per turn": "1 \u30BF\u30FC\u30F3\u3042\u305F\u308A\u306E\u6700\u5927\u59D4\u4EFB\u56DE\u6570",
+    "Save Agent Routes": "Agent Routes \u3092\u4FDD\u5B58",
+    "Unsaved changes": "\u672A\u4FDD\u5B58\u306E\u5909\u66F4\u304C\u3042\u308A\u307E\u3059",
+    "Saved {value}": "\u4FDD\u5B58\u6E08\u307F {value}",
+    "Recent delegations": "\u6700\u8FD1\u306E\u59D4\u4EFB",
+    "No delegation yet. Ask something a specialist covers.": "\u307E\u3060\u59D4\u4EFB\u306F\u3042\u308A\u307E\u305B\u3093\u3002\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306E\u62C5\u5F53\u5206\u91CE\u3092\u805E\u3044\u3066\u307F\u3066\u304F\u3060\u3055\u3044\u3002",
+    "router": "\u30EB\u30FC\u30BF\u30FC",
+    "model": "\u30E2\u30C7\u30EB",
+    "Clear history": "\u5C65\u6B74\u3092\u6D88\u53BB",
+    "agent-ready": "\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u5BFE\u5FDC",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes \u3092\u4FDD\u5B58\u3057\u307E\u3057\u305F\u3002\u30C1\u30E3\u30C3\u30C8\u306E\u30E2\u30C7\u30EB\u9078\u629E\u3067\u300CGenKaKu \xB7 Agent Routes\u300D\u3092\u9078\u3076\u3068\u4F7F\u3048\u307E\u3059\u3002",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u4FDD\u5B58\u3057\u307E\u3057\u305F\u304C\u3001\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u3068\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u304C 1 \u540D\u4EE5\u4E0A\u306B\u306A\u308B\u307E\u3067 Agent Routes \u306F\u30AA\u30D5\u306E\u307E\u307E\u3067\u3059\u3002",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306F\u5B8C\u5168\u306A\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3067\u3001\u30D5\u30A1\u30A4\u30EB\u306E\u8AAD\u307F\u53D6\u308A\u3084\u30C4\u30FC\u30EB\u306E\u4F7F\u7528\u304C\u3067\u304D\u307E\u3059\u3002\u3055\u3089\u306B\u59D4\u4EFB\u306F\u3067\u304D\u306A\u3044\u305F\u3081\u3001\u30C1\u30FC\u30E0\u306F 1 \u968E\u5C64\u3067\u3059\u3002"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1095,7 +1212,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "\uC608\uC0B0\uC774 \uC9C0\uAC11 \uC794\uC561\uC744 \uCD08\uACFC\uD569\uB2C8\uB2E4.",
     "Below the minimum": "\uCD5C\uC18C \uC218\uB839\uC561 \uBBF8\uB9CC",
     "Minimum claim per campaign:": "\uCEA0\uD398\uC778\uBCC4 \uCD5C\uC18C \uC218\uB839\uC561:",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\uCD5C\uC18C \uC218\uB839\uC561 \uBBF8\uB9CC\uC785\uB2C8\uB2E4: {min}. \uD604\uC7AC \uBBF8\uC218\uB839\uC561: {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\uCD5C\uC18C \uC218\uB839\uC561 \uBBF8\uB9CC\uC785\uB2C8\uB2E4: {min}. \uD604\uC7AC \uBBF8\uC218\uB839\uC561: {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "\uBD88\uB7EC\uC624\uB294 \uC911\u2026",
+    "Choose a model": "\uBAA8\uB378 \uC120\uD0DD",
+    "Any local worker (auto)": "\uBAA8\uB4E0 \uB85C\uCEEC worker(\uC790\uB3D9)",
+    "On": "\uCF1C\uAE30",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "\uBA54\uC778 \uBAA8\uB378\uC774 \uB2F5\uBCC0\uD558\uACE0, \uBD84\uBA85\uD788 \uB9DE\uB294 \uC791\uC5C5\uC744 \uCD5C\uB300 8\uBA85\uC758 \uC804\uBB38\uAC00\uC5D0\uAC8C \uB118\uAE41\uB2C8\uB2E4. \uC774 \uAE30\uB2A5\uC744 \uCF1C\uACE0 \uCC44\uD305 \uBAA8\uB378 \uC120\uD0DD\uC5D0\uC11C Agent Routes \uBAA8\uB378\uC744 \uACE0\uB974\uAE30 \uC804\uAE4C\uC9C0\uB294 \uC544\uBB34\uAC83\uB3C4 \uBC14\uB00C\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC138\uC158 \uBE44\uC6A9\uC740 \uC5EC\uC804\uD788 \uC5C6\uC2B5\uB2C8\uB2E4.",
+    "Who picks the specialist": "\uC804\uBB38\uAC00\uB97C \uACE0\uB974\uB294 \uC8FC\uCCB4",
+    "The main model (delegate tool)": "\uBA54\uC778 \uBAA8\uB378(delegate \uB3C4\uAD6C)",
+    "The router (works with chat-only models)": "\uB77C\uC6B0\uD130(\uCC44\uD305 \uC804\uC6A9 \uBAA8\uB378\uB3C4 \uAC00\uB2A5)",
+    "Main model": "\uBA54\uC778 \uBAA8\uB378",
+    "The main model can call tools (turn this off for a chat-only model)": "\uBA54\uC778 \uBAA8\uB378\uC774 \uB3C4\uAD6C\uB97C \uD638\uCD9C\uD560 \uC218 \uC788\uC74C(\uCC44\uD305 \uC804\uC6A9 \uBAA8\uB378\uC740 \uB044\uC138\uC694)",
+    "Specialists": "\uC804\uBB38\uAC00",
+    "No specialists yet. Add one below.": "\uC544\uC9C1 \uC804\uBB38\uAC00\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4. \uC544\uB798\uC5D0\uC11C \uCD94\uAC00\uD558\uC138\uC694.",
+    "Name, e.g. Translator": "\uC774\uB984(\uC608: \uBC88\uC5ED\uAC00)",
+    "Specialist name": "\uC804\uBB38\uAC00 \uC774\uB984",
+    "Model": "\uBAA8\uB378",
+    "Fewer options": "\uC635\uC158 \uC904\uC774\uAE30",
+    "More options": "\uC635\uC158 \uB354 \uBCF4\uAE30",
+    "When it should not be used": "\uC0AC\uC6A9\uD558\uBA74 \uC548 \uB418\uB294 \uACBD\uC6B0",
+    "Example tasks, one per line": "\uC608\uC2DC \uC791\uC5C5(\uD55C \uC904\uC5D0 \uD558\uB098)",
+    "Role instructions given to the specialist": "\uC804\uBB38\uAC00\uC5D0\uAC8C \uC8FC\uB294 \uC5ED\uD560 \uC9C0\uC2DC",
+    "Max output tokens": "\uCD5C\uB300 \uCD9C\uB825 \uD1A0\uD070",
+    "Specialist id": "\uC804\uBB38\uAC00 ID",
+    "Add specialist": "\uC804\uBB38\uAC00 \uCD94\uAC00",
+    "Eight is the maximum.": "\uCD5C\uB300 8\uBA85\uC785\uB2C8\uB2E4.",
+    "Orchestration notes": "\uC624\uCF00\uC2A4\uD2B8\uB808\uC774\uC158 \uBA54\uBAA8",
+    "Maximum delegations per turn": "\uD134\uB2F9 \uCD5C\uB300 \uC704\uC784 \uD69F\uC218",
+    "Save Agent Routes": "Agent Routes \uC800\uC7A5",
+    "Unsaved changes": "\uC800\uC7A5\uB418\uC9C0 \uC54A\uC740 \uBCC0\uACBD \uC0AC\uD56D",
+    "Saved {value}": "\uC800\uC7A5\uB428 {value}",
+    "Recent delegations": "\uCD5C\uADFC \uC704\uC784",
+    "No delegation yet. Ask something a specialist covers.": "\uC544\uC9C1 \uC704\uC784\uC774 \uC5C6\uC2B5\uB2C8\uB2E4. \uC804\uBB38\uAC00\uAC00 \uB9E1\uB294 \uC77C\uC744 \uBB3C\uC5B4\uBCF4\uC138\uC694.",
+    "router": "\uB77C\uC6B0\uD130",
+    "model": "\uBAA8\uB378",
+    "Clear history": "\uAE30\uB85D \uC9C0\uC6B0\uAE30",
+    "agent-ready": "\uC5D0\uC774\uC804\uD2B8 \uC0AC\uC6A9 \uAC00\uB2A5",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": 'Agent Routes\uB97C \uC800\uC7A5\uD588\uC2B5\uB2C8\uB2E4. \uCC44\uD305 \uBAA8\uB378 \uC120\uD0DD\uC5D0\uC11C "GenKaKu \xB7 Agent Routes"\uB97C \uACE0\uB974\uBA74 \uC0AC\uC6A9\uB429\uB2C8\uB2E4.',
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\uC800\uC7A5\uD588\uC9C0\uB9CC, \uBA54\uC778 \uBAA8\uB378\uACFC \uC804\uBB38\uAC00\uAC00 \uCD5C\uC18C \uD55C \uBA85 \uC788\uC5B4\uC57C Agent Routes\uAC00 \uCF1C\uC9D1\uB2C8\uB2E4.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\uC804\uBB38\uAC00\uB294 \uC644\uC804\uD55C \uC5D0\uC774\uC804\uD2B8\uB85C \uD30C\uC77C\uC744 \uC77D\uACE0 \uB3C4\uAD6C\uB97C \uC4F8 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uB2E4\uC2DC \uC704\uC784\uD560 \uC218 \uC5C6\uC73C\uBBC0\uB85C \uD300\uC740 \uD55C \uB2E8\uACC4\uC785\uB2C8\uB2E4."
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1361,7 +1517,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "El presupuesto supera el saldo de la billetera.",
     "Below the minimum": "Por debajo del m\xEDnimo",
     "Minimum claim per campaign:": "Importe m\xEDnimo por campa\xF1a:",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Por debajo del importe m\xEDnimo de retirada: {min}. Sin reclamar actual: {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Por debajo del importe m\xEDnimo de retirada: {min}. Sin reclamar actual: {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "Cargando\u2026",
+    "Choose a model": "Elige un modelo",
+    "Any local worker (auto)": "Cualquier worker local (autom\xE1tico)",
+    "On": "Activado",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "Un modelo principal responde y pasa el trabajo que encaja claramente a hasta ocho especialistas. Nada cambia hasta que actives esto y elijas el modelo Agent Routes en el selector de modelos del chat. Las sesiones siguen sin costarte nada.",
+    "Who picks the specialist": "Qui\xE9n elige al especialista",
+    "The main model (delegate tool)": "El modelo principal (herramienta delegate)",
+    "The router (works with chat-only models)": "El enrutador (funciona con modelos solo de chat)",
+    "Main model": "Modelo principal",
+    "The main model can call tools (turn this off for a chat-only model)": "El modelo principal puede usar herramientas (desact\xEDvalo para un modelo solo de chat)",
+    "Specialists": "Especialistas",
+    "No specialists yet. Add one below.": "A\xFAn no hay especialistas. A\xF1ade uno abajo.",
+    "Name, e.g. Translator": "Nombre, p. ej. Traductor",
+    "Specialist name": "Nombre del especialista",
+    "Model": "Modelo",
+    "Fewer options": "Menos opciones",
+    "More options": "M\xE1s opciones",
+    "When it should not be used": "Cu\xE1ndo no debe usarse",
+    "Example tasks, one per line": "Tareas de ejemplo, una por l\xEDnea",
+    "Role instructions given to the specialist": "Instrucciones de rol para el especialista",
+    "Max output tokens": "Tokens de salida m\xE1ximos",
+    "Specialist id": "Id del especialista",
+    "Add specialist": "A\xF1adir especialista",
+    "Eight is the maximum.": "Ocho es el m\xE1ximo.",
+    "Orchestration notes": "Notas de orquestaci\xF3n",
+    "Maximum delegations per turn": "Delegaciones m\xE1ximas por turno",
+    "Save Agent Routes": "Guardar Agent Routes",
+    "Unsaved changes": "Cambios sin guardar",
+    "Saved {value}": "Guardado {value}",
+    "Recent delegations": "Delegaciones recientes",
+    "No delegation yet. Ask something a specialist covers.": "A\xFAn no hay delegaciones. Pregunta algo que cubra un especialista.",
+    "router": "enrutador",
+    "model": "modelo",
+    "Clear history": "Borrar historial",
+    "agent-ready": "listo para agentes",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes guardado. Elige \xABGenKaKu \xB7 Agent Routes\xBB en el selector de modelos del chat para usarlo.",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Guardado, pero Agent Routes seguir\xE1 desactivado hasta que tenga un modelo principal y al menos un especialista.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Los especialistas son agentes completos: pueden leer archivos y usar herramientas. No pueden delegar m\xE1s, as\xED que el equipo tiene un solo nivel."
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -1627,7 +1822,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "Le budget d\xE9passe le solde du portefeuille.",
     "Below the minimum": "Sous le minimum",
     "Minimum claim per campaign:": "Montant minimum par campagne :",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Inf\xE9rieur au montant minimum de retrait : {min}. Non r\xE9clam\xE9 actuel : {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Inf\xE9rieur au montant minimum de retrait : {min}. Non r\xE9clam\xE9 actuel : {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "Chargement\u2026",
+    "Choose a model": "Choisir un mod\xE8le",
+    "Any local worker (auto)": "N'importe quel worker local (auto)",
+    "On": "Activ\xE9",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "Un mod\xE8le principal r\xE9pond et confie le travail clairement adapt\xE9 \xE0 huit sp\xE9cialistes au maximum. Rien ne change tant que vous n'activez pas ceci et ne choisissez pas le mod\xE8le Agent Routes dans le s\xE9lecteur de mod\xE8les du chat. Les sessions restent gratuites.",
+    "Who picks the specialist": "Qui choisit le sp\xE9cialiste",
+    "The main model (delegate tool)": "Le mod\xE8le principal (outil delegate)",
+    "The router (works with chat-only models)": "Le routeur (fonctionne avec les mod\xE8les de chat uniquement)",
+    "Main model": "Mod\xE8le principal",
+    "The main model can call tools (turn this off for a chat-only model)": "Le mod\xE8le principal peut appeler des outils (d\xE9sactivez pour un mod\xE8le de chat uniquement)",
+    "Specialists": "Sp\xE9cialistes",
+    "No specialists yet. Add one below.": "Aucun sp\xE9cialiste pour l'instant. Ajoutez-en un ci-dessous.",
+    "Name, e.g. Translator": "Nom, par ex. Traducteur",
+    "Specialist name": "Nom du sp\xE9cialiste",
+    "Model": "Mod\xE8le",
+    "Fewer options": "Moins d'options",
+    "More options": "Plus d'options",
+    "When it should not be used": "Quand ne pas l'utiliser",
+    "Example tasks, one per line": "T\xE2ches d'exemple, une par ligne",
+    "Role instructions given to the specialist": "Instructions de r\xF4le donn\xE9es au sp\xE9cialiste",
+    "Max output tokens": "Tokens de sortie max.",
+    "Specialist id": "Id du sp\xE9cialiste",
+    "Add specialist": "Ajouter un sp\xE9cialiste",
+    "Eight is the maximum.": "Huit est le maximum.",
+    "Orchestration notes": "Notes d'orchestration",
+    "Maximum delegations per turn": "D\xE9l\xE9gations maximum par tour",
+    "Save Agent Routes": "Enregistrer Agent Routes",
+    "Unsaved changes": "Modifications non enregistr\xE9es",
+    "Saved {value}": "Enregistr\xE9 {value}",
+    "Recent delegations": "D\xE9l\xE9gations r\xE9centes",
+    "No delegation yet. Ask something a specialist covers.": "Aucune d\xE9l\xE9gation pour l'instant. Demandez quelque chose qui rel\xE8ve d'un sp\xE9cialiste.",
+    "router": "routeur",
+    "model": "mod\xE8le",
+    "Clear history": "Effacer l'historique",
+    "agent-ready": "pr\xEAt pour agent",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes enregistr\xE9. Choisissez \xAB GenKaKu \xB7 Agent Routes \xBB dans le s\xE9lecteur de mod\xE8les du chat pour l'utiliser.",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Enregistr\xE9, mais Agent Routes reste d\xE9sactiv\xE9 tant qu'il n'a pas de mod\xE8le principal et au moins un sp\xE9cialiste.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Les sp\xE9cialistes sont des agents complets : ils peuvent lire des fichiers et utiliser des outils. Ils ne peuvent pas d\xE9l\xE9guer davantage, donc l'\xE9quipe n'a qu'un niveau."
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -1893,7 +2127,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "Das Budget \xFCbersteigt das Wallet-Guthaben.",
     "Below the minimum": "Unter dem Minimum",
     "Minimum claim per campaign:": "Mindestbetrag pro Kampagne:",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Unter dem Mindestbetrag f\xFCr Auszahlungen: {min}. Aktuell nicht abgeholt: {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Unter dem Mindestbetrag f\xFCr Auszahlungen: {min}. Aktuell nicht abgeholt: {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "Wird geladen\u2026",
+    "Choose a model": "Modell w\xE4hlen",
+    "Any local worker (auto)": "Beliebiger lokaler Worker (automatisch)",
+    "On": "An",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "Ein Hauptmodell antwortet und \xFCbergibt klar passende Arbeit an bis zu acht Spezialisten. Nichts \xE4ndert sich, bis du dies aktivierst und im Chat-Modellauswahldialog das Modell Agent Routes w\xE4hlst. Sitzungen kosten dich weiterhin nichts.",
+    "Who picks the specialist": "Wer den Spezialisten w\xE4hlt",
+    "The main model (delegate tool)": "Das Hauptmodell (delegate-Tool)",
+    "The router (works with chat-only models)": "Der Router (funktioniert auch mit reinen Chat-Modellen)",
+    "Main model": "Hauptmodell",
+    "The main model can call tools (turn this off for a chat-only model)": "Das Hauptmodell kann Tools aufrufen (f\xFCr reine Chat-Modelle deaktivieren)",
+    "Specialists": "Spezialisten",
+    "No specialists yet. Add one below.": "Noch keine Spezialisten. F\xFCge unten einen hinzu.",
+    "Name, e.g. Translator": "Name, z. B. \xDCbersetzer",
+    "Specialist name": "Name des Spezialisten",
+    "Model": "Modell",
+    "Fewer options": "Weniger Optionen",
+    "More options": "Mehr Optionen",
+    "When it should not be used": "Wann er nicht genutzt werden sollte",
+    "Example tasks, one per line": "Beispielaufgaben, eine pro Zeile",
+    "Role instructions given to the specialist": "Rollenanweisungen f\xFCr den Spezialisten",
+    "Max output tokens": "Maximale Ausgabe-Token",
+    "Specialist id": "Spezialisten-ID",
+    "Add specialist": "Spezialist hinzuf\xFCgen",
+    "Eight is the maximum.": "Acht ist das Maximum.",
+    "Orchestration notes": "Orchestrierungshinweise",
+    "Maximum delegations per turn": "Maximale Delegationen pro Zug",
+    "Save Agent Routes": "Agent Routes speichern",
+    "Unsaved changes": "Ungespeicherte \xC4nderungen",
+    "Saved {value}": "Gespeichert {value}",
+    "Recent delegations": "Letzte Delegationen",
+    "No delegation yet. Ask something a specialist covers.": "Noch keine Delegation. Frag etwas, das ein Spezialist abdeckt.",
+    "router": "Router",
+    "model": "Modell",
+    "Clear history": "Verlauf l\xF6schen",
+    "agent-ready": "agent-tauglich",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes gespeichert. W\xE4hle \u201EGenKaKu \xB7 Agent Routes\u201C im Chat-Modellauswahldialog, um es zu nutzen.",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Gespeichert, aber Agent Routes bleibt aus, bis ein Hauptmodell und mindestens ein Spezialist vorhanden sind.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Spezialisten sind vollwertige Agenten: Sie k\xF6nnen Dateien lesen und Tools nutzen. Sie k\xF6nnen nicht weiter delegieren, daher ist das Team eine Ebene tief."
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -2159,7 +2432,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "\u0411\u044E\u0434\u0436\u0435\u0442 \u043F\u0440\u0435\u0432\u044B\u0448\u0430\u0435\u0442 \u0431\u0430\u043B\u0430\u043D\u0441 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0430.",
     "Below the minimum": "\u041D\u0438\u0436\u0435 \u043C\u0438\u043D\u0438\u043C\u0443\u043C\u0430",
     "Minimum claim per campaign:": "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u043F\u043E \u043A\u0430\u043C\u043F\u0430\u043D\u0438\u0438:",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u041D\u0438\u0436\u0435 \u043C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0439 \u0441\u0443\u043C\u043C\u044B \u0432\u044B\u0432\u043E\u0434\u0430: {min}. \u0422\u0435\u043A\u0443\u0449\u0430\u044F \u043D\u0435\u0432\u043E\u0441\u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430: {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "\u041D\u0438\u0436\u0435 \u043C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0439 \u0441\u0443\u043C\u043C\u044B \u0432\u044B\u0432\u043E\u0434\u0430: {min}. \u0422\u0435\u043A\u0443\u0449\u0430\u044F \u043D\u0435\u0432\u043E\u0441\u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430: {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430\u2026",
+    "Choose a model": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u043E\u0434\u0435\u043B\u044C",
+    "Any local worker (auto)": "\u041B\u044E\u0431\u043E\u0439 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0439 worker (\u0430\u0432\u0442\u043E)",
+    "On": "\u0412\u043A\u043B.",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043C\u043E\u0434\u0435\u043B\u044C \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442 \u0438 \u043F\u0435\u0440\u0435\u0434\u0430\u0451\u0442 \u044F\u0432\u043D\u043E \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0443\u044E \u0440\u0430\u0431\u043E\u0442\u0443 \u0434\u043E \u0432\u043E\u0441\u044C\u043C\u0438 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430\u043C. \u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0438\u0437\u043C\u0435\u043D\u0438\u0442\u0441\u044F, \u043F\u043E\u043A\u0430 \u0432\u044B \u043D\u0435 \u0432\u043A\u043B\u044E\u0447\u0438\u0442\u0435 \u044D\u0442\u043E \u0438 \u043D\u0435 \u0432\u044B\u0431\u0435\u0440\u0435\u0442\u0435 \u043C\u043E\u0434\u0435\u043B\u044C Agent Routes \u0432 \u0441\u043F\u0438\u0441\u043A\u0435 \u043C\u043E\u0434\u0435\u043B\u0435\u0439 \u0447\u0430\u0442\u0430. \u0421\u0435\u0441\u0441\u0438\u0438 \u043F\u043E-\u043F\u0440\u0435\u0436\u043D\u0435\u043C\u0443 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u044B.",
+    "Who picks the specialist": "\u041A\u0442\u043E \u0432\u044B\u0431\u0438\u0440\u0430\u0435\u0442 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "The main model (delegate tool)": "\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043C\u043E\u0434\u0435\u043B\u044C (\u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442 delegate)",
+    "The router (works with chat-only models)": "\u041C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0442\u043E\u0440 (\u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u0438 \u0441 \u0447\u0438\u0441\u0442\u043E \u0447\u0430\u0442-\u043C\u043E\u0434\u0435\u043B\u044F\u043C\u0438)",
+    "Main model": "\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043C\u043E\u0434\u0435\u043B\u044C",
+    "The main model can call tools (turn this off for a chat-only model)": "\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043C\u043E\u0434\u0435\u043B\u044C \u043C\u043E\u0436\u0435\u0442 \u0432\u044B\u0437\u044B\u0432\u0430\u0442\u044C \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B (\u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u0435 \u0434\u043B\u044F \u0447\u0438\u0441\u0442\u043E \u0447\u0430\u0442-\u043C\u043E\u0434\u0435\u043B\u0438)",
+    "Specialists": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B",
+    "No specialists yet. Add one below.": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432 \u043F\u043E\u043A\u0430 \u043D\u0435\u0442. \u0414\u043E\u0431\u0430\u0432\u044C\u0442\u0435 \u043D\u0438\u0436\u0435.",
+    "Name, e.g. Translator": "\u0418\u043C\u044F, \u043D\u0430\u043F\u0440\u0438\u043C\u0435\u0440 \u041F\u0435\u0440\u0435\u0432\u043E\u0434\u0447\u0438\u043A",
+    "Specialist name": "\u0418\u043C\u044F \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "Model": "\u041C\u043E\u0434\u0435\u043B\u044C",
+    "Fewer options": "\u041C\u0435\u043D\u044C\u0448\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u0432",
+    "More options": "\u0411\u043E\u043B\u044C\u0448\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u0432",
+    "When it should not be used": "\u041A\u043E\u0433\u0434\u0430 \u0435\u0433\u043E \u043D\u0435 \u0441\u043B\u0435\u0434\u0443\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C",
+    "Example tasks, one per line": "\u041F\u0440\u0438\u043C\u0435\u0440\u044B \u0437\u0430\u0434\u0430\u0447, \u043F\u043E \u043E\u0434\u043D\u043E\u043C\u0443 \u0432 \u0441\u0442\u0440\u043E\u043A\u0435",
+    "Role instructions given to the specialist": "\u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u0438 \u0440\u043E\u043B\u0438 \u0434\u043B\u044F \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "Max output tokens": "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0432\u044B\u0445\u043E\u0434\u043D\u044B\u0445 \u0442\u043E\u043A\u0435\u043D\u043E\u0432",
+    "Specialist id": "\u0418\u0434\u0435\u043D\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u043E\u0440 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "Add specialist": "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
+    "Eight is the maximum.": "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u2014 \u0432\u043E\u0441\u0435\u043C\u044C.",
+    "Orchestration notes": "\u0417\u0430\u043C\u0435\u0442\u043A\u0438 \u043E\u0431 \u043E\u0440\u043A\u0435\u0441\u0442\u0440\u0430\u0446\u0438\u0438",
+    "Maximum delegations per turn": "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0434\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0439 \u0437\u0430 \u0445\u043E\u0434",
+    "Save Agent Routes": "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C Agent Routes",
+    "Unsaved changes": "\u041D\u0435\u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D\u043D\u044B\u0435 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F",
+    "Saved {value}": "\u0421\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E {value}",
+    "Recent delegations": "\u041D\u0435\u0434\u0430\u0432\u043D\u0438\u0435 \u0434\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F",
+    "No delegation yet. Ask something a specialist covers.": "\u0414\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0439 \u043F\u043E\u043A\u0430 \u043D\u0435\u0442. \u0421\u043F\u0440\u043E\u0441\u0438\u0442\u0435 \u0442\u043E, \u0447\u0442\u043E \u043F\u043E\u043A\u0440\u044B\u0432\u0430\u0435\u0442 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442.",
+    "router": "\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0442\u043E\u0440",
+    "model": "\u043C\u043E\u0434\u0435\u043B\u044C",
+    "Clear history": "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E",
+    "agent-ready": "\u0433\u043E\u0442\u043E\u0432 \u0434\u043B\u044F \u0430\u0433\u0435\u043D\u0442\u0430",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": "Agent Routes \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \xABGenKaKu \xB7 Agent Routes\xBB \u0432 \u0441\u043F\u0438\u0441\u043A\u0435 \u043C\u043E\u0434\u0435\u043B\u0435\u0439 \u0447\u0430\u0442\u0430.",
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "\u0421\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u043E, \u043D\u043E Agent Routes \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u0432\u044B\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u043C, \u043F\u043E\u043A\u0430 \u043D\u0435\u0442 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u043C\u043E\u0434\u0435\u043B\u0438 \u0438 \u0445\u043E\u0442\u044F \u0431\u044B \u043E\u0434\u043D\u043E\u0433\u043E \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B \u2014 \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u044B\u0435 \u0430\u0433\u0435\u043D\u0442\u044B: \u043E\u043D\u0438 \u0447\u0438\u0442\u0430\u044E\u0442 \u0444\u0430\u0439\u043B\u044B \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044E\u0442 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B. \u0414\u0430\u043B\u044C\u0448\u0435 \u0434\u0435\u043B\u0435\u0433\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043E\u043D\u0438 \u043D\u0435 \u043C\u043E\u0433\u0443\u0442, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043E\u0434\u043D\u043E\u0443\u0440\u043E\u0432\u043D\u0435\u0432\u0430\u044F."
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -2425,7 +2737,46 @@ var MESSAGES = {
     "Budget exceeds the wallet balance.": "O or\xE7amento excede o saldo da carteira.",
     "Below the minimum": "Abaixo do m\xEDnimo",
     "Minimum claim per campaign:": "Valor m\xEDnimo por campanha:",
-    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Abaixo do valor m\xEDnimo de resgate: {min}. N\xE3o resgatado atual: {value}."
+    "Below the minimum claim amount: {min}. Current unclaimed: {value}.": "Abaixo do valor m\xEDnimo de resgate: {min}. N\xE3o resgatado atual: {value}.",
+    "Agent Routes": "Agent Routes",
+    "Loading\u2026": "Carregando\u2026",
+    "Choose a model": "Escolher um modelo",
+    "Any local worker (auto)": "Qualquer worker local (autom\xE1tico)",
+    "On": "Ativado",
+    "One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.": "Um modelo principal responde e passa o trabalho claramente adequado para at\xE9 oito especialistas. Nada muda at\xE9 voc\xEA ativar isto e escolher o modelo Agent Routes no seletor de modelos do chat. As sess\xF5es continuam sem custar nada.",
+    "Who picks the specialist": "Quem escolhe o especialista",
+    "The main model (delegate tool)": "O modelo principal (ferramenta delegate)",
+    "The router (works with chat-only models)": "O roteador (funciona com modelos s\xF3 de chat)",
+    "Main model": "Modelo principal",
+    "The main model can call tools (turn this off for a chat-only model)": "O modelo principal pode usar ferramentas (desative para um modelo s\xF3 de chat)",
+    "Specialists": "Especialistas",
+    "No specialists yet. Add one below.": "Ainda n\xE3o h\xE1 especialistas. Adicione um abaixo.",
+    "Name, e.g. Translator": "Nome, ex. Tradutor",
+    "Specialist name": "Nome do especialista",
+    "Model": "Modelo",
+    "Fewer options": "Menos op\xE7\xF5es",
+    "More options": "Mais op\xE7\xF5es",
+    "When it should not be used": "Quando n\xE3o deve ser usado",
+    "Example tasks, one per line": "Tarefas de exemplo, uma por linha",
+    "Role instructions given to the specialist": "Instru\xE7\xF5es de papel dadas ao especialista",
+    "Max output tokens": "Tokens de sa\xEDda m\xE1ximos",
+    "Specialist id": "Id do especialista",
+    "Add specialist": "Adicionar especialista",
+    "Eight is the maximum.": "Oito \xE9 o m\xE1ximo.",
+    "Orchestration notes": "Notas de orquestra\xE7\xE3o",
+    "Maximum delegations per turn": "Delega\xE7\xF5es m\xE1ximas por turno",
+    "Save Agent Routes": "Salvar Agent Routes",
+    "Unsaved changes": "Altera\xE7\xF5es n\xE3o salvas",
+    "Saved {value}": "Salvo {value}",
+    "Recent delegations": "Delega\xE7\xF5es recentes",
+    "No delegation yet. Ask something a specialist covers.": "Ainda n\xE3o h\xE1 delega\xE7\xE3o. Pergunte algo que um especialista cobre.",
+    "router": "roteador",
+    "model": "modelo",
+    "Clear history": "Limpar hist\xF3rico",
+    "agent-ready": "pronto para agente",
+    "Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.": 'Agent Routes salvo. Escolha "GenKaKu \xB7 Agent Routes" no seletor de modelos do chat para usar.',
+    "Saved, but Agent Routes stays off until it has a main model and at least one specialist.": "Salvo, mas o Agent Routes fica desativado at\xE9 ter um modelo principal e pelo menos um especialista.",
+    "Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.": "Especialistas s\xE3o agentes completos: podem ler arquivos e usar ferramentas. N\xE3o podem delegar mais, ent\xE3o a equipe tem um n\xEDvel s\xF3."
   }
 };
 var LOCALE_LABELS = {
@@ -2508,7 +2859,7 @@ function useLocaleVersion() {
 }
 
 // src/client/index.tsx
-var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primitives");
 
 // src/client/adDock.tsx
 var import_react2 = require("react");
@@ -2616,8 +2967,8 @@ function AdDock(props) {
   }, [ad, turn]);
   (0, import_react2.useEffect)(() => {
     if (ad == null || dwelled) return;
-    const row2 = rowRef.current;
-    if (row2 == null) return;
+    const row3 = rowRef.current;
+    if (row3 == null) return;
     let visible = false;
     const observer = new IntersectionObserver((entries) => {
       visible = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.5);
@@ -2636,7 +2987,7 @@ function AdDock(props) {
     const onFocus = () => {
       schedule();
     };
-    observer.observe(row2);
+    observer.observe(row3);
     window.addEventListener("focus", onFocus);
     return () => {
       observer.disconnect();
@@ -2817,6 +3168,432 @@ function AdDock(props) {
   );
 }
 
+// src/client/teamPanel.tsx
+var import_react3 = require("react");
+var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+var import_jsx_runtime2 = require("react/jsx-runtime");
+var MAX_AGENTS = 8;
+var routeKey = (route) => route == null ? "" : `${route.provider}|${route.model}`;
+var routeOf = (key) => {
+  const [provider = "genkaku", model = ""] = key.split("|");
+  return { provider, model };
+};
+var caption = {
+  fontSize: 11,
+  textTransform: "uppercase",
+  letterSpacing: 1,
+  opacity: 0.6,
+  marginBottom: 6
+};
+var dim = { opacity: 0.6 };
+var row = { display: "flex", justifyContent: "space-between", gap: 12, padding: "6px 0" };
+var box = {
+  border: "1px solid rgba(127,137,153,.28)",
+  borderRadius: 10,
+  padding: 12,
+  marginTop: 12
+};
+var select = {
+  background: "transparent",
+  color: "inherit",
+  border: "1px solid rgba(127,137,153,.35)",
+  borderRadius: 6,
+  padding: "4px 6px",
+  font: "inherit",
+  fontSize: 12,
+  maxWidth: 260
+};
+var area = {
+  ...select,
+  width: "100%",
+  boxSizing: "border-box",
+  maxWidth: "100%",
+  fontFamily: "inherit",
+  resize: "vertical"
+};
+function emptyAgent(index) {
+  return {
+    id: `agent-${index}`,
+    name: "",
+    whenToUse: "",
+    whenNotToUse: "",
+    examples: [],
+    route: { provider: "genkaku", model: "" },
+    systemPrompt: "",
+    maxTokens: 2e3
+  };
+}
+function AgentRoutes({ get, post, onNotice }) {
+  const [config, setConfig] = (0, import_react3.useState)(null);
+  const [draft, setDraft] = (0, import_react3.useState)(null);
+  const [decisions, setDecisions] = (0, import_react3.useState)([]);
+  const [catalog, setCatalog] = (0, import_react3.useState)({ providers: [], local: [] });
+  const [busy, setBusy] = (0, import_react3.useState)(null);
+  const [error, setError] = (0, import_react3.useState)(null);
+  const [openAgent, setOpenAgent] = (0, import_react3.useState)(null);
+  const apply2 = (0, import_react3.useCallback)((doc) => {
+    const next = doc.config;
+    if (next == null) return;
+    setConfig(next);
+    setDraft(next);
+    setDecisions(doc.decisions ?? []);
+    if (doc.catalog != null) setCatalog(doc.catalog);
+  }, []);
+  const load = (0, import_react3.useCallback)(async () => {
+    try {
+      apply2(await get("/genkaku/team"));
+      setError(null);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
+  }, [apply2, get]);
+  (0, import_react3.useEffect)(() => {
+    void load();
+  }, [load]);
+  const save = (0, import_react3.useCallback)(async (next) => {
+    setBusy("save");
+    onNotice(null);
+    try {
+      const doc = await post("/genkaku/team", { config: { ...next, updatedAt: Date.now() } });
+      apply2(doc);
+      const saved = doc.config;
+      onNotice(saved?.enabled === true ? t("Agent Routes saved. Pick \u201CGenKaKu \xB7 Agent Routes\u201D in the chat model picker to use it.") : t("Saved, but Agent Routes stays off until it has a main model and at least one specialist."));
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [apply2, onNotice, post]);
+  const clearDecisions = (0, import_react3.useCallback)(async () => {
+    setBusy("clear");
+    try {
+      await post("/genkaku/team/decisions/clear", {});
+      setDecisions([]);
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [onNotice, post]);
+  if (error != null) {
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: error })
+    ] });
+  }
+  if (draft == null) {
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("Loading\u2026") })
+    ] });
+  }
+  const patch = (changes) => {
+    setDraft({ ...draft, ...changes });
+  };
+  const patchAgent = (id, changes) => {
+    patch({ agents: draft.agents.map((agent) => agent.id === id ? { ...agent, ...changes } : agent) });
+  };
+  const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config);
+  const mainKey = routeKey(draft.main);
+  const mainLabel = mainKey === "" ? t("Choose a model") : mainKey === "genkaku|" ? t("Any local worker (auto)") : mainKey;
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "inline-flex", gap: 6, alignItems: "center", fontSize: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "input",
+          {
+            type: "checkbox",
+            checked: draft.enabled,
+            onChange: (e) => patch({ enabled: e.target.checked })
+          }
+        ),
+        t("On")
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Who picks the specialist") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        "select",
+        {
+          style: select,
+          value: draft.mode,
+          "aria-label": t("Who picks the specialist"),
+          onChange: (e) => patch({ mode: e.target.value }),
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "model-decides", children: t("The main model (delegate tool)") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "router-decides", children: t("The router (works with chat-only models)") })
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Main model") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        "select",
+        {
+          style: select,
+          value: mainKey,
+          "aria-label": t("Main model"),
+          onChange: (e) => patch({ main: routeOf(e.target.value) }),
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "", children: t("Choose a model") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "genkaku|", children: t("Any local worker (auto)") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(RouteOptions, { catalog })
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: -2, marginBottom: 6 }, children: mainLabel }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "inline-flex", gap: 6, alignItems: "center", fontSize: 12, ...dim }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "input",
+        {
+          type: "checkbox",
+          checked: draft.mainSupportsTools,
+          onChange: (e) => patch({ mainSupportsTools: e.target.checked })
+        }
+      ),
+      t("The main model can call tools (turn this off for a chat-only model)")
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 14 }, children: t("Specialists") }),
+    draft.agents.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No specialists yet. Add one below.") }),
+    draft.agents.map((agent, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      "div",
+      {
+        style: {
+          border: "1px solid rgba(127,137,153,.22)",
+          borderRadius: 8,
+          padding: 10,
+          marginTop: 8
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              import_dsh_client_ui_primitives.Input,
+              {
+                value: agent.name,
+                placeholder: t("Name, e.g. Translator"),
+                "aria-label": t("Specialist name"),
+                onChange: (e) => patchAgent(agent.id, { name: e.target.value })
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              import_dsh_client_ui_primitives.Button,
+              {
+                variant: "ghost",
+                size: "sm",
+                disabled: busy !== null,
+                onClick: () => patch({ agents: draft.agents.filter((row3) => row3.id !== agent.id) }),
+                children: t("remove")
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4, marginTop: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("When the main model should hand work here") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "textarea",
+              {
+                style: area,
+                rows: 2,
+                value: agent.whenToUse,
+                placeholder: t("Translate or proofread text between Chinese and English."),
+                onChange: (e) => patchAgent(agent.id, { whenToUse: e.target.value })
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, marginTop: 4 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 12 }, children: t("Model") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+              "select",
+              {
+                style: select,
+                value: routeKey(agent.route),
+                "aria-label": `${t("Model")} ${index + 1}`,
+                onChange: (e) => patchAgent(agent.id, { route: routeOf(e.target.value) }),
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "genkaku|", children: t("Any local worker (auto)") }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(RouteOptions, { catalog })
+                ]
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "button",
+            {
+              type: "button",
+              style: {
+                background: "none",
+                border: "none",
+                color: "inherit",
+                opacity: 0.7,
+                fontSize: 11,
+                padding: 0,
+                marginTop: 4,
+                cursor: "pointer",
+                textDecoration: "underline"
+              },
+              onClick: () => setOpenAgent(openAgent === agent.id ? null : agent.id),
+              children: openAgent === agent.id ? t("Fewer options") : t("More options")
+            }
+          ),
+          openAgent === agent.id && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 6, marginTop: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("When it should not be used") }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                "textarea",
+                {
+                  style: area,
+                  rows: 2,
+                  value: agent.whenNotToUse,
+                  onChange: (e) => patchAgent(agent.id, { whenNotToUse: e.target.value })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("Example tasks, one per line") }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                "textarea",
+                {
+                  style: area,
+                  rows: 2,
+                  value: agent.examples.join("\n"),
+                  onChange: (e) => patchAgent(agent.id, {
+                    examples: e.target.value.split("\n").map((line) => line.trim()).filter((line) => line !== "")
+                  })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("Role instructions given to the specialist") }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                "textarea",
+                {
+                  style: area,
+                  rows: 2,
+                  value: agent.systemPrompt,
+                  onChange: (e) => patchAgent(agent.id, { systemPrompt: e.target.value })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "flex", gap: 6, alignItems: "center", fontSize: 12 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Max output tokens") }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                import_dsh_client_ui_primitives.Input,
+                {
+                  value: String(agent.maxTokens),
+                  "aria-label": t("Max output tokens"),
+                  onChange: (e) => {
+                    const value = Number(e.target.value);
+                    if (Number.isFinite(value)) patchAgent(agent.id, { maxTokens: Math.round(value) });
+                  }
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11 }, children: [
+              t("Specialist id"),
+              ": ",
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { children: agent.id })
+            ] })
+          ] })
+        ]
+      },
+      agent.id
+    )),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_dsh_client_ui_primitives.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          disabled: busy !== null || draft.agents.length >= MAX_AGENTS,
+          onClick: () => {
+            const agent = emptyAgent(draft.agents.length + 1);
+            patch({ agents: [...draft.agents, agent] });
+            setOpenAgent(agent.id);
+          },
+          children: t("Add specialist")
+        }
+      ),
+      draft.agents.length >= MAX_AGENTS && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11, marginLeft: 8 }, children: t("Eight is the maximum.") })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 14 }, children: t("Orchestration notes") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      "textarea",
+      {
+        style: area,
+        rows: 3,
+        value: draft.policy,
+        "aria-label": t("Orchestration notes"),
+        onChange: (e) => patch({ policy: e.target.value })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 12 }, children: t("Maximum delegations per turn") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_dsh_client_ui_primitives.Input,
+        {
+          value: String(draft.maxDelegations),
+          "aria-label": t("Maximum delegations per turn"),
+          onChange: (e) => {
+            const value = Number(e.target.value);
+            if (Number.isFinite(value)) patch({ maxDelegations: Math.round(value) });
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 8, alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null || !dirty, onClick: () => {
+        void save(draft);
+      }, children: busy === "save" ? t("Saving\u2026") : t("Save Agent Routes") }),
+      dirty && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("Unsaved changes") }),
+      !dirty && config != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: config.updatedAt > 0 ? t("Saved {value}", { value: new Date(config.updatedAt).toLocaleString() }) : "" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 16 }, children: t("Recent delegations") }),
+    decisions.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No delegation yet. Ask something a specialist covers.") }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4 }, children: [
+      [...decisions].reverse().slice(0, 8).map((decision, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { fontSize: 12, display: "grid", gap: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { opacity: decision.ok ? 0.85 : 1, color: decision.ok ? void 0 : "#ff8b9a" }, children: [
+            decision.ok ? "\u2713" : "\u2715",
+            " ",
+            decision.agent
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: decision.via === "router" ? t("router") : t("model") }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, marginLeft: "auto" }, children: [
+            Math.max(1, Math.round(decision.ms / 100) / 10),
+            "s \xB7 ",
+            new Date(decision.at).toLocaleTimeString()
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("code", { children: [
+            decision.provider,
+            "/",
+            decision.model
+          ] }),
+          decision.task != null && decision.task !== "" ? ` \xB7 ${decision.task}` : ""
+        ] }),
+        decision.error != null && decision.error !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 11, color: "#ff8b9a" }, children: decision.error })
+      ] }, `${decision.at}-${index}`)),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
+        void clearDecisions();
+      }, children: t("Clear history") }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 10 }, children: t("Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.") })
+  ] });
+}
+function RouteOptions({ catalog }) {
+  const local = catalog.local.filter((entry) => entry.id !== "team");
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+    catalog.providers.map((provider) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("optgroup", { label: provider.name, children: provider.models.map((model) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: `${provider.id}|${model.id}`, children: model.name }, `${provider.id}|${model.id}`)) }, provider.id)),
+    local.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("optgroup", { label: t("GenKaKu network"), children: local.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("option", { value: `genkaku|${entry.id}`, children: [
+      entry.name,
+      entry.tier === "agent" ? ` \xB7 ${t("agent-ready")}` : ""
+    ] }, entry.id)) })
+  ] });
+}
+
 // src/client/assets/genkaku-mark-b.png
 var genkaku_mark_b_default = "data:image/png;base64,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";
 
@@ -2824,7 +3601,7 @@ var genkaku_mark_b_default = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4A
 var genkaku_mark_w_default = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAMAAACY0sbcAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAmRQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Pmgb1QAAAMx0Uk5TAAECBAk7EwMZFwi7/+NcXergkr/yY2mjvPPwIAZg/vX3X2309tMcBR7v+ihL+f2w0csSEIT4nweZI/tvTdwi7fzijNrMMYp9C04yFathCoJP7i7fH8aDYqaAM+te5Ri+5px5VN7oId135HY5Rn6pyjQMQHqnaq84ZuEdazZs23BzbnF0s3w/z7LnEbU1Uxa3UnvBN7nEG8DXVsjCV0fJsTxDuD66QUTQFNaVUem9jewkjkKQWqxZGpElfywnKimTnXWU8Q2g0s5K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";
 
 // src/client/index.tsx
-var import_jsx_runtime2 = require("react/jsx-runtime");
+var import_jsx_runtime3 = require("react/jsx-runtime");
 var PANEL_ID = "genkaku-user";
 var TIP_AMOUNTS = [0.5, 1, 2];
 var CANDIDATE_PORTS2 = [47821, 47822, 47823, 47824, 47825, 47826];
@@ -2843,14 +3620,14 @@ async function listening(port) {
 }
 var inject = ["slots", "locale"];
 function Icon({ size = 16 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "inline-flex", width: size, height: size }, "aria-hidden": "true", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("style", { children: `
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { display: "inline-flex", width: size, height: size }, "aria-hidden": "true", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("style", { children: `
         .genkaku-mark-b { display: inline !important; }
         .genkaku-mark-w { display: none !important; }
         body[data-ds-dark-theme] .genkaku-mark-b { display: none !important; }
         body[data-ds-dark-theme] .genkaku-mark-w { display: inline !important; }
       ` }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "img",
       {
         src: genkaku_mark_b_default,
@@ -2861,7 +3638,7 @@ function Icon({ size = 16 }) {
         style: { width: size, height: size }
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "img",
       {
         src: genkaku_mark_w_default,
@@ -2874,30 +3651,30 @@ function Icon({ size = 16 }) {
     )
   ] });
 }
-var row = { display: "flex", justifyContent: "space-between", gap: 12, padding: "6px 0" };
-var dim = { opacity: 0.6 };
-var box = {
+var row2 = { display: "flex", justifyContent: "space-between", gap: 12, padding: "6px 0" };
+var dim2 = { opacity: 0.6 };
+var box2 = {
   border: "1px solid var(--dsw-alias-border-l2, rgba(255,255,255,0.12))",
   borderRadius: 10,
   padding: 12,
   marginTop: 12
 };
-var caption = { fontSize: 11, textTransform: "uppercase", letterSpacing: 1, opacity: 0.6, marginBottom: 6 };
+var caption2 = { fontSize: 11, textTransform: "uppercase", letterSpacing: 1, opacity: 0.6, marginBottom: 6 };
 function useScrollThumb() {
-  const [node, setNode] = (0, import_react3.useState)(null);
-  const nodeRef = (0, import_react3.useRef)(null);
-  const [thumb, setThumb] = (0, import_react3.useState)(null);
-  const attach = (0, import_react3.useCallback)((next) => {
+  const [node, setNode] = (0, import_react4.useState)(null);
+  const nodeRef = (0, import_react4.useRef)(null);
+  const [thumb, setThumb] = (0, import_react4.useState)(null);
+  const attach = (0, import_react4.useCallback)((next) => {
     nodeRef.current = next;
     setNode(next);
   }, []);
-  const update = (0, import_react3.useCallback)(() => {
+  const update = (0, import_react4.useCallback)(() => {
     const el = nodeRef.current;
     if (el == null) return;
     const ratio = el.scrollHeight > el.clientHeight + 1 ? el.clientHeight / el.scrollHeight : 1;
     setThumb(ratio >= 1 ? null : { top: el.scrollTop / el.scrollHeight * 100, height: Math.max(ratio * 100, 8) });
   }, []);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     if (node == null) return;
     update();
     node.addEventListener("scroll", update, { passive: true });
@@ -2911,7 +3688,7 @@ function useScrollThumb() {
       mo?.disconnect();
     };
   }, [node, update]);
-  const jump = (0, import_react3.useCallback)((event) => {
+  const jump = (0, import_react4.useCallback)((event) => {
     const el = nodeRef.current;
     const rail = event.currentTarget;
     if (el == null || rail == null) return;
@@ -2936,19 +3713,19 @@ var usdcOf = (micro) => {
 };
 function Page() {
   useLocaleVersion();
-  const [status, setStatus] = (0, import_react3.useState)(null);
-  const [error, setError] = (0, import_react3.useState)(null);
-  const [notice, setNotice] = (0, import_react3.useState)(null);
-  const [busy, setBusy] = (0, import_react3.useState)(null);
-  const [newWorker, setNewWorker] = (0, import_react3.useState)("");
-  const [exported, setExported] = (0, import_react3.useState)(null);
-  const [importText, setImportText] = (0, import_react3.useState)("");
-  const [showImport, setShowImport] = (0, import_react3.useState)(false);
-  const [search, setSearch] = (0, import_react3.useState)("");
-  const [pairText, setPairText] = (0, import_react3.useState)("");
-  const [ads, setAds] = (0, import_react3.useState)(null);
-  const [adCategories, setAdCategories] = (0, import_react3.useState)([]);
-  const [adForm, setAdForm] = (0, import_react3.useState)({
+  const [status, setStatus] = (0, import_react4.useState)(null);
+  const [error, setError] = (0, import_react4.useState)(null);
+  const [notice, setNotice] = (0, import_react4.useState)(null);
+  const [busy, setBusy] = (0, import_react4.useState)(null);
+  const [newWorker, setNewWorker] = (0, import_react4.useState)("");
+  const [exported, setExported] = (0, import_react4.useState)(null);
+  const [importText, setImportText] = (0, import_react4.useState)("");
+  const [showImport, setShowImport] = (0, import_react4.useState)(false);
+  const [search, setSearch] = (0, import_react4.useState)("");
+  const [pairText, setPairText] = (0, import_react4.useState)("");
+  const [ads, setAds] = (0, import_react4.useState)(null);
+  const [adCategories, setAdCategories] = (0, import_react4.useState)([]);
+  const [adForm, setAdForm] = (0, import_react4.useState)({
     category: "",
     sponsor: "",
     title: "",
@@ -2961,15 +3738,15 @@ function Page() {
     priceUsdc: "0.005",
     budgetUsdc: "1"
   });
-  const [adNotice, setAdNotice] = (0, import_react3.useState)(null);
-  const [adBusy, setAdBusy] = (0, import_react3.useState)(null);
-  const [walletPolicy, setWalletPolicy] = (0, import_react3.useState)(null);
-  const [capPerTx, setCapPerTx] = (0, import_react3.useState)("");
-  const [capDaily, setCapDaily] = (0, import_react3.useState)("");
-  const originRef = (0, import_react3.useRef)(null);
-  const haveStatus = (0, import_react3.useRef)(false);
+  const [adNotice, setAdNotice] = (0, import_react4.useState)(null);
+  const [adBusy, setAdBusy] = (0, import_react4.useState)(null);
+  const [walletPolicy, setWalletPolicy] = (0, import_react4.useState)(null);
+  const [capPerTx, setCapPerTx] = (0, import_react4.useState)("");
+  const [capDaily, setCapDaily] = (0, import_react4.useState)("");
+  const originRef = (0, import_react4.useRef)(null);
+  const haveStatus = (0, import_react4.useRef)(false);
   const models = useScrollThumb();
-  const load = (0, import_react3.useCallback)(async () => {
+  const load = (0, import_react4.useCallback)(async () => {
     const known2 = originRef.current;
     const ports = known2 == null ? [...CANDIDATE_PORTS2] : [Number(new URL(known2).port), ...CANDIDATE_PORTS2.filter((port) => originOf2(port) !== known2)];
     for (const port of ports) {
@@ -3008,14 +3785,14 @@ function Page() {
     }
     setError(t("No GenKaKu user bridge on 47821\u201347826."));
   }, []);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     void load();
     const timer = setInterval(() => {
       void load();
     }, 5e3);
     return () => clearInterval(timer);
   }, [load]);
-  const post = (0, import_react3.useCallback)(async (path, body) => {
+  const post = (0, import_react4.useCallback)(async (path, body) => {
     const origin = originRef.current;
     if (origin == null) throw new Error(t("Bridge not reached yet."));
     const res = await fetch(`${origin}${path}`, {
@@ -3027,7 +3804,7 @@ function Page() {
     if (!res.ok) throw new Error(doc?.error?.message ?? `HTTP ${res.status}`);
     return doc ?? {};
   }, []);
-  const get = (0, import_react3.useCallback)(async (path) => {
+  const get = (0, import_react4.useCallback)(async (path) => {
     const origin = originRef.current;
     if (origin == null) throw new Error(t("Bridge not reached yet."));
     const res = await fetch(`${origin}${path}`, { cache: "no-store" });
@@ -3035,7 +3812,7 @@ function Page() {
     if (!res.ok) throw new Error(doc?.error?.message ?? `HTTP ${res.status}`);
     return doc ?? {};
   }, [t]);
-  const loadWalletPolicy = (0, import_react3.useCallback)(async () => {
+  const loadWalletPolicy = (0, import_react4.useCallback)(async () => {
     try {
       const doc = await get("/genkaku/wallet/policy");
       const view = doc;
@@ -3045,14 +3822,14 @@ function Page() {
     } catch {
     }
   }, [get]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     void loadWalletPolicy();
     const timer = setInterval(() => {
       void loadWalletPolicy();
     }, 5e3);
     return () => clearInterval(timer);
   }, [loadWalletPolicy]);
-  const saveWalletPolicy = (0, import_react3.useCallback)(async (patch) => {
+  const saveWalletPolicy = (0, import_react4.useCallback)(async (patch) => {
     try {
       const doc = await post("/genkaku/wallet/policy", patch);
       setWalletPolicy(doc);
@@ -3060,7 +3837,7 @@ function Page() {
       setNotice(error2 instanceof Error ? error2.message : String(error2));
     }
   }, [post]);
-  const decideApproval = (0, import_react3.useCallback)(async (id, approve) => {
+  const decideApproval = (0, import_react4.useCallback)(async (id, approve) => {
     try {
       const doc = await post(approve ? "/genkaku/wallet/approve" : "/genkaku/wallet/deny", { id });
       setWalletPolicy(doc.policy);
@@ -3068,7 +3845,7 @@ function Page() {
       setNotice(error2 instanceof Error ? error2.message : String(error2));
     }
   }, [post]);
-  const loadAds = (0, import_react3.useCallback)(async () => {
+  const loadAds = (0, import_react4.useCallback)(async () => {
     try {
       const [mine, catalog] = await Promise.all([
         get("/genkaku/ads/mine"),
@@ -3084,7 +3861,7 @@ function Page() {
     } catch {
     }
   }, [get]);
-  const createListing = (0, import_react3.useCallback)(async () => {
+  const createListing = (0, import_react4.useCallback)(async () => {
     setAdBusy("create");
     setAdNotice(null);
     try {
@@ -3121,7 +3898,7 @@ function Page() {
       setAdBusy(null);
     }
   }, [adForm, loadAds, post, t]);
-  const pauseListing = (0, import_react3.useCallback)(async (listing) => {
+  const pauseListing = (0, import_react4.useCallback)(async (listing) => {
     if (listing.campaign == null) return;
     setAdBusy(`pause:${listing.id}`);
     setAdNotice(null);
@@ -3139,7 +3916,7 @@ function Page() {
       setAdBusy(null);
     }
   }, [loadAds, post, t]);
-  const withdrawListing = (0, import_react3.useCallback)(async (listing) => {
+  const withdrawListing = (0, import_react4.useCallback)(async (listing) => {
     if (listing.campaign == null) return;
     setAdBusy(`withdraw:${listing.id}`);
     setAdNotice(null);
@@ -3154,7 +3931,7 @@ function Page() {
       setAdBusy(null);
     }
   }, [loadAds, post, t]);
-  const fundListing = (0, import_react3.useCallback)(async (listing) => {
+  const fundListing = (0, import_react4.useCallback)(async (listing) => {
     setAdBusy(`fund:${listing.id}`);
     setAdNotice(null);
     try {
@@ -3185,10 +3962,10 @@ function Page() {
       setAdBusy(null);
     }
   }, [adForm.budgetUsdc, get, loadAds, post, status?.balances?.usdc, t]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     if (status != null) void loadAds();
   }, [status?.wallet, loadAds]);
-  const saveWorkers = (0, import_react3.useCallback)(async (next) => {
+  const saveWorkers = (0, import_react4.useCallback)(async (next) => {
     setBusy("workers");
     setNotice(null);
     try {
@@ -3203,7 +3980,7 @@ function Page() {
       setBusy(null);
     }
   }, [load, post]);
-  const sendTipTo = (0, import_react3.useCallback)(async (worker, usdc2) => {
+  const sendTipTo = (0, import_react4.useCallback)(async (worker, usdc2) => {
     setBusy(`tip:${worker}`);
     setNotice(null);
     try {
@@ -3219,7 +3996,7 @@ function Page() {
       setBusy(null);
     }
   }, [post, t]);
-  const exportKey = (0, import_react3.useCallback)(async () => {
+  const exportKey = (0, import_react4.useCallback)(async () => {
     setBusy("export");
     setNotice(null);
     try {
@@ -3232,7 +4009,7 @@ function Page() {
       setBusy(null);
     }
   }, [post]);
-  const importKey = (0, import_react3.useCallback)(async () => {
+  const importKey = (0, import_react4.useCallback)(async () => {
     if (!window.confirm(t("Importing a key replaces this profile's user wallet. The current address keeps its funds and is no longer used. Continue?"))) return;
     setBusy("import");
     setNotice(null);
@@ -3250,7 +4027,7 @@ function Page() {
       setBusy(null);
     }
   }, [importText, load, post]);
-  const rotateKey = (0, import_react3.useCallback)(async () => {
+  const rotateKey = (0, import_react4.useCallback)(async () => {
     if (!window.confirm(t("Generate a fresh wallet? The old address keeps its SOL and USDC; this profile stops using it."))) return;
     setBusy("rotate");
     setNotice(null);
@@ -3267,7 +4044,7 @@ function Page() {
       setBusy(null);
     }
   }, [load, post]);
-  const refreshNetwork = (0, import_react3.useCallback)(async () => {
+  const refreshNetwork = (0, import_react4.useCallback)(async () => {
     setBusy("refresh");
     setNotice(null);
     try {
@@ -3282,7 +4059,7 @@ function Page() {
       setBusy(null);
     }
   }, [load, post]);
-  const savePrefs = (0, import_react3.useCallback)(async (patch) => {
+  const savePrefs = (0, import_react4.useCallback)(async (patch) => {
     setBusy("prefs");
     setNotice(null);
     try {
@@ -3294,7 +4071,7 @@ function Page() {
       setBusy(null);
     }
   }, [load, post]);
-  const toggleModel = (0, import_react3.useCallback)((key) => {
+  const toggleModel = (0, import_react4.useCallback)((key) => {
     if (status == null) return;
     const current = status.selected ?? [];
     const max = status.maxSelected ?? 10;
@@ -3308,7 +4085,7 @@ function Page() {
     }
     void savePrefs({ selected: [...current, key] });
   }, [savePrefs, status]);
-  const pairWorker = (0, import_react3.useCallback)(async () => {
+  const pairWorker = (0, import_react4.useCallback)(async () => {
     const token = pairText.trim();
     if (token === "") return;
     setBusy("pair");
@@ -3324,7 +4101,7 @@ function Page() {
       setBusy(null);
     }
   }, [load, pairText, post]);
-  const unpairWorker = (0, import_react3.useCallback)(async (wallet) => {
+  const unpairWorker = (0, import_react4.useCallback)(async (wallet) => {
     if (!window.confirm(t("Forget this paired worker? You can pair it again with a fresh code."))) return;
     setBusy(`unpair:${wallet}`);
     setNotice(null);
@@ -3338,13 +4115,13 @@ function Page() {
     }
   }, [load, post]);
   if (error != null && status == null) {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { padding: 16 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { style: { margin: 0 }, children: t("GenKaKu network") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { style: { ...dim, marginTop: 8 }, children: error }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { style: { ...dim, fontSize: 12 }, children: t("The plugin opens its bridge on the first free port in 47821\u201347826.") })
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { padding: 16 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { style: { margin: 0 }, children: t("GenKaKu network") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { style: { ...dim2, marginTop: 8 }, children: error }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { style: { ...dim2, fontSize: 12 }, children: t("The plugin opens its bridge on the first free port in 47821\u201347826.") })
     ] });
   }
-  if (status == null) return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { padding: 16, ...dim }, children: t("Loading status\u2026") });
+  if (status == null) return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { padding: 16, ...dim2 }, children: t("Loading status\u2026") });
   const offers = status.offers ?? [];
   const price = (micro) => {
     const n = Number(micro);
@@ -3384,18 +4161,18 @@ function Page() {
     for (const entry of offers) {
       const wallet = entry.offer?.workerWallet;
       if (wallet == null || wallet === "") continue;
-      const row2 = byWallet.get(wallet) ?? {
+      const row3 = byWallet.get(wallet) ?? {
         wallet,
         name: entry.workerLabel ?? entry.offer?.workerName ?? short(wallet),
         models: []
       };
       const model = entry.offer?.model;
-      if (model != null && model !== "" && !row2.models.includes(model)) row2.models.push(model);
-      byWallet.set(wallet, row2);
+      if (model != null && model !== "" && !row3.models.includes(model)) row3.models.push(model);
+      byWallet.set(wallet, row3);
     }
     return [...byWallet.values()].sort((a, b) => a.name.localeCompare(b.name)).slice(0, 8);
   })();
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: {
     // Same reason as the worker panel: the host column clips, so the panel
     // has to own the scroll or its last cards cannot be reached.
     boxSizing: "border-box",
@@ -3410,7 +4187,7 @@ function Page() {
     paddingBottom: 32,
     maxWidth: 760
   }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("style", { children: `
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("style", { children: `
         .gk-net-wrap { position: relative; padding-right: 12px; }
         .gk-net-models { max-height: min(320px, 38vh); overflow-y: auto; scrollbar-width: none; }
         .gk-net-models::-webkit-scrollbar { display: none; }
@@ -3421,25 +4198,25 @@ function Page() {
         .gk-net-row:first-child { border-top: none; }
         .gk-select { background: transparent; color: inherit; border: 1px solid rgba(127,137,153,.35); border-radius: 6px; padding: 4px 6px; font: inherit; font-size: 12px; }
       ` }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { style: { margin: 0 }, children: t("GenKaKu network") }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, marginTop: 4 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { style: { margin: 0 }, children: t("GenKaKu network") }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...dim2, marginTop: 4 }, children: [
       "user \xB7 ",
       status.env ?? "solana-devnet"
     ] }),
-    error != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...box, fontSize: 13 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim }, children: t("Reconnecting\u2026") }),
+    error != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...box2, fontSize: 13 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { ...dim2 }, children: t("Reconnecting\u2026") }),
       " (",
       error,
       ")"
     ] }),
-    notice != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...box, fontSize: 13 }, children: notice }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Wallet") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { title: status.wallet, children: short(status.wallet) }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            import_dsh_client_ui_primitives.Button,
+    notice != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...box2, fontSize: 13 }, children: notice }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: box2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Wallet") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("code", { title: status.wallet, children: short(status.wallet) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            import_dsh_client_ui_primitives2.Button,
             {
               variant: "ghost",
               size: "sm",
@@ -3454,45 +4231,45 @@ function Page() {
           )
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Balance") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Balance") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
           sol(status.balances?.sol),
           " \xB7 ",
           usdc(status.balances?.usdc)
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Sessions") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: t("free \xB7 tips optional") })
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Sessions") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: t("free \xB7 tips optional") })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Workers discovered") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: workerCount })
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Workers discovered") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: workerCount })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Models offered") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: offers.length })
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Models offered") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: offers.length })
       ] }),
-      noGas && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 12, marginTop: 8 }, children: [
+      noGas && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...dim2, fontSize: 12, marginTop: 8 }, children: [
         t("This wallet has no SOL yet on this cluster. A session needs a little SOL for rent and fees; USDC is what it pays for compute."),
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href: "https://faucet.solana.com", target: "_blank", rel: "noreferrer", children: t("Open faucet (devnet)") })
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "https://faucet.solana.com", target: "_blank", rel: "noreferrer", children: t("Open faucet (devnet)") })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 8, marginTop: 10 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => {
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 8, marginTop: 10 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => {
           void exportKey();
         }, children: busy === "export" ? t("Revealing\u2026") : t("Export key") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => setShowImport((v) => !v), children: t("Import key") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => setShowImport((v) => !v), children: t("Import key") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => {
           void rotateKey();
         }, children: t("New wallet") })
       ] }),
-      walletPolicy != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { marginTop: 14, borderTop: "1px solid rgba(127,137,153,.18)", paddingTop: 10 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent access") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Agent wallet mode") }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      walletPolicy != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { marginTop: 14, borderTop: "1px solid rgba(127,137,153,.18)", paddingTop: 10 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: caption2, children: t("Agent access") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Agent wallet mode") }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
             "select",
             {
               className: "gk-select",
@@ -3502,24 +4279,24 @@ function Page() {
                 void saveWalletPolicy({ mode: e.target.value });
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "off", children: t("Off") }),
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "ask", children: t("Ask owner") }),
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "capped", children: t("Capped") })
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "off", children: t("Off") }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "ask", children: t("Ask owner") }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "capped", children: t("Capped") })
               ]
             }
           )
         ] }),
-        walletPolicy.mode === "capped" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 8, marginTop: 6, alignItems: "end" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12 }, children: [
+        walletPolicy.mode === "capped" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 8, marginTop: 6, alignItems: "end" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12 }, children: [
             t("Per request (USDC)"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: capPerTx, onChange: (e) => setCapPerTx(e.target.value) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: capPerTx, onChange: (e) => setCapPerTx(e.target.value) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12 }, children: [
             t("Per day (USDC)"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: capDaily, onChange: (e) => setCapDaily(e.target.value) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: capDaily, onChange: (e) => setCapDaily(e.target.value) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            import_dsh_client_ui_primitives.Button,
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            import_dsh_client_ui_primitives2.Button,
             {
               variant: "outline",
               size: "sm",
@@ -3536,9 +4313,9 @@ function Page() {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, marginTop: 6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "inline-flex", gap: 6, alignItems: "center", fontSize: 12, ...dim }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, marginTop: 6 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "inline-flex", gap: 6, alignItems: "center", fontSize: 12, ...dim2 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               "input",
               {
                 type: "checkbox",
@@ -3550,38 +4327,38 @@ function Page() {
             ),
             t("Freeze wallet")
           ] }),
-          walletPolicy.frozen && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { fontSize: 11, color: "#ff8b9a" }, children: t("Frozen: owner actions still work; agent requests are refused.") })
+          walletPolicy.frozen && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { fontSize: 11, color: "#ff8b9a" }, children: t("Frozen: owner actions still work; agent requests are refused.") })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11, marginTop: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...dim2, fontSize: 11, marginTop: 6 }, children: [
           t("Key and identity operations are always owner-only."),
           " ",
           t("Caps apply to tips and campaign funding; claims are not a spend.")
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 10 }, children: t("Pending approvals") }),
-        walletPolicy.pending.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No pending requests.") }) : walletPolicy.pending.map((request) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, alignItems: "center", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { minWidth: 0, fontSize: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...caption2, marginTop: 10 }, children: t("Pending approvals") }),
+        walletPolicy.pending.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12 }, children: t("No pending requests.") }) : walletPolicy.pending.map((request) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, alignItems: "center", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { minWidth: 0, fontSize: 12 }, children: [
             request.summary,
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 11 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { ...dim2, fontSize: 11 }, children: [
               " \xB7 ",
               new Date(request.expiresAt).toLocaleTimeString()
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "inline-flex", gap: 6 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "primary", size: "sm", onClick: () => {
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { display: "inline-flex", gap: 6 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "primary", size: "sm", onClick: () => {
               void decideApproval(request.id, true);
             }, children: t("Approve") }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => {
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "ghost", size: "sm", onClick: () => {
               void decideApproval(request.id, false);
             }, children: t("Deny") })
           ] })
         ] }, request.id))
       ] }),
-      exported != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { marginTop: 10 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 4 }, children: t("Private key \u2014 keep it offline. Testnet only.") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { readOnly: true, value: exported, onFocus: (e) => e.currentTarget.select(), "aria-label": t("Private key") }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            import_dsh_client_ui_primitives.Button,
+      exported != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { marginTop: 10 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 4 }, children: t("Private key \u2014 keep it offline. Testnet only.") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { readOnly: true, value: exported, onFocus: (e) => e.currentTarget.select(), "aria-label": t("Private key") }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            import_dsh_client_ui_primitives2.Button,
             {
               variant: "ghost",
               size: "sm",
@@ -3594,14 +4371,14 @@ function Page() {
               children: t("copy")
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => setExported(null), children: t("hide") })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "ghost", size: "sm", onClick: () => setExported(null), children: t("hide") })
         ] })
       ] }),
-      showImport && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { marginTop: 10 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 4 }, children: t("Paste a base58 wallet key (the format Phantom and solana-keygen show)") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            import_dsh_client_ui_primitives.Input,
+      showImport && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { marginTop: 10 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 4 }, children: t("Paste a base58 wallet key (the format Phantom and solana-keygen show)") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            import_dsh_client_ui_primitives2.Input,
             {
               value: importText,
               placeholder: "base58",
@@ -3609,8 +4386,8 @@ function Page() {
               "aria-label": t("Private key to import")
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            import_dsh_client_ui_primitives.Button,
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            import_dsh_client_ui_primitives2.Button,
             {
               variant: "primary",
               size: "sm",
@@ -3624,19 +4401,20 @@ function Page() {
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Tips") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("Using GenKaKu costs nothing. If a worker was useful \u2014 especially a free one, which earns no advertising revenue \u2014 you can send it USDC directly. The transfer goes from your wallet to its wallet; GenKaKu is not involved and takes no cut.") }),
-      tipWorkers.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No worker with a wallet on the board yet.") }) : tipWorkers.map((worker) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, gap: 8, alignItems: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(AgentRoutes, { get, post, onNotice: setNotice }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: box2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: caption2, children: t("Tips") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 8 }, children: t("Using GenKaKu costs nothing. If a worker was useful \u2014 especially a free one, which earns no advertising revenue \u2014 you can send it USDC directly. The transfer goes from your wallet to its wallet; GenKaKu is not involved and takes no cut.") }),
+      tipWorkers.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12 }, children: t("No worker with a wallet on the board yet.") }) : tipWorkers.map((worker) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, gap: 8, alignItems: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: [
           worker.name,
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 11 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { ...dim2, fontSize: 11 }, children: [
             " \xB7 ",
             worker.models.join(", ")
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { display: "inline-flex", gap: 6 }, children: TIP_AMOUNTS.map((amount) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { display: "inline-flex", gap: 6 }, children: TIP_AMOUNTS.map((amount) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Button,
           {
             variant: "outline",
             size: "sm",
@@ -3649,29 +4427,29 @@ function Page() {
           amount
         )) })
       ] }, worker.wallet)),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 8 }, children: t("Each tip needs a little SOL in the wallet above for the network fee.") })
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 11, marginTop: 8 }, children: t("Each tip needs a little SOL in the wallet above for the network fee.") })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Settings") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Language") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: box2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: caption2, children: t("Settings") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: row2, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("Language") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
           "select",
           {
             className: "gk-select",
             value: localeChoice(),
             "aria-label": t("Language"),
             onChange: (e) => setLocaleChoice(e.target.value),
-            children: localeOptions().map((option) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: option.id, children: option.label }, option.id))
+            children: localeOptions().map((option) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: option.id, children: option.label }, option.id))
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 16 }, children: t("Manual workers") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 6 }, children: t("Optional multiaddrs pinned to this profile. Discovery through the on-chain directory and the seed still runs.") }),
-      (status.manualWorkers ?? []).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("None pinned \u2014 using discovery only.") }) : (status.manualWorkers ?? []).map((addr) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, gap: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { style: { fontSize: 12, wordBreak: "break-all" }, children: addr }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Button,
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...caption2, marginTop: 16 }, children: t("Manual workers") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 6 }, children: t("Optional multiaddrs pinned to this profile. Discovery through the on-chain directory and the seed still runs.") }),
+      (status.manualWorkers ?? []).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12 }, children: t("None pinned \u2014 using discovery only.") }) : (status.manualWorkers ?? []).map((addr) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, gap: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("code", { style: { fontSize: 12, wordBreak: "break-all" }, children: addr }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Button,
           {
             variant: "ghost",
             size: "sm",
@@ -3683,9 +4461,9 @@ function Page() {
           }
         )
       ] }, addr)),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Input,
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Input,
           {
             value: newWorker,
             placeholder: "/ip4/1.2.3.4/tcp/4001/p2p/12D3Koo\u2026",
@@ -3693,8 +4471,8 @@ function Page() {
             onChange: (e) => setNewWorker(e.target.value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Button,
           {
             variant: "outline",
             size: "sm",
@@ -3708,17 +4486,17 @@ function Page() {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, marginTop: 14 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy === "refresh", onClick: () => {
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, marginTop: 14 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", disabled: busy === "refresh", onClick: () => {
           void refreshNetwork();
         }, children: busy === "refresh" ? t("Refreshing\u2026") : t("Refresh network") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 12 }, children: t("Re-reads the directory and the seed now.") })
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { ...dim2, fontSize: 12 }, children: t("Re-reads the directory and the seed now.") })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, textTransform: "uppercase", letterSpacing: 1 }, children: t("Models on the network") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: box2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, textTransform: "uppercase", letterSpacing: 1 }, children: t("Models on the network") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { ...dim2, fontSize: 12 }, children: [
           selected.length,
           "/",
           maxSelected,
@@ -3726,9 +4504,9 @@ function Page() {
           t("selected")
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, margin: "8px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Input,
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: 8, margin: "8px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Input,
           {
             value: search,
             placeholder: t("Search a model, worker name or wallet"),
@@ -3736,7 +4514,7 @@ function Page() {
             onChange: (e) => setSearch(e.target.value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
           "select",
           {
             className: "gk-select",
@@ -3747,26 +4525,26 @@ function Page() {
               void savePrefs({ sort: e.target.value });
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "recommended", children: t("Recommended") }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "pricePerHour", children: t("Lowest price") }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "latencyMs", children: t("Lowest latency") }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "sessionsServed", children: t("Most sessions served") }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "model", children: t("Model name") }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "workerName", children: t("Worker name") })
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "recommended", children: t("Recommended") }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "pricePerHour", children: t("Lowest price") }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "latencyMs", children: t("Lowest latency") }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "sessionsServed", children: t("Most sessions served") }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "model", children: t("Model name") }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "workerName", children: t("Worker name") })
             ]
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 6 }, children: t("Only ticked models appear in the chat model picker, up to ten. Ticking is per worker and model, so the same model from two workers is two choices.") }),
-      stale > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 6 }, children: t("{value} ticked model(s) are not on the network right now. They come back when their worker does.", { value: stale }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "gk-net-wrap", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "gk-net-models", ref: models.attach, onScroll: models.update, children: visible.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { style: { ...dim, marginBottom: 0 }, children: offers.length === 0 ? t("Nothing offered yet. A worker lists its local Ollama models on start.") : t("No row matches that search.") }) : visible.map((entry, i) => {
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 6 }, children: t("Only ticked models appear in the chat model picker, up to ten. Ticking is per worker and model, so the same model from two workers is two choices.") }),
+      stale > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 6 }, children: t("{value} ticked model(s) are not on the network right now. They come back when their worker does.", { value: stale }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "gk-net-wrap", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "gk-net-models", ref: models.attach, onScroll: models.update, children: visible.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { style: { ...dim2, marginBottom: 0 }, children: offers.length === 0 ? t("Nothing offered yet. A worker lists its local Ollama models on start.") : t("No row matches that search.") }) : visible.map((entry, i) => {
           const offer = entry.offer ?? {};
           const key = entry.key ?? `${entry.addr ?? ""}|${offer.model ?? i}`;
           const transport = entry.addr == null ? null : status.transports?.[entry.addr];
           const workerLabel = entry.workerLabel ?? offer.workerName ?? "\u2014";
-          return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "gk-net-row", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "gk-net-row", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               "input",
               {
                 type: "checkbox",
@@ -3778,31 +4556,31 @@ function Page() {
                 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: [
               offer.model ?? "model name missing",
-              offer.tier === "chat" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11, marginLeft: 8 }, children: "not for agents" }) : offer.tier != null ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11, marginLeft: 8 }, children: offer.tier }) : null,
-              entry.visibility === "private" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 11, marginLeft: 8 }, children: [
+              offer.tier === "chat" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { ...dim2, fontSize: 11, marginLeft: 8 }, children: "not for agents" }) : offer.tier != null ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { ...dim2, fontSize: 11, marginLeft: 8 }, children: offer.tier }) : null,
+              entry.visibility === "private" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { ...dim2, fontSize: 11, marginLeft: 8 }, children: [
                 "\xB7 ",
                 t("private")
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, textAlign: "right", fontSize: 12 }, children: workerLabel }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { textAlign: "right", fontSize: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { ...dim2, textAlign: "right", fontSize: 12 }, children: workerLabel }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { textAlign: "right", fontSize: 12 }, children: [
               price(offer.pricePerHour),
               " ",
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: transport === "relay" ? "\xB7 via seed VM" : transport === "direct" ? "\xB7 direct" : "" })
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: transport === "relay" ? "\xB7 via seed VM" : transport === "direct" ? "\xB7 direct" : "" })
             ] })
           ] }, key);
         }) }),
-        models.thumb != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "gk-net-rail", "aria-hidden": "true", onPointerDown: (e) => models.jump(e), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "gk-net-thumb", style: { top: `${models.thumb.top}%`, height: `${models.thumb.height}%` } }) })
+        models.thumb != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "gk-net-rail", "aria-hidden": "true", onPointerDown: (e) => models.jump(e), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "gk-net-thumb", style: { top: `${models.thumb.top}%`, height: `${models.thumb.height}%` } }) })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, textTransform: "uppercase", letterSpacing: 1 }, children: t("Private workers") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, margin: "6px 0 8px" }, children: t("A private worker is not on the directory. Paste the one-time code it gave you: the pairing is bound to this wallet, and the code cannot be used again.") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Input,
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: box2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, textTransform: "uppercase", letterSpacing: 1 }, children: t("Private workers") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, margin: "6px 0 8px" }, children: t("A private worker is not on the directory. Paste the one-time code it gave you: the pairing is bound to this wallet, and the code cannot be used again.") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Input,
           {
             value: pairText,
             placeholder: "genkaku1.\u2026",
@@ -3810,8 +4588,8 @@ function Page() {
             onChange: (e) => setPairText(e.target.value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Button,
           {
             variant: "primary",
             size: "sm",
@@ -3823,9 +4601,9 @@ function Page() {
           }
         )
       ] }),
-      privatePeers.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { marginTop: 10 }, children: privatePeers.map((peer) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, alignItems: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", minWidth: 0 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: {
+      privatePeers.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { marginTop: 10 }, children: privatePeers.map((peer) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, alignItems: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", minWidth: 0 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: {
             display: "inline-block",
             width: 8,
             height: 8,
@@ -3834,16 +4612,16 @@ function Page() {
             background: peer.online === true ? "#34a853" : peer.online === false ? "rgba(127,137,153,.6)" : "transparent",
             border: peer.online === null ? "1px dashed rgba(127,137,153,.6)" : "none"
           } }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: [
             peer.label ?? short(peer.wallet),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { ...dim2, fontSize: 12 }, children: [
               " \xB7 ",
               peer.online === true ? t("online") : peer.online === false ? t("offline") : t("checking\u2026")
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          import_dsh_client_ui_primitives.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_dsh_client_ui_primitives2.Button,
           {
             variant: "ghost",
             size: "sm",
@@ -3856,77 +4634,77 @@ function Page() {
         )
       ] }, peer.wallet)) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...caption, display: "flex", justifyContent: "space-between", alignItems: "baseline" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: t("Advertise on GenKaKu") }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: adBusy !== null, onClick: () => {
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: box2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...caption2, display: "flex", justifyContent: "space-between", alignItems: "baseline" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: t("Advertise on GenKaKu") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "ghost", size: "sm", disabled: adBusy !== null, onClick: () => {
           void loadAds();
         }, children: t("refresh") })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("You pay per impression: one impression is one sponsored minute of a worker\u2019s time. The budget is USDC from the wallet above, sent to a campaign account on Solana that only the program can pay out of. When the budget is gone the ad stops.") }),
-      ads?.testMode === true && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 12, color: "#e8b04b", marginBottom: 8 }, children: t("Test mode: a zero budget still serves, and impressions are not billed.") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "grid", style: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 12, marginBottom: 8 }, children: t("You pay per impression: one impression is one sponsored minute of a worker\u2019s time. The budget is USDC from the wallet above, sent to a campaign account on Solana that only the program can pay out of. When the budget is gone the ad stops.") }),
+      ads?.testMode === true && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { fontSize: 12, color: "#e8b04b", marginBottom: 8 }, children: t("Test mode: a zero budget still serves, and impressions are not billed.") }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "grid", style: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
           t("Category"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
             "select",
             {
               className: "gk-select",
               value: adForm.category,
               onChange: (e) => setAdForm({ ...adForm, category: e.target.value }),
-              children: adCategories.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "", children: "\u2014" }) : adCategories.map((c) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: c, children: c }, c))
+              children: adCategories.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "", children: "\u2014" }) : adCategories.map((c) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: c, children: c }, c))
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
           t("Sponsor name"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.sponsor, onChange: (e) => setAdForm({ ...adForm, sponsor: e.target.value }) })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.sponsor, onChange: (e) => setAdForm({ ...adForm, sponsor: e.target.value }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
           t("Price per impression (USDC)"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.priceUsdc, onChange: (e) => setAdForm({ ...adForm, priceUsdc: e.target.value }) })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.priceUsdc, onChange: (e) => setAdForm({ ...adForm, priceUsdc: e.target.value }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
           t("Budget (USDC)"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.budgetUsdc, onChange: (e) => setAdForm({ ...adForm, budgetUsdc: e.target.value }) })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.budgetUsdc, onChange: (e) => setAdForm({ ...adForm, budgetUsdc: e.target.value }) })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 6, marginTop: 6 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "grid", gap: 6, marginTop: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
           t("Title"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.title, onChange: (e) => setAdForm({ ...adForm, title: e.target.value }) })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.title, onChange: (e) => setAdForm({ ...adForm, title: e.target.value }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
           t("Body"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.body, onChange: (e) => setAdForm({ ...adForm, body: e.target.value }) })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.body, onChange: (e) => setAdForm({ ...adForm, body: e.target.value }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
             t("Destination URL"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.url, placeholder: "https://", onChange: (e) => setAdForm({ ...adForm, url: e.target.value }) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.url, placeholder: "https://", onChange: (e) => setAdForm({ ...adForm, url: e.target.value }) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
             t("Button label"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.ctaLabel, placeholder: t("Learn more"), onChange: (e) => setAdForm({ ...adForm, ctaLabel: e.target.value }) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.ctaLabel, placeholder: t("Learn more"), onChange: (e) => setAdForm({ ...adForm, ctaLabel: e.target.value }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
             t("Image URL"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.imageUrl, placeholder: "https://", onChange: (e) => setAdForm({ ...adForm, imageUrl: e.target.value }) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.imageUrl, placeholder: "https://", onChange: (e) => setAdForm({ ...adForm, imageUrl: e.target.value }) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
             t("Image alt"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.imageAlt, onChange: (e) => setAdForm({ ...adForm, imageAlt: e.target.value }) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.imageAlt, onChange: (e) => setAdForm({ ...adForm, imageAlt: e.target.value }) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { style: { display: "grid", gap: 4, fontSize: 12, alignContent: "start" }, children: [
             t("Keywords"),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Input, { value: adForm.keywords, placeholder: "typescript, refactor", onChange: (e) => setAdForm({ ...adForm, keywords: e.target.value }) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_dsh_client_ui_primitives2.Input, { value: adForm.keywords, placeholder: "typescript, refactor", onChange: (e) => setAdForm({ ...adForm, keywords: e.target.value }) })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...row, justifyContent: "flex-end", marginTop: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        import_dsh_client_ui_primitives.Button,
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...row2, justifyContent: "flex-end", marginTop: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        import_dsh_client_ui_primitives2.Button,
         {
           variant: "primary",
           size: "sm",
@@ -3937,17 +4715,17 @@ function Page() {
           children: adBusy === "create" ? t("Submitting\u2026") : t("Submit for review")
         }
       ) }),
-      adNotice != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 12, marginTop: 8, whiteSpace: "pre-wrap" }, children: adNotice }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { marginTop: 14, fontSize: 12 }, children: (ads?.listings ?? []).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("No listings yet.") }) : (ads?.listings ?? []).map((listing) => {
+      adNotice != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { fontSize: 12, marginTop: 8, whiteSpace: "pre-wrap" }, children: adNotice }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { marginTop: 14, fontSize: 12 }, children: (ads?.listings ?? []).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: dim2, children: t("No listings yet.") }) : (ads?.listings ?? []).map((listing) => {
         const rejected = listing.review == null || listing.review.verdict !== "ok";
         const blocked = listing.blocked === true;
         const unfunded = !rejected && !blocked && listing.campaign == null;
         const spent = !rejected && !blocked && listing.campaign != null && listing.spent === true;
         const label = blocked ? t("Blocked by the operator") : rejected ? t("Not accepted") : unfunded ? t("Reviewed \u2014 fund it to go live") : spent ? t("Budget spent \u2014 ad stopped") : t("Live");
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...row, alignItems: "center", borderTop: "1px solid rgba(127,137,153,.18)" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { minWidth: 0 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: listing.title }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 11 }, children: [
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...row2, alignItems: "center", borderTop: "1px solid rgba(127,137,153,.18)" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { minWidth: 0 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: listing.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { ...dim2, fontSize: 11 }, children: [
               listing.paused === true ? `\u23F8 ${t("paused")} \xB7 ` : "",
               usdcOf(listing.priceMicro),
               " USDC / ",
@@ -3957,14 +4735,14 @@ function Page() {
               listing.impressions > 0 ? ` \xB7 ${listing.impressions} ${t("shown")}` : "",
               listing.clicks > 0 ? ` \xB7 ${listing.clicks} ${t("clicks")}` : ""
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "block", fontSize: 11, color: spent || rejected || blocked ? "#ff8b9a" : void 0, opacity: spent || rejected || blocked ? 1 : 0.7 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { display: "block", fontSize: 11, color: spent || rejected || blocked ? "#ff8b9a" : void 0, opacity: spent || rejected || blocked ? 1 : 0.7 }, children: [
               label,
               rejected && listing.review?.reasons != null && listing.review.reasons.length > 0 ? ` \u2014 ${listing.review.reasons.join(" \xB7 ")}` : ""
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "inline-flex", gap: 6, flex: "0 0 auto" }, children: [
-            unfunded && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-              import_dsh_client_ui_primitives.Button,
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { display: "inline-flex", gap: 6, flex: "0 0 auto" }, children: [
+            unfunded && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              import_dsh_client_ui_primitives2.Button,
               {
                 variant: "outline",
                 size: "sm",
@@ -3975,8 +4753,8 @@ function Page() {
                 children: adBusy === `fund:${listing.id}` ? t("Funding\u2026") : t("Fund and publish")
               }
             ),
-            listing.campaign != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-              import_dsh_client_ui_primitives.Button,
+            listing.campaign != null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              import_dsh_client_ui_primitives2.Button,
               {
                 variant: "ghost",
                 size: "sm",
@@ -3987,8 +4765,8 @@ function Page() {
                 children: adBusy === `pause:${listing.id}` ? "\u2026" : listing.paused === true ? t("Resume") : t("Pause")
               }
             ),
-            listing.campaign != null && listing.paused === true && Number(listing.withdrawableMicro ?? "0") > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-              import_dsh_client_ui_primitives.Button,
+            listing.campaign != null && listing.paused === true && Number(listing.withdrawableMicro ?? "0") > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              import_dsh_client_ui_primitives2.Button,
               {
                 variant: "outline",
                 size: "sm",
@@ -4002,7 +4780,7 @@ function Page() {
           ] })
         ] }, listing.id);
       }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 8 }, children: t("Funding needs a little SOL in the wallet above for the Solana fee. The campaign address belongs to your wallet; the ads service can only read its balance. Unspent budget can be withdrawn after the ad is paused for a day.") })
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { ...dim2, fontSize: 11, marginTop: 8 }, children: t("Funding needs a little SOL in the wallet above for the Solana fee. The campaign address belongs to your wallet; the ads service can only read its balance. Unspent budget can be withdrawn after the ad is paused for a day.") })
     ] })
   ] });
 }
