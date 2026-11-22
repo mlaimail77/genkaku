@@ -1,6 +1,6 @@
 {
   "name": "@genkaku/dsh-user-plugin",
-  "version": "0.6.0-rc.3",
+  "version": "0.6.0-rc.4",
   "description": "Use peer-to-peer inference on the GenKaKu network",
   "license": "AGPL-3.0-or-later",
   "type": "module",
@@ -50,7 +50,8 @@
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.1.0",
-    "@deepseek-ai/dsh-llm": ">=0.2.2-rc.1 <0.3.0"
+    "@deepseek-ai/dsh-llm": ">=0.2.2-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-tools": ">=0.2.2-rc.1 <0.3.0"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "^4.1.0",

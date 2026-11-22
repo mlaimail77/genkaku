@@ -21,7 +21,6 @@ import type { Context } from '@deepseek-ai/cordis'
 import type { Agent } from '@deepseek-ai/dsh-agent'
 import type { ContentBlock, GenerateOptions, StreamChunk } from '@deepseek-ai/dsh-llm'
 import {
-  ToolContextUnavailableError,
   defineTool,
   type ToolDefinition,
   type ToolRunContext,
@@ -263,9 +262,10 @@ export class TeamRuntime implements TeamHost {
       throw new Error(`No specialist named "${args.agent}" on this team.`)
     }
     if (exec.agent == null) {
-      throw new ToolContextUnavailableError(
-        'delegate needs a live agent; the call arrived without one',
-      )
+      // A plain Error, not a harness class: the tool only needs the model to
+      // read the reason, and this keeps the plugin's runtime surface to one
+      // import from dsh-tools (`defineTool`, a pure helper).
+      throw new Error('delegate needs a live agent; the call arrived without one')
     }
 
     const session = exec.agent.session.id as unknown as string
