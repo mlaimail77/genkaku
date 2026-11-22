@@ -9,6 +9,7 @@ import { test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
 import { MESSAGES } from './client/locales.ts'
+import { TEMPLATES } from './client/teamTemplates.ts'
 
 const locales = Object.keys(MESSAGES)
 const base = Object.keys(MESSAGES.en)
@@ -55,4 +56,26 @@ test('every string the panel asks for exists in the dictionary', () => {
 
   const missing = [...used].filter(key => !(key in MESSAGES.en))
   assert.deepEqual(missing, [], `keys used by the panel but absent from en.json: ${missing.join(' | ')}`)
+})
+
+test('every starter template has prose in every locale', () => {
+  // A template is product copy, not user data, so it has to be translated:
+  // an English card appearing in a Chinese panel is exactly the bug this
+  // whole file exists to prevent.
+  for (const template of TEMPLATES) {
+    const keys = [
+      template.blurb,
+      template.agent.name,
+      template.agent.whenToUse,
+      template.agent.whenNotToUse,
+      template.agent.systemPrompt,
+      ...template.agent.examples,
+    ]
+    for (const locale of locales) {
+      const dict = MESSAGES[locale as keyof typeof MESSAGES] as Record<string, string>
+      for (const key of keys) {
+        assert.ok(dict[key]?.trim() !== undefined && dict[key]!.trim() !== '', `${locale}: empty template key ${key}`)
+      }
+    }
+  }
 })

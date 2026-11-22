@@ -101,6 +101,53 @@ The config lives in `~/.dsh/genkaku/team.json` and the record in
 on the next turn: the panel, the bridge and the model adapter share one process.
 Nothing in this feature touches money — sessions stay free and tips stay direct.
 
+### Setting a team up
+
+The hard part is not routing, it is that most people have no words for how
+their own work divides. The panel offers three ways in:
+
+- **Templates** — four filled-in specialists (translation, research, editing,
+  code). One click, no model call, translated into the panel's language.
+- **Advisor** — describe what you actually ask an AI to do, in a few sentences.
+  The advisor proposes at most four specialists, each with a `whenToUse`, a
+  `whenNotToUse`, three examples and role instructions, and the panel applies
+  the ones you accept. It is one model call: free on the network, or your own
+  key on a cloud model. It can also **review** an existing team and point out
+  overlapping specialists, a description that is too broad, or a chat-only
+  model given file work. The advisor never routes to `genkaku/team` itself.
+- **Cards** — a specialist as a portable file or code.
+
+The advisor sees your real route list and the engine's real limits (a
+`whenToUse` over 400 characters is cut before the main model sees it; the
+router only reads the prose fields), so its advice matches the code rather
+than a generic article about agents. A suggested route that is not in your
+list is re-resolved against your own board and shown as adjusted.
+
+### Cards
+
+A card is one specialist as a file: `{"genkaku":"agent-card/1", …}`. It carries
+the prose, the examples and the role instructions — **not** a model id, because
+`gk.w1.llama3` names a worker that exists on the sender's board and nowhere
+else. Instead it carries a hint ("any agent-capable local worker", "the fastest
+one", "a DeepSeek model") that the receiving machine resolves against its own
+catalog. The panel shows the resolved model before the card joins the team, and
+says so when it had to substitute.
+
+- **Import** — paste a card, a pack, or a share code; or drop a `.json` file.
+- **Share** — a specialist you wrote, or a card in the library, becomes
+  `gkcard1.…` (gzip + base64url, ~450 characters for one card) and a link
+  `https://genkaku.app/c/#gkcard1.…`. The payload lives in the fragment, so the
+  site never receives it; the page is a viewer, not a host.
+- **Library** — `~/.dsh/genkaku/cards.json` (mode `0600`), an inbox of up to 64
+  cards. Importing does not change the team: applying does, through the same
+  draft-and-save as the form.
+
+A card can only carry specialist fields. It cannot set `enabled`, `main` or a
+delegation limit, and it never contains executable code or a URL fetched at
+runtime. It is still instructions for an agent that can read files, so read the
+role text before applying a card from someone you do not know — the panel shows
+it for exactly that reason.
+
 ## Spending limits
 
 The **Budget** card is the ceiling the agent cannot cross. It works like an

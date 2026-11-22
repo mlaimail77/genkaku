@@ -340,7 +340,85 @@ var MESSAGES = {
     "Reload": "\u91CD\u65B0\u8F7D\u5165",
     "When the main model should hand work here": "\u4E3B\u6A21\u578B\u5E94\u5728\u4EC0\u4E48\u65F6\u5019\u628A\u5DE5\u4F5C\u4EA4\u7ED9\u5B83",
     "Translate or proofread text between Chinese and English.": "\u5728\u4E2D\u82F1\u6587\u4E4B\u95F4\u7FFB\u8BD1\u6216\u6821\u5BF9\u6587\u5B57\u3002",
-    "Funded and attached. The ad is live.": "\u5DF2\u5145\u503C\u5E76\u5173\u8054\u3002\u5E7F\u544A\u5DF2\u4E0A\u7EBF\u3002"
+    "Funded and attached. The ad is live.": "\u5DF2\u5145\u503C\u5E76\u5173\u8054\u3002\u5E7F\u544A\u5DF2\u4E0A\u7EBF\u3002",
+    "Team": "\u56E2\u961F",
+    "Advisor": "\u987E\u95EE",
+    "Card library": "\u5361\u7247\u5E93",
+    "Apply": "\u5957\u7528",
+    "Share": "\u5206\u4EAB",
+    "Share code": "\u5206\u4EAB\u7801",
+    "Share link": "\u5206\u4EAB\u94FE\u63A5",
+    "Copy link": "\u590D\u5236\u94FE\u63A5",
+    "Copied.": "\u5DF2\u590D\u5236\u3002",
+    "Done": "\u5B8C\u6210",
+    "Clear": "\u6E05\u9664",
+    "You": "\u4F60",
+    "Author": "\u4F5C\u8005",
+    "Examples": "\u793A\u4F8B",
+    "Not for": "\u4E0D\u9002\u7528\u4E8E",
+    "Choose a file\u2026": "\u9009\u62E9\u6587\u4EF6\u2026",
+    "Import a card": "\u5BFC\u5165\u5361\u7247",
+    "Ask the advisor": "\u95EE\u987E\u95EE",
+    "Suggest a team": "\u5EFA\u8BAE\u56E2\u961F",
+    "Review my team": "\u68C0\u67E5\u6211\u7684\u56E2\u961F",
+    "Thinking\u2026": "\u601D\u8003\u4E2D\u2026",
+    "Advisor model": "\u987E\u95EE\u6A21\u578B",
+    "What do you ask an AI to do?": "\u4F60\u5E73\u65F6\u8BF7 AI \u505A\u4EC0\u4E48\uFF1F",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "\u4F8B\u5982\uFF1A\u6211\u505A\u4E13\u5229\u4E8B\u52A1\u3002\u6211\u8981\u5728\u4E2D\u82F1\u6587\u4E4B\u95F4\u7FFB\u8BD1\u3001\u67E5\u6761\u6587\u53F7\uFF0C\u8FD8\u8981\u628A\u5BA1\u67E5\u610F\u89C1\u6574\u7406\u6210\u7B54\u590D\u5927\u7EB2\u3002",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "\u63CF\u8FF0\u4F60\u5B9E\u9645\u4F1A\u8BF7 AI \u505A\u7684\u4E8B\u3002\u987E\u95EE\u4F1A\u63D0\u51FA\u600E\u4E48\u5207\u5206\uFF0C\u4F60\u53EA\u5957\u7528\u540C\u610F\u7684\u90E8\u5206\u3002\u8FD9\u53EA\u662F\u4E00\u6B21\u6A21\u578B\u8C03\u7528\uFF1A\u5728\u7F51\u7EDC\u4E0A\u514D\u8D39\uFF0C\u7528\u4E91\u7AEF\u6A21\u578B\u5219\u8D70\u4F60\u81EA\u5DF1\u7684 key\u3002",
+    "Following the main model. Pick one here to use a different model for advice.": "\u76EE\u524D\u8DDF\u968F\u4E3B\u6A21\u578B\u3002\u5728\u8FD9\u91CC\u9009\u4E00\u4E2A\u5373\u53EF\u7528\u522B\u7684\u6A21\u578B\u7ED9\u5EFA\u8BAE\u3002",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "\u8FD8\u6CA1\u6709\u63D0\u95EE\u3002\u4E09\u53E5\u8BDD\u63CF\u8FF0\u4F60\u7684\u5DE5\u4F5C\u5C31\u53EF\u4EE5\u5F00\u59CB\u3002",
+    "That card could not be read.": "\u8FD9\u5F20\u5361\u8BFB\u4E0D\u51FA\u6765\u3002",
+    "That card could not be resolved. Reload and try again.": "\u8FD9\u5F20\u5361\u65E0\u6CD5\u89E3\u6790\u3002\u91CD\u65B0\u8F7D\u5165\u518D\u8BD5\u3002",
+    "Adjusted for your machine: {reason}.": "\u5DF2\u6309\u4F60\u7684\u73AF\u5883\u8C03\u6574\uFF1A{reason}\u3002",
+    "that model is not available": "\u8BE5\u6A21\u578B\u4E0D\u53EF\u7528",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "\u5361\u7247\u5C31\u662F\u4E00\u4F4D\u4E13\u5BB6\u7684\u6587\u4EF6\u3002\u5B83\u5EFA\u8BAE\u7684\u6A21\u578B\u4F1A\u5728\u4F60\u5957\u7528\u65F6\u5BF9\u7167\u4F60\u81EA\u5DF1\u7684\u5217\u8868\u89E3\u6790\uFF0C\u6240\u4EE5\u6765\u81EA\u522B\u53F0\u673A\u5668\u7684\u5361\u7247\u7167\u6837\u80FD\u7528\u3002\u5361\u7247\u53EA\u5E26\u4E13\u5BB6\u6587\u672C\uFF0C\u7EDD\u4E0D\u5E26\u6A21\u578B id\u3001\u5BC6\u94A5\u6216\u4E0A\u9650\u3002",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "\u5361\u7247\u662F\u7ED9 agent \u7684\u6307\u793A\uFF0C\u800C agent \u80FD\u8BFB\u6587\u4EF6\u3002\u5957\u7528\u964C\u751F\u6765\u6E90\u7684\u5361\u7247\u524D\uFF0C\u8BF7\u5148\u8BFB\u89D2\u8272\u6307\u793A\u3002",
+    "Paste a card, a pack, or a share code": "\u7C98\u8D34\u5361\u7247\u3001\u5361\u7247\u5305\u6216\u5206\u4EAB\u7801",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "\u7C98\u8D34\u5361\u7247\u3001\u5361\u7247\u5305\u6216\u5206\u4EAB\u7801\uFF08gkcard1.\u2026\uFF09",
+    "Imported {count} card(s). Apply one to add it to the team.": "\u5DF2\u5BFC\u5165 {count} \u5F20\u5361\u3002\u5957\u7528\u5176\u4E2D\u4E00\u5F20\u5373\u53EF\u52A0\u5165\u56E2\u961F\u3002",
+    "No cards yet. Import one above.": "\u8FD8\u6CA1\u6709\u5361\u7247\u3002\u8BF7\u5728\u4E0A\u65B9\u5BFC\u5165\u3002",
+    "already in the team": "\u5DF2\u5728\u56E2\u961F\u4E2D",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "\u8FD8\u6CA1\u6709\u4E13\u5BB6\u3002\u53EF\u4EE5\u4ECE\u8303\u672C\u5F00\u59CB\u3001\u95EE\u987E\u95EE\uFF0C\u6216\u5BFC\u5165\u5361\u7247\u3002",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "\u8FD8\u6CA1\u6709\u88AB\u7528\u8FC7\u3002\u5982\u679C\u4E00\u76F4\u5339\u914D\u4E0D\u4E0A\uFF0C\u6539\u5199\u5B83\u6216\u5220\u6389\u5B83\u3002",
+    "Eight is the maximum. Remove one first.": "\u6700\u591A\u516B\u4F4D\u3002\u8BF7\u5148\u79FB\u9664\u4E00\u4F4D\u3002",
+    "{name} was added to the draft. Save to keep it.": "\u5DF2\u628A\u300C{name}\u300D\u52A0\u5165\u8349\u7A3F\u3002\u4FDD\u5B58\u540E\u624D\u4F1A\u751F\u6548\u3002",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "\u53EF\u4EE5\u4F20\u94FE\u63A5\uFF0C\u4E5F\u53EF\u4EE5\u4F20\u7801\u672C\u8EAB\u3002\u94FE\u63A5\u628A\u5185\u5BB9\u653E\u5728 fragment \u91CC\uFF0C\u6240\u4EE5\u7F51\u7AD9\u6C38\u8FDC\u6536\u4E0D\u5230\u5B83\u3002",
+    "Share \u201C{name}\u201D": "\u5206\u4EAB\u300C{name}\u300D",
+    "Role instructions (read before applying)": "\u89D2\u8272\u6307\u793A\uFF08\u5957\u7528\u524D\u8BF7\u5148\u8BFB\uFF09",
+    "tpl.translator.name": "\u7FFB\u8BD1",
+    "tpl.translator.blurb": "\u7FFB\u8BD1\u6216\u6821\u5BF9\u4E00\u6BB5\u72EC\u7ACB\u6587\u5B57\uFF0C\u53EA\u7ED9\u8BD1\u6587\u3002",
+    "tpl.translator.when": "\u628A\u4E00\u6BB5\u53EF\u72EC\u7ACB\u9605\u8BFB\u7684\u6587\u5B57\u5728\u4E2D\u82F1\u4E4B\u95F4\u7FFB\u8BD1\uFF0C\u6216\u6821\u5BF9\u65E2\u6709\u8BD1\u6587\u3002\u8F93\u5165\u662F\u6587\u5B57\uFF0C\u8F93\u51FA\u53EA\u8981\u8BD1\u6587\u672C\u8EAB\u3002",
+    "tpl.translator.not": "\u9700\u8981\u67E5\u8D44\u6599\u624D\u80FD\u5224\u65AD\u5BF9\u9519\u7684\u5185\u5BB9\uFF08\u6CD5\u6761\u3001\u533B\u5B66\u4E3B\u5F20\uFF09\uFF1B\u542B\u5927\u91CF\u4EE3\u7801\u7684\u6574\u4EFD\u6587\u4EF6\uFF08\u8BF7\u5148\u5206\u6BB5\uFF09\u3002",
+    "tpl.translator.ex1": "\u628A\u8FD9\u6BB5\u82F1\u6587\u7FFB\u6210\u4E2D\u6587",
+    "tpl.translator.ex2": "\u6821\u5BF9\u8FD9\u6BB5\u8BD1\u6587\uFF0C\u53EA\u5217\u51FA\u9519\u8BEF\u4E0E\u5EFA\u8BAE",
+    "tpl.translator.ex3": "\u628A\u8FD9\u5C01\u5BA2\u670D\u56DE\u4FE1\u7FFB\u6210\u82F1\u6587\uFF0C\u8BED\u6C14\u4FDD\u6301\u793C\u8C8C",
+    "tpl.translator.prompt": "\u4F60\u662F\u7FFB\u8BD1\u3002\u53EA\u8F93\u51FA\u8BD1\u6587\u672C\u8EAB\uFF0C\u4E0D\u8981\u89E3\u91CA\u3001\u4E0D\u8981\u524D\u8A00\u3001\u4E0D\u8981\u300C\u4EE5\u4E0B\u662F\u7FFB\u8BD1\u300D\u3002\u4FDD\u7559\u539F\u6587\u7684\u4EE3\u7801\u3001\u547D\u4EE4\u3001\u4E13\u6709\u540D\u8BCD\u4E0E Markdown \u7ED3\u6784\u3002\u8BED\u6C14\u4E0E\u539F\u6587\u4E00\u81F4\uFF1B\u539F\u6587\u6709\u6B67\u4E49\u65F6\u7167\u5B57\u9762\u7FFB\uFF0C\u4E0D\u8981\u81EA\u884C\u8865\u5145\u3002",
+    "tpl.researcher.name": "\u7814\u7A76",
+    "tpl.researcher.blurb": "\u67E5\u8BC1\u3001\u6BD4\u5BF9\u3001\u8BFB\u6587\u4EF6\uFF1B\u53EA\u62A5\u7ED3\u8BBA\u4E0E\u51FA\u5904\u3002",
+    "tpl.researcher.when": "\u9700\u8981\u67E5\u8BC1\u3001\u6BD4\u8F83\u6216\u8BFB\u8FC7\u6587\u4EF6\u624D\u80FD\u56DE\u7B54\u7684\u4E8B\u5B9E\u95EE\u9898\u3002\u5FC5\u987B\u7ED9\u51FA\u5904\uFF1A\u6587\u4EF6\u8DEF\u5F84\u4E0E\u884C\u53F7\uFF0C\u6216\u7F51\u5740\u3002",
+    "tpl.researcher.not": "\u4F60\u5DF2\u7ECF\u77E5\u9053\u7B54\u6848\u7684\u95EE\u9898\uFF1B\u672C\u8D28\u662F\u5199\u4F5C\u800C\u4E0D\u662F\u67E5\u627E\u7684\u4EFB\u52A1\u3002",
+    "tpl.researcher.ex1": "\u8FD9\u4E2A\u9519\u8BEF\u662F\u4ECE\u54EA\u91CC\u629B\u51FA\u6765\u7684\uFF1F\u7ED9\u6211\u6587\u4EF6\u4E0E\u884C\u53F7",
+    "tpl.researcher.ex2": "\u6BD4\u8F83\u8FD9\u4E24\u4E2A\u7248\u672C\u7684\u66F4\u65B0\u65E5\u5FD7\uFF0C\u5217\u51FA\u7834\u574F\u6027\u53D8\u66F4",
+    "tpl.researcher.ex3": "\u8BFB\u4E00\u904D\u8FD9\u4E2A\u76EE\u5F55\u91CC\u7684\u6587\u4EF6\uFF0C\u8BF4\u660E\u8FD9\u4E2A\u6A21\u5757\u8D1F\u8D23\u4EC0\u4E48",
+    "tpl.researcher.prompt": "\u4F60\u662F\u7814\u7A76\u578B\u5B50\u4EE3\u7406\u3002\u53EA\u56DE\u62A5\u7ED3\u8BBA\u4E0E\u8BC1\u636E\uFF1A\u6587\u4EF6\u8DEF\u5F84\u3001\u884C\u53F7\u3001\u547D\u4EE4\u8F93\u51FA\u6216\u7F51\u5740\u3002\u4E0D\u8981\u590D\u8FF0\u4EFB\u52A1\uFF0C\u4E0D\u8981\u5199\u300C\u6211\u5DF2\u5B8C\u6210\u300D\u3002\u67E5\u4E0D\u5230\u5C31\u8BF4\u67E5\u4E0D\u5230\uFF0C\u7EDD\u4E0D\u731C\u6D4B\u3002",
+    "tpl.editor.name": "\u7F16\u8F91",
+    "tpl.editor.blurb": "\u6539\u5199\u3001\u538B\u7F29\u4F60\u5DF2\u6709\u7684\u6587\u5B57\uFF1B\u4FDD\u7559\u8BBA\u70B9\uFF0C\u53BB\u6389\u5E9F\u8BDD\u3002",
+    "tpl.editor.when": "\u6539\u5199\u3001\u7F29\u77ED\u6216\u91CD\u7EC4\u5185\u5BB9\u5DF2\u7ECF\u786E\u5B9A\u7684\u6587\u5B57\u3002\u7528\u6237\u63D0\u4F9B\u7D20\u6750\uFF0C\u4E13\u5BB6\u53EA\u8D1F\u8D23\u6587\u5B57\u3002",
+    "tpl.editor.not": "\u67E5\u4E8B\u5B9E\u3001\u7FFB\u8BD1\uFF0C\u6216\u5B8C\u5168\u6CA1\u6709\u7D20\u6750\u7684\u4ECE\u96F6\u5199\u4F5C\u3002",
+    "tpl.editor.ex1": "\u628A\u8FD9\u6BB5\u6536\u7D27\uFF0C\u4E0D\u8981\u4E22\u6389\u4EFB\u4F55\u4E00\u4E2A\u8BBA\u70B9",
+    "tpl.editor.ex2": "\u6539\u5199\u6210\u66F4\u5E73\u5B9E\u7684\u8BED\u6C14\uFF0C\u7ED9\u975E\u6280\u672F\u8BFB\u8005\u770B",
+    "tpl.editor.ex3": "\u7ED9\u8FD9\u5C01\u90AE\u4EF6\u60F3\u4E09\u4E2A\u6807\u9898",
+    "tpl.editor.prompt": "\u4F60\u662F\u7F16\u8F91\u3002\u4FDD\u7559\u4F5C\u8005\u7684\u8BBA\u70B9\u4E0E\u8BED\u6C14\uFF0C\u5220\u6389\u5E9F\u8BDD\u3001\u4FEE\u6B63\u7ED3\u6784\uFF0C\u6700\u540E\u7528\u4E00\u884C\u8BF4\u660E\u4F60\u6539\u4E86\u4EC0\u4E48\u3002\u4E0D\u8981\u52A0\u5165\u539F\u6587\u6CA1\u6709\u7684\u4E3B\u5F20\uFF0C\u4E0D\u8981\u7FFB\u8BD1\u3002",
+    "tpl.coder.name": "\u7A0B\u5F0F",
+    "tpl.coder.blurb": "\u8BFB\u4EE3\u7801\u3001\u8FFD\u9519\u8BEF\u3001\u5199\u8865\u4E01\u3002\u9700\u8981\u80FD\u4F7F\u7528\u5DE5\u5177\u7684\u6A21\u578B\u3002",
+    "tpl.coder.when": "\u8BFB\u53D6\u6216\u4FEE\u6539\u4EE3\u7801\uFF1A\u8FFD\u4E00\u4E2A\u9519\u8BEF\u7684\u6765\u6E90\u3001\u8865\u4E00\u4E2A\u6D4B\u8BD5\u3001\u89E3\u91CA\u4E00\u4E2A\u6A21\u5757\u3001\u5957\u7528\u4E00\u4E2A\u5C0F\u8865\u4E01\u3002\u4E13\u5BB6\u53EF\u4EE5\u6253\u5F00\u6587\u4EF6\u3002",
+    "tpl.coder.not": "\u6CA1\u6709\u4EE3\u7801\u53EF\u770B\u7684\u67B6\u6784\u8BA8\u8BBA\uFF1B\u4E00\u6B21\u91CD\u5199\u6574\u4E2A\u9879\u76EE\u3002",
+    "tpl.coder.ex1": "\u8FD9\u4E2A\u6D4B\u8BD5\u4E3A\u4EC0\u4E48\u5931\u8D25\uFF1F\u6307\u51FA\u51FA\u9519\u7684\u90A3\u4E00\u884C",
+    "tpl.coder.ex2": "\u4E3A\u8FD9\u4E2A\u6587\u4EF6\u7684\u7A7A\u8F93\u5165\u60C5\u51B5\u8865\u4E00\u4E2A\u6D4B\u8BD5",
+    "tpl.coder.ex3": "\u8BF4\u660E\u8FD9\u4E2A\u6A21\u5757\u505A\u4EC0\u4E48\uFF0C\u4EE5\u53CA\u5B83\u6CA1\u6709\u5904\u7406\u4EC0\u4E48",
+    "tpl.coder.prompt": "\u4F60\u662F\u7A0B\u5E8F\u5458\u3002\u56DE\u7B54\u524D\u5148\u8BFB\u4EE3\u7801\uFF0C\u5F15\u7528\u6587\u4EF6\u4E0E\u884C\u53F7\u3002\u4F18\u5148\u6700\u5C0F\u6539\u52A8\u3002\u7ED9\u51FA diff \u6216\u8981\u66FF\u6362\u7684\u786E\u5207\u884C\uFF0C\u4E0D\u8981\u8D34\u6574\u4E2A\u6587\u4EF6\u3002\u5982\u679C\u6D4B\u8BD5\u80FD\u8BC1\u660E\u4FEE\u590D\uFF0C\u5C31\u628A\u6D4B\u8BD5\u5199\u51FA\u6765\u3002",
+    "Download file": "\u4E0B\u8F7D\u6587\u4EF6"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -649,7 +727,85 @@ var MESSAGES = {
     "Reload": "Reload",
     "When the main model should hand work here": "When the main model should hand work here",
     "Translate or proofread text between Chinese and English.": "Translate or proofread text between Chinese and English.",
-    "Funded and attached. The ad is live.": "Funded and attached. The ad is live."
+    "Funded and attached. The ad is live.": "Funded and attached. The ad is live.",
+    "Team": "Team",
+    "Advisor": "Advisor",
+    "Card library": "Card library",
+    "Apply": "Apply",
+    "Share": "Share",
+    "Share code": "Share code",
+    "Share link": "Share link",
+    "Copy link": "Copy link",
+    "Copied.": "Copied.",
+    "Done": "Done",
+    "Clear": "Clear",
+    "You": "You",
+    "Author": "Author",
+    "Examples": "Examples",
+    "Not for": "Not for",
+    "Choose a file\u2026": "Choose a file\u2026",
+    "Import a card": "Import a card",
+    "Ask the advisor": "Ask the advisor",
+    "Suggest a team": "Suggest a team",
+    "Review my team": "Review my team",
+    "Thinking\u2026": "Thinking\u2026",
+    "Advisor model": "Advisor model",
+    "What do you ask an AI to do?": "What do you ask an AI to do?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.",
+    "Following the main model. Pick one here to use a different model for advice.": "Following the main model. Pick one here to use a different model for advice.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "Nothing asked yet. Three sentences about your work is enough to start.",
+    "That card could not be read.": "That card could not be read.",
+    "That card could not be resolved. Reload and try again.": "That card could not be resolved. Reload and try again.",
+    "Adjusted for your machine: {reason}.": "Adjusted for your machine: {reason}.",
+    "that model is not available": "that model is not available",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.",
+    "Paste a card, a pack, or a share code": "Paste a card, a pack, or a share code",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "Paste a card, a pack, or a share code (gkcard1.\u2026)",
+    "Imported {count} card(s). Apply one to add it to the team.": "Imported {count} card(s). Apply one to add it to the team.",
+    "No cards yet. Import one above.": "No cards yet. Import one above.",
+    "already in the team": "already in the team",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "No specialists yet. Start from a template, ask the advisor, or import a card.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "Never used yet. If it keeps not matching, rewrite it or remove it.",
+    "Eight is the maximum. Remove one first.": "Eight is the maximum. Remove one first.",
+    "{name} was added to the draft. Save to keep it.": "{name} was added to the draft. Save to keep it.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.",
+    "Share \u201C{name}\u201D": "Share \u201C{name}\u201D",
+    "Role instructions (read before applying)": "Role instructions (read before applying)",
+    "tpl.translator.name": "tpl.translator.name",
+    "tpl.translator.blurb": "tpl.translator.blurb",
+    "tpl.translator.when": "tpl.translator.when",
+    "tpl.translator.not": "tpl.translator.not",
+    "tpl.translator.ex1": "tpl.translator.ex1",
+    "tpl.translator.ex2": "tpl.translator.ex2",
+    "tpl.translator.ex3": "tpl.translator.ex3",
+    "tpl.translator.prompt": "tpl.translator.prompt",
+    "tpl.researcher.name": "tpl.researcher.name",
+    "tpl.researcher.blurb": "tpl.researcher.blurb",
+    "tpl.researcher.when": "tpl.researcher.when",
+    "tpl.researcher.not": "tpl.researcher.not",
+    "tpl.researcher.ex1": "tpl.researcher.ex1",
+    "tpl.researcher.ex2": "tpl.researcher.ex2",
+    "tpl.researcher.ex3": "tpl.researcher.ex3",
+    "tpl.researcher.prompt": "tpl.researcher.prompt",
+    "tpl.editor.name": "tpl.editor.name",
+    "tpl.editor.blurb": "tpl.editor.blurb",
+    "tpl.editor.when": "tpl.editor.when",
+    "tpl.editor.not": "tpl.editor.not",
+    "tpl.editor.ex1": "tpl.editor.ex1",
+    "tpl.editor.ex2": "tpl.editor.ex2",
+    "tpl.editor.ex3": "tpl.editor.ex3",
+    "tpl.editor.prompt": "tpl.editor.prompt",
+    "tpl.coder.name": "tpl.coder.name",
+    "tpl.coder.blurb": "tpl.coder.blurb",
+    "tpl.coder.when": "tpl.coder.when",
+    "tpl.coder.not": "tpl.coder.not",
+    "tpl.coder.ex1": "tpl.coder.ex1",
+    "tpl.coder.ex2": "tpl.coder.ex2",
+    "tpl.coder.ex3": "tpl.coder.ex3",
+    "tpl.coder.prompt": "tpl.coder.prompt",
+    "Download file": "Download file"
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -958,7 +1114,85 @@ var MESSAGES = {
     "Reload": "\u518D\u8AAD\u307F\u8FBC\u307F",
     "When the main model should hand work here": "\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u304C\u3044\u3064\u4F5C\u696D\u3092\u4EFB\u305B\u308B\u3079\u304D\u304B",
     "Translate or proofread text between Chinese and English.": "\u4E2D\u56FD\u8A9E\u3068\u82F1\u8A9E\u306E\u9593\u3067\u7FFB\u8A33\u307E\u305F\u306F\u6821\u6B63\u3059\u308B\u3002",
-    "Funded and attached. The ad is live.": "\u5165\u91D1\u3057\u3066\u7D10\u4ED8\u3051\u307E\u3057\u305F\u3002\u5E83\u544A\u306F\u914D\u4FE1\u4E2D\u3067\u3059\u3002"
+    "Funded and attached. The ad is live.": "\u5165\u91D1\u3057\u3066\u7D10\u4ED8\u3051\u307E\u3057\u305F\u3002\u5E83\u544A\u306F\u914D\u4FE1\u4E2D\u3067\u3059\u3002",
+    "Team": "\u30C1\u30FC\u30E0",
+    "Advisor": "\u30A2\u30C9\u30D0\u30A4\u30B6\u30FC",
+    "Card library": "\u30AB\u30FC\u30C9\u30E9\u30A4\u30D6\u30E9\u30EA",
+    "Apply": "\u9069\u7528",
+    "Share": "\u5171\u6709",
+    "Share code": "\u5171\u6709\u30B3\u30FC\u30C9",
+    "Share link": "\u5171\u6709\u30EA\u30F3\u30AF",
+    "Copy link": "\u30EA\u30F3\u30AF\u3092\u30B3\u30D4\u30FC",
+    "Copied.": "\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F\u3002",
+    "Done": "\u5B8C\u4E86",
+    "Clear": "\u6D88\u53BB",
+    "You": "\u3042\u306A\u305F",
+    "Author": "\u4F5C\u8005",
+    "Examples": "\u4F8B",
+    "Not for": "\u5BFE\u8C61\u5916",
+    "Choose a file\u2026": "\u30D5\u30A1\u30A4\u30EB\u3092\u9078\u629E\u2026",
+    "Import a card": "\u30AB\u30FC\u30C9\u3092\u8AAD\u307F\u8FBC\u3080",
+    "Ask the advisor": "\u30A2\u30C9\u30D0\u30A4\u30B6\u30FC\u306B\u805E\u304F",
+    "Suggest a team": "\u30C1\u30FC\u30E0\u3092\u63D0\u6848",
+    "Review my team": "\u30C1\u30FC\u30E0\u3092\u8A3A\u65AD",
+    "Thinking\u2026": "\u8003\u3048\u3066\u3044\u307E\u3059\u2026",
+    "Advisor model": "\u30A2\u30C9\u30D0\u30A4\u30B6\u30FC\u306E\u30E2\u30C7\u30EB",
+    "What do you ask an AI to do?": "\u666E\u6BB5 AI \u306B\u4F55\u3092\u983C\u307F\u307E\u3059\u304B\uFF1F",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "\u4F8B\uFF1A\u7279\u8A31\u5B9F\u52D9\u3092\u3057\u3066\u3044\u307E\u3059\u3002\u4E2D\u56FD\u8A9E\u3068\u82F1\u8A9E\u306E\u7FFB\u8A33\u3001\u6761\u6587\u756A\u53F7\u306E\u78BA\u8A8D\u3001\u5BE9\u67FB\u610F\u898B\u3092\u56DE\u7B54\u306E\u9AA8\u5B50\u306B\u307E\u3068\u3081\u308B\u4F5C\u696D\u3092\u3057\u307E\u3059\u3002",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "\u5B9F\u969B\u306B AI \u306B\u983C\u3093\u3067\u3044\u308B\u3053\u3068\u3092\u66F8\u3044\u3066\u304F\u3060\u3055\u3044\u3002\u30A2\u30C9\u30D0\u30A4\u30B6\u30FC\u304C\u5206\u3051\u65B9\u3092\u63D0\u6848\u3057\u3001\u540C\u610F\u3057\u305F\u90E8\u5206\u3060\u3051\u3092\u9069\u7528\u3057\u307E\u3059\u3002\u30E2\u30C7\u30EB\u547C\u3073\u51FA\u3057\u306F 1 \u56DE\u3060\u3051\u3067\u3059\u3002\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u4E0A\u306A\u3089\u7121\u6599\u3001\u30AF\u30E9\u30A6\u30C9\u30E2\u30C7\u30EB\u306A\u3089\u3054\u81EA\u8EAB\u306E\u30AD\u30FC\u3092\u4F7F\u3044\u307E\u3059\u3002",
+    "Following the main model. Pick one here to use a different model for advice.": "\u30E1\u30A4\u30F3\u30E2\u30C7\u30EB\u306B\u5F93\u3063\u3066\u3044\u307E\u3059\u3002\u3053\u3053\u3067\u9078\u3076\u3068\u5225\u306E\u30E2\u30C7\u30EB\u306B\u76F8\u8AC7\u3067\u304D\u307E\u3059\u3002",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "\u307E\u3060\u4F55\u3082\u805E\u3044\u3066\u3044\u307E\u305B\u3093\u3002\u4ED5\u4E8B\u306B\u3064\u3044\u3066 3 \u6587\u3042\u308C\u3070\u59CB\u3081\u3089\u308C\u307E\u3059\u3002",
+    "That card could not be read.": "\u3053\u306E\u30AB\u30FC\u30C9\u3092\u8AAD\u307F\u53D6\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002",
+    "That card could not be resolved. Reload and try again.": "\u3053\u306E\u30AB\u30FC\u30C9\u3092\u89E3\u6C7A\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002\u518D\u8AAD\u307F\u8FBC\u307F\u3057\u3066\u3084\u308A\u76F4\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    "Adjusted for your machine: {reason}.": "\u3053\u306E\u74B0\u5883\u5411\u3051\u306B\u8ABF\u6574\u3057\u307E\u3057\u305F\uFF1A{reason}\u3002",
+    "that model is not available": "\u305D\u306E\u30E2\u30C7\u30EB\u306F\u5229\u7528\u3067\u304D\u307E\u305B\u3093",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "\u30AB\u30FC\u30C9\u306F\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8 1 \u4EBA\u5206\u306E\u30D5\u30A1\u30A4\u30EB\u3067\u3059\u3002\u63D0\u6848\u3055\u308C\u305F\u30E2\u30C7\u30EB\u306F\u9069\u7528\u6642\u306B\u81EA\u5206\u306E\u30DC\u30FC\u30C9\u3067\u89E3\u6C7A\u3059\u308B\u306E\u3067\u3001\u4ED6\u306E\u30DE\u30B7\u30F3\u306E\u30AB\u30FC\u30C9\u3067\u3082\u4F7F\u3048\u307E\u3059\u3002\u30AB\u30FC\u30C9\u306B\u5165\u308B\u306E\u306F\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306E\u6587\u7AE0\u3060\u3051\u3067\u3001\u30E2\u30C7\u30EB ID\u3001\u30AD\u30FC\u3001\u4E0A\u9650\u306F\u5165\u308A\u307E\u305B\u3093\u3002",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "\u30AB\u30FC\u30C9\u306F\u30D5\u30A1\u30A4\u30EB\u3092\u8AAD\u3081\u308B\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3078\u306E\u6307\u793A\u3067\u3059\u3002\u77E5\u3089\u306A\u3044\u76F8\u624B\u306E\u30AB\u30FC\u30C9\u3092\u9069\u7528\u3059\u308B\u524D\u306B\u3001\u5F79\u5272\u306E\u6587\u7AE0\u3092\u8AAD\u3093\u3067\u304F\u3060\u3055\u3044\u3002",
+    "Paste a card, a pack, or a share code": "\u30AB\u30FC\u30C9\u3001\u30D1\u30C3\u30AF\u3001\u5171\u6709\u30B3\u30FC\u30C9\u3092\u8CBC\u308A\u4ED8\u3051",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "\u30AB\u30FC\u30C9\u3001\u30D1\u30C3\u30AF\u3001\u5171\u6709\u30B3\u30FC\u30C9\uFF08gkcard1.\u2026\uFF09\u3092\u8CBC\u308A\u4ED8\u3051",
+    "Imported {count} card(s). Apply one to add it to the team.": "{count} \u679A\u306E\u30AB\u30FC\u30C9\u3092\u8AAD\u307F\u8FBC\u307F\u307E\u3057\u305F\u3002\u9069\u7528\u3059\u308B\u3068\u30C1\u30FC\u30E0\u306B\u52A0\u308F\u308A\u307E\u3059\u3002",
+    "No cards yet. Import one above.": "\u30AB\u30FC\u30C9\u306F\u307E\u3060\u3042\u308A\u307E\u305B\u3093\u3002\u4E0A\u3067\u8AAD\u307F\u8FBC\u3093\u3067\u304F\u3060\u3055\u3044\u3002",
+    "already in the team": "\u30C1\u30FC\u30E0\u306B\u8FFD\u52A0\u6E08\u307F",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u306F\u307E\u3060\u3044\u307E\u305B\u3093\u3002\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u304B\u3089\u59CB\u3081\u308B\u304B\u3001\u30A2\u30C9\u30D0\u30A4\u30B6\u30FC\u306B\u805E\u304F\u304B\u3001\u30AB\u30FC\u30C9\u3092\u8AAD\u307F\u8FBC\u3093\u3067\u304F\u3060\u3055\u3044\u3002",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "\u307E\u3060\u4E00\u5EA6\u3082\u4F7F\u308F\u308C\u3066\u3044\u307E\u305B\u3093\u3002\u305A\u3063\u3068\u4E00\u81F4\u3057\u306A\u3044\u306A\u3089\u3001\u66F8\u304D\u76F4\u3059\u304B\u524A\u9664\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    "Eight is the maximum. Remove one first.": "\u6700\u5927 8 \u540D\u3067\u3059\u3002\u5148\u306B 1 \u3064\u524A\u9664\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    "{name} was added to the draft. Save to keep it.": "\u300C{name}\u300D\u3092\u4E0B\u66F8\u304D\u306B\u8FFD\u52A0\u3057\u307E\u3057\u305F\u3002\u4FDD\u5B58\u3059\u308B\u3068\u78BA\u5B9A\u3057\u307E\u3059\u3002",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "\u30EA\u30F3\u30AF\u3067\u3082\u30B3\u30FC\u30C9\u81EA\u4F53\u3067\u3082\u9001\u308C\u307E\u3059\u3002\u30EA\u30F3\u30AF\u306F\u5185\u5BB9\u3092\u30D5\u30E9\u30B0\u30E1\u30F3\u30C8\u306B\u7F6E\u304F\u306E\u3067\u3001\u30B5\u30A4\u30C8\u306B\u306F\u5C4A\u304D\u307E\u305B\u3093\u3002",
+    "Share \u201C{name}\u201D": "\u300C{name}\u300D\u3092\u5171\u6709",
+    "Role instructions (read before applying)": "\u5F79\u5272\u306E\u6307\u793A\uFF08\u9069\u7528\u524D\u306B\u8AAD\u3093\u3067\u304F\u3060\u3055\u3044\uFF09",
+    "tpl.translator.name": "\u7FFB\u8A33",
+    "tpl.translator.blurb": "\u72EC\u7ACB\u3057\u305F\u4E00\u7BC0\u3092\u7FFB\u8A33\u30FB\u6821\u6B63\u3057\u3001\u8A33\u6587\u3060\u3051\u3092\u8FD4\u3057\u307E\u3059\u3002",
+    "tpl.translator.when": "\u72EC\u7ACB\u3057\u3066\u8AAD\u3081\u308B\u4E00\u7BC0\u3092\u4E2D\u56FD\u8A9E\u3068\u82F1\u8A9E\u306E\u9593\u3067\u7FFB\u8A33\u3059\u308B\u3001\u307E\u305F\u306F\u65E2\u5B58\u306E\u8A33\u6587\u3092\u6821\u6B63\u3059\u308B\u3002\u5165\u529B\u306F\u6587\u7AE0\u3001\u51FA\u529B\u306F\u8A33\u6587\u3060\u3051\u3002",
+    "tpl.translator.not": "\u8ABF\u3079\u306A\u3044\u3068\u6B63\u8AA4\u3092\u5224\u65AD\u3067\u304D\u306A\u3044\u5185\u5BB9\uFF08\u6CD5\u4EE4\u3001\u533B\u5B66\u7684\u4E3B\u5F35\uFF09\u3002\u30B3\u30FC\u30C9\u3092\u591A\u304F\u542B\u3080\u6587\u66F8\u5168\u4F53\uFF08\u5148\u306B\u5206\u5272\u3057\u3066\u304F\u3060\u3055\u3044\uFF09\u3002",
+    "tpl.translator.ex1": "\u3053\u306E\u82F1\u6587\u3092\u65E5\u672C\u8A9E\u306B\u7FFB\u8A33\u3057\u3066",
+    "tpl.translator.ex2": "\u3053\u306E\u8A33\u6587\u3092\u6821\u6B63\u3057\u3066\u3001\u8AA4\u308A\u3068\u63D0\u6848\u3060\u3051\u3092\u6319\u3052\u3066",
+    "tpl.translator.ex3": "\u3053\u306E\u30B5\u30DD\u30FC\u30C8\u8FD4\u4FE1\u3092\u4E01\u5BE7\u306A\u82F1\u8A9E\u306B\u3057\u3066",
+    "tpl.translator.prompt": "\u3042\u306A\u305F\u306F\u7FFB\u8A33\u8005\u3067\u3059\u3002\u8A33\u6587\u3060\u3051\u3092\u51FA\u529B\u3057\u3001\u8AAC\u660E\u30FB\u524D\u7F6E\u304D\u30FB\u300C\u4EE5\u4E0B\u304C\u7FFB\u8A33\u3067\u3059\u300D\u306F\u66F8\u304B\u306A\u3044\u3002\u30B3\u30FC\u30C9\u3001\u30B3\u30DE\u30F3\u30C9\u3001\u56FA\u6709\u540D\u8A5E\u3001Markdown \u69CB\u9020\u306F\u305D\u306E\u307E\u307E\u4FDD\u3064\u3002\u539F\u6587\u306E\u8ABF\u5B50\u3092\u5408\u308F\u305B\u3001\u66D6\u6627\u306A\u7B87\u6240\u306F\u88DC\u308F\u305A\u306B\u76F4\u8A33\u3059\u308B\u3002",
+    "tpl.researcher.name": "\u8ABF\u67FB",
+    "tpl.researcher.blurb": "\u8ABF\u67FB\u30FB\u6BD4\u8F03\u30FB\u30D5\u30A1\u30A4\u30EB\u8AAD\u307F\u53D6\u308A\u3002\u7D50\u8AD6\u3068\u6839\u62E0\u3060\u3051\u3092\u8FD4\u3057\u307E\u3059\u3002",
+    "tpl.researcher.when": "\u8ABF\u3079\u308B\u30FB\u6BD4\u8F03\u3059\u308B\u30FB\u30D5\u30A1\u30A4\u30EB\u3092\u8AAD\u3080\u5FC5\u8981\u304C\u3042\u308B\u4E8B\u5B9F\u78BA\u8A8D\u3002\u51FA\u5178\uFF08\u30D5\u30A1\u30A4\u30EB\u30D1\u30B9\u3068\u884C\u756A\u53F7\u3001\u307E\u305F\u306F URL\uFF09\u3092\u5FC5\u305A\u793A\u3059\u3002",
+    "tpl.researcher.not": "\u7B54\u3048\u3092\u3059\u3067\u306B\u77E5\u3063\u3066\u3044\u308B\u8CEA\u554F\u3002\u63A2\u3059\u3053\u3068\u3067\u306F\u306A\u304F\u66F8\u304F\u3053\u3068\u304C\u672C\u8CEA\u306E\u4F5C\u696D\u3002",
+    "tpl.researcher.ex1": "\u3053\u306E\u30A8\u30E9\u30FC\u306F\u3069\u3053\u3067\u6295\u3052\u3089\u308C\u3066\u3044\u308B\uFF1F\u30D5\u30A1\u30A4\u30EB\u3068\u884C\u756A\u53F7\u3092\u6559\u3048\u3066",
+    "tpl.researcher.ex2": "\u3053\u306E 2 \u3064\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u306E\u5909\u66F4\u5C65\u6B74\u3092\u6BD4\u3079\u3066\u3001\u7834\u58CA\u7684\u5909\u66F4\u3092\u6319\u3052\u3066",
+    "tpl.researcher.ex3": "\u3053\u306E\u30D5\u30A9\u30EB\u30C0\u306E\u30D5\u30A1\u30A4\u30EB\u3092\u8AAD\u3093\u3067\u3001\u3053\u306E\u30E2\u30B8\u30E5\u30FC\u30EB\u306E\u8CAC\u52D9\u3092\u8AAC\u660E\u3057\u3066",
+    "tpl.researcher.prompt": "\u3042\u306A\u305F\u306F\u8ABF\u67FB\u62C5\u5F53\u306E\u30B5\u30D6\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3067\u3059\u3002\u7D50\u8AD6\u3068\u6839\u62E0\u3060\u3051\u3092\u8FD4\u3059\uFF1A\u30D5\u30A1\u30A4\u30EB\u30D1\u30B9\u3001\u884C\u756A\u53F7\u3001\u30B3\u30DE\u30F3\u30C9\u51FA\u529B\u3001URL\u3002\u30BF\u30B9\u30AF\u3092\u7E70\u308A\u8FD4\u3055\u305A\u3001\u300C\u5B8C\u4E86\u3057\u307E\u3057\u305F\u300D\u3082\u66F8\u304B\u306A\u3044\u3002\u898B\u3064\u304B\u3089\u306A\u3051\u308C\u3070\u898B\u3064\u304B\u3089\u306A\u3044\u3068\u8A00\u3044\u3001\u63A8\u6E2C\u3057\u306A\u3044\u3002",
+    "tpl.editor.name": "\u7DE8\u96C6",
+    "tpl.editor.blurb": "\u624B\u5143\u306E\u6587\u7AE0\u3092\u66F8\u304D\u76F4\u3057\u30FB\u5727\u7E2E\u3059\u308B\u3002\u8AD6\u70B9\u306F\u6B8B\u3057\u3001\u5197\u9577\u3055\u3092\u524A\u308A\u307E\u3059\u3002",
+    "tpl.editor.when": "\u5185\u5BB9\u304C\u6C7A\u307E\u3063\u3066\u3044\u308B\u6587\u7AE0\u3092\u66F8\u304D\u76F4\u3059\u30FB\u77ED\u304F\u3059\u308B\u30FB\u7D44\u307F\u76F4\u3059\u3002\u7D20\u6750\u306F\u30E6\u30FC\u30B6\u30FC\u304C\u6E21\u3057\u3001\u62C5\u5F53\u306F\u6587\u7AE0\u3060\u3051\u3002",
+    "tpl.editor.not": "\u4E8B\u5B9F\u78BA\u8A8D\u3001\u7FFB\u8A33\u3001\u7D20\u6750\u306A\u3057\u306E\u30BC\u30ED\u304B\u3089\u306E\u57F7\u7B46\u3002",
+    "tpl.editor.ex1": "\u3053\u306E\u6BB5\u843D\u3092\u3001\u8AD6\u70B9\u3092\u843D\u3068\u3055\u305A\u306B\u5F15\u304D\u7DE0\u3081\u3066",
+    "tpl.editor.ex2": "\u975E\u6280\u8853\u8005\u5411\u3051\u306B\u3001\u3082\u3063\u3068\u5E73\u305F\u3044\u8A00\u8449\u3067\u66F8\u304D\u76F4\u3057\u3066",
+    "tpl.editor.ex3": "\u3053\u306E\u30E1\u30FC\u30EB\u306E\u4EF6\u540D\u3092 3 \u3064\u8003\u3048\u3066",
+    "tpl.editor.prompt": "\u3042\u306A\u305F\u306F\u7DE8\u96C6\u8005\u3067\u3059\u3002\u8457\u8005\u306E\u8AD6\u70B9\u3068\u8ABF\u5B50\u3092\u4FDD\u3061\u3001\u5197\u9577\u3055\u3092\u524A\u308A\u3001\u69CB\u6210\u3092\u76F4\u3057\u3001\u6700\u5F8C\u306B\u4E00\u884C\u3067\u5909\u66F4\u70B9\u3092\u8FF0\u3079\u308B\u3002\u539F\u6587\u306B\u306A\u3044\u4E3B\u5F35\u3092\u8DB3\u3055\u305A\u3001\u7FFB\u8A33\u3082\u3057\u306A\u3044\u3002",
+    "tpl.coder.name": "\u30B3\u30FC\u30C9",
+    "tpl.coder.blurb": "\u30B3\u30FC\u30C9\u3092\u8AAD\u307F\u3001\u30D0\u30B0\u3092\u8FFD\u3044\u3001\u30D1\u30C3\u30C1\u3092\u66F8\u304F\u3002\u30C4\u30FC\u30EB\u3092\u4F7F\u3048\u308B\u30E2\u30C7\u30EB\u304C\u5FC5\u8981\u3067\u3059\u3002",
+    "tpl.coder.when": "\u30B3\u30FC\u30C9\u3092\u8AAD\u3080\u30FB\u5909\u66F4\u3059\u308B\uFF1A\u30D0\u30B0\u306E\u51FA\u6240\u3092\u8FFD\u3046\u3001\u30C6\u30B9\u30C8\u3092\u8DB3\u3059\u3001\u30E2\u30B8\u30E5\u30FC\u30EB\u3092\u8AAC\u660E\u3059\u308B\u3001\u5C0F\u3055\u306A\u30D1\u30C3\u30C1\u3092\u5F53\u3066\u308B\u3002\u30D5\u30A1\u30A4\u30EB\u3092\u958B\u3051\u307E\u3059\u3002",
+    "tpl.coder.not": "\u898B\u308B\u30B3\u30FC\u30C9\u306E\u306A\u3044\u8A2D\u8A08\u8B70\u8AD6\u3002\u4E00\u5EA6\u306B\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u5168\u4F53\u3092\u66F8\u304D\u76F4\u3059\u3053\u3068\u3002",
+    "tpl.coder.ex1": "\u3053\u306E\u30C6\u30B9\u30C8\u304C\u843D\u3061\u308B\u7406\u7531\u306F\uFF1F\u58CA\u308C\u3066\u3044\u308B\u884C\u3092\u6559\u3048\u3066",
+    "tpl.coder.ex2": "\u3053\u306E\u30D5\u30A1\u30A4\u30EB\u306E\u7A7A\u5165\u529B\u30B1\u30FC\u30B9\u306B\u30C6\u30B9\u30C8\u3092\u8DB3\u3057\u3066",
+    "tpl.coder.ex3": "\u3053\u306E\u30E2\u30B8\u30E5\u30FC\u30EB\u304C\u4F55\u3092\u3057\u3066\u3001\u4F55\u3092\u6271\u3063\u3066\u3044\u306A\u3044\u304B\u3092\u8AAC\u660E\u3057\u3066",
+    "tpl.coder.prompt": "\u3042\u306A\u305F\u306F\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\u3067\u3059\u3002\u7B54\u3048\u308B\u524D\u306B\u30B3\u30FC\u30C9\u3092\u8AAD\u307F\u3001\u30D5\u30A1\u30A4\u30EB\u3068\u884C\u756A\u53F7\u3092\u793A\u3059\u3002\u6700\u5C0F\u306E\u5909\u66F4\u3092\u512A\u5148\u3002\u5DEE\u5206\u304B\u7F6E\u304D\u63DB\u3048\u308B\u884C\u3060\u3051\u3092\u793A\u3057\u3001\u30D5\u30A1\u30A4\u30EB\u5168\u4F53\u306F\u8CBC\u3089\u306A\u3044\u3002\u30C6\u30B9\u30C8\u3067\u793A\u305B\u308B\u306A\u3089\u30C6\u30B9\u30C8\u3082\u66F8\u304F\u3002",
+    "Download file": "\u30D5\u30A1\u30A4\u30EB\u3092\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1267,7 +1501,85 @@ var MESSAGES = {
     "Reload": "\uC0C8\uB85C \uACE0\uCE68",
     "When the main model should hand work here": "\uBA54\uC778 \uBAA8\uB378\uC774 \uC5B8\uC81C \uC791\uC5C5\uC744 \uB9E1\uACA8\uC57C \uD558\uB294\uC9C0",
     "Translate or proofread text between Chinese and English.": "\uC911\uAD6D\uC5B4\uC640 \uC601\uC5B4 \uC0AC\uC774\uC5D0\uC11C \uBC88\uC5ED\uD558\uAC70\uB098 \uAD50\uC815\uD569\uB2C8\uB2E4.",
-    "Funded and attached. The ad is live.": "\uCDA9\uC804 \uBC0F \uC5F0\uACB0 \uC644\uB8CC. \uAD11\uACE0\uAC00 \uAC8C\uC2DC \uC911\uC785\uB2C8\uB2E4."
+    "Funded and attached. The ad is live.": "\uCDA9\uC804 \uBC0F \uC5F0\uACB0 \uC644\uB8CC. \uAD11\uACE0\uAC00 \uAC8C\uC2DC \uC911\uC785\uB2C8\uB2E4.",
+    "Team": "\uD300",
+    "Advisor": "\uC5B4\uB4DC\uBC14\uC774\uC800",
+    "Card library": "\uCE74\uB4DC \uB77C\uC774\uBE0C\uB7EC\uB9AC",
+    "Apply": "\uC801\uC6A9",
+    "Share": "\uACF5\uC720",
+    "Share code": "\uACF5\uC720 \uCF54\uB4DC",
+    "Share link": "\uACF5\uC720 \uB9C1\uD06C",
+    "Copy link": "\uB9C1\uD06C \uBCF5\uC0AC",
+    "Copied.": "\uBCF5\uC0AC\uD588\uC2B5\uB2C8\uB2E4.",
+    "Done": "\uC644\uB8CC",
+    "Clear": "\uC9C0\uC6B0\uAE30",
+    "You": "\uB098",
+    "Author": "\uC791\uC131\uC790",
+    "Examples": "\uC608\uC2DC",
+    "Not for": "\uC801\uC6A9 \uB300\uC0C1 \uC544\uB2D8",
+    "Choose a file\u2026": "\uD30C\uC77C \uC120\uD0DD\u2026",
+    "Import a card": "\uCE74\uB4DC \uAC00\uC838\uC624\uAE30",
+    "Ask the advisor": "\uC5B4\uB4DC\uBC14\uC774\uC800\uC5D0\uAC8C \uBB3B\uAE30",
+    "Suggest a team": "\uD300 \uC81C\uC548",
+    "Review my team": "\uD300 \uC810\uAC80",
+    "Thinking\u2026": "\uC0DD\uAC01 \uC911\u2026",
+    "Advisor model": "\uC5B4\uB4DC\uBC14\uC774\uC800 \uBAA8\uB378",
+    "What do you ask an AI to do?": "\uD3C9\uC18C AI\uC5D0\uAC8C \uBB34\uC5C7\uC744 \uBD80\uD0C1\uD558\uB098\uC694?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "\uC608: \uD2B9\uD5C8 \uC5C5\uBB34\uB97C \uD569\uB2C8\uB2E4. \uC911\uC601 \uBC88\uC5ED, \uC870\uBB38 \uBC88\uD638 \uD655\uC778, \uC2EC\uC0AC \uC758\uACAC\uC744 \uB2F5\uBCC0 \uAC1C\uC694\uB85C \uC815\uB9AC\uD558\uB294 \uC77C\uC744 \uD569\uB2C8\uB2E4.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "\uC2E4\uC81C\uB85C AI\uC5D0\uAC8C \uBD80\uD0C1\uD558\uB294 \uC77C\uC744 \uC801\uC5B4 \uC8FC\uC138\uC694. \uC5B4\uB4DC\uBC14\uC774\uC800\uAC00 \uB098\uB204\uB294 \uBC29\uBC95\uC744 \uC81C\uC548\uD558\uACE0, \uB3D9\uC758\uD558\uB294 \uBD80\uBD84\uB9CC \uC801\uC6A9\uD569\uB2C8\uB2E4. \uBAA8\uB378 \uD638\uCD9C\uC740 \uD55C \uBC88\uC785\uB2C8\uB2E4. \uB124\uD2B8\uC6CC\uD06C\uC5D0\uC11C\uB294 \uBB34\uB8CC\uC774\uACE0, \uD074\uB77C\uC6B0\uB4DC \uBAA8\uB378\uC740 \uC9C1\uC811 \uC124\uC815\uD55C \uD0A4\uB97C \uC501\uB2C8\uB2E4.",
+    "Following the main model. Pick one here to use a different model for advice.": "\uBA54\uC778 \uBAA8\uB378\uC744 \uB530\uB985\uB2C8\uB2E4. \uC5EC\uAE30\uC11C \uACE0\uB974\uBA74 \uB2E4\uB978 \uBAA8\uB378\uC5D0\uAC8C \uC870\uC5B8\uC744 \uBC1B\uC2B5\uB2C8\uB2E4.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "\uC544\uC9C1 \uC544\uBB34\uAC83\uB3C4 \uBB3B\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4. \uD558\uB294 \uC77C\uC744 \uC138 \uBB38\uC7A5\uC73C\uB85C \uC801\uC73C\uBA74 \uC2DC\uC791\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
+    "That card could not be read.": "\uC774 \uCE74\uB4DC\uB97C \uC77D\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.",
+    "That card could not be resolved. Reload and try again.": "\uC774 \uCE74\uB4DC\uB97C \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uC0C8\uB85C \uACE0\uCE5C \uB4A4 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694.",
+    "Adjusted for your machine: {reason}.": "\uC774 \uD658\uACBD\uC5D0 \uB9DE\uAC8C \uC870\uC815\uD588\uC2B5\uB2C8\uB2E4: {reason}.",
+    "that model is not available": "\uD574\uB2F9 \uBAA8\uB378\uC744 \uC4F8 \uC218 \uC5C6\uC74C",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "\uCE74\uB4DC\uB294 \uC804\uBB38\uAC00 \uD55C \uBA85\uC744 \uB2F4\uC740 \uD30C\uC77C\uC785\uB2C8\uB2E4. \uCE74\uB4DC\uAC00 \uC81C\uC548\uD55C \uBAA8\uB378\uC740 \uC801\uC6A9\uD560 \uB54C \uB0B4 \uBCF4\uB4DC\uC5D0\uC11C \uB2E4\uC2DC \uD655\uC778\uD558\uBBC0\uB85C \uB2E4\uB978 \uCEF4\uD4E8\uD130\uC758 \uCE74\uB4DC\uB3C4 \uC4F8 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uCE74\uB4DC\uC5D0\uB294 \uC804\uBB38\uAC00 \uD14D\uC2A4\uD2B8\uB9CC \uB4E4\uC5B4\uAC00\uBA70 \uBAA8\uB378 id, \uD0A4, \uC0C1\uD55C\uC740 \uC808\uB300 \uB4E4\uC5B4\uAC00\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "\uCE74\uB4DC\uB294 \uD30C\uC77C\uC744 \uC77D\uC744 \uC218 \uC788\uB294 \uC5D0\uC774\uC804\uD2B8\uC5D0\uAC8C \uC8FC\uB294 \uC9C0\uC2DC\uC785\uB2C8\uB2E4. \uBAA8\uB974\uB294 \uC0AC\uB78C\uC758 \uCE74\uB4DC\uB97C \uC801\uC6A9\uD558\uAE30 \uC804\uC5D0 \uC5ED\uD560 \uC9C0\uC2DC\uB97C \uC77D\uC5B4 \uBCF4\uC138\uC694.",
+    "Paste a card, a pack, or a share code": "\uCE74\uB4DC, \uD329 \uB610\uB294 \uACF5\uC720 \uCF54\uB4DC \uBD99\uC5EC\uB123\uAE30",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "\uCE74\uB4DC, \uD329 \uB610\uB294 \uACF5\uC720 \uCF54\uB4DC(gkcard1.\u2026) \uBD99\uC5EC\uB123\uAE30",
+    "Imported {count} card(s). Apply one to add it to the team.": "\uCE74\uB4DC {count}\uC7A5\uC744 \uAC00\uC838\uC654\uC2B5\uB2C8\uB2E4. \uC801\uC6A9\uD558\uBA74 \uD300\uC5D0 \uCD94\uAC00\uB429\uB2C8\uB2E4.",
+    "No cards yet. Import one above.": "\uC544\uC9C1 \uCE74\uB4DC\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4. \uC704\uC5D0\uC11C \uAC00\uC838\uC624\uC138\uC694.",
+    "already in the team": "\uC774\uBBF8 \uD300\uC5D0 \uC788\uC74C",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "\uC544\uC9C1 \uC804\uBB38\uAC00\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4. \uD15C\uD50C\uB9BF\uC5D0\uC11C \uC2DC\uC791\uD558\uAC70\uB098, \uC5B4\uB4DC\uBC14\uC774\uC800\uC5D0\uAC8C \uBB3B\uAC70\uB098, \uCE74\uB4DC\uB97C \uAC00\uC838\uC624\uC138\uC694.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "\uC544\uC9C1 \uD55C \uBC88\uB3C4 \uC4F0\uC774\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4. \uACC4\uC18D \uB9DE\uC9C0 \uC54A\uC73C\uBA74 \uACE0\uCCD0 \uC4F0\uAC70\uB098 \uC0AD\uC81C\uD558\uC138\uC694.",
+    "Eight is the maximum. Remove one first.": "\uCD5C\uB300 8\uBA85\uC785\uB2C8\uB2E4. \uBA3C\uC800 \uD558\uB098\uB97C \uC0AD\uC81C\uD558\uC138\uC694.",
+    "{name} was added to the draft. Save to keep it.": "{name}\uC744(\uB97C) \uCD08\uC548\uC5D0 \uCD94\uAC00\uD588\uC2B5\uB2C8\uB2E4. \uC800\uC7A5\uD574\uC57C \uBC18\uC601\uB429\uB2C8\uB2E4.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "\uB9C1\uD06C\uB97C \uBCF4\uB0B4\uAC70\uB098 \uCF54\uB4DC \uC790\uCCB4\uB97C \uBCF4\uB0B4\uC138\uC694. \uB9C1\uD06C\uB294 \uB0B4\uC6A9\uC744 \uD504\uB798\uADF8\uBA3C\uD2B8\uC5D0 \uB450\uBBC0\uB85C \uC0AC\uC774\uD2B8\uC5D0\uB294 \uC804\uB2EC\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
+    "Share \u201C{name}\u201D": "{name} \uACF5\uC720",
+    "Role instructions (read before applying)": "\uC5ED\uD560 \uC9C0\uC2DC(\uC801\uC6A9 \uC804\uC5D0 \uC77D\uC73C\uC138\uC694)",
+    "tpl.translator.name": "\uBC88\uC5ED",
+    "tpl.translator.blurb": "\uB3C5\uB9BD\uB41C \uD55C \uB2E8\uB77D\uC744 \uBC88\uC5ED\uD558\uAC70\uB098 \uAD50\uC815\uD558\uACE0 \uBC88\uC5ED\uBB38\uB9CC \uB3CC\uB824\uC90D\uB2C8\uB2E4.",
+    "tpl.translator.when": "\uB3C5\uB9BD\uC801\uC73C\uB85C \uC77D\uD788\uB294 \uD55C \uB2E8\uB77D\uC744 \uC911\uC601 \uAC04\uC5D0 \uBC88\uC5ED\uD558\uAC70\uB098 \uAE30\uC874 \uBC88\uC5ED\uC744 \uAD50\uC815\uD569\uB2C8\uB2E4. \uC785\uB825\uC740 \uAE00, \uCD9C\uB825\uC740 \uBC88\uC5ED\uBB38\uBFD0\uC785\uB2C8\uB2E4.",
+    "tpl.translator.not": "\uC790\uB8CC\uB97C \uCC3E\uC544\uC57C \uB9DE\uACE0 \uD2C0\uB9BC\uC744 \uD310\uB2E8\uD560 \uC218 \uC788\uB294 \uB0B4\uC6A9(\uBC95\uC870\uBB38, \uC758\uD559 \uC8FC\uC7A5). \uCF54\uB4DC\uAC00 \uB9CE\uC740 \uBB38\uC11C \uC804\uCCB4(\uBA3C\uC800 \uB098\uB220 \uC8FC\uC138\uC694).",
+    "tpl.translator.ex1": "\uC774 \uC601\uC5B4 \uBB38\uB2E8\uC744 \uD55C\uAD6D\uC5B4\uB85C \uBC88\uC5ED\uD574 \uC918",
+    "tpl.translator.ex2": "\uC774 \uBC88\uC5ED\uBB38\uC744 \uAD50\uC815\uD558\uACE0 \uC624\uB958\uC640 \uC81C\uC548\uB9CC \uC54C\uB824 \uC918",
+    "tpl.translator.ex3": "\uC774 \uACE0\uAC1D \uB2F5\uC7A5\uC744 \uC815\uC911\uD55C \uC601\uC5B4\uB85C \uBC14\uAFD4 \uC918",
+    "tpl.translator.prompt": '\uB2F9\uC2E0\uC740 \uBC88\uC5ED\uAC00\uC785\uB2C8\uB2E4. \uBC88\uC5ED\uBB38\uB9CC \uCD9C\uB825\uD558\uACE0 \uC124\uBA85, \uC11C\uB450, "\uBC88\uC5ED\uC740 \uB2E4\uC74C\uACFC \uAC19\uC2B5\uB2C8\uB2E4" \uAC19\uC740 \uB9D0\uC740 \uC4F0\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uCF54\uB4DC, \uBA85\uB839, \uACE0\uC720\uBA85\uC0AC, Markdown \uAD6C\uC870\uB294 \uADF8\uB300\uB85C \uB461\uB2C8\uB2E4. \uC6D0\uBB38\uC758 \uC5B4\uC870\uB97C \uB530\uB974\uACE0, \uBAA8\uD638\uD55C \uBD80\uBD84\uC740 \uBCF4\uD0DC\uC9C0 \uB9D0\uACE0 \uC9C1\uC5ED\uD569\uB2C8\uB2E4.',
+    "tpl.researcher.name": "\uC870\uC0AC",
+    "tpl.researcher.blurb": "\uD655\uC778, \uBE44\uAD50, \uD30C\uC77C \uC77D\uAE30. \uACB0\uB860\uACFC \uADFC\uAC70\uB9CC \uBCF4\uACE0\uD569\uB2C8\uB2E4.",
+    "tpl.researcher.when": "\uD655\uC778\uD558\uAC70\uB098 \uBE44\uAD50\uD558\uAC70\uB098 \uD30C\uC77C\uC744 \uC77D\uC5B4\uC57C \uB2F5\uD560 \uC218 \uC788\uB294 \uC0AC\uC2E4 \uC9C8\uBB38. \uCD9C\uCC98(\uD30C\uC77C \uACBD\uB85C\uC640 \uC904 \uBC88\uD638 \uB610\uB294 URL)\uB97C \uBC18\uB4DC\uC2DC \uC81C\uC2DC\uD569\uB2C8\uB2E4.",
+    "tpl.researcher.not": "\uC774\uBBF8 \uB2F5\uC744 \uC544\uB294 \uC9C8\uBB38. \uCC3E\uAE30\uAC00 \uC544\uB2C8\uB77C \uC4F0\uAE30\uAC00 \uBCF8\uC9C8\uC778 \uC791\uC5C5.",
+    "tpl.researcher.ex1": "\uC774 \uC624\uB958\uB294 \uC5B4\uB514\uC11C \uBC1C\uC0DD\uD558\uB098\uC694? \uD30C\uC77C\uACFC \uC904 \uBC88\uD638\uB97C \uC54C\uB824 \uC918",
+    "tpl.researcher.ex2": "\uB450 \uBC84\uC804\uC758 \uBCC0\uACBD \uB85C\uADF8\uB97C \uBE44\uAD50\uD574\uC11C \uD638\uD658\uC131 \uAE68\uC9C0\uB294 \uBCC0\uACBD\uC744 \uC54C\uB824 \uC918",
+    "tpl.researcher.ex3": "\uC774 \uD3F4\uB354\uC758 \uD30C\uC77C\uC744 \uC77D\uACE0 \uC774 \uBAA8\uB4C8\uC774 \uBB34\uC5C7\uC744 \uB9E1\uB294\uC9C0 \uC124\uBA85\uD574 \uC918",
+    "tpl.researcher.prompt": '\uB2F9\uC2E0\uC740 \uC870\uC0AC \uB2F4\uB2F9 \uD558\uC704 \uC5D0\uC774\uC804\uD2B8\uC785\uB2C8\uB2E4. \uACB0\uB860\uACFC \uADFC\uAC70\uB9CC \uBCF4\uACE0\uD569\uB2C8\uB2E4: \uD30C\uC77C \uACBD\uB85C, \uC904 \uBC88\uD638, \uBA85\uB839 \uCD9C\uB825, URL. \uC791\uC5C5\uC744 \uB418\uD480\uC774\uD558\uAC70\uB098 "\uC644\uB8CC\uD588\uC2B5\uB2C8\uB2E4"\uB77C\uACE0 \uC4F0\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uCC3E\uC9C0 \uBABB\uD558\uBA74 \uBABB \uCC3E\uC558\uB2E4\uACE0 \uB9D0\uD558\uACE0 \uC808\uB300 \uCD94\uCE21\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.',
+    "tpl.editor.name": "\uD3B8\uC9D1",
+    "tpl.editor.blurb": "\uC774\uBBF8 \uC788\uB294 \uAE00\uC744 \uACE0\uCCD0 \uC4F0\uAC70\uB098 \uC904\uC785\uB2C8\uB2E4. \uB17C\uC9C0\uB294 \uB0A8\uAE30\uACE0 \uAD70\uB354\uB354\uAE30\uB97C \uB35C\uC5B4\uB0C5\uB2C8\uB2E4.",
+    "tpl.editor.when": "\uB0B4\uC6A9\uC774 \uC774\uBBF8 \uC815\uD574\uC9C4 \uAE00\uC744 \uACE0\uCCD0 \uC4F0\uAC70\uB098 \uC904\uC774\uAC70\uB098 \uB2E4\uC2DC \uAD6C\uC131\uD569\uB2C8\uB2E4. \uC7AC\uB8CC\uB294 \uC0AC\uC6A9\uC790\uAC00 \uC8FC\uACE0, \uB2F4\uB2F9\uC740 \uBB38\uC7A5\uB9CC\uC785\uB2C8\uB2E4.",
+    "tpl.editor.not": "\uC0AC\uC2E4 \uD655\uC778, \uBC88\uC5ED, \uC7AC\uB8CC \uC5C6\uC774 \uCC98\uC74C\uBD80\uD130 \uC4F0\uAE30.",
+    "tpl.editor.ex1": "\uC774 \uBB38\uB2E8\uC744 \uB17C\uC810 \uD558\uB098\uB3C4 \uC783\uC9C0 \uC54A\uACE0 \uC870\uC5EC \uC918",
+    "tpl.editor.ex2": "\uBE44\uC804\uBB38\uAC00\uAC00 \uC77D\uB3C4\uB85D \uB354 \uD3C9\uC774\uD55C \uB9D0\uD22C\uB85C \uB2E4\uC2DC \uC368 \uC918",
+    "tpl.editor.ex3": "\uC774 \uBA54\uC77C\uC758 \uC81C\uBAA9\uC744 \uC138 \uAC1C \uB9CC\uB4E4\uC5B4 \uC918",
+    "tpl.editor.prompt": "\uB2F9\uC2E0\uC740 \uD3B8\uC9D1\uC790\uC785\uB2C8\uB2E4. \uC800\uC790\uC758 \uB17C\uC9C0\uC640 \uC5B4\uC870\uB97C \uC9C0\uD0A4\uACE0, \uAD70\uB354\uB354\uAE30\uB97C \uB35C\uACE0, \uAD6C\uC870\uB97C \uACE0\uCE58\uACE0, \uB9C8\uC9C0\uB9C9\uC5D0 \uD55C \uC904\uB85C \uBB34\uC5C7\uC744 \uBC14\uAFE8\uB294\uC9C0 \uB9D0\uD569\uB2C8\uB2E4. \uC6D0\uBB38\uC5D0 \uC5C6\uB294 \uC8FC\uC7A5\uC744 \uB354\uD558\uC9C0 \uB9D0\uACE0 \uBC88\uC5ED\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
+    "tpl.coder.name": "\uCF54\uB4DC",
+    "tpl.coder.blurb": "\uCF54\uB4DC\uB97C \uC77D\uACE0 \uBC84\uADF8\uB97C \uCD94\uC801\uD558\uACE0 \uD328\uCE58\uB97C \uC501\uB2C8\uB2E4. \uB3C4\uAD6C\uB97C \uC4F8 \uC218 \uC788\uB294 \uBAA8\uB378\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.",
+    "tpl.coder.when": "\uCF54\uB4DC\uB97C \uC77D\uAC70\uB098 \uACE0\uCE69\uB2C8\uB2E4. \uBC84\uADF8 \uCD9C\uCC98 \uCD94\uC801, \uD14C\uC2A4\uD2B8 \uCD94\uAC00, \uBAA8\uB4C8 \uC124\uBA85, \uC791\uC740 \uD328\uCE58 \uC801\uC6A9. \uC804\uBB38\uAC00\uB294 \uD30C\uC77C\uC744 \uC5F4 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
+    "tpl.coder.not": "\uBCFC \uCF54\uB4DC\uAC00 \uC5C6\uB294 \uC124\uACC4 \uB17C\uC758. \uD55C \uBC88\uC5D0 \uD504\uB85C\uC81D\uD2B8 \uC804\uCCB4\uB97C \uB2E4\uC2DC \uC4F0\uB294 \uC77C.",
+    "tpl.coder.ex1": "\uC774 \uD14C\uC2A4\uD2B8\uAC00 \uC65C \uC2E4\uD328\uD558\uB098\uC694? \uAE68\uC9C0\uB294 \uC904\uC744 \uC54C\uB824 \uC918",
+    "tpl.coder.ex2": "\uC774 \uD30C\uC77C\uC758 \uBE48 \uC785\uB825 \uACBD\uC6B0\uC5D0 \uD14C\uC2A4\uD2B8\uB97C \uCD94\uAC00\uD574 \uC918",
+    "tpl.coder.ex3": "\uC774 \uBAA8\uB4C8\uC774 \uBB34\uC5C7\uC744 \uD558\uACE0 \uBB34\uC5C7\uC744 \uB2E4\uB8E8\uC9C0 \uC54A\uB294\uC9C0 \uC124\uBA85\uD574 \uC918",
+    "tpl.coder.prompt": "\uB2F9\uC2E0\uC740 \uD504\uB85C\uADF8\uB798\uBA38\uC785\uB2C8\uB2E4. \uB2F5\uD558\uAE30 \uC804\uC5D0 \uCF54\uB4DC\uB97C \uC77D\uACE0 \uD30C\uC77C\uACFC \uC904 \uBC88\uD638\uB97C \uC778\uC6A9\uD569\uB2C8\uB2E4. \uAC00\uC7A5 \uC791\uC740 \uBCC0\uACBD\uC744 \uC6B0\uC120\uD569\uB2C8\uB2E4. diff \uB610\uB294 \uBC14\uAFC0 \uC904\uB9CC \uBCF4\uC5EC \uC8FC\uACE0 \uD30C\uC77C \uC804\uCCB4\uB97C \uBD99\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uD14C\uC2A4\uD2B8\uB85C \uC99D\uBA85\uD560 \uC218 \uC788\uC73C\uBA74 \uD14C\uC2A4\uD2B8\uB97C \uC501\uB2C8\uB2E4.",
+    "Download file": "\uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC"
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1576,7 +1888,85 @@ var MESSAGES = {
     "Reload": "Recargar",
     "When the main model should hand work here": "Cu\xE1ndo debe el modelo principal pasarle trabajo",
     "Translate or proofread text between Chinese and English.": "Traduce o corrige texto entre chino e ingl\xE9s.",
-    "Funded and attached. The ad is live.": "Financiado y vinculado. El anuncio est\xE1 activo."
+    "Funded and attached. The ad is live.": "Financiado y vinculado. El anuncio est\xE1 activo.",
+    "Team": "Equipo",
+    "Advisor": "Asesor",
+    "Card library": "Biblioteca de tarjetas",
+    "Apply": "Aplicar",
+    "Share": "Compartir",
+    "Share code": "C\xF3digo para compartir",
+    "Share link": "Enlace para compartir",
+    "Copy link": "Copiar enlace",
+    "Copied.": "Copiado.",
+    "Done": "Listo",
+    "Clear": "Borrar",
+    "You": "T\xFA",
+    "Author": "Autor",
+    "Examples": "Ejemplos",
+    "Not for": "No para",
+    "Choose a file\u2026": "Elegir un archivo\u2026",
+    "Import a card": "Importar una tarjeta",
+    "Ask the advisor": "Preguntar al asesor",
+    "Suggest a team": "Sugerir un equipo",
+    "Review my team": "Revisar mi equipo",
+    "Thinking\u2026": "Pensando\u2026",
+    "Advisor model": "Modelo del asesor",
+    "What do you ask an AI to do?": "\xBFPara qu\xE9 le pides cosas a una IA?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "Por ejemplo: trabajo en patentes. Traduzco entre chino e ingl\xE9s, busco n\xFAmeros de art\xEDculos y convierto las objeciones del examinador en un esquema de respuesta.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "Describe lo que de verdad le pides a una IA. El asesor propone c\xF3mo dividirlo y t\xFA aplicas solo lo que te convenza. Es una sola llamada al modelo: gratis en la red, o con tu propia clave en un modelo en la nube.",
+    "Following the main model. Pick one here to use a different model for advice.": "Sigue al modelo principal. Elige uno aqu\xED para usar otro modelo como asesor.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "A\xFAn no has preguntado nada. Tres frases sobre tu trabajo bastan para empezar.",
+    "That card could not be read.": "No se pudo leer esa tarjeta.",
+    "That card could not be resolved. Reload and try again.": "No se pudo resolver esa tarjeta. Recarga e int\xE9ntalo de nuevo.",
+    "Adjusted for your machine: {reason}.": "Ajustado a tu equipo: {reason}.",
+    "that model is not available": "ese modelo no est\xE1 disponible",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "Una tarjeta es un especialista en un archivo. El modelo que sugiere se resuelve contra tu propio tablero al aplicarla, as\xED que una tarjeta de otra m\xE1quina sigue sirviendo. Las tarjetas solo llevan texto de especialista: nunca un id de modelo, una clave ni un l\xEDmite.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "Una tarjeta son instrucciones para un agente que puede leer archivos. Lee el texto del rol antes de aplicar una tarjeta de alguien que no conoces.",
+    "Paste a card, a pack, or a share code": "Pega una tarjeta, un paquete o un c\xF3digo",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "Pega una tarjeta, un paquete o un c\xF3digo (gkcard1.\u2026)",
+    "Imported {count} card(s). Apply one to add it to the team.": "Importadas {count} tarjeta(s). Aplica una para a\xF1adirla al equipo.",
+    "No cards yet. Import one above.": "A\xFAn no hay tarjetas. Importa una arriba.",
+    "already in the team": "ya est\xE1 en el equipo",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "A\xFAn no hay especialistas. Empieza con una plantilla, pregunta al asesor o importa una tarjeta.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "Todav\xEDa no se ha usado. Si sigue sin encajar, reescr\xEDbelo o qu\xEDtalo.",
+    "Eight is the maximum. Remove one first.": "Ocho es el m\xE1ximo. Quita uno primero.",
+    "{name} was added to the draft. Save to keep it.": "\xAB{name}\xBB se a\xF1adi\xF3 al borrador. Guarda para conservarlo.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "Env\xEDa el enlace o el c\xF3digo. El enlace guarda el contenido en el fragmento, as\xED que el sitio nunca lo recibe.",
+    "Share \u201C{name}\u201D": "Compartir \xAB{name}\xBB",
+    "Role instructions (read before applying)": "Instrucciones de rol (l\xE9elas antes de aplicar)",
+    "tpl.translator.name": "Traductor",
+    "tpl.translator.blurb": "Traduce o corrige un pasaje completo; devuelve solo el texto.",
+    "tpl.translator.when": "Traduce un pasaje autocontenido entre chino e ingl\xE9s, o corrige una traducci\xF3n existente. La entrada es texto; la salida, solo la traducci\xF3n.",
+    "tpl.translator.not": "Contenido que exige investigar para saber si est\xE1 bien (art\xEDculos legales, afirmaciones m\xE9dicas), o un documento entero con mucho c\xF3digo (div\xEDdelo antes).",
+    "tpl.translator.ex1": "Traduce este p\xE1rrafo al espa\xF1ol",
+    "tpl.translator.ex2": "Corrige esta traducci\xF3n y enumera solo los errores",
+    "tpl.translator.ex3": "Pasa esta respuesta de soporte a un ingl\xE9s educado",
+    "tpl.translator.prompt": "Eres traductor. Devuelve solo la traducci\xF3n: sin explicaci\xF3n, sin pre\xE1mbulo, sin \xABaqu\xED tienes la traducci\xF3n\xBB. Conserva c\xF3digo, comandos, nombres propios y estructura Markdown. Mant\xE9n el registro; si el original es ambiguo, traduce literal en vez de a\xF1adir sentido.",
+    "tpl.researcher.name": "Investigador",
+    "tpl.researcher.blurb": "Busca, compara y lee archivos; informa conclusiones y fuentes.",
+    "tpl.researcher.when": "Preguntas de hecho que exigen buscar, comparar o leer archivos. Debe citar: ruta y l\xEDnea, o URL.",
+    "tpl.researcher.not": "Preguntas cuya respuesta ya conoces, y tareas que en realidad son escribir, no buscar.",
+    "tpl.researcher.ex1": "\xBFDe d\xF3nde sale este error? Dame el archivo y la l\xEDnea",
+    "tpl.researcher.ex2": "Compara estos dos changelogs y lista los cambios incompatibles",
+    "tpl.researcher.ex3": "Lee los archivos de esta carpeta y explica de qu\xE9 se encarga el m\xF3dulo",
+    "tpl.researcher.prompt": "Eres un subagente de investigaci\xF3n. Informa solo conclusiones y pruebas: ruta de archivo, n\xFAmero de l\xEDnea, salida de comando o URL. No repitas la tarea ni escribas \xABhe terminado\xBB. Si no lo encuentras, dilo; nunca adivines.",
+    "tpl.editor.name": "Editor",
+    "tpl.editor.blurb": "Reescribe o recorta un texto que ya tienes; conserva el argumento y quita el relleno.",
+    "tpl.editor.when": "Reescribir, acortar o reestructurar un texto cuyo contenido ya est\xE1 decidido. El usuario aporta la sustancia; el trabajo es la prosa.",
+    "tpl.editor.not": "Buscar hechos, traducir, o escribir desde cero sin material.",
+    "tpl.editor.ex1": "Aprieta este p\xE1rrafo sin perder ning\xFAn punto",
+    "tpl.editor.ex2": "Reescr\xEDbelo en un tono m\xE1s llano para un lector no t\xE9cnico",
+    "tpl.editor.ex3": "Dame tres asuntos para este correo",
+    "tpl.editor.prompt": "Eres editor. Conserva el argumento y la voz del autor; corta relleno, arregla la estructura y di en una l\xEDnea qu\xE9 cambiaste. No a\xF1adas afirmaciones que la fuente no hace ni traduzcas.",
+    "tpl.coder.name": "C\xF3digo",
+    "tpl.coder.blurb": "Lee c\xF3digo, rastrea fallos y escribe parches. Necesita un modelo con herramientas.",
+    "tpl.coder.when": "Leer o cambiar c\xF3digo: rastrear un fallo, a\xF1adir una prueba, explicar un m\xF3dulo, aplicar un parche peque\xF1o. Puede abrir archivos.",
+    "tpl.coder.not": "Debates de arquitectura sin c\xF3digo que mirar, o reescribir todo un proyecto de una vez.",
+    "tpl.coder.ex1": "\xBFPor qu\xE9 falla esta prueba? Se\xF1ala la l\xEDnea que rompe",
+    "tpl.coder.ex2": "A\xF1ade una prueba para el caso de entrada vac\xEDa en este archivo",
+    "tpl.coder.ex3": "Explica qu\xE9 hace este m\xF3dulo y qu\xE9 no cubre",
+    "tpl.coder.prompt": "Eres programador. Lee el c\xF3digo antes de responder y cita archivo y l\xEDnea. Prefiere el cambio m\xE1s peque\xF1o. Muestra el diff o las l\xEDneas exactas, no el archivo entero. Si una prueba demuestra el arreglo, escr\xEDbela.",
+    "Download file": "Descargar archivo"
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -1885,7 +2275,85 @@ var MESSAGES = {
     "Reload": "Recharger",
     "When the main model should hand work here": "Quand le mod\xE8le principal doit lui confier du travail",
     "Translate or proofread text between Chinese and English.": "Traduire ou relire un texte entre le chinois et l'anglais.",
-    "Funded and attached. The ad is live.": "Financ\xE9 et associ\xE9. L'annonce est en ligne."
+    "Funded and attached. The ad is live.": "Financ\xE9 et associ\xE9. L'annonce est en ligne.",
+    "Team": "\xC9quipe",
+    "Advisor": "Conseiller",
+    "Card library": "Biblioth\xE8que de cartes",
+    "Apply": "Appliquer",
+    "Share": "Partager",
+    "Share code": "Code de partage",
+    "Share link": "Lien de partage",
+    "Copy link": "Copier le lien",
+    "Copied.": "Copi\xE9.",
+    "Done": "Termin\xE9",
+    "Clear": "Effacer",
+    "You": "Vous",
+    "Author": "Auteur",
+    "Examples": "Exemples",
+    "Not for": "Pas pour",
+    "Choose a file\u2026": "Choisir un fichier\u2026",
+    "Import a card": "Importer une carte",
+    "Ask the advisor": "Demander au conseiller",
+    "Suggest a team": "Sugg\xE9rer une \xE9quipe",
+    "Review my team": "Analyser mon \xE9quipe",
+    "Thinking\u2026": "R\xE9flexion\u2026",
+    "Advisor model": "Mod\xE8le du conseiller",
+    "What do you ask an AI to do?": "Que demandez-vous \xE0 une IA ?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "Par exemple : je travaille dans les brevets. Je traduis entre chinois et anglais, je v\xE9rifie des num\xE9ros d'articles et je transforme les objections de l'examinateur en plan de r\xE9ponse.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "D\xE9crivez ce que vous demandez r\xE9ellement \xE0 une IA. Le conseiller propose une r\xE9partition et vous n'appliquez que ce qui vous convient. C'est un seul appel au mod\xE8le : gratuit sur le r\xE9seau, ou avec votre propre cl\xE9 sur un mod\xE8le cloud.",
+    "Following the main model. Pick one here to use a different model for advice.": "Suit le mod\xE8le principal. Choisissez-en un ici pour utiliser un autre mod\xE8le comme conseiller.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "Rien demand\xE9 pour l'instant. Trois phrases sur votre travail suffisent pour commencer.",
+    "That card could not be read.": "Impossible de lire cette carte.",
+    "That card could not be resolved. Reload and try again.": "Impossible de r\xE9soudre cette carte. Rechargez et r\xE9essayez.",
+    "Adjusted for your machine: {reason}.": "Ajust\xE9 \xE0 votre machine : {reason}.",
+    "that model is not available": "ce mod\xE8le n'est pas disponible",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "Une carte, c'est un sp\xE9cialiste sous forme de fichier. Le mod\xE8le qu'elle sugg\xE8re est r\xE9solu sur votre propre tableau au moment de l'appliquer : une carte venue d'une autre machine fonctionne donc encore. Une carte ne contient que du texte de sp\xE9cialiste \u2014 jamais un id de mod\xE8le, une cl\xE9 ou une limite.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "Une carte, ce sont des instructions pour un agent qui peut lire des fichiers. Lisez le texte du r\xF4le avant d'appliquer la carte de quelqu'un que vous ne connaissez pas.",
+    "Paste a card, a pack, or a share code": "Collez une carte, un pack ou un code",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "Collez une carte, un pack ou un code (gkcard1.\u2026)",
+    "Imported {count} card(s). Apply one to add it to the team.": "{count} carte(s) import\xE9e(s). Appliquez-en une pour l'ajouter \xE0 l'\xE9quipe.",
+    "No cards yet. Import one above.": "Aucune carte pour l'instant. Importez-en une ci-dessus.",
+    "already in the team": "d\xE9j\xE0 dans l'\xE9quipe",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "Aucun sp\xE9cialiste pour l'instant. Partez d'un mod\xE8le, demandez au conseiller ou importez une carte.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "Jamais utilis\xE9 pour l'instant. S'il ne correspond toujours pas, r\xE9\xE9crivez-le ou supprimez-le.",
+    "Eight is the maximum. Remove one first.": "Huit est le maximum. Supprimez-en un d'abord.",
+    "{name} was added to the draft. Save to keep it.": "\xAB {name} \xBB a \xE9t\xE9 ajout\xE9 au brouillon. Enregistrez pour le garder.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "Envoyez le lien ou le code. Le lien garde le contenu dans le fragment, donc le site ne le re\xE7oit jamais.",
+    "Share \u201C{name}\u201D": "Partager \xAB {name} \xBB",
+    "Role instructions (read before applying)": "Instructions de r\xF4le (\xE0 lire avant d'appliquer)",
+    "tpl.translator.name": "Traducteur",
+    "tpl.translator.blurb": "Traduit ou relit un passage autonome ; ne rend que le texte.",
+    "tpl.translator.when": "Traduire un passage autonome entre chinois et anglais, ou relire une traduction existante. L'entr\xE9e est du texte ; la sortie, la traduction seule.",
+    "tpl.translator.not": "Un contenu qu'il faut v\xE9rifier pour juger (articles de loi, affirmations m\xE9dicales), ou un document entier avec beaucoup de code (\xE0 d\xE9couper d'abord).",
+    "tpl.translator.ex1": "Traduis ce paragraphe en fran\xE7ais",
+    "tpl.translator.ex2": "Relis cette traduction et liste seulement les erreurs",
+    "tpl.translator.ex3": "Mets cette r\xE9ponse client dans un anglais courtois",
+    "tpl.translator.prompt": "Vous \xEAtes traducteur. Ne rendez que la traduction : pas d'explication, pas de pr\xE9ambule, pas de \xAB voici la traduction \xBB. Conservez code, commandes, noms propres et structure Markdown. Gardez le registre ; si l'original est ambigu, traduisez litt\xE9ralement plut\xF4t que d'ajouter du sens.",
+    "tpl.researcher.name": "Chercheur",
+    "tpl.researcher.blurb": "Cherche, compare et lit des fichiers ; rend des conclusions sourc\xE9es.",
+    "tpl.researcher.when": "Questions factuelles qui demandent recherche, comparaison ou lecture de fichiers. Doit citer : chemin et ligne, ou URL.",
+    "tpl.researcher.not": "Les questions dont vous connaissez d\xE9j\xE0 la r\xE9ponse, et ce qui rel\xE8ve de l'\xE9criture plut\xF4t que de la recherche.",
+    "tpl.researcher.ex1": "D'o\xF9 vient cette erreur ? Donne-moi le fichier et la ligne",
+    "tpl.researcher.ex2": "Compare ces deux journaux de versions et liste les ruptures",
+    "tpl.researcher.ex3": "Lis les fichiers de ce dossier et explique de quoi ce module est responsable",
+    "tpl.researcher.prompt": "Vous \xEAtes un sous-agent de recherche. Ne rendez que des conclusions et des preuves : chemin de fichier, num\xE9ro de ligne, sortie de commande ou URL. Ne r\xE9p\xE9tez pas la t\xE2che, n'\xE9crivez pas \xAB j'ai termin\xE9 \xBB. Si vous ne trouvez pas, dites-le ; ne devinez jamais.",
+    "tpl.editor.name": "\xC9diteur",
+    "tpl.editor.blurb": "R\xE9\xE9crit ou resserre un texte existant ; garde l'argument, coupe le remplissage.",
+    "tpl.editor.when": "R\xE9\xE9crire, raccourcir ou restructurer un texte dont le contenu est d\xE9j\xE0 d\xE9cid\xE9. L'utilisateur apporte la substance ; le travail porte sur la prose.",
+    "tpl.editor.not": "Chercher des faits, traduire, ou \xE9crire de z\xE9ro sans mati\xE8re.",
+    "tpl.editor.ex1": "Resserre ce paragraphe sans perdre aucun point",
+    "tpl.editor.ex2": "R\xE9\xE9cris-le dans un ton plus simple pour un lecteur non technique",
+    "tpl.editor.ex3": "Propose-moi trois objets pour cet e-mail",
+    "tpl.editor.prompt": "Vous \xEAtes \xE9diteur. Gardez l'argument et la voix de l'auteur ; coupez le remplissage, corrigez la structure et dites en une ligne ce que vous avez chang\xE9. N'ajoutez pas d'affirmations absentes de la source et ne traduisez pas.",
+    "tpl.coder.name": "Code",
+    "tpl.coder.blurb": "Lit le code, traque les bugs et \xE9crit des correctifs. N\xE9cessite un mod\xE8le avec outils.",
+    "tpl.coder.when": "Lire ou modifier du code : traquer un bug, ajouter un test, expliquer un module, appliquer un petit correctif. Il peut ouvrir des fichiers.",
+    "tpl.coder.not": "D\xE9bats d'architecture sans code \xE0 lire, ou r\xE9\xE9criture d'un projet entier d'un coup.",
+    "tpl.coder.ex1": "Pourquoi ce test \xE9choue-t-il ? Montre la ligne qui casse",
+    "tpl.coder.ex2": "Ajoute un test pour le cas d'entr\xE9e vide dans ce fichier",
+    "tpl.coder.ex3": "Explique ce que fait ce module et ce qu'il ne g\xE8re pas",
+    "tpl.coder.prompt": "Vous \xEAtes programmeur. Lisez le code avant de r\xE9pondre et citez fichier et ligne. Pr\xE9f\xE9rez le plus petit changement. Montrez le diff ou les lignes exactes, pas le fichier entier. Si un test prouve le correctif, \xE9crivez-le.",
+    "Download file": "T\xE9l\xE9charger le fichier"
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -2194,7 +2662,85 @@ var MESSAGES = {
     "Reload": "Neu laden",
     "When the main model should hand work here": "Wann das Hauptmodell Arbeit hierher geben sollte",
     "Translate or proofread text between Chinese and English.": "Text zwischen Chinesisch und Englisch \xFCbersetzen oder Korrektur lesen.",
-    "Funded and attached. The ad is live.": "Finanziert und verkn\xFCpft. Die Anzeige ist live."
+    "Funded and attached. The ad is live.": "Finanziert und verkn\xFCpft. Die Anzeige ist live.",
+    "Team": "Team",
+    "Advisor": "Berater",
+    "Card library": "Kartenbibliothek",
+    "Apply": "\xDCbernehmen",
+    "Share": "Teilen",
+    "Share code": "Freigabecode",
+    "Share link": "Freigabelink",
+    "Copy link": "Link kopieren",
+    "Copied.": "Kopiert.",
+    "Done": "Fertig",
+    "Clear": "L\xF6schen",
+    "You": "Du",
+    "Author": "Autor",
+    "Examples": "Beispiele",
+    "Not for": "Nicht f\xFCr",
+    "Choose a file\u2026": "Datei w\xE4hlen\u2026",
+    "Import a card": "Karte importieren",
+    "Ask the advisor": "Berater fragen",
+    "Suggest a team": "Team vorschlagen",
+    "Review my team": "Team pr\xFCfen",
+    "Thinking\u2026": "Denkt nach\u2026",
+    "Advisor model": "Beratermodell",
+    "What do you ask an AI to do?": "Wof\xFCr fragst du eine KI?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "Zum Beispiel: Ich arbeite im Patentwesen. Ich \xFCbersetze zwischen Chinesisch und Englisch, schlage Paragraphen nach und mache aus Pr\xFCfungsbescheiden eine Antwortgliederung.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "Beschreibe, was du eine KI tats\xE4chlich machst. Der Berater schl\xE4gt die Aufteilung vor, und du \xFCbernimmst nur, was dir passt. Das ist ein einziger Modellaufruf: im Netz kostenlos, bei einem Cloud-Modell mit deinem eigenen Schl\xFCssel.",
+    "Following the main model. Pick one here to use a different model for advice.": "Folgt dem Hauptmodell. W\xE4hle hier eines, um ein anderes Modell als Berater zu nutzen.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "Noch nichts gefragt. Drei S\xE4tze \xFCber deine Arbeit reichen f\xFCr den Anfang.",
+    "That card could not be read.": "Diese Karte konnte nicht gelesen werden.",
+    "That card could not be resolved. Reload and try again.": "Diese Karte konnte nicht aufgel\xF6st werden. Neu laden und erneut versuchen.",
+    "Adjusted for your machine: {reason}.": "An deine Umgebung angepasst: {reason}.",
+    "that model is not available": "dieses Modell ist nicht verf\xFCgbar",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "Eine Karte ist ein Spezialist als Datei. Das vorgeschlagene Modell wird beim \xDCbernehmen gegen dein eigenes Board aufgel\xF6st, deshalb funktioniert eine Karte von einem anderen Rechner weiterhin. Karten enthalten nur Spezialistentext \u2014 nie eine Modell-ID, einen Schl\xFCssel oder ein Limit.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "Eine Karte sind Anweisungen f\xFCr einen Agenten, der Dateien lesen kann. Lies den Rollentext, bevor du eine Karte von jemandem \xFCbernimmst, den du nicht kennst.",
+    "Paste a card, a pack, or a share code": "Karte, Paket oder Freigabecode einf\xFCgen",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "Karte, Paket oder Freigabecode (gkcard1.\u2026) einf\xFCgen",
+    "Imported {count} card(s). Apply one to add it to the team.": "{count} Karte(n) importiert. \xDCbernimm eine, um sie ins Team aufzunehmen.",
+    "No cards yet. Import one above.": "Noch keine Karten. Oben eine importieren.",
+    "already in the team": "bereits im Team",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "Noch keine Spezialisten. Mit einer Vorlage beginnen, den Berater fragen oder eine Karte importieren.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "Noch nie genutzt. Wenn er weiter nicht passt, umschreiben oder entfernen.",
+    "Eight is the maximum. Remove one first.": "Acht ist das Maximum. Entferne zuerst einen.",
+    "{name} was added to the draft. Save to keep it.": "\u201E{name}\u201C wurde zum Entwurf hinzugef\xFCgt. Speichern, um es zu behalten.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "Schicke den Link oder den Code. Der Link h\xE4lt den Inhalt im Fragment, die Website bekommt ihn also nie.",
+    "Share \u201C{name}\u201D": "\u201E{name}\u201C teilen",
+    "Role instructions (read before applying)": "Rollenanweisungen (vor dem \xDCbernehmen lesen)",
+    "tpl.translator.name": "\xDCbersetzer",
+    "tpl.translator.blurb": "\xDCbersetzt oder korrigiert eine eigenst\xE4ndige Passage; nur der Text kommt zur\xFCck.",
+    "tpl.translator.when": "Eine eigenst\xE4ndige Passage zwischen Chinesisch und Englisch \xFCbersetzen oder eine vorhandene \xDCbersetzung Korrektur lesen. Eingabe ist Text, Ausgabe nur die \xDCbersetzung.",
+    "tpl.translator.not": "Inhalte, die zum Pr\xFCfen Recherche brauchen (Gesetzestexte, medizinische Aussagen), oder ein ganzes Dokument mit viel Code (vorher aufteilen).",
+    "tpl.translator.ex1": "\xDCbersetze diesen Absatz ins Deutsche",
+    "tpl.translator.ex2": "Korrigiere diese \xDCbersetzung und liste nur die Fehler",
+    "tpl.translator.ex3": "Bring diese Support-Antwort in h\xF6fliches Englisch",
+    "tpl.translator.prompt": "Du bist \xDCbersetzer. Gib nur die \xDCbersetzung aus: keine Erkl\xE4rung, keine Einleitung, kein \u201Ehier ist die \xDCbersetzung\u201C. Code, Befehle, Eigennamen und Markdown-Struktur bleiben unver\xE4ndert. Halte die Tonlage; bei Mehrdeutigkeit w\xF6rtlich \xFCbersetzen statt zu erg\xE4nzen.",
+    "tpl.researcher.name": "Recherche",
+    "tpl.researcher.blurb": "Sucht, vergleicht, liest Dateien; liefert Schlussfolgerungen mit Belegen.",
+    "tpl.researcher.when": "Sachfragen, die Recherche, Vergleich oder Dateien erfordern. Muss Belege liefern: Pfad und Zeile oder URL.",
+    "tpl.researcher.not": "Fragen, deren Antwort du schon kennst, und Aufgaben, bei denen es ums Schreiben statt ums Finden geht.",
+    "tpl.researcher.ex1": "Woher kommt dieser Fehler? Datei und Zeile bitte",
+    "tpl.researcher.ex2": "Vergleiche diese beiden Changelogs und liste die Breaking Changes",
+    "tpl.researcher.ex3": "Lies die Dateien in diesem Ordner und erkl\xE4re, wof\xFCr das Modul zust\xE4ndig ist",
+    "tpl.researcher.prompt": "Du bist ein Recherche-Subagent. Liefere nur Schlussfolgerungen und Belege: Dateipfad, Zeilennummer, Befehlsausgabe oder URL. Wiederhole die Aufgabe nicht, schreibe nicht \u201Eerledigt\u201C. Wenn du etwas nicht findest, sag es \u2014 rate nie.",
+    "tpl.editor.name": "Lektor",
+    "tpl.editor.blurb": "Schreibt vorhandenen Text um oder strafft ihn; Argument bleibt, F\xFCllwerk f\xE4llt.",
+    "tpl.editor.when": "Text umschreiben, k\xFCrzen oder neu ordnen, dessen Inhalt schon feststeht. Die Substanz kommt vom Nutzer, die Arbeit ist die Prosa.",
+    "tpl.editor.not": "Fakten suchen, \xFCbersetzen oder ohne Material von null schreiben.",
+    "tpl.editor.ex1": "Straffe diesen Absatz, ohne einen Punkt zu verlieren",
+    "tpl.editor.ex2": "Schreib es einfacher f\xFCr nicht-technische Leser",
+    "tpl.editor.ex3": "Gib mir drei Betreffzeilen f\xFCr diese E-Mail",
+    "tpl.editor.prompt": "Du bist Lektor. Bewahre Argument und Stimme des Autors; streiche F\xFCllwerk, ordne die Struktur und sage in einer Zeile, was du ge\xE4ndert hast. F\xFCge keine Behauptungen hinzu, die die Quelle nicht macht, und \xFCbersetze nicht.",
+    "tpl.coder.name": "Code",
+    "tpl.coder.blurb": "Liest Code, verfolgt Fehler und schreibt Patches. Braucht ein Modell mit Tools.",
+    "tpl.coder.when": "Code lesen oder \xE4ndern: einen Fehler verfolgen, einen Test erg\xE4nzen, ein Modul erkl\xE4ren, einen kleinen Patch anwenden. Kann Dateien \xF6ffnen.",
+    "tpl.coder.not": "Architekturdebatten ohne Code, oder ein ganzes Projekt in einem Zug neu schreiben.",
+    "tpl.coder.ex1": "Warum schl\xE4gt dieser Test fehl? Zeig die Zeile, die bricht",
+    "tpl.coder.ex2": "Erg\xE4nze einen Test f\xFCr den Leereingabe-Fall in dieser Datei",
+    "tpl.coder.ex3": "Erkl\xE4re, was dieses Modul tut und was es nicht abdeckt",
+    "tpl.coder.prompt": "Du bist Programmierer. Lies den Code, bevor du antwortest, und nenne Datei und Zeile. Nimm die kleinste \xC4nderung. Zeig den Diff oder die genauen Zeilen, nicht die ganze Datei. Wenn ein Test den Fix beweist, schreib ihn.",
+    "Download file": "Datei herunterladen"
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -2503,7 +3049,85 @@ var MESSAGES = {
     "Reload": "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C",
     "When the main model should hand work here": "\u041A\u043E\u0433\u0434\u0430 \u043E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043C\u043E\u0434\u0435\u043B\u044C \u0434\u043E\u043B\u0436\u043D\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044C \u0440\u0430\u0431\u043E\u0442\u0443",
     "Translate or proofread text between Chinese and English.": "\u041F\u0435\u0440\u0435\u0432\u043E\u0434\u0438\u0442\u044C \u0438\u043B\u0438 \u0432\u044B\u0447\u0438\u0442\u044B\u0432\u0430\u0442\u044C \u0442\u0435\u043A\u0441\u0442 \u043C\u0435\u0436\u0434\u0443 \u043A\u0438\u0442\u0430\u0439\u0441\u043A\u0438\u043C \u0438 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u043C.",
-    "Funded and attached. The ad is live.": "\u041E\u043F\u043B\u0430\u0447\u0435\u043D\u043E \u0438 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D\u043E. \u041E\u0431\u044A\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F."
+    "Funded and attached. The ad is live.": "\u041E\u043F\u043B\u0430\u0447\u0435\u043D\u043E \u0438 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D\u043E. \u041E\u0431\u044A\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F.",
+    "Team": "\u041A\u043E\u043C\u0430\u043D\u0434\u0430",
+    "Advisor": "\u0421\u043E\u0432\u0435\u0442\u043D\u0438\u043A",
+    "Card library": "\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430 \u043A\u0430\u0440\u0442\u043E\u0447\u0435\u043A",
+    "Apply": "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C",
+    "Share": "\u041F\u043E\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F",
+    "Share code": "\u041A\u043E\u0434 \u0434\u043B\u044F \u043E\u0431\u043C\u0435\u043D\u0430",
+    "Share link": "\u0421\u0441\u044B\u043B\u043A\u0430 \u0434\u043B\u044F \u043E\u0431\u043C\u0435\u043D\u0430",
+    "Copy link": "\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443",
+    "Copied.": "\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u043E.",
+    "Done": "\u0413\u043E\u0442\u043E\u0432\u043E",
+    "Clear": "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C",
+    "You": "\u0412\u044B",
+    "Author": "\u0410\u0432\u0442\u043E\u0440",
+    "Examples": "\u041F\u0440\u0438\u043C\u0435\u0440\u044B",
+    "Not for": "\u041D\u0435 \u0434\u043B\u044F",
+    "Choose a file\u2026": "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0444\u0430\u0439\u043B\u2026",
+    "Import a card": "\u0418\u043C\u043F\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443",
+    "Ask the advisor": "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u0441\u043E\u0432\u0435\u0442\u043D\u0438\u043A\u0430",
+    "Suggest a team": "\u041F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442\u044C \u043A\u043E\u043C\u0430\u043D\u0434\u0443",
+    "Review my team": "\u041F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C \u043A\u043E\u043C\u0430\u043D\u0434\u0443",
+    "Thinking\u2026": "\u0414\u0443\u043C\u0430\u0435\u0442\u2026",
+    "Advisor model": "\u041C\u043E\u0434\u0435\u043B\u044C \u0441\u043E\u0432\u0435\u0442\u043D\u0438\u043A\u0430",
+    "What do you ask an AI to do?": "\u041E \u0447\u0451\u043C \u0432\u044B \u043F\u0440\u043E\u0441\u0438\u0442\u0435 \u0418\u0418?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: \u044F \u0440\u0430\u0431\u043E\u0442\u0430\u044E \u0441 \u043F\u0430\u0442\u0435\u043D\u0442\u0430\u043C\u0438. \u041F\u0435\u0440\u0435\u0432\u043E\u0436\u0443 \u043C\u0435\u0436\u0434\u0443 \u043A\u0438\u0442\u0430\u0439\u0441\u043A\u0438\u043C \u0438 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u043C, \u0438\u0449\u0443 \u043D\u043E\u043C\u0435\u0440\u0430 \u0441\u0442\u0430\u0442\u0435\u0439 \u0438 \u043F\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u044E \u0437\u0430\u043C\u0435\u0447\u0430\u043D\u0438\u044F \u044D\u043A\u0441\u043F\u0435\u0440\u0442\u0430 \u0432 \u043F\u043B\u0430\u043D \u043E\u0442\u0432\u0435\u0442\u0430.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "\u041E\u043F\u0438\u0448\u0438\u0442\u0435, \u043E \u0447\u0451\u043C \u0432\u044B \u043D\u0430 \u0441\u0430\u043C\u043E\u043C \u0434\u0435\u043B\u0435 \u043F\u0440\u043E\u0441\u0438\u0442\u0435 \u0418\u0418. \u0421\u043E\u0432\u0435\u0442\u043D\u0438\u043A \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442 \u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u0435, \u0430 \u0432\u044B \u043F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0442\u043E, \u0441 \u0447\u0435\u043C \u0441\u043E\u0433\u043B\u0430\u0441\u043D\u044B. \u042D\u0442\u043E \u043E\u0434\u0438\u043D \u0432\u044B\u0437\u043E\u0432 \u043C\u043E\u0434\u0435\u043B\u0438: \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E \u0432 \u0441\u0435\u0442\u0438 \u0438\u043B\u0438 \u0441 \u0432\u0430\u0448\u0438\u043C \u043A\u043B\u044E\u0447\u043E\u043C \u0434\u043B\u044F \u043E\u0431\u043B\u0430\u0447\u043D\u043E\u0439 \u043C\u043E\u0434\u0435\u043B\u0438.",
+    "Following the main model. Pick one here to use a different model for advice.": "\u0421\u043B\u0435\u0434\u0443\u0435\u0442 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u043C\u043E\u0434\u0435\u043B\u0438. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044C \u0434\u0440\u0443\u0433\u0443\u044E, \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0432\u0435\u0442\u043E\u0432\u0430\u043B\u0430 \u043E\u043D\u0430.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "\u041F\u043E\u043A\u0430 \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0441\u043F\u0440\u043E\u0448\u0435\u043D\u043E. \u0422\u0440\u0451\u0445 \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0435\u043D\u0438\u0439 \u043E \u0432\u0430\u0448\u0435\u0439 \u0440\u0430\u0431\u043E\u0442\u0435 \u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E.",
+    "That card could not be read.": "\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043F\u0440\u043E\u0447\u0438\u0442\u0430\u0442\u044C \u044D\u0442\u0443 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443.",
+    "That card could not be resolved. Reload and try again.": "\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0440\u0430\u0437\u0440\u0435\u0448\u0438\u0442\u044C \u044D\u0442\u0443 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443. \u041F\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0438 \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0441\u043D\u043E\u0432\u0430.",
+    "Adjusted for your machine: {reason}.": "\u0421\u043A\u043E\u0440\u0440\u0435\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u043F\u043E\u0434 \u0432\u0430\u0448\u0443 \u0441\u0440\u0435\u0434\u0443: {reason}.",
+    "that model is not available": "\u044D\u0442\u0430 \u043C\u043E\u0434\u0435\u043B\u044C \u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0430",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u2014 \u044D\u0442\u043E \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u0432 \u0432\u0438\u0434\u0435 \u0444\u0430\u0439\u043B\u0430. \u041F\u0440\u0435\u0434\u043B\u043E\u0436\u0435\u043D\u043D\u0430\u044F \u0432 \u043D\u0435\u0439 \u043C\u043E\u0434\u0435\u043B\u044C \u0441\u0432\u0435\u0440\u044F\u0435\u0442\u0441\u044F \u0441 \u0432\u0430\u0448\u0435\u0439 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0439 \u0434\u043E\u0441\u043A\u043E\u0439 \u043F\u0440\u0438 \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0438, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u0441 \u0434\u0440\u0443\u0433\u043E\u0439 \u043C\u0430\u0448\u0438\u043D\u044B \u0432\u0441\u0451 \u0440\u0430\u0432\u043D\u043E \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442. \u0412 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0442\u0435\u043A\u0441\u0442 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430 \u2014 \u043D\u0438\u043A\u043E\u0433\u0434\u0430 id \u043C\u043E\u0434\u0435\u043B\u0438, \u043A\u043B\u044E\u0447 \u0438\u043B\u0438 \u043B\u0438\u043C\u0438\u0442.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u2014 \u044D\u0442\u043E \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u0438 \u0434\u043B\u044F \u0430\u0433\u0435\u043D\u0442\u0430, \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u0443\u043C\u0435\u0435\u0442 \u0447\u0438\u0442\u0430\u0442\u044C \u0444\u0430\u0439\u043B\u044B. \u041F\u0440\u043E\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0435\u043A\u0441\u0442 \u0440\u043E\u043B\u0438, \u043F\u0440\u0435\u0436\u0434\u0435 \u0447\u0435\u043C \u043F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u044C \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443 \u043E\u0442 \u043D\u0435\u0437\u043D\u0430\u043A\u043E\u043C\u043E\u0433\u043E \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430.",
+    "Paste a card, a pack, or a share code": "\u0412\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443, \u043F\u0430\u043A\u0435\u0442 \u0438\u043B\u0438 \u043A\u043E\u0434",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "\u0412\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443, \u043F\u0430\u043A\u0435\u0442 \u0438\u043B\u0438 \u043A\u043E\u0434 (gkcard1.\u2026)",
+    "Imported {count} card(s). Apply one to add it to the team.": "\u0418\u043C\u043F\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u043E \u043A\u0430\u0440\u0442\u043E\u0447\u0435\u043A: {count}. \u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u0435 \u043E\u0434\u043D\u0443, \u0447\u0442\u043E\u0431\u044B \u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0432 \u043A\u043E\u043C\u0430\u043D\u0434\u0443.",
+    "No cards yet. Import one above.": "\u041A\u0430\u0440\u0442\u043E\u0447\u0435\u043A \u043F\u043E\u043A\u0430 \u043D\u0435\u0442. \u0418\u043C\u043F\u043E\u0440\u0442\u0438\u0440\u0443\u0439\u0442\u0435 \u0432\u044B\u0448\u0435.",
+    "already in the team": "\u0443\u0436\u0435 \u0432 \u043A\u043E\u043C\u0430\u043D\u0434\u0435",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432 \u043F\u043E\u043A\u0430 \u043D\u0435\u0442. \u041D\u0430\u0447\u043D\u0438\u0442\u0435 \u0441 \u0448\u0430\u0431\u043B\u043E\u043D\u0430, \u0441\u043F\u0440\u043E\u0441\u0438\u0442\u0435 \u0441\u043E\u0432\u0435\u0442\u043D\u0438\u043A\u0430 \u0438\u043B\u0438 \u0438\u043C\u043F\u043E\u0440\u0442\u0438\u0440\u0443\u0439\u0442\u0435 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "\u0415\u0449\u0451 \u043D\u0438 \u0440\u0430\u0437\u0443 \u043D\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043B\u0441\u044F. \u0415\u0441\u043B\u0438 \u043E\u043D \u0442\u0430\u043A \u0438 \u043D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u0438\u0442, \u043F\u0435\u0440\u0435\u043F\u0438\u0448\u0438\u0442\u0435 \u0438\u043B\u0438 \u0443\u0434\u0430\u043B\u0438\u0442\u0435 \u0435\u0433\u043E.",
+    "Eight is the maximum. Remove one first.": "\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u2014 \u0432\u043E\u0441\u0435\u043C\u044C. \u0421\u043D\u0430\u0447\u0430\u043B\u0430 \u0443\u0434\u0430\u043B\u0438\u0442\u0435 \u043E\u0434\u043D\u043E\u0433\u043E.",
+    "{name} was added to the draft. Save to keep it.": "\xAB{name}\xBB \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u0432 \u0447\u0435\u0440\u043D\u043E\u0432\u0438\u043A. \u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "\u041E\u0442\u043F\u0440\u0430\u0432\u044C\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u0438\u043B\u0438 \u0441\u0430\u043C \u043A\u043E\u0434. \u0421\u0441\u044B\u043B\u043A\u0430 \u0434\u0435\u0440\u0436\u0438\u0442 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u043C\u043E\u0435 \u0432\u043E \u0444\u0440\u0430\u0433\u043C\u0435\u043D\u0442\u0435, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u0441\u0430\u0439\u0442 \u0435\u0433\u043E \u043D\u0435 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442.",
+    "Share \u201C{name}\u201D": "\u041F\u043E\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F \xAB{name}\xBB",
+    "Role instructions (read before applying)": "\u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u0438 \u0440\u043E\u043B\u0438 (\u043F\u0440\u043E\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u043F\u0435\u0440\u0435\u0434 \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435\u043C)",
+    "tpl.translator.name": "\u041F\u0435\u0440\u0435\u0432\u043E\u0434\u0447\u0438\u043A",
+    "tpl.translator.blurb": "\u041F\u0435\u0440\u0435\u0432\u043E\u0434\u0438\u0442 \u0438\u043B\u0438 \u0432\u044B\u0447\u0438\u0442\u044B\u0432\u0430\u0435\u0442 \u043E\u0442\u0434\u0435\u043B\u044C\u043D\u044B\u0439 \u0444\u0440\u0430\u0433\u043C\u0435\u043D\u0442; \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u0432\u043E\u0434.",
+    "tpl.translator.when": "\u041F\u0435\u0440\u0435\u0432\u0435\u0441\u0442\u0438 \u0441\u0430\u043C\u043E\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u043D\u044B\u0439 \u0444\u0440\u0430\u0433\u043C\u0435\u043D\u0442 \u043C\u0435\u0436\u0434\u0443 \u043A\u0438\u0442\u0430\u0439\u0441\u043A\u0438\u043C \u0438 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u043C \u0438\u043B\u0438 \u0432\u044B\u0447\u0438\u0442\u0430\u0442\u044C \u0433\u043E\u0442\u043E\u0432\u044B\u0439 \u043F\u0435\u0440\u0435\u0432\u043E\u0434. \u041D\u0430 \u0432\u0445\u043E\u0434\u0435 \u0442\u0435\u043A\u0441\u0442, \u043D\u0430 \u0432\u044B\u0445\u043E\u0434\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u0432\u043E\u0434.",
+    "tpl.translator.not": "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B, \u0434\u043B\u044F \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0438 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E \u043D\u0443\u0436\u043D\u044B \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0438 (\u0441\u0442\u0430\u0442\u044C\u0438 \u0437\u0430\u043A\u043E\u043D\u0430, \u043C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0438\u0435 \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F), \u0438\u043B\u0438 \u0446\u0435\u043B\u044B\u0439 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442 \u0441 \u0431\u043E\u043B\u044C\u0448\u0438\u043C \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E\u043C \u043A\u043E\u0434\u0430 (\u0441\u043D\u0430\u0447\u0430\u043B\u0430 \u0440\u0430\u0437\u0434\u0435\u043B\u0438\u0442\u0435).",
+    "tpl.translator.ex1": "\u041F\u0435\u0440\u0435\u0432\u0435\u0434\u0438 \u044D\u0442\u043E\u0442 \u0430\u0431\u0437\u0430\u0446 \u043D\u0430 \u0440\u0443\u0441\u0441\u043A\u0438\u0439",
+    "tpl.translator.ex2": "\u0412\u044B\u0447\u0438\u0442\u0430\u0439 \u044D\u0442\u043E\u0442 \u043F\u0435\u0440\u0435\u0432\u043E\u0434 \u0438 \u043F\u0435\u0440\u0435\u0447\u0438\u0441\u043B\u0438 \u0442\u043E\u043B\u044C\u043A\u043E \u043E\u0448\u0438\u0431\u043A\u0438",
+    "tpl.translator.ex3": "\u041F\u0435\u0440\u0435\u0432\u0435\u0434\u0438 \u044D\u0442\u043E\u0442 \u043E\u0442\u0432\u0435\u0442 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438 \u043D\u0430 \u0432\u0435\u0436\u043B\u0438\u0432\u044B\u0439 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u0439",
+    "tpl.translator.prompt": "\u0412\u044B \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0447\u0438\u043A. \u0412\u044B\u0432\u043E\u0434\u0438\u0442\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u0432\u043E\u0434: \u0431\u0435\u0437 \u043E\u0431\u044A\u044F\u0441\u043D\u0435\u043D\u0438\u0439, \u0431\u0435\u0437 \u0432\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u044F, \u0431\u0435\u0437 \xAB\u0432\u043E\u0442 \u043F\u0435\u0440\u0435\u0432\u043E\u0434\xBB. \u0421\u043E\u0445\u0440\u0430\u043D\u044F\u0439\u0442\u0435 \u043A\u043E\u0434, \u043A\u043E\u043C\u0430\u043D\u0434\u044B, \u0438\u043C\u0435\u043D\u0430 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0435 \u0438 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0443 Markdown. \u0414\u0435\u0440\u0436\u0438\u0442\u0435 \u0440\u0435\u0433\u0438\u0441\u0442\u0440; \u043F\u0440\u0438 \u043D\u0435\u043E\u0434\u043D\u043E\u0437\u043D\u0430\u0447\u043D\u043E\u0441\u0442\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0438\u0442\u0435 \u0431\u0443\u043A\u0432\u0430\u043B\u044C\u043D\u043E, \u043D\u0435 \u0434\u043E\u0431\u0430\u0432\u043B\u044F\u044F \u0441\u043C\u044B\u0441\u043B\u0430.",
+    "tpl.researcher.name": "\u0418\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u044C",
+    "tpl.researcher.blurb": "\u0418\u0449\u0435\u0442, \u0441\u0440\u0430\u0432\u043D\u0438\u0432\u0430\u0435\u0442, \u0447\u0438\u0442\u0430\u0435\u0442 \u0444\u0430\u0439\u043B\u044B; \u0441\u043E\u043E\u0431\u0449\u0430\u0435\u0442 \u0432\u044B\u0432\u043E\u0434\u044B \u0438 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0438.",
+    "tpl.researcher.when": "\u0424\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B, \u0442\u0440\u0435\u0431\u0443\u044E\u0449\u0438\u0435 \u043F\u043E\u0438\u0441\u043A\u0430, \u0441\u0440\u0430\u0432\u043D\u0435\u043D\u0438\u044F \u0438\u043B\u0438 \u0447\u0442\u0435\u043D\u0438\u044F \u0444\u0430\u0439\u043B\u043E\u0432. \u041E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0443\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A: \u043F\u0443\u0442\u044C \u0438 \u0441\u0442\u0440\u043E\u043A\u0443 \u0438\u043B\u0438 URL.",
+    "tpl.researcher.not": "\u0412\u043E\u043F\u0440\u043E\u0441\u044B, \u043E\u0442\u0432\u0435\u0442 \u043D\u0430 \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u044B \u0443\u0436\u0435 \u0437\u043D\u0430\u0435\u0442\u0435, \u0438 \u0437\u0430\u0434\u0430\u0447\u0438, \u0433\u0434\u0435 \u0441\u0443\u0442\u044C \u0432 \u043F\u0438\u0441\u044C\u043C\u0435, \u0430 \u043D\u0435 \u0432 \u043F\u043E\u0438\u0441\u043A\u0435.",
+    "tpl.researcher.ex1": "\u041E\u0442\u043A\u0443\u0434\u0430 \u0431\u0435\u0440\u0451\u0442\u0441\u044F \u044D\u0442\u0430 \u043E\u0448\u0438\u0431\u043A\u0430? \u0414\u0430\u0439 \u0444\u0430\u0439\u043B \u0438 \u0441\u0442\u0440\u043E\u043A\u0443",
+    "tpl.researcher.ex2": "\u0421\u0440\u0430\u0432\u043D\u0438 \u0434\u0432\u0430 \u044D\u0442\u0438\u0445 changelog \u0438 \u043F\u0435\u0440\u0435\u0447\u0438\u0441\u043B\u0438 \u043D\u0435\u0441\u043E\u0432\u043C\u0435\u0441\u0442\u0438\u043C\u044B\u0435 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F",
+    "tpl.researcher.ex3": "\u041F\u0440\u043E\u0447\u0438\u0442\u0430\u0439 \u0444\u0430\u0439\u043B\u044B \u0432 \u044D\u0442\u043E\u0439 \u043F\u0430\u043F\u043A\u0435 \u0438 \u043E\u0431\u044A\u044F\u0441\u043D\u0438, \u0437\u0430 \u0447\u0442\u043E \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442 \u043C\u043E\u0434\u0443\u043B\u044C",
+    "tpl.researcher.prompt": "\u0412\u044B \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u0441\u043A\u0438\u0439 \u0441\u0443\u0431\u0430\u0433\u0435\u043D\u0442. \u0421\u043E\u043E\u0431\u0449\u0430\u0439\u0442\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0432\u044B\u0432\u043E\u0434\u044B \u0438 \u0434\u043E\u043A\u0430\u0437\u0430\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u0430: \u043F\u0443\u0442\u044C \u043A \u0444\u0430\u0439\u043B\u0443, \u043D\u043E\u043C\u0435\u0440 \u0441\u0442\u0440\u043E\u043A\u0438, \u0432\u044B\u0432\u043E\u0434 \u043A\u043E\u043C\u0430\u043D\u0434\u044B \u0438\u043B\u0438 URL. \u041D\u0435 \u043F\u0435\u0440\u0435\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u0439\u0442\u0435 \u0437\u0430\u0434\u0430\u0447\u0443 \u0438 \u043D\u0435 \u043F\u0438\u0448\u0438\u0442\u0435 \xAB\u0433\u043E\u0442\u043E\u0432\u043E\xBB. \u0415\u0441\u043B\u0438 \u043D\u0435 \u043D\u0430\u0448\u043B\u0438 \u2014 \u0442\u0430\u043A \u0438 \u0441\u043A\u0430\u0436\u0438\u0442\u0435, \u043D\u0438\u043A\u043E\u0433\u0434\u0430 \u043D\u0435 \u0434\u043E\u0433\u0430\u0434\u044B\u0432\u0430\u0439\u0442\u0435\u0441\u044C.",
+    "tpl.editor.name": "\u0420\u0435\u0434\u0430\u043A\u0442\u043E\u0440",
+    "tpl.editor.blurb": "\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u044B\u0432\u0430\u0435\u0442 \u0438\u043B\u0438 \u0441\u043E\u043A\u0440\u0430\u0449\u0430\u0435\u0442 \u0433\u043E\u0442\u043E\u0432\u044B\u0439 \u0442\u0435\u043A\u0441\u0442; \u0430\u0440\u0433\u0443\u043C\u0435\u043D\u0442 \u043E\u0441\u0442\u0430\u0451\u0442\u0441\u044F, \u0432\u043E\u0434\u0430 \u0443\u0445\u043E\u0434\u0438\u0442.",
+    "tpl.editor.when": "\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u0430\u0442\u044C, \u0441\u043E\u043A\u0440\u0430\u0442\u0438\u0442\u044C \u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u0442\u0435\u043A\u0441\u0442, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u0435 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E \u0443\u0436\u0435 \u0440\u0435\u0448\u0435\u043D\u043E. \u0421\u0443\u0442\u044C \u0434\u0430\u0451\u0442 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C, \u0440\u0430\u0431\u043E\u0442\u0430 \u2014 \u044D\u0442\u043E \u0441\u043B\u043E\u0433.",
+    "tpl.editor.not": "\u0418\u0441\u043A\u0430\u0442\u044C \u0444\u0430\u043A\u0442\u044B, \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0438\u0442\u044C \u0438\u043B\u0438 \u043F\u0438\u0441\u0430\u0442\u044C \u0441 \u043D\u0443\u043B\u044F \u0431\u0435\u0437 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u0430.",
+    "tpl.editor.ex1": "\u0421\u043E\u0436\u043C\u0438 \u044D\u0442\u043E\u0442 \u0430\u0431\u0437\u0430\u0446, \u043D\u0435 \u043F\u043E\u0442\u0435\u0440\u044F\u0432 \u043D\u0438 \u043E\u0434\u043D\u043E\u0433\u043E \u0442\u0435\u0437\u0438\u0441\u0430",
+    "tpl.editor.ex2": "\u041F\u0435\u0440\u0435\u043F\u0438\u0448\u0438 \u043F\u0440\u043E\u0449\u0435, \u0434\u043B\u044F \u043D\u0435\u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u0447\u0438\u0442\u0430\u0442\u0435\u043B\u044F",
+    "tpl.editor.ex3": "\u041F\u0440\u0438\u0434\u0443\u043C\u0430\u0439 \u0442\u0440\u0438 \u0442\u0435\u043C\u044B \u0434\u043B\u044F \u044D\u0442\u043E\u0433\u043E \u043F\u0438\u0441\u044C\u043C\u0430",
+    "tpl.editor.prompt": "\u0412\u044B \u0440\u0435\u0434\u0430\u043A\u0442\u043E\u0440. \u0421\u043E\u0445\u0440\u0430\u043D\u044F\u0439\u0442\u0435 \u0430\u0440\u0433\u0443\u043C\u0435\u043D\u0442 \u0438 \u0433\u043E\u043B\u043E\u0441 \u0430\u0432\u0442\u043E\u0440\u0430; \u0443\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u0432\u043E\u0434\u0443, \u043F\u0440\u0430\u0432\u044C\u0442\u0435 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0443 \u0438 \u043E\u0434\u043D\u043E\u0439 \u0441\u0442\u0440\u043E\u043A\u043E\u0439 \u0441\u043A\u0430\u0436\u0438\u0442\u0435, \u0447\u0442\u043E \u0438\u0437\u043C\u0435\u043D\u0438\u043B\u0438. \u041D\u0435 \u0434\u043E\u0431\u0430\u0432\u043B\u044F\u0439\u0442\u0435 \u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u0439, \u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043D\u0435\u0442 \u0432 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0435, \u0438 \u043D\u0435 \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0438\u0442\u0435.",
+    "tpl.coder.name": "\u041A\u043E\u0434",
+    "tpl.coder.blurb": "\u0427\u0438\u0442\u0430\u0435\u0442 \u043A\u043E\u0434, \u0438\u0449\u0435\u0442 \u043E\u0448\u0438\u0431\u043A\u0438 \u0438 \u043F\u0438\u0448\u0435\u0442 \u043F\u0430\u0442\u0447\u0438. \u041D\u0443\u0436\u043D\u0430 \u043C\u043E\u0434\u0435\u043B\u044C \u0441 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430\u043C\u0438.",
+    "tpl.coder.when": "\u0427\u0438\u0442\u0430\u0442\u044C \u0438\u043B\u0438 \u043C\u0435\u043D\u044F\u0442\u044C \u043A\u043E\u0434: \u043D\u0430\u0439\u0442\u0438 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A \u043E\u0448\u0438\u0431\u043A\u0438, \u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0442\u0435\u0441\u0442, \u043E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C \u043C\u043E\u0434\u0443\u043B\u044C, \u043F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u043F\u0430\u0442\u0447. \u041C\u043E\u0436\u0435\u0442 \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u0444\u0430\u0439\u043B\u044B.",
+    "tpl.coder.not": "\u0421\u043F\u043E\u0440\u044B \u043E\u0431 \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u0443\u0440\u0435 \u0431\u0435\u0437 \u043A\u043E\u0434\u0430 \u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u043F\u0438\u0441\u044B\u0432\u0430\u043D\u0438\u0435 \u0432\u0441\u0435\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430 \u0437\u0430 \u043E\u0434\u0438\u043D \u0440\u0430\u0437.",
+    "tpl.coder.ex1": "\u041F\u043E\u0447\u0435\u043C\u0443 \u043F\u0430\u0434\u0430\u0435\u0442 \u044D\u0442\u043E\u0442 \u0442\u0435\u0441\u0442? \u041F\u043E\u043A\u0430\u0436\u0438 \u0441\u0442\u0440\u043E\u043A\u0443, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u043B\u043E\u043C\u0430\u0435\u0442\u0441\u044F",
+    "tpl.coder.ex2": "\u0414\u043E\u0431\u0430\u0432\u044C \u0442\u0435\u0441\u0442 \u0434\u043B\u044F \u0441\u043B\u0443\u0447\u0430\u044F \u043F\u0443\u0441\u0442\u043E\u0433\u043E \u0432\u0432\u043E\u0434\u0430 \u0432 \u044D\u0442\u043E\u043C \u0444\u0430\u0439\u043B\u0435",
+    "tpl.coder.ex3": "\u041E\u0431\u044A\u044F\u0441\u043D\u0438, \u0447\u0442\u043E \u0434\u0435\u043B\u0430\u0435\u0442 \u044D\u0442\u043E\u0442 \u043C\u043E\u0434\u0443\u043B\u044C \u0438 \u0447\u0435\u0433\u043E \u043E\u043D \u043D\u0435 \u043F\u043E\u043A\u0440\u044B\u0432\u0430\u0435\u0442",
+    "tpl.coder.prompt": "\u0412\u044B \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0441\u0442. \u041F\u0440\u043E\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u043A\u043E\u0434 \u043F\u0435\u0440\u0435\u0434 \u043E\u0442\u0432\u0435\u0442\u043E\u043C \u0438 \u0441\u0441\u044B\u043B\u0430\u0439\u0442\u0435\u0441\u044C \u043D\u0430 \u0444\u0430\u0439\u043B \u0438 \u0441\u0442\u0440\u043E\u043A\u0443. \u0412\u044B\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u043C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0439\u0442\u0435 diff \u0438\u043B\u0438 \u0442\u043E\u0447\u043D\u044B\u0435 \u0441\u0442\u0440\u043E\u043A\u0438, \u0430 \u043D\u0435 \u0432\u0435\u0441\u044C \u0444\u0430\u0439\u043B. \u0415\u0441\u043B\u0438 \u0442\u0435\u0441\u0442 \u0434\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0438\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u2014 \u043D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u0435\u0433\u043E.",
+    "Download file": "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0444\u0430\u0439\u043B"
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -2812,7 +3436,85 @@ var MESSAGES = {
     "Reload": "Recarregar",
     "When the main model should hand work here": "Quando o modelo principal deve passar trabalho",
     "Translate or proofread text between Chinese and English.": "Traduzir ou revisar texto entre chin\xEAs e ingl\xEAs.",
-    "Funded and attached. The ad is live.": "Financiado e vinculado. O an\xFAncio est\xE1 no ar."
+    "Funded and attached. The ad is live.": "Financiado e vinculado. O an\xFAncio est\xE1 no ar.",
+    "Team": "Equipe",
+    "Advisor": "Consultor",
+    "Card library": "Biblioteca de cart\xF5es",
+    "Apply": "Aplicar",
+    "Share": "Compartilhar",
+    "Share code": "C\xF3digo de compartilhamento",
+    "Share link": "Link de compartilhamento",
+    "Copy link": "Copiar link",
+    "Copied.": "Copiado.",
+    "Done": "Conclu\xEDdo",
+    "Clear": "Limpar",
+    "You": "Voc\xEA",
+    "Author": "Autor",
+    "Examples": "Exemplos",
+    "Not for": "N\xE3o para",
+    "Choose a file\u2026": "Escolher um arquivo\u2026",
+    "Import a card": "Importar um cart\xE3o",
+    "Ask the advisor": "Perguntar ao consultor",
+    "Suggest a team": "Sugerir uma equipe",
+    "Review my team": "Revisar minha equipe",
+    "Thinking\u2026": "Pensando\u2026",
+    "Advisor model": "Modelo do consultor",
+    "What do you ask an AI to do?": "O que voc\xEA pede a uma IA?",
+    "For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline.": "Por exemplo: trabalho com patentes. Traduzo entre chin\xEAs e ingl\xEAs, procuro n\xFAmeros de artigos e transformo obje\xE7\xF5es do examinador em um roteiro de resposta.",
+    "Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.": "Descreva o que voc\xEA realmente pede a uma IA. O consultor prop\xF5e a divis\xE3o e voc\xEA aplica s\xF3 o que concordar. \xC9 uma \xFAnica chamada ao modelo: gr\xE1tis na rede, ou com a sua pr\xF3pria chave em um modelo na nuvem.",
+    "Following the main model. Pick one here to use a different model for advice.": "Segue o modelo principal. Escolha um aqui para usar outro modelo como consultor.",
+    "Nothing asked yet. Three sentences about your work is enough to start.": "Nada perguntado ainda. Tr\xEAs frases sobre o seu trabalho bastam para come\xE7ar.",
+    "That card could not be read.": "N\xE3o foi poss\xEDvel ler esse cart\xE3o.",
+    "That card could not be resolved. Reload and try again.": "N\xE3o foi poss\xEDvel resolver esse cart\xE3o. Recarregue e tente de novo.",
+    "Adjusted for your machine: {reason}.": "Ajustado para a sua m\xE1quina: {reason}.",
+    "that model is not available": "esse modelo n\xE3o est\xE1 dispon\xEDvel",
+    "A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.": "Um cart\xE3o \xE9 um especialista em arquivo. O modelo sugerido \xE9 resolvido contra o seu pr\xF3prio quadro ao aplicar, ent\xE3o um cart\xE3o de outra m\xE1quina continua funcionando. Cart\xF5es s\xF3 levam texto de especialista \u2014 nunca um id de modelo, uma chave ou um limite.",
+    "A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.": "Um cart\xE3o s\xE3o instru\xE7\xF5es para um agente que pode ler arquivos. Leia o texto do papel antes de aplicar um cart\xE3o de algu\xE9m que voc\xEA n\xE3o conhece.",
+    "Paste a card, a pack, or a share code": "Cole um cart\xE3o, um pacote ou um c\xF3digo",
+    "Paste a card, a pack, or a share code (gkcard1.\u2026)": "Cole um cart\xE3o, um pacote ou um c\xF3digo (gkcard1.\u2026)",
+    "Imported {count} card(s). Apply one to add it to the team.": "{count} cart\xE3o(\xF5es) importado(s). Aplique um para adicionar \xE0 equipe.",
+    "No cards yet. Import one above.": "Ainda n\xE3o h\xE1 cart\xF5es. Importe um acima.",
+    "already in the team": "j\xE1 est\xE1 na equipe",
+    "No specialists yet. Start from a template, ask the advisor, or import a card.": "Ainda n\xE3o h\xE1 especialistas. Comece com um modelo, pergunte ao consultor ou importe um cart\xE3o.",
+    "Never used yet. If it keeps not matching, rewrite it or remove it.": "Ainda n\xE3o foi usado. Se continuar sem encaixar, reescreva ou remova.",
+    "Eight is the maximum. Remove one first.": "Oito \xE9 o m\xE1ximo. Remova um primeiro.",
+    "{name} was added to the draft. Save to keep it.": "\u201C{name}\u201D foi adicionado ao rascunho. Salve para manter.",
+    "Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.": "Envie o link ou o pr\xF3prio c\xF3digo. O link mant\xE9m o conte\xFAdo no fragmento, ent\xE3o o site nunca o recebe.",
+    "Share \u201C{name}\u201D": "Compartilhar \u201C{name}\u201D",
+    "Role instructions (read before applying)": "Instru\xE7\xF5es de papel (leia antes de aplicar)",
+    "tpl.translator.name": "Tradutor",
+    "tpl.translator.blurb": "Traduz ou revisa um trecho completo; devolve s\xF3 o texto.",
+    "tpl.translator.when": "Traduzir um trecho autocontido entre chin\xEAs e ingl\xEAs, ou revisar uma tradu\xE7\xE3o existente. A entrada \xE9 texto; a sa\xEDda, s\xF3 a tradu\xE7\xE3o.",
+    "tpl.translator.not": "Conte\xFAdo que exige pesquisa para julgar (artigos de lei, afirma\xE7\xF5es m\xE9dicas), ou um documento inteiro com muito c\xF3digo (divida antes).",
+    "tpl.translator.ex1": "Traduza este par\xE1grafo para portugu\xEAs",
+    "tpl.translator.ex2": "Revise esta tradu\xE7\xE3o e liste apenas os erros",
+    "tpl.translator.ex3": "Passe esta resposta de suporte para um ingl\xEAs educado",
+    "tpl.translator.prompt": "Voc\xEA \xE9 tradutor. Devolva apenas a tradu\xE7\xE3o: sem explica\xE7\xE3o, sem pre\xE2mbulo, sem \u201Caqui est\xE1 a tradu\xE7\xE3o\u201D. Preserve c\xF3digo, comandos, nomes pr\xF3prios e estrutura Markdown. Mantenha o registro; se o original for amb\xEDguo, traduza literalmente em vez de acrescentar sentido.",
+    "tpl.researcher.name": "Pesquisador",
+    "tpl.researcher.blurb": "Pesquisa, compara e l\xEA arquivos; informa conclus\xF5es e fontes.",
+    "tpl.researcher.when": "Perguntas factuais que exigem pesquisa, compara\xE7\xE3o ou leitura de arquivos. Deve citar: caminho e linha, ou URL.",
+    "tpl.researcher.not": "Perguntas cuja resposta voc\xEA j\xE1 sabe, e tarefas que s\xE3o escrever, n\xE3o procurar.",
+    "tpl.researcher.ex1": "De onde vem este erro? Me d\xEA o arquivo e a linha",
+    "tpl.researcher.ex2": "Compare estes dois changelogs e liste as mudan\xE7as incompat\xEDveis",
+    "tpl.researcher.ex3": "Leia os arquivos desta pasta e explique do que o m\xF3dulo cuida",
+    "tpl.researcher.prompt": "Voc\xEA \xE9 um subagente de pesquisa. Informe apenas conclus\xF5es e evid\xEAncias: caminho do arquivo, n\xFAmero da linha, sa\xEDda de comando ou URL. N\xE3o repita a tarefa nem escreva \u201Cconclu\xEDdo\u201D. Se n\xE3o encontrar, diga; nunca adivinhe.",
+    "tpl.editor.name": "Editor",
+    "tpl.editor.blurb": "Reescreve ou enxuga um texto pronto; mant\xE9m o argumento e corta o excesso.",
+    "tpl.editor.when": "Reescrever, encurtar ou reestruturar um texto cujo conte\xFAdo j\xE1 est\xE1 decidido. O usu\xE1rio traz a subst\xE2ncia; o trabalho \xE9 a prosa.",
+    "tpl.editor.not": "Buscar fatos, traduzir ou escrever do zero sem material.",
+    "tpl.editor.ex1": "Enxugue este par\xE1grafo sem perder nenhum ponto",
+    "tpl.editor.ex2": "Reescreva em tom mais simples para um leitor n\xE3o t\xE9cnico",
+    "tpl.editor.ex3": "Me d\xEA tr\xEAs assuntos para este e-mail",
+    "tpl.editor.prompt": "Voc\xEA \xE9 editor. Preserve o argumento e a voz do autor; corte excesso, ajuste a estrutura e diga em uma linha o que mudou. N\xE3o acrescente afirma\xE7\xF5es que a fonte n\xE3o faz nem traduza.",
+    "tpl.coder.name": "C\xF3digo",
+    "tpl.coder.blurb": "L\xEA c\xF3digo, rastreia bugs e escreve patches. Precisa de um modelo com ferramentas.",
+    "tpl.coder.when": "Ler ou alterar c\xF3digo: rastrear um bug, adicionar um teste, explicar um m\xF3dulo, aplicar um patch pequeno. Pode abrir arquivos.",
+    "tpl.coder.not": "Debates de arquitetura sem c\xF3digo, ou reescrever um projeto inteiro de uma vez.",
+    "tpl.coder.ex1": "Por que este teste falha? Mostre a linha que quebra",
+    "tpl.coder.ex2": "Adicione um teste para o caso de entrada vazia neste arquivo",
+    "tpl.coder.ex3": "Explique o que este m\xF3dulo faz e o que ele n\xE3o cobre",
+    "tpl.coder.prompt": "Voc\xEA \xE9 programador. Leia o c\xF3digo antes de responder e cite arquivo e linha. Prefira a menor mudan\xE7a. Mostre o diff ou as linhas exatas, n\xE3o o arquivo inteiro. Se um teste prova a corre\xE7\xE3o, escreva-o.",
+    "Download file": "Baixar arquivo"
   }
 };
 var LOCALE_LABELS = {
@@ -3207,12 +3909,75 @@ function AdDock(props) {
 // src/client/teamPanel.tsx
 var import_react3 = require("react");
 var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+
+// src/client/teamTemplates.ts
+var TEMPLATES = [
+  {
+    id: "translator",
+    blurb: "tpl.translator.blurb",
+    agent: {
+      id: "translator",
+      name: "tpl.translator.name",
+      whenToUse: "tpl.translator.when",
+      whenNotToUse: "tpl.translator.not",
+      examples: ["tpl.translator.ex1", "tpl.translator.ex2", "tpl.translator.ex3"],
+      systemPrompt: "tpl.translator.prompt",
+      maxTokens: 2e3
+    }
+  },
+  {
+    id: "researcher",
+    blurb: "tpl.researcher.blurb",
+    agent: {
+      id: "researcher",
+      name: "tpl.researcher.name",
+      whenToUse: "tpl.researcher.when",
+      whenNotToUse: "tpl.researcher.not",
+      examples: ["tpl.researcher.ex1", "tpl.researcher.ex2", "tpl.researcher.ex3"],
+      systemPrompt: "tpl.researcher.prompt",
+      maxTokens: 3e3
+    }
+  },
+  {
+    id: "editor",
+    blurb: "tpl.editor.blurb",
+    agent: {
+      id: "editor",
+      name: "tpl.editor.name",
+      whenToUse: "tpl.editor.when",
+      whenNotToUse: "tpl.editor.not",
+      examples: ["tpl.editor.ex1", "tpl.editor.ex2", "tpl.editor.ex3"],
+      systemPrompt: "tpl.editor.prompt",
+      maxTokens: 2e3
+    }
+  },
+  {
+    id: "coder",
+    blurb: "tpl.coder.blurb",
+    agent: {
+      id: "coder",
+      name: "tpl.coder.name",
+      whenToUse: "tpl.coder.when",
+      whenNotToUse: "tpl.coder.not",
+      examples: ["tpl.coder.ex1", "tpl.coder.ex2", "tpl.coder.ex3"],
+      systemPrompt: "tpl.coder.prompt",
+      maxTokens: 3e3
+    }
+  }
+];
+
+// src/client/teamPanel.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
 var MAX_AGENTS = 8;
 var routeKey = (route) => route == null ? "" : `${route.provider}|${route.model}`;
 var routeOf = (key) => {
   const [provider = "genkaku", model = ""] = key.split("|");
   return { provider, model };
+};
+var routeLabel = (route) => {
+  if (route == null) return "";
+  if (route.provider === "genkaku") return route.model === "" ? t("Any local worker (auto)") : route.model;
+  return `${route.provider} / ${route.model}`;
 };
 var caption = {
   fontSize: 11,
@@ -3247,6 +4012,27 @@ var area = {
   fontFamily: "inherit",
   resize: "vertical"
 };
+var tabButton = (active) => ({
+  background: active ? "rgba(127,137,153,.18)" : "none",
+  border: "1px solid rgba(127,137,153,.35)",
+  borderRadius: 6,
+  color: "inherit",
+  font: "inherit",
+  fontSize: 12,
+  padding: "3px 10px",
+  cursor: "pointer",
+  opacity: active ? 1 : 0.65
+});
+var link = {
+  background: "none",
+  border: "none",
+  color: "inherit",
+  opacity: 0.7,
+  fontSize: 11,
+  padding: 0,
+  cursor: "pointer",
+  textDecoration: "underline"
+};
 function emptyAgent(index) {
   return {
     id: `agent-${index}`,
@@ -3263,10 +4049,13 @@ function AgentRoutes({ get, post, onNotice }) {
   const [config, setConfig] = (0, import_react3.useState)(null);
   const [draft, setDraft] = (0, import_react3.useState)(null);
   const [decisions, setDecisions] = (0, import_react3.useState)([]);
+  const [usage, setUsage] = (0, import_react3.useState)(null);
   const [catalog, setCatalog] = (0, import_react3.useState)({ providers: [], local: [] });
+  const [tab, setTab] = (0, import_react3.useState)("team");
   const [busy, setBusy] = (0, import_react3.useState)(null);
   const [error, setError] = (0, import_react3.useState)(null);
   const [openAgent, setOpenAgent] = (0, import_react3.useState)(null);
+  const [share, setShare] = (0, import_react3.useState)(null);
   const dirtyRef = (0, import_react3.useRef)(false);
   const apply2 = (0, import_react3.useCallback)((doc) => {
     const next = doc.config;
@@ -3274,6 +4063,7 @@ function AgentRoutes({ get, post, onNotice }) {
     setConfig(next);
     setDraft(next);
     setDecisions(doc.decisions ?? []);
+    if (doc.usage != null) setUsage(doc.usage);
     if (doc.catalog != null) setCatalog(doc.catalog);
   }, []);
   const load = (0, import_react3.useCallback)(async () => {
@@ -3307,17 +4097,6 @@ function AgentRoutes({ get, post, onNotice }) {
       setBusy(null);
     }
   }, [apply2, onNotice, post]);
-  const clearDecisions = (0, import_react3.useCallback)(async () => {
-    setBusy("clear");
-    try {
-      await post("/genkaku/team/decisions/clear", {});
-      setDecisions([]);
-    } catch (e) {
-      onNotice(e instanceof Error ? e.message : String(e));
-    } finally {
-      setBusy(null);
-    }
-  }, [onNotice, post]);
   if (error != null) {
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
@@ -3338,7 +4117,69 @@ function AgentRoutes({ get, post, onNotice }) {
   };
   const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config);
   dirtyRef.current = dirty;
-  const mainKey = routeKey(draft.main);
+  const addAgent = (agent, note) => {
+    if (draft.agents.length >= MAX_AGENTS) {
+      onNotice(t("Eight is the maximum. Remove one first."));
+      return;
+    }
+    const taken = new Set(draft.agents.map((row3) => row3.id));
+    let id = agent.id;
+    let suffix = 2;
+    while (taken.has(id)) {
+      const tail = `-${suffix++}`;
+      id = `${agent.id.slice(0, 32 - tail.length)}${tail}`;
+    }
+    patch({ agents: [...draft.agents, { ...agent, id }] });
+    onNotice(note);
+  };
+  const addTemplate = (template) => {
+    addAgent({
+      id: template.agent.id,
+      name: t(template.agent.name),
+      whenToUse: t(template.agent.whenToUse),
+      whenNotToUse: t(template.agent.whenNotToUse),
+      examples: template.agent.examples.map((key) => t(key)),
+      route: { provider: "genkaku", model: "" },
+      systemPrompt: t(template.agent.systemPrompt),
+      maxTokens: template.agent.maxTokens
+    }, t("{name} was added to the draft. Save to keep it.", { name: t(template.agent.name) }));
+  };
+  const shareCard = (0, import_react3.useCallback)(async (value) => {
+    setBusy("share");
+    onNotice(null);
+    try {
+      const doc = await post("/genkaku/team/cards/share", {
+        ...value.card == null ? {} : { card: value.card },
+        ...value.agent == null ? {} : { agent: value.agent },
+        lang: activeLocale()
+      });
+      const card = doc.card;
+      setShare({
+        name: card?.name ?? value.agent?.name ?? value.card?.name ?? "",
+        card: card ?? value.card,
+        code: String(doc.code ?? ""),
+        url: String(doc.url ?? "")
+      });
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [onNotice, post]);
+  const copy = (0, import_react3.useCallback)((text) => {
+    void navigator.clipboard?.writeText(text);
+    onNotice(t("Copied."));
+  }, [onNotice]);
+  const download = (0, import_react3.useCallback)((card) => {
+    const blob = new Blob([`${JSON.stringify(card, void 0, 2)}
+`], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link2 = document.createElement("a");
+    link2.href = url;
+    link2.download = `${card.id ?? "card"}.json`;
+    link2.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1e3);
+  }, []);
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
@@ -3354,6 +4195,114 @@ function AgentRoutes({ get, post, onNotice }) {
         t("On")
       ] })
     ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 6, margin: "2px 0 10px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", style: tabButton(tab === "team"), onClick: () => setTab("team"), children: t("Team") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", style: tabButton(tab === "advisor"), onClick: () => setTab("advisor"), children: t("Advisor") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", style: tabButton(tab === "cards"), onClick: () => setTab("cards"), children: t("Card library") })
+    ] }),
+    tab === "team" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      TeamTab,
+      {
+        draft,
+        catalog,
+        decisions,
+        usage,
+        busy,
+        openAgent,
+        setOpenAgent,
+        patch,
+        patchAgent,
+        addTemplate,
+        clearDecisions: async () => {
+          setBusy("clear");
+          try {
+            await post("/genkaku/team/decisions/clear", {});
+            setDecisions([]);
+          } catch (e) {
+            onNotice(e instanceof Error ? e.message : String(e));
+          } finally {
+            setBusy(null);
+          }
+        },
+        goAdvisor: () => setTab("advisor"),
+        goCards: () => setTab("cards"),
+        onShare: (agent) => {
+          void shareCard({ agent });
+        }
+      }
+    ),
+    tab === "advisor" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      AdvisorTab,
+      {
+        get,
+        post,
+        draft,
+        catalog,
+        busy,
+        setBusy,
+        onNotice,
+        patch,
+        addAgent
+      }
+    ),
+    tab === "cards" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      CardsTab,
+      {
+        get,
+        post,
+        busy,
+        setBusy,
+        onNotice,
+        addAgent,
+        agents: draft.agents,
+        onShare: (card) => {
+          void shareCard({ card });
+        }
+      }
+    ),
+    share != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...box, marginTop: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Share \u201C{name}\u201D", { name: share.name }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginBottom: 6 }, children: t("Send the link, or the code itself. The link keeps the payload in the fragment, so the site never receives it.") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { style: area, rows: 2, readOnly: true, value: share.url, "aria-label": t("Share link") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", onClick: () => copy(share.url), children: t("Copy link") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => copy(share.code), children: t("Copy code") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => download(share.card), children: t("Download file") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => setShare(null), children: t("Done") })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { style: { ...area, marginTop: 6, fontSize: 11 }, rows: 3, readOnly: true, value: share.code, "aria-label": t("Share code") })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 12, alignItems: "center", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null || !dirty, onClick: () => {
+        void save(draft);
+      }, children: busy === "save" ? t("Saving\u2026") : t("Save Agent Routes") }),
+      dirty && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("Unsaved changes") }),
+      !dirty && config != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: config.updatedAt > 0 ? t("Saved {value}", { value: new Date(config.updatedAt).toLocaleString() }) : "" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
+        void load();
+      }, children: t("Reload") })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 10 }, children: t("Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.") })
+  ] });
+}
+function TeamTab({
+  draft,
+  catalog,
+  decisions,
+  usage,
+  busy,
+  openAgent,
+  setOpenAgent,
+  patch,
+  patchAgent,
+  addTemplate,
+  clearDecisions,
+  goAdvisor,
+  goCards,
+  onShare
+}) {
+  const unused = new Set(usage?.unused ?? []);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("One main model answers you and hands clearly-matched work to up to eight specialists. Nothing changes until you turn this on and pick the Agent Routes model in the chat picker. Sessions still cost you nothing.") }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Who picks the specialist") }),
@@ -3377,9 +4326,9 @@ function AgentRoutes({ get, post, onNotice }) {
         "select",
         {
           style: select,
-          value: mainKey,
+          value: routeKey(draft.main),
           "aria-label": t("Main model"),
-          onChange: (e) => patch({ main: routeOf(e.target.value) }),
+          onChange: (e) => patch({ main: e.target.value === "" ? null : routeOf(e.target.value) }),
           children: [
             /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "", children: t("Choose a model") }),
             /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "genkaku|", children: t("Any local worker (auto)") }),
@@ -3400,7 +4349,17 @@ function AgentRoutes({ get, post, onNotice }) {
       t("The main model can call tools (turn this off for a chat-only model)")
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 14 }, children: t("Specialists") }),
-    draft.agents.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No specialists yet. Add one below.") }),
+    draft.agents.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { marginBottom: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("No specialists yet. Start from a template, ask the advisor, or import a card.") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 6 }, children: TEMPLATES.map((template) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null, onClick: () => addTemplate(template), children: t(template.agent.name) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t(template.blurb) })
+      ] }, template.id)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: goAdvisor, children: t("Ask the advisor") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: goCards, children: t("Import a card") })
+      ] })
+    ] }),
     draft.agents.map((agent, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
       "div",
       {
@@ -3432,6 +4391,7 @@ function AgentRoutes({ get, post, onNotice }) {
               }
             )
           ] }),
+          unused.has(agent.id) && usage != null && usage.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 2 }, children: t("Never used yet. If it keeps not matching, rewrite it or remove it.") }),
           /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4, marginTop: 6 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("When the main model should hand work here") }),
             /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
@@ -3465,19 +4425,20 @@ function AgentRoutes({ get, post, onNotice }) {
             "button",
             {
               type: "button",
-              style: {
-                background: "none",
-                border: "none",
-                color: "inherit",
-                opacity: 0.7,
-                fontSize: 11,
-                padding: 0,
-                marginTop: 4,
-                cursor: "pointer",
-                textDecoration: "underline"
-              },
+              style: { ...link, marginTop: 4 },
               onClick: () => setOpenAgent(openAgent === agent.id ? null : agent.id),
               children: openAgent === agent.id ? t("Fewer options") : t("More options")
+            }
+          ),
+          " \xB7 ",
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "button",
+            {
+              type: "button",
+              style: link,
+              disabled: busy !== null,
+              onClick: () => onShare(agent),
+              children: t("Share")
             }
           ),
           openAgent === agent.id && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 6, marginTop: 6 }, children: [
@@ -3585,16 +4546,6 @@ function AgentRoutes({ get, post, onNotice }) {
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 8, alignItems: "center" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy !== null || !dirty, onClick: () => {
-        void save(draft);
-      }, children: busy === "save" ? t("Saving\u2026") : t("Save Agent Routes") }),
-      dirty && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: t("Unsaved changes") }),
-      !dirty && config != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: config.updatedAt > 0 ? t("Saved {value}", { value: new Date(config.updatedAt).toLocaleString() }) : "" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
-        void load();
-      }, children: t("Reload") })
-    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 16 }, children: t("Recent delegations") }),
     decisions.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No delegation yet. Ask something a specialist covers.") }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4 }, children: [
       [...decisions].reverse().slice(0, 8).map((decision, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { fontSize: 12, display: "grid", gap: 2 }, children: [
@@ -3624,8 +4575,382 @@ function AgentRoutes({ get, post, onNotice }) {
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
         void clearDecisions();
       }, children: t("Clear history") }) })
+    ] })
+  ] });
+}
+function AdvisorTab({
+  get,
+  post,
+  draft,
+  catalog,
+  busy,
+  setBusy,
+  onNotice,
+  patch,
+  addAgent
+}) {
+  const [thread, setThread] = (0, import_react3.useState)({ version: 1, messages: [], updatedAt: 0 });
+  const [previews, setPreviews] = (0, import_react3.useState)([]);
+  const [question, setQuestion] = (0, import_react3.useState)("");
+  const [loaded, setLoaded] = (0, import_react3.useState)(false);
+  const load = (0, import_react3.useCallback)(async () => {
+    try {
+      const doc = await get("/genkaku/team/advice");
+      setThread(doc.thread ?? { version: 1, messages: [], updatedAt: 0 });
+      setPreviews(doc.previews ?? []);
+    } catch {
+    } finally {
+      setLoaded(true);
+    }
+  }, [get]);
+  (0, import_react3.useEffect)(() => {
+    void load();
+  }, [load]);
+  const ask = (0, import_react3.useCallback)(async (mode, text) => {
+    setBusy("advice");
+    onNotice(null);
+    try {
+      const doc = await post("/genkaku/team/advice", {
+        mode,
+        question: text,
+        locale: activeLocale()
+      });
+      setThread(doc.thread ?? thread);
+      setPreviews(doc.previews ?? []);
+      setQuestion("");
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [onNotice, post, setBusy, thread]);
+  const clear = (0, import_react3.useCallback)(async () => {
+    setBusy("advice-clear");
+    try {
+      const doc = await post("/genkaku/team/advice/clear", {});
+      setThread(doc.thread ?? { version: 1, messages: [], updatedAt: 0 });
+      setPreviews([]);
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [onNotice, post, setBusy]);
+  const applyCard = (0, import_react3.useCallback)(async (card) => {
+    setBusy("advice-apply");
+    try {
+      const doc = await post("/genkaku/team/cards", { card, save: false });
+      const first = doc.previews?.[0];
+      if (first == null) {
+        onNotice(t("That card could not be read."));
+        return;
+      }
+      addAgent(first.agent, t("{name} was added to the draft. Save to keep it.", { name: first.agent.name }));
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [addAgent, onNotice, post, setBusy]);
+  const advisorRoute = draft.advisor ?? draft.main;
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: dim, children: t("Advisor model") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        "select",
+        {
+          style: select,
+          value: routeKey(advisorRoute),
+          "aria-label": t("Advisor model"),
+          onChange: (e) => patch({ advisor: e.target.value === "" ? null : routeOf(e.target.value) }),
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "", children: t("Choose a model") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: "genkaku|", children: t("Any local worker (auto)") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(RouteOptions, { catalog })
+          ]
+        }
+      )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 10 }, children: t("Specialists are full agents: they can read files and use tools. They cannot delegate further, so the team is one level deep.") })
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginBottom: 8 }, children: draft.advisor == null && draft.main != null ? t("Following the main model. Pick one here to use a different model for advice.") : "" }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      "textarea",
+      {
+        style: area,
+        rows: 4,
+        value: question,
+        "aria-label": t("What do you ask an AI to do?"),
+        placeholder: t("For example: I work in patent filings. I translate between Chinese and English, look up statute numbers, and turn examiner objections into a reply outline."),
+        onChange: (e) => setQuestion(e.target.value)
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 8, flexWrap: "wrap", alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_dsh_client_ui_primitives.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          disabled: busy !== null,
+          onClick: () => {
+            void ask("advise", question);
+          },
+          children: busy === "advice" ? t("Thinking\u2026") : t("Suggest a team")
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_dsh_client_ui_primitives.Button,
+        {
+          variant: "ghost",
+          size: "sm",
+          disabled: busy !== null || draft.agents.length === 0,
+          onClick: () => {
+            void ask("review", "");
+          },
+          children: t("Review my team")
+        }
+      ),
+      thread.messages.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
+        void clear();
+      }, children: t("Clear") })
+    ] }),
+    !loaded && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 10 }, children: t("Loading\u2026") }),
+    loaded && thread.messages.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 10 }, children: t("Nothing asked yet. Three sentences about your work is enough to start.") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 10, marginTop: 10 }, children: thread.messages.map((message, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }, children: [
+        message.role === "user" ? t("You") : t("Advisor"),
+        message.model != null ? ` \xB7 ${message.model.provider}/${message.model.model}` : ""
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 12, whiteSpace: "pre-wrap", marginTop: 2 }, children: message.role === "user" && message.text === "" ? t("Review my team") : message.text }),
+      message.role === "advisor" && message.cards != null && message.cards.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 6, marginTop: 8 }, children: message.cards.map((card, cardIndex) => {
+        const preview = index === thread.messages.length - 1 ? previews[cardIndex] : void 0;
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          CardView,
+          {
+            card,
+            preview,
+            busy: busy !== null,
+            onApply: () => {
+              if (preview != null) {
+                addAgent(preview.agent, t("{name} was added to the draft. Save to keep it.", { name: preview.agent.name }));
+                return;
+              }
+              void applyCard(card);
+            }
+          },
+          `${card.name}-${cardIndex}`
+        );
+      }) })
+    ] }, `${message.at}-${index}`)) })
+  ] });
+}
+function CardsTab({
+  get,
+  post,
+  busy,
+  setBusy,
+  onNotice,
+  addAgent,
+  agents,
+  onShare
+}) {
+  const [library, setLibrary] = (0, import_react3.useState)([]);
+  const [previews, setPreviews] = (0, import_react3.useState)({});
+  const [paste, setPaste] = (0, import_react3.useState)("");
+  const [loaded, setLoaded] = (0, import_react3.useState)(false);
+  const fileRef = (0, import_react3.useRef)(null);
+  const apply2 = (0, import_react3.useCallback)((doc) => {
+    setLibrary(doc.library?.cards ?? []);
+    const map = {};
+    for (const preview of doc.previews ?? []) {
+      if (preview.libraryId != null) map[preview.libraryId] = preview;
+    }
+    setPreviews(map);
+  }, []);
+  const load = (0, import_react3.useCallback)(async () => {
+    try {
+      apply2(await get("/genkaku/team/cards"));
+    } catch {
+    } finally {
+      setLoaded(true);
+    }
+  }, [apply2, get]);
+  (0, import_react3.useEffect)(() => {
+    void load();
+  }, [load]);
+  const importText = (0, import_react3.useCallback)(async (text, source) => {
+    const value = text.trim();
+    if (value === "") return;
+    setBusy("cards-import");
+    onNotice(null);
+    try {
+      const body = value.startsWith("gkcard1.") ? { code: value, source } : { document: JSON.parse(value), source };
+      const doc = await post("/genkaku/team/cards", body);
+      apply2(doc);
+      const count = doc.previews?.length ?? 0;
+      onNotice(t("Imported {count} card(s). Apply one to add it to the team.", { count }));
+      setPaste("");
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [apply2, onNotice, post, setBusy]);
+  const remove = (0, import_react3.useCallback)(async (id) => {
+    setBusy(`cards-remove:${id}`);
+    try {
+      apply2(await post("/genkaku/team/cards", { remove: id }));
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [apply2, onNotice, post, setBusy]);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption }, children: t("Import") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      "textarea",
+      {
+        style: area,
+        rows: 3,
+        value: paste,
+        "aria-label": t("Paste a card, a pack, or a share code"),
+        placeholder: t("Paste a card, a pack, or a share code (gkcard1.\u2026)"),
+        onChange: (e) => setPaste(e.target.value)
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_dsh_client_ui_primitives.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          disabled: busy !== null || paste.trim() === "",
+          onClick: () => {
+            void importText(paste, "paste");
+          },
+          children: busy === "cards-import" ? t("Importing\u2026") : t("Import")
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_dsh_client_ui_primitives.Button,
+        {
+          variant: "ghost",
+          size: "sm",
+          disabled: busy !== null,
+          onClick: () => fileRef.current?.click(),
+          children: t("Choose a file\u2026")
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "input",
+        {
+          ref: fileRef,
+          type: "file",
+          accept: ".json,application/json,text/plain",
+          multiple: true,
+          style: { display: "none" },
+          onChange: (event) => {
+            const files = [...event.target.files ?? []];
+            event.target.value = "";
+            for (const file of files) {
+              void file.text().then((text) => importText(text, "file"));
+            }
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 14 }, children: t("Card library") }),
+    !loaded && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("Loading\u2026") }),
+    loaded && library.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("No cards yet. Import one above.") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 6, marginTop: 6 }, children: library.map((row3) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        CardView,
+        {
+          card: row3.card,
+          preview: previews[row3.id],
+          busy: busy !== null,
+          onApply: () => {
+            const preview = previews[row3.id];
+            if (preview == null) {
+              onNotice(t("That card could not be resolved. Reload and try again."));
+              return;
+            }
+            addAgent(preview.agent, t("{name} was added to the draft. Save to keep it.", { name: preview.agent.name }));
+          },
+          extra: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", style: link, disabled: busy !== null, onClick: () => onShare(row3.card), children: t("Share") }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "button",
+              {
+                type: "button",
+                style: link,
+                disabled: busy !== null,
+                onClick: () => {
+                  void remove(row3.id);
+                },
+                children: t("remove")
+              }
+            )
+          ] })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 10, marginLeft: 2 }, children: [
+        row3.source,
+        row3.importedAt > 0 ? ` \xB7 ${new Date(row3.importedAt).toLocaleDateString()}` : "",
+        agents.some((agent) => agent.name === row3.card.name) ? ` \xB7 ${t("already in the team")}` : ""
+      ] })
+    ] }, row3.id)) }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 10 }, children: t("A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.") })
+  ] });
+}
+function CardView({
+  card,
+  preview,
+  busy,
+  onApply,
+  extra
+}) {
+  const [open, setOpen] = (0, import_react3.useState)(false);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { border: "1px solid rgba(127,137,153,.22)", borderRadius: 8, padding: 10 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("strong", { style: { fontSize: 13 }, children: card.name }),
+      preview != null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: routeLabel(preview.route) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { marginLeft: "auto", display: "inline-flex", gap: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", disabled: busy, onClick: onApply, children: t("Apply") }),
+        extra
+      ] })
+    ] }),
+    preview?.adjusted === true && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 11, color: "#e0a34a", marginTop: 4 }, children: t("Adjusted for your machine: {reason}.", { reason: preview.reason ?? t("that model is not available") }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 12, marginTop: 4 }, children: card.agent.whenToUse }),
+    card.agent.whenNotToUse !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11, marginTop: 2 }, children: [
+      t("Not for"),
+      ": ",
+      card.agent.whenNotToUse
+    ] }),
+    card.notes != null && card.notes !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 2 }, children: card.notes }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", style: { ...link, marginTop: 4 }, onClick: () => setOpen(!open), children: open ? t("Fewer options") : t("More options") }),
+    open && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "grid", gap: 4, marginTop: 6 }, children: [
+      card.agent.examples.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11 }, children: [
+        t("Examples"),
+        ": ",
+        card.agent.examples.join(" \xB7 ")
+      ] }),
+      card.agent.systemPrompt !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11 }, children: t("Role instructions (read before applying)") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 11, whiteSpace: "pre-wrap", marginTop: 2 }, children: card.agent.systemPrompt })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11 }, children: [
+        t("Specialist id"),
+        ": ",
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { children: preview?.agent.id ?? card.id ?? "\u2014" }),
+        " \xB7 ",
+        t("Max output tokens"),
+        ": ",
+        card.agent.maxTokens,
+        card.author?.name != null && card.author.name !== "" ? ` \xB7 ${t("Author")}: ${card.author.name}` : ""
+      ] })
+    ] })
   ] });
 }
 function RouteOptions({ catalog }) {

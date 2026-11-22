@@ -52,12 +52,39 @@ import {
 import {
   readTeamConfig,
   readTeamDecisions,
+  sanitizeRoute,
   teamCatalogProvider,
   writeTeamConfig,
+  type TeamAgent,
   type TeamCatalog,
   type TeamConfig,
   type TeamRoute,
 } from './team.ts'
+import {
+  addCards,
+  cardFromAgent,
+  decodeShare,
+  encodeShare,
+  previewAgentId,
+  readAnyCardDocument,
+  readCardLibrary,
+  removeCard,
+  resolveCard,
+  sanitizeCard,
+  sanitizePack,
+  shareUrl,
+  type AgentCard,
+  type AgentPack,
+} from './teamCards.ts'
+import {
+  appendAdviceMessage,
+  clearAdviceThread,
+  readAdviceThread,
+  teamAdvisor,
+  teamUsage,
+  type AdviceOutput,
+  type TeamAdvisor,
+} from './teamAdvice.ts'
 import { runUserSession } from './userSession.ts'
 import type { WalletPolicy } from './walletPolicy.ts'
 
@@ -140,6 +167,11 @@ export type BridgeOptions = {
   /** Agent Routes: cloud providers the host has already configured in dsh.
    *  The bridge never sees an API key; it only lists routes. */
   teamCatalog?: () => Promise<{ providers: TeamCatalog['providers'] }>
+  /** Agent Routes: the host's model call behind the setup advisor. Registered
+   *  by the user plugin, because `protocol` has no LLM dependency. */
+  teamAdvisor?: TeamAdvisor
+  /** Origin used for the share link a card produces. */
+  shareOrigin?: string
   /** Where `policy.json` and `spend.jsonl` live (the same `~/.dsh/genkaku`). */
   keyDir: string
   /** 0.3: the sponsored-placement catalog. Absent = this bridge serves no ads. */
@@ -643,6 +675,47 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
   function boardNow(): BoardRow[] {
     if (boardCache == null || Date.now() - boardCache.at > BOARD_REFRESH_MS) void refreshBoard()
     return boardCache?.rows ?? []
+  }
+
+  /**
+   * What the panel and the advisor both see: cloud routes the host reports,
+   * plus the live local board. Built on demand, so a worker that comes online
+   * appears without a restart and an empty board is an honest empty list.
+   */
+  async function readTeamCatalog(): Promise<TeamCatalog> {
+    let providers: TeamCatalog['providers'] = []
+    // The user plugin registers this in-process provider on start; the option
+    // exists for hosts that prefer to pass it explicitly.
+    const catalog = opts.teamCatalog ?? teamCatalogProvider()
+    if (catalog != null) {
+      try {
+        providers = (await catalog()).providers
+      } catch {
+        providers = []
+      }
+    }
+
+    const local: TeamCatalog['local'] = []
+    const seen = new Set<string>()
+    for (const row of boardNow()) {
+      const model = row.offer.model
+      if (model == null || model === '') continue
+      if (seen.has(row.key)) continue
+      seen.add(row.key)
+      const worker = row.workerLabel ?? row.offer.workerName
+      local.push({
+        id: row.key,
+        name: `${worker == null || worker === '' ? row.addr.slice(0, 8) : worker} · ${model}`,
+        ...(worker == null || worker === '' ? {} : { worker }),
+        ...(row.offer.workerWallet == null ? {} : { workerWallet: row.offer.workerWallet }),
+        ...(row.offer.tier == null ? {} : { tier: row.offer.tier }),
+        pricePerHour: row.offer.pricePerHour.toString(),
+        ...(row.offer.latencyMs == null ? {} : { latencyMs: row.offer.latencyMs }),
+        ...(row.offer.parameterSize == null ? {} : { parameterSize: row.offer.parameterSize }),
+      })
+    }
+
+    return { providers, local }
   }
 
   const models = async (res: ServerResponse): Promise<void> => {
@@ -1420,40 +1493,14 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
         // from what this bridge already knows (local offers) plus the cloud
         // routes the host reports. API keys never enter this response.
         if (req.method === 'GET' && (path === '/genkaku/team' || path === '/genkaku/team/')) {
-          let providers: TeamCatalog['providers'] = []
-          // The user plugin registers this in-process provider on start; the
-          // option exists for hosts that prefer to pass it explicitly.
-          const catalog = opts.teamCatalog ?? teamCatalogProvider()
-          if (catalog != null) {
-            try {
-              providers = (await catalog()).providers
-            } catch {
-              providers = []
-            }
-          }
-          const local: TeamCatalog['local'] = []
-          const seen = new Set<string>()
-          for (const row of boardNow()) {
-            const model = row.offer.model
-            if (model == null || model === '') continue
-            if (seen.has(row.key)) continue
-            seen.add(row.key)
-            const worker = row.workerLabel ?? row.offer.workerName
-            local.push({
-              id: row.key,
-              name: `${worker == null || worker === '' ? row.addr.slice(0, 8) : worker} · ${model}`,
-              ...(worker == null || worker === '' ? {} : { worker }),
-              ...(row.offer.workerWallet == null ? {} : { workerWallet: row.offer.workerWallet }),
-              ...(row.offer.tier == null ? {} : { tier: row.offer.tier }),
-              pricePerHour: row.offer.pricePerHour.toString(),
-              ...(row.offer.latencyMs == null ? {} : { latencyMs: row.offer.latencyMs }),
-            })
-          }
+          const catalog = await readTeamCatalog()
+          const config = readTeamConfig(opts.keyDir)
           json(res, 200, {
             ok: true,
-            config: readTeamConfig(opts.keyDir),
+            config,
             decisions: readTeamDecisions(opts.keyDir),
-            catalog: { providers, local },
+            usage: teamUsage(config, readTeamDecisions(opts.keyDir)),
+            catalog,
           })
           return
         }
@@ -1482,6 +1529,269 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
             // The log is diagnostics; a read-only directory is not a request error.
           }
           json(res, 200, { ok: true })
+          return
+        }
+
+        // ── Agent Routes: the card library ─────────────────────────────────
+        // Cards are an inbox, not the live team: importing one writes
+        // `cards.json` and returns an install preview. Nothing joins the team
+        // until the panel saves it, so a pasted file cannot change behaviour
+        // by itself.
+        if (req.method === 'GET' && (path === '/genkaku/team/cards' || path === '/genkaku/team/cards/')) {
+          const library = readCardLibrary(opts.keyDir)
+          const catalog = await readTeamCatalog()
+          const taken = new Set(readTeamConfig(opts.keyDir).agents.map(agent => agent.id))
+          const previews = library.cards.map((row) => {
+            const id = previewAgentId(row.card, taken)
+            taken.add(id)
+            return { libraryId: row.id, ...resolveCard(row.card, catalog, id) }
+          })
+          json(res, 200, { ok: true, library, previews })
+          return
+        }
+
+        if (req.method === 'POST' && (path === '/genkaku/team/cards' || path === '/genkaku/team/cards/')) {
+          let body: {
+            code?: unknown
+            card?: unknown
+            pack?: unknown
+            document?: unknown
+            source?: unknown
+            remove?: unknown
+            save?: unknown
+          }
+          try {
+            body = await readJson(req)
+          } catch {
+            failure(res, 400, 'invalid JSON body')
+            return
+          }
+
+          if (typeof body.remove === 'string' && body.remove !== '') {
+            json(res, 200, { ok: true, library: removeCard(opts.keyDir, body.remove) })
+            return
+          }
+
+          let source = typeof body.source === 'string' ? body.source.slice(0, 80) : 'paste'
+          const cards: AgentCard[] = []
+          if (typeof body.code === 'string' && body.code.trim() !== '') {
+            const decoded = decodeShare(body.code)
+            if (decoded == null) {
+              failure(res, 400, 'that is not a GenKaKu card code')
+              return
+            }
+            cards.push(...decoded.cards)
+            source = 'code'
+          }
+          for (const value of [body.card, body.pack, body.document]) {
+            if (value == null) continue
+            cards.push(...readAnyCardDocument(value).cards)
+          }
+          if (cards.length === 0) {
+            failure(res, 400, 'no specialist card found in that document')
+            return
+          }
+
+          const catalog = await readTeamCatalog()
+          const taken = new Set(readTeamConfig(opts.keyDir).agents.map(agent => agent.id))
+          const previews = []
+          for (const card of cards) {
+            const id = previewAgentId(card, taken)
+            taken.add(id)
+            previews.push(resolveCard(card, catalog, id))
+          }
+          // `save: false` is a preview: the advisor's suggestion is resolved
+          // without joining the library, which is what "apply" needs and what
+          // keeps the library from filling with ideas the user rejected.
+          const keep = body.save !== false
+          const library = keep
+            ? addCards(opts.keyDir, cards, source).library
+            : readCardLibrary(opts.keyDir)
+          json(res, 200, { ok: true, saved: keep, library, previews })
+          return
+        }
+        // Sharing needs the bridge only because the payload is gzipped: the
+        // panel hands over a card object it already has, so an unsaved draft
+        // can be shared without first saving it.
+        if (req.method === 'POST' && (path === '/genkaku/team/cards/share' || path === '/genkaku/team/cards/share/')) {
+          let body: {
+            card?: unknown
+            agent?: unknown
+            cards?: unknown
+            name?: unknown
+            description?: unknown
+            policy?: unknown
+            lang?: unknown
+          }
+          try {
+            body = await readJson(req)
+          } catch {
+            failure(res, 400, 'invalid JSON body')
+            return
+          }
+
+          let value: AgentCard | AgentPack | null = null
+          if (Array.isArray(body.cards)) {
+            value = sanitizePack({
+              genkaku: 'agent-pack/1',
+              name: body.name,
+              description: body.description,
+              cards: body.cards,
+              policy: body.policy,
+            })
+          } else if (body.agent != null) {
+            // Sharing a specialist the user wrote in the panel: the bridge owns
+            // the route→hint conversion, so the two sides cannot drift.
+            const agent = body.agent as Partial<TeamAgent> | null
+            const route = sanitizeRoute(agent?.route)
+            if (agent != null && route != null) {
+              value = cardFromAgent(
+                {
+                  id: typeof agent.id === 'string' ? agent.id : '',
+                  name: typeof agent.name === 'string' ? agent.name : '',
+                  whenToUse: typeof agent.whenToUse === 'string' ? agent.whenToUse : '',
+                  whenNotToUse: typeof agent.whenNotToUse === 'string' ? agent.whenNotToUse : '',
+                  examples: Array.isArray(agent.examples) ? agent.examples.filter((row): row is string => typeof row === 'string') : [],
+                  route,
+                  systemPrompt: typeof agent.systemPrompt === 'string' ? agent.systemPrompt : '',
+                  maxTokens: typeof agent.maxTokens === 'number' ? agent.maxTokens : 2_000,
+                },
+                { lang: typeof body.lang === 'string' ? body.lang : '' },
+              )
+            }
+          } else {
+            value = sanitizeCard(body.card)
+          }
+          if (value == null) {
+            failure(res, 400, 'nothing to share: no valid card in the request')
+            return
+          }
+
+          try {
+            const code = encodeShare(value)
+            json(res, 200, {
+              ok: true,
+              card: value,
+              code,
+              url: shareUrl(code, opts.shareOrigin),
+              bytes: code.length,
+            })
+          } catch (error) {
+            failure(res, 400, error instanceof Error ? error.message : String(error))
+          }
+          return
+        }
+
+        // ── Agent Routes: the setup advisor ────────────────────────────────
+        if (req.method === 'GET' && (path === '/genkaku/team/advice' || path === '/genkaku/team/advice/')) {
+          const thread = readAdviceThread(opts.keyDir)
+          // Resolve the newest answer so a reloaded panel can still say which
+          // model each suggestion would run on.
+          const last = [...thread.messages].reverse().find(message => message.role === 'advisor')
+          const previews = []
+          if (last?.cards != null && last.cards.length > 0) {
+            const catalog = await readTeamCatalog()
+            const taken = new Set(readTeamConfig(opts.keyDir).agents.map(agent => agent.id))
+            for (const card of last.cards) {
+              const id = previewAgentId(card, taken)
+              taken.add(id)
+              previews.push(resolveCard(card, catalog, id))
+            }
+          }
+          json(res, 200, { ok: true, thread, previews })
+          return
+        }
+
+        if (req.method === 'POST' && (path === '/genkaku/team/advice/clear' || path === '/genkaku/team/advice/clear/')) {
+          json(res, 200, { ok: true, thread: clearAdviceThread(opts.keyDir) })
+          return
+        }
+
+        if (req.method === 'POST' && (path === '/genkaku/team/advice' || path === '/genkaku/team/advice/')) {
+          let body: { mode?: unknown; question?: unknown; agentId?: unknown; locale?: unknown }
+          try {
+            body = await readJson(req)
+          } catch {
+            failure(res, 400, 'invalid JSON body')
+            return
+          }
+
+          const run = opts.teamAdvisor ?? teamAdvisor()
+          if (run == null) {
+            failure(res, 503, 'the setup advisor is not loaded; restart the plugin')
+            return
+          }
+
+          const mode = body.mode === 'review' || body.mode === 'rewrite' ? body.mode : 'advise'
+          const question = typeof body.question === 'string' ? body.question.slice(0, 4_000) : ''
+          const agentId = typeof body.agentId === 'string' ? body.agentId.slice(0, 32) : undefined
+          const locale = typeof body.locale === 'string' ? body.locale.slice(0, 16) : 'en'
+
+          const config = readTeamConfig(opts.keyDir)
+          const catalog = await readTeamCatalog()
+          const history = readAdviceThread(opts.keyDir).messages.map(message => ({
+            role: message.role,
+            text: message.text,
+          }))
+
+          // The panel closing is a real cancellation: a local worker spends
+          // real wall-clock time on this, and nobody is waiting for the answer.
+          const controller = new AbortController()
+          res.on('close', () => {
+            if (!res.writableEnded) controller.abort()
+          })
+          const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(180_000)])
+
+          let output: AdviceOutput
+          try {
+            output = await run({ mode, question, agentId, locale, config, catalog, history, signal })
+          } catch (error) {
+            output = {
+              reply: '',
+              cards: [],
+              model: null,
+              ms: 0,
+              error: error instanceof Error ? error.message : String(error),
+            }
+          }
+
+          appendAdviceMessage(opts.keyDir, {
+            role: 'user',
+            at: Date.now(),
+            text: question,
+          })
+          const thread = appendAdviceMessage(opts.keyDir, {
+            role: 'advisor',
+            at: Date.now(),
+            text: output.reply === '' && output.error != null ? output.error : output.reply,
+            ...(output.cards.length === 0 ? {} : { cards: output.cards }),
+            ...(output.model == null ? {} : { model: output.model }),
+          })
+
+          if (output.error != null && output.reply === '') {
+            failure(res, 502, output.error)
+            return
+          }
+
+          const previews = []
+          if (output.cards.length > 0) {
+            const taken = new Set(config.agents.map(agent => agent.id))
+            for (const card of output.cards) {
+              const id = previewAgentId(card, taken)
+              taken.add(id)
+              previews.push(resolveCard(card, catalog, id))
+            }
+          }
+
+          json(res, 200, {
+            ok: true,
+            reply: output.reply,
+            cards: output.cards,
+            previews,
+            model: output.model,
+            ms: output.ms,
+            thread,
+          })
           return
         }
 

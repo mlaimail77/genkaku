@@ -33,6 +33,7 @@ import {
   TEAM_MODEL_ID,
   appendTeamDecision,
   readTeamConfig,
+  setTeamAdvisor,
   setTeamCatalogProvider,
   watchTeamConfig,
   type TeamAgent,
@@ -42,6 +43,7 @@ import {
 } from '@genkaku/protocol'
 
 import { resolveRoute, routeAgent, type ResolvedRoute, type TeamLocalModel } from './route.ts'
+import { createTeamAdvisor } from './advisor.ts'
 
 /** One specialist's outcome, as both the tool and the router see it. */
 export type TeamRunResult = {
@@ -95,10 +97,15 @@ export class TeamRuntime implements TeamHost {
 
   constructor(private readonly options: TeamRuntimeOptions) {}
 
-  /** Register the tool and follow the panel's saves. */
+  /** Register the tool, the advisor and follow the panel's saves. */
   start(): void {
     this.unwatch = watchTeamConfig(() => this.refresh())
     setTeamCatalogProvider(async () => ({ providers: await this.providerCatalog() }))
+    setTeamAdvisor(createTeamAdvisor({
+      ctx: this.options.ctx,
+      log: this.options.log,
+      localModels: this.options.localModels,
+    }))
     this.refresh()
   }
 
@@ -106,6 +113,7 @@ export class TeamRuntime implements TeamHost {
     this.unwatch?.()
     this.unwatch = null
     setTeamCatalogProvider(null)
+    setTeamAdvisor(null)
     this.clear()
   }
 

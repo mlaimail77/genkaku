@@ -86,6 +86,12 @@ export type TeamConfig = {
   mainSupportsTools: boolean
   /** The model that answers the user and (normally) does the delegating. */
   main: TeamRoute | null
+  /**
+   * The model that gives setup advice in the panel. Falls back to `main`, so a
+   * first-time user with an empty team can pick one here without also having
+   * to invent a team first.
+   */
+  advisor: TeamRoute | null
   /** Extra orchestration instructions, appended to the built-in policy. */
   policy: string
   agents: TeamAgent[]
@@ -126,6 +132,8 @@ export type TeamCatalog = {
     tier?: string
     pricePerHour?: string
     latencyMs?: number
+    /** e.g. `7B`, when the worker announces it; used by "largest" card hints. */
+    parameterSize?: string
   }>
 }
 
@@ -147,6 +155,7 @@ export function emptyTeamConfig(): TeamConfig {
     mode: 'model-decides',
     mainSupportsTools: true,
     main: null,
+    advisor: null,
     policy: DEFAULT_TEAM_POLICY,
     agents: [],
     maxDelegations: MAX_TEAM_DELEGATIONS,
@@ -278,6 +287,7 @@ export function sanitizeTeamConfig(value: unknown): TeamConfig {
     mode: raw?.mode === 'router-decides' ? 'router-decides' : 'model-decides',
     mainSupportsTools: raw?.mainSupportsTools !== false,
     main,
+    advisor: sanitizeRoute(raw?.advisor),
     policy: text(raw?.policy, 4_000) || DEFAULT_TEAM_POLICY,
     agents,
     maxDelegations: clampInt(raw?.maxDelegations, 1, 16, base.maxDelegations),
