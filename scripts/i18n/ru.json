@@ -388,5 +388,18 @@
   "Choose a specialist": "Выберите специалиста",
   "Rewrite": "Переписать",
   "Replace {name}": "Заменить «{name}»",
-  "Replaced {name} in the draft. Save to keep it.": "«{name}» заменён в черновике. Сохраните, чтобы оставить."
+  "Replaced {name} in the draft. Save to keep it.": "«{name}» заменён в черновике. Сохраните, чтобы оставить.",
+  "From the network": "Из сети",
+  "Search cards": "Искать карточки",
+  "Refresh list": "Обновить список",
+  "All": "Все",
+  "The list is empty right now.": "Список сейчас пуст.",
+  "No cards match.": "Ничего не найдено.",
+  "Install": "Установить",
+  "Installing…": "Установка…",
+  "The card list is unreachable ({error}). The local library still works.": "Список карточек недоступен ({error}). Локальная библиотека работает.",
+  "unknown error": "неизвестная ошибка",
+  "Curated by hand. To add a card, share it and press “Submit to the registry”.": "Отбор вручную. Чтобы добавить карточку, поделитесь ею и нажмите «Отправить в реестр».",
+  "Submit to the registry": "Отправить в реестр",
+  "The card is too large for a prefilled issue. Its JSON was copied — paste it into the issue body.": "Карточка слишком велика для предзаполненного issue. Её JSON скопирован — вставьте его в текст issue."
 }

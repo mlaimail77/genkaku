@@ -148,6 +148,31 @@ runtime. It is still instructions for an agent that can read files, so read the
 role text before applying a card from someone you do not know — the panel shows
 it for exactly that reason.
 
+### The registry
+
+`https://seed.genkaku.app/cards/v1/index.json` is a small curated list, served
+from the seed host next to the ad catalog. The panel shows it under **From the
+network**, with a search box and tag chips.
+
+- **Read-only.** There is no upload endpoint, no account and no rating. Those
+  three turn a list into a marketplace, and a marketplace needs moderation the
+  operator did not ask for.
+- **Hash-checked.** The index names a size and a sha256 for every card; a file
+  that does not match is refused rather than run. A card edited on the server
+  without the index being rebuilt does not reach anyone.
+- **Fail-safe.** An unreachable or unparsable index is an empty list marked
+  `offline`; the local library and the import box keep working. The index is
+  cached for ten minutes, so a stale entry costs nothing.
+- **Publishing is a pull request.** The panel's **Submit to the registry**
+  button opens a prefilled GitHub issue with the card JSON and a four-line
+  checklist; a maintainer turns it into a card file under `cards/`.
+
+The list itself lives in the public repository (`cards/`), where
+`scripts/build-cards.mjs` validates each file with the plugin's own reader and
+regenerates the index, and `scripts/publish-cards.sh` uploads it to the seed
+host. The `cardsUrl` setting points the plugin somewhere else if you run your
+own registry.
+
 ## Spending limits
 
 The **Budget** card is the ceiling the agent cannot cross. It works like an

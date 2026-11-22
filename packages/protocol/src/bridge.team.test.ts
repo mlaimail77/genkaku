@@ -5,7 +5,10 @@
 // the panel renders, and the code the site decodes.
 
 import assert from 'node:assert/strict'
+import { createHash } from 'node:crypto'
 import { mkdtempSync, readFileSync } from 'node:fs'
+import { createServer } from 'node:http'
+import type { AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { test } from 'node:test'
@@ -273,6 +276,131 @@ test('a rewrite is recorded as a replacement, not a new specialist', async () =>
     const thread = doc.thread as { messages: Array<{ role: string; mode?: string; agentId?: string }> }
     assert.equal(thread.messages.at(-1)!.mode, 'rewrite')
     assert.equal(thread.messages.at(-1)!.agentId, 'translator')
+  } finally {
+    await h.close()
+  }
+})
+
+// ── the curated registry ─────────────────────────────────────────────────────
+
+const registryCardText = JSON.stringify({
+  genkaku: 'agent-card/1',
+  id: 'translator',
+  name: 'Translator',
+  lang: 'en',
+  tags: ['translation'],
+  author: { name: 'GenKaKu' },
+  agent: {
+    whenToUse: 'translate a passage',
+    whenNotToUse: 'research',
+    examples: ['translate this'],
+    systemPrompt: 'you translate',
+    maxTokens: 2_000,
+    routeHint: { kind: 'local' },
+  },
+})
+
+/** A throwaway registry: an index plus one card, over real HTTP. */
+async function startRegistry(): Promise<{ url: string; close: () => Promise<void> }> {
+  const sha256 = createHash('sha256').update(registryCardText).digest('hex')
+  const index = {
+    version: 1,
+    updatedAt: '2026-11-22T00:00:00Z',
+    cards: [{
+      id: 'translator',
+      name: 'Translator',
+      lang: 'en',
+      tags: ['translation'],
+      author: { name: 'GenKaKu' },
+      summary: 'translate a passage',
+      url: 'translator.json',
+      sha256,
+      size: registryCardText.length,
+    }],
+  }
+  const server = createServer((req, res) => {
+    if (req.url === '/index.json') {
+      res.writeHead(200, { 'content-type': 'application/json' })
+      res.end(JSON.stringify(index))
+      return
+    }
+    if (req.url === '/translator.json') {
+      res.writeHead(200, { 'content-type': 'application/json' })
+      res.end(registryCardText)
+      return
+    }
+    res.writeHead(404)
+    res.end('no')
+  })
+  await new Promise<void>((resolve) => { server.listen(0, '127.0.0.1', () => resolve()) })
+  const port = (server.address() as AddressInfo).port
+  return {
+    url: `http://127.0.0.1:${port}/index.json`,
+    close: () => new Promise<void>((resolve) => { server.close(() => resolve()) }),
+  }
+}
+
+test('the registry lists what the index says, and filters', async () => {
+  const registry = await startRegistry()
+  const h = await start({ cardsRegistryUrl: registry.url })
+  try {
+    const doc = await json(await fetch(`${h.root}/genkaku/team/cards/registry`))
+    assert.equal(doc.ok, true)
+    assert.equal(doc.offline, false)
+    assert.equal(doc.total, 1)
+    const cards = doc.cards as Array<{ id: string; summary: string }>
+    assert.equal(cards[0]!.id, 'translator')
+    assert.equal(cards[0]!.summary, 'translate a passage')
+    assert.deepEqual(doc.tags, [{ tag: 'translation', count: 1 }])
+
+    const none = await json(await fetch(`${h.root}/genkaku/team/cards/registry?q=zzz`))
+    assert.deepEqual(none.cards, [])
+  } finally {
+    await h.close()
+    await registry.close()
+  }
+})
+
+test('installing from the registry verifies the card and lands it in the library', async () => {
+  const registry = await startRegistry()
+  const h = await start({ cardsRegistryUrl: registry.url })
+  try {
+    const doc = await json(await post(h.root, '/genkaku/team/cards/registry', { id: 'translator' }))
+    assert.equal(doc.ok, true)
+    assert.equal((doc.card as { name: string }).name, 'Translator')
+    const preview = doc.preview as { agent: { id: string }; route: { provider: string } }
+    assert.equal(preview.agent.id, 'translator')
+    assert.equal(preview.route.provider, 'genkaku')
+
+    const library = (doc.library as { cards: Array<{ source: string }> }).cards
+    assert.equal(library.length, 1)
+    assert.equal(library[0]!.source, 'registry:translator')
+  } finally {
+    await h.close()
+    await registry.close()
+  }
+})
+
+test('an unknown registry id is a 404, not an empty card', async () => {
+  const registry = await startRegistry()
+  const h = await start({ cardsRegistryUrl: registry.url })
+  try {
+    const res = await post(h.root, '/genkaku/team/cards/registry', { id: 'missing' })
+    assert.equal(res.status, 404)
+  } finally {
+    await h.close()
+    await registry.close()
+  }
+})
+
+test('an unreachable registry is offline, and the panel keeps its library', async () => {
+  const h = await start({ cardsRegistryUrl: 'http://127.0.0.1:1/index.json' })
+  try {
+    const doc = await json(await fetch(`${h.root}/genkaku/team/cards/registry`))
+    assert.equal(doc.ok, true)
+    assert.equal(doc.offline, true)
+    assert.deepEqual(doc.cards, [])
+    assert.ok(typeof doc.error === 'string' && doc.error.length > 0)
   } finally {
     await h.close()
   }

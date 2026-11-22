@@ -388,5 +388,18 @@
   "Choose a specialist": "スペシャリストを選択",
   "Rewrite": "書き直す",
   "Replace {name}": "「{name}」を置き換え",
-  "Replaced {name} in the draft. Save to keep it.": "下書きの「{name}」を置き換えました。保存すると確定します。"
+  "Replaced {name} in the draft. Save to keep it.": "下書きの「{name}」を置き換えました。保存すると確定します。",
+  "From the network": "ネットワークから",
+  "Search cards": "カードを検索",
+  "Refresh list": "リストを更新",
+  "All": "すべて",
+  "The list is empty right now.": "現在リストは空です。",
+  "No cards match.": "一致するカードがありません。",
+  "Install": "インストール",
+  "Installing…": "インストール中…",
+  "The card list is unreachable ({error}). The local library still works.": "カードリストを取得できません（{error}）。ローカルのライブラリは使えます。",
+  "unknown error": "不明なエラー",
+  "Curated by hand. To add a card, share it and press “Submit to the registry”.": "手作業で選んでいます。追加するにはカードを共有し、「レジストリに提出」を押してください。",
+  "Submit to the registry": "レジストリに提出",
+  "The card is too large for a prefilled issue. Its JSON was copied — paste it into the issue body.": "カードが大きすぎて issue に事前入力できません。JSON をコピーしました。issue の本文に貼り付けてください。"
 }

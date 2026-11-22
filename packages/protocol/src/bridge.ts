@@ -85,6 +85,13 @@ import {
   type AdviceOutput,
   type TeamAdvisor,
 } from './teamAdvice.ts'
+import {
+  DEFAULT_REGISTRY_URL,
+  fetchRegistry,
+  fetchRegistryCard,
+  filterRegistry,
+  registryTags,
+} from './teamRegistry.ts'
 import { runUserSession } from './userSession.ts'
 import type { WalletPolicy } from './walletPolicy.ts'
 
@@ -172,6 +179,8 @@ export type BridgeOptions = {
   teamAdvisor?: TeamAdvisor
   /** Origin used for the share link a card produces. */
   shareOrigin?: string
+  /** Agent Routes: the curated card index. Defaults to the seed host. */
+  cardsRegistryUrl?: string
   /** Where `policy.json` and `spend.jsonl` live (the same `~/.dsh/genkaku`). */
   keyDir: string
   /** 0.3: the sponsored-placement catalog. Absent = this bridge serves no ads. */
@@ -1610,6 +1619,73 @@ export async function startOpenAiBridge(opts: BridgeOptions): Promise<BridgeHand
           json(res, 200, { ok: true, saved: keep, library, previews })
           return
         }
+        // ── Agent Routes: the curated registry ─────────────────────────────
+        // Read-only, curated by hand, and fail-safe: an unreachable index is an
+        // empty list plus `offline: true`, never an error the panel must handle.
+        if (req.method === 'GET' && (path === '/genkaku/team/cards/registry' || path === '/genkaku/team/cards/registry/')) {
+          const query = new URL(`http://local${req.url ?? '/'}`).searchParams
+          const result = await fetchRegistry(opts.cardsRegistryUrl ?? DEFAULT_REGISTRY_URL, {
+            fresh: query.get('fresh') === '1',
+          })
+          const cards = filterRegistry(result.index, {
+            q: query.get('q') ?? '',
+            tag: query.get('tag') ?? '',
+            lang: query.get('lang') ?? '',
+          })
+          json(res, 200, {
+            ok: true,
+            offline: result.offline,
+            ...(result.error == null ? {} : { error: result.error }),
+            updatedAt: result.index.updatedAt,
+            total: result.index.cards.length,
+            tags: registryTags(result.index),
+            cards,
+          })
+          return
+        }
+
+        if (req.method === 'POST' && (path === '/genkaku/team/cards/registry' || path === '/genkaku/team/cards/registry/')) {
+          let body: { id?: unknown }
+          try {
+            body = await readJson(req)
+          } catch {
+            failure(res, 400, 'invalid JSON body')
+            return
+          }
+
+          const id = typeof body.id === 'string' ? body.id.trim() : ''
+          if (id === '') {
+            failure(res, 400, 'no card id in the request')
+            return
+          }
+
+          const indexUrl = opts.cardsRegistryUrl ?? DEFAULT_REGISTRY_URL
+          const registry = await fetchRegistry(indexUrl)
+          if (registry.offline) {
+            failure(res, 503, registry.error ?? 'the card index is unreachable')
+            return
+          }
+          const entry = registry.index.cards.find(card => card.id === id)
+          if (entry == null) {
+            failure(res, 404, `no card named "${id}" in the index`)
+            return
+          }
+
+          const fetched = await fetchRegistryCard(indexUrl, entry)
+          if ('error' in fetched) {
+            failure(res, 502, fetched.error)
+            return
+          }
+
+          const catalog = await readTeamCatalog()
+          const taken = new Set(readTeamConfig(opts.keyDir).agents.map(agent => agent.id))
+          const agentId = previewAgentId(fetched.card, taken)
+          const preview = resolveCard(fetched.card, catalog, agentId)
+          const library = addCards(opts.keyDir, [fetched.card], `registry:${entry.id}`).library
+          json(res, 200, { ok: true, card: fetched.card, preview, library })
+          return
+        }
+
         // Sharing needs the bridge only because the payload is gzipped: the
         // panel hands over a card object it already has, so an unsaved draft
         // can be shared without first saving it.

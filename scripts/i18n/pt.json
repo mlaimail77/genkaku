@@ -388,5 +388,18 @@
   "Choose a specialist": "Escolher um especialista",
   "Rewrite": "Reescrever",
   "Replace {name}": "Substituir “{name}”",
-  "Replaced {name} in the draft. Save to keep it.": "“{name}” foi substituído no rascunho. Salve para manter."
+  "Replaced {name} in the draft. Save to keep it.": "“{name}” foi substituído no rascunho. Salve para manter.",
+  "From the network": "Da rede",
+  "Search cards": "Buscar cartões",
+  "Refresh list": "Atualizar a lista",
+  "All": "Todos",
+  "The list is empty right now.": "A lista está vazia agora.",
+  "No cards match.": "Nenhum cartão corresponde.",
+  "Install": "Instalar",
+  "Installing…": "Instalando…",
+  "The card list is unreachable ({error}). The local library still works.": "Não foi possível acessar a lista ({error}). A biblioteca local continua funcionando.",
+  "unknown error": "erro desconhecido",
+  "Curated by hand. To add a card, share it and press “Submit to the registry”.": "Curado à mão. Para adicionar um cartão, compartilhe-o e pressione “Enviar ao registro”.",
+  "Submit to the registry": "Enviar ao registro",
+  "The card is too large for a prefilled issue. Its JSON was copied — paste it into the issue body.": "O cartão é grande demais para preencher o issue. O JSON foi copiado — cole no corpo do issue."
 }

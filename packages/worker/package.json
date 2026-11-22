@@ -1,6 +1,6 @@
 {
   "name": "@genkaku/dsh-worker-plugin",
-  "version": "0.7.0-rc.2",
+  "version": "0.8.0-rc.1",
   "description": "Share this machine's Ollama models on the GenKaKu network",
   "license": "AGPL-3.0-or-later",
   "type": "module",

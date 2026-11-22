@@ -423,7 +423,20 @@ var MESSAGES = {
     "Choose a specialist": "\u9009\u62E9\u4E13\u5BB6",
     "Rewrite": "\u6539\u5199",
     "Replace {name}": "\u53D6\u4EE3\u300C{name}\u300D",
-    "Replaced {name} in the draft. Save to keep it.": "\u5DF2\u5728\u8349\u7A3F\u4E2D\u53D6\u4EE3\u300C{name}\u300D\u3002\u4FDD\u5B58\u540E\u624D\u4F1A\u751F\u6548\u3002"
+    "Replaced {name} in the draft. Save to keep it.": "\u5DF2\u5728\u8349\u7A3F\u4E2D\u53D6\u4EE3\u300C{name}\u300D\u3002\u4FDD\u5B58\u540E\u624D\u4F1A\u751F\u6548\u3002",
+    "From the network": "\u6765\u81EA\u7F51\u7EDC",
+    "Search cards": "\u641C\u7D22\u5361\u7247",
+    "Refresh list": "\u91CD\u65B0\u6574\u7406\u6E05\u5355",
+    "All": "\u5168\u90E8",
+    "The list is empty right now.": "\u6E05\u5355\u76EE\u524D\u662F\u7A7A\u7684\u3002",
+    "No cards match.": "\u6CA1\u6709\u7B26\u5408\u7684\u5361\u7247\u3002",
+    "Install": "\u5B89\u88C5",
+    "Installing\u2026": "\u5B89\u88C5\u4E2D\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "\u62FF\u4E0D\u5230\u5361\u7247\u6E05\u5355\uFF08{error}\uFF09\u3002\u672C\u5730\u5361\u7247\u5E93\u4ECD\u7136\u53EF\u7528\u3002",
+    "unknown error": "\u672A\u77E5\u9519\u8BEF",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "\u4EBA\u5DE5\u7B56\u5C55\u3002\u8981\u65B0\u589E\u5361\u7247\uFF0C\u5148\u5206\u4EAB\u5B83\uFF0C\u518D\u6309\u300C\u63D0\u4EA4\u5230\u5361\u7247\u5E93\u300D\u3002",
+    "Submit to the registry": "\u63D0\u4EA4\u5230\u5361\u7247\u5E93",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "\u5361\u7247\u592A\u5927\uFF0C\u65E0\u6CD5\u9884\u586B issue\u3002\u5DF2\u590D\u5236\u5B83\u7684 JSON\u2014\u2014\u8BF7\u8D34\u5230 issue \u5185\u5BB9\u91CC\u3002"
   },
   "en": {
     "Reconnecting to the bridge\u2026": "Reconnecting to the bridge\u2026",
@@ -815,7 +828,20 @@ var MESSAGES = {
     "Choose a specialist": "Choose a specialist",
     "Rewrite": "Rewrite",
     "Replace {name}": "Replace {name}",
-    "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it."
+    "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it.",
+    "From the network": "From the network",
+    "Search cards": "Search cards",
+    "Refresh list": "Refresh list",
+    "All": "All",
+    "The list is empty right now.": "The list is empty right now.",
+    "No cards match.": "No cards match.",
+    "Install": "Install",
+    "Installing\u2026": "Installing\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "The card list is unreachable ({error}). The local library still works.",
+    "unknown error": "unknown error",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.",
+    "Submit to the registry": "Submit to the registry",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body."
   },
   "ja": {
     "Reconnecting to the bridge\u2026": "bridge \u306B\u518D\u63A5\u7D9A\u3057\u3066\u3044\u307E\u3059\u2026",
@@ -1207,7 +1233,20 @@ var MESSAGES = {
     "Choose a specialist": "\u30B9\u30DA\u30B7\u30E3\u30EA\u30B9\u30C8\u3092\u9078\u629E",
     "Rewrite": "\u66F8\u304D\u76F4\u3059",
     "Replace {name}": "\u300C{name}\u300D\u3092\u7F6E\u304D\u63DB\u3048",
-    "Replaced {name} in the draft. Save to keep it.": "\u4E0B\u66F8\u304D\u306E\u300C{name}\u300D\u3092\u7F6E\u304D\u63DB\u3048\u307E\u3057\u305F\u3002\u4FDD\u5B58\u3059\u308B\u3068\u78BA\u5B9A\u3057\u307E\u3059\u3002"
+    "Replaced {name} in the draft. Save to keep it.": "\u4E0B\u66F8\u304D\u306E\u300C{name}\u300D\u3092\u7F6E\u304D\u63DB\u3048\u307E\u3057\u305F\u3002\u4FDD\u5B58\u3059\u308B\u3068\u78BA\u5B9A\u3057\u307E\u3059\u3002",
+    "From the network": "\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u304B\u3089",
+    "Search cards": "\u30AB\u30FC\u30C9\u3092\u691C\u7D22",
+    "Refresh list": "\u30EA\u30B9\u30C8\u3092\u66F4\u65B0",
+    "All": "\u3059\u3079\u3066",
+    "The list is empty right now.": "\u73FE\u5728\u30EA\u30B9\u30C8\u306F\u7A7A\u3067\u3059\u3002",
+    "No cards match.": "\u4E00\u81F4\u3059\u308B\u30AB\u30FC\u30C9\u304C\u3042\u308A\u307E\u305B\u3093\u3002",
+    "Install": "\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB",
+    "Installing\u2026": "\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u4E2D\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "\u30AB\u30FC\u30C9\u30EA\u30B9\u30C8\u3092\u53D6\u5F97\u3067\u304D\u307E\u305B\u3093\uFF08{error}\uFF09\u3002\u30ED\u30FC\u30AB\u30EB\u306E\u30E9\u30A4\u30D6\u30E9\u30EA\u306F\u4F7F\u3048\u307E\u3059\u3002",
+    "unknown error": "\u4E0D\u660E\u306A\u30A8\u30E9\u30FC",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "\u624B\u4F5C\u696D\u3067\u9078\u3093\u3067\u3044\u307E\u3059\u3002\u8FFD\u52A0\u3059\u308B\u306B\u306F\u30AB\u30FC\u30C9\u3092\u5171\u6709\u3057\u3001\u300C\u30EC\u30B8\u30B9\u30C8\u30EA\u306B\u63D0\u51FA\u300D\u3092\u62BC\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+    "Submit to the registry": "\u30EC\u30B8\u30B9\u30C8\u30EA\u306B\u63D0\u51FA",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "\u30AB\u30FC\u30C9\u304C\u5927\u304D\u3059\u304E\u3066 issue \u306B\u4E8B\u524D\u5165\u529B\u3067\u304D\u307E\u305B\u3093\u3002JSON \u3092\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F\u3002issue \u306E\u672C\u6587\u306B\u8CBC\u308A\u4ED8\u3051\u3066\u304F\u3060\u3055\u3044\u3002"
   },
   "ko": {
     "Reconnecting to the bridge\u2026": "bridge\uC5D0 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uB294 \uC911\u2026",
@@ -1599,7 +1638,20 @@ var MESSAGES = {
     "Choose a specialist": "\uC804\uBB38\uAC00 \uC120\uD0DD",
     "Rewrite": "\uB2E4\uC2DC \uC4F0\uAE30",
     "Replace {name}": "{name} \uBC14\uAFB8\uAE30",
-    "Replaced {name} in the draft. Save to keep it.": "\uCD08\uC548\uC5D0\uC11C {name}\uC744(\uB97C) \uBC14\uAFE8\uC2B5\uB2C8\uB2E4. \uC800\uC7A5\uD574\uC57C \uBC18\uC601\uB429\uB2C8\uB2E4."
+    "Replaced {name} in the draft. Save to keep it.": "\uCD08\uC548\uC5D0\uC11C {name}\uC744(\uB97C) \uBC14\uAFE8\uC2B5\uB2C8\uB2E4. \uC800\uC7A5\uD574\uC57C \uBC18\uC601\uB429\uB2C8\uB2E4.",
+    "From the network": "\uB124\uD2B8\uC6CC\uD06C\uC5D0\uC11C",
+    "Search cards": "\uCE74\uB4DC \uAC80\uC0C9",
+    "Refresh list": "\uBAA9\uB85D \uC0C8\uB85C \uACE0\uCE68",
+    "All": "\uC804\uCCB4",
+    "The list is empty right now.": "\uC9C0\uAE08\uC740 \uBAA9\uB85D\uC774 \uBE44\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.",
+    "No cards match.": "\uC77C\uCE58\uD558\uB294 \uCE74\uB4DC\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4.",
+    "Install": "\uC124\uCE58",
+    "Installing\u2026": "\uC124\uCE58 \uC911\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "\uCE74\uB4DC \uBAA9\uB85D\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4({error}). \uB85C\uCEEC \uB77C\uC774\uBE0C\uB7EC\uB9AC\uB294 \uADF8\uB300\uB85C \uC4F8 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
+    "unknown error": "\uC54C \uC218 \uC5C6\uB294 \uC624\uB958",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": '\uC9C1\uC811 \uC120\uBCC4\uD569\uB2C8\uB2E4. \uCE74\uB4DC\uB97C \uCD94\uAC00\uD558\uB824\uBA74 \uACF5\uC720\uD55C \uB4A4 "\uB808\uC9C0\uC2A4\uD2B8\uB9AC\uC5D0 \uC81C\uCD9C"\uC744 \uB204\uB974\uC138\uC694.',
+    "Submit to the registry": "\uB808\uC9C0\uC2A4\uD2B8\uB9AC\uC5D0 \uC81C\uCD9C",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "\uCE74\uB4DC\uAC00 \uB108\uBB34 \uCEE4\uC11C \uC774\uC288\uC5D0 \uBBF8\uB9AC \uCC44\uC6B8 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. JSON\uC744 \uBCF5\uC0AC\uD588\uC73C\uB2C8 \uC774\uC288 \uBCF8\uBB38\uC5D0 \uBD99\uC5EC\uB123\uC73C\uC138\uC694."
   },
   "es": {
     "Reconnecting to the bridge\u2026": "Reconectando con el bridge\u2026",
@@ -1991,7 +2043,20 @@ var MESSAGES = {
     "Choose a specialist": "Elige un especialista",
     "Rewrite": "Reescribir",
     "Replace {name}": "Sustituir \xAB{name}\xBB",
-    "Replaced {name} in the draft. Save to keep it.": "Se sustituy\xF3 \xAB{name}\xBB en el borrador. Guarda para conservarlo."
+    "Replaced {name} in the draft. Save to keep it.": "Se sustituy\xF3 \xAB{name}\xBB en el borrador. Guarda para conservarlo.",
+    "From the network": "De la red",
+    "Search cards": "Buscar tarjetas",
+    "Refresh list": "Actualizar la lista",
+    "All": "Todas",
+    "The list is empty right now.": "La lista est\xE1 vac\xEDa ahora mismo.",
+    "No cards match.": "Ninguna tarjeta coincide.",
+    "Install": "Instalar",
+    "Installing\u2026": "Instalando\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "No se puede acceder a la lista ({error}). La biblioteca local sigue funcionando.",
+    "unknown error": "error desconocido",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "Curado a mano. Para a\xF1adir una tarjeta, comp\xE1rtela y pulsa \xABEnviar al registro\xBB.",
+    "Submit to the registry": "Enviar al registro",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "La tarjeta es demasiado grande para rellenar el issue. Se copi\xF3 su JSON: p\xE9galo en el cuerpo del issue."
   },
   "fr": {
     "Reconnecting to the bridge\u2026": "Reconnexion au bridge\u2026",
@@ -2383,7 +2448,20 @@ var MESSAGES = {
     "Choose a specialist": "Choisir un sp\xE9cialiste",
     "Rewrite": "R\xE9\xE9crire",
     "Replace {name}": "Remplacer \xAB {name} \xBB",
-    "Replaced {name} in the draft. Save to keep it.": "\xAB {name} \xBB a \xE9t\xE9 remplac\xE9 dans le brouillon. Enregistrez pour le garder."
+    "Replaced {name} in the draft. Save to keep it.": "\xAB {name} \xBB a \xE9t\xE9 remplac\xE9 dans le brouillon. Enregistrez pour le garder.",
+    "From the network": "Depuis le r\xE9seau",
+    "Search cards": "Rechercher des cartes",
+    "Refresh list": "Actualiser la liste",
+    "All": "Toutes",
+    "The list is empty right now.": "La liste est vide pour l'instant.",
+    "No cards match.": "Aucune carte ne correspond.",
+    "Install": "Installer",
+    "Installing\u2026": "Installation\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "La liste est inaccessible ({error}). La biblioth\xE8que locale reste utilisable.",
+    "unknown error": "erreur inconnue",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "S\xE9lection manuelle. Pour ajouter une carte, partagez-la puis appuyez sur \xAB Envoyer au registre \xBB.",
+    "Submit to the registry": "Envoyer au registre",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "La carte est trop volumineuse pour pr\xE9remplir l'issue. Son JSON a \xE9t\xE9 copi\xE9 : collez-le dans le corps de l'issue."
   },
   "de": {
     "Reconnecting to the bridge\u2026": "Verbindung zur Bridge wird wiederhergestellt\u2026",
@@ -2775,7 +2853,20 @@ var MESSAGES = {
     "Choose a specialist": "Spezialist w\xE4hlen",
     "Rewrite": "Umschreiben",
     "Replace {name}": "\u201E{name}\u201C ersetzen",
-    "Replaced {name} in the draft. Save to keep it.": "\u201E{name}\u201C wurde im Entwurf ersetzt. Speichern, um es zu behalten."
+    "Replaced {name} in the draft. Save to keep it.": "\u201E{name}\u201C wurde im Entwurf ersetzt. Speichern, um es zu behalten.",
+    "From the network": "Aus dem Netz",
+    "Search cards": "Karten suchen",
+    "Refresh list": "Liste aktualisieren",
+    "All": "Alle",
+    "The list is empty right now.": "Die Liste ist gerade leer.",
+    "No cards match.": "Keine Karte passt.",
+    "Install": "Installieren",
+    "Installing\u2026": "Wird installiert\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "Die Kartenliste ist nicht erreichbar ({error}). Die lokale Bibliothek funktioniert weiter.",
+    "unknown error": "unbekannter Fehler",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "Von Hand kuratiert. Um eine Karte hinzuzuf\xFCgen, teile sie und dr\xFCcke \u201EAn das Register senden\u201C.",
+    "Submit to the registry": "An das Register senden",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "Die Karte ist zu gro\xDF f\xFCr ein vorausgef\xFClltes Issue. Ihr JSON wurde kopiert \u2014 f\xFCge es in den Issue-Text ein."
   },
   "ru": {
     "Reconnecting to the bridge\u2026": "\u041F\u0435\u0440\u0435\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043A bridge\u2026",
@@ -3167,7 +3258,20 @@ var MESSAGES = {
     "Choose a specialist": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430",
     "Rewrite": "\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u0430\u0442\u044C",
     "Replace {name}": "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \xAB{name}\xBB",
-    "Replaced {name} in the draft. Save to keep it.": "\xAB{name}\xBB \u0437\u0430\u043C\u0435\u043D\u0451\u043D \u0432 \u0447\u0435\u0440\u043D\u043E\u0432\u0438\u043A\u0435. \u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C."
+    "Replaced {name} in the draft. Save to keep it.": "\xAB{name}\xBB \u0437\u0430\u043C\u0435\u043D\u0451\u043D \u0432 \u0447\u0435\u0440\u043D\u043E\u0432\u0438\u043A\u0435. \u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C.",
+    "From the network": "\u0418\u0437 \u0441\u0435\u0442\u0438",
+    "Search cards": "\u0418\u0441\u043A\u0430\u0442\u044C \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438",
+    "Refresh list": "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u043E\u043A",
+    "All": "\u0412\u0441\u0435",
+    "The list is empty right now.": "\u0421\u043F\u0438\u0441\u043E\u043A \u0441\u0435\u0439\u0447\u0430\u0441 \u043F\u0443\u0441\u0442.",
+    "No cards match.": "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E.",
+    "Install": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C",
+    "Installing\u2026": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "\u0421\u043F\u0438\u0441\u043E\u043A \u043A\u0430\u0440\u0442\u043E\u0447\u0435\u043A \u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D ({error}). \u041B\u043E\u043A\u0430\u043B\u044C\u043D\u0430\u044F \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442.",
+    "unknown error": "\u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0430\u044F \u043E\u0448\u0438\u0431\u043A\u0430",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "\u041E\u0442\u0431\u043E\u0440 \u0432\u0440\u0443\u0447\u043D\u0443\u044E. \u0427\u0442\u043E\u0431\u044B \u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443, \u043F\u043E\u0434\u0435\u043B\u0438\u0442\u0435\u0441\u044C \u0435\u044E \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \xAB\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0432 \u0440\u0435\u0435\u0441\u0442\u0440\xBB.",
+    "Submit to the registry": "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0432 \u0440\u0435\u0435\u0441\u0442\u0440",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0432\u0435\u043B\u0438\u043A\u0430 \u0434\u043B\u044F \u043F\u0440\u0435\u0434\u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u043E\u0433\u043E issue. \u0415\u0451 JSON \u0441\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D \u2014 \u0432\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0435\u0433\u043E \u0432 \u0442\u0435\u043A\u0441\u0442 issue."
   },
   "pt": {
     "Reconnecting to the bridge\u2026": "Reconectando \xE0 bridge\u2026",
@@ -3559,7 +3663,20 @@ var MESSAGES = {
     "Choose a specialist": "Escolher um especialista",
     "Rewrite": "Reescrever",
     "Replace {name}": "Substituir \u201C{name}\u201D",
-    "Replaced {name} in the draft. Save to keep it.": "\u201C{name}\u201D foi substitu\xEDdo no rascunho. Salve para manter."
+    "Replaced {name} in the draft. Save to keep it.": "\u201C{name}\u201D foi substitu\xEDdo no rascunho. Salve para manter.",
+    "From the network": "Da rede",
+    "Search cards": "Buscar cart\xF5es",
+    "Refresh list": "Atualizar a lista",
+    "All": "Todos",
+    "The list is empty right now.": "A lista est\xE1 vazia agora.",
+    "No cards match.": "Nenhum cart\xE3o corresponde.",
+    "Install": "Instalar",
+    "Installing\u2026": "Instalando\u2026",
+    "The card list is unreachable ({error}). The local library still works.": "N\xE3o foi poss\xEDvel acessar a lista ({error}). A biblioteca local continua funcionando.",
+    "unknown error": "erro desconhecido",
+    "Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D.": "Curado \xE0 m\xE3o. Para adicionar um cart\xE3o, compartilhe-o e pressione \u201CEnviar ao registro\u201D.",
+    "Submit to the registry": "Enviar ao registro",
+    "The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body.": "O cart\xE3o \xE9 grande demais para preencher o issue. O JSON foi copiado \u2014 cole no corpo do issue."
   }
 };
 var LOCALE_LABELS = {
@@ -4231,6 +4348,31 @@ function AgentRoutes({ get, post, onNotice }) {
     link2.click();
     setTimeout(() => URL.revokeObjectURL(url), 1e3);
   }, []);
+  const submitToRegistry = (0, import_react3.useCallback)((card) => {
+    const body = [
+      "### Card",
+      "",
+      "```json",
+      JSON.stringify(card, void 0, 2),
+      "```",
+      "",
+      "### Checklist",
+      "",
+      "- [ ] The card has an ascii `id`, and the file will be named after it",
+      "- [ ] The prose is in the language named by `lang`",
+      "- [ ] I wrote this card, or I have the right to share it",
+      "- [ ] The role instructions do not ask the agent to read secrets or send data anywhere"
+    ].join("\n");
+    const base = "https://github.com/mlaimail77/genkaku/issues/new";
+    const url = `${base}?title=${encodeURIComponent(`[card] ${card.name}`)}&body=${encodeURIComponent(body)}`;
+    if (url.length > 7e3) {
+      void navigator.clipboard?.writeText(JSON.stringify(card, void 0, 2));
+      window.open(base, "_blank", "noopener");
+      onNotice(t("The card is too large for a prefilled issue. Its JSON was copied \u2014 paste it into the issue body."));
+      return;
+    }
+    window.open(url, "_blank", "noopener");
+  }, [onNotice]);
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
@@ -4320,6 +4462,7 @@ function AgentRoutes({ get, post, onNotice }) {
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "outline", size: "sm", onClick: () => copy(share.url), children: t("Copy link") }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => copy(share.code), children: t("Copy code") }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => download(share.card), children: t("Download file") }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => submitToRegistry(share.card), children: t("Submit to the registry") }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", onClick: () => setShare(null), children: t("Done") })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { style: { ...area, marginTop: 6, fontSize: 11 }, rows: 3, readOnly: true, value: share.code, "aria-label": t("Share code") })
@@ -4907,7 +5050,24 @@ function CardsTab({
   }, [apply2, onNotice, post, setBusy]);
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text \u2014 never a model id, a key, or a limit.") }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption }, children: t("Import") }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      RegistrySection,
+      {
+        get,
+        post,
+        busy,
+        setBusy,
+        onNotice,
+        onInstalled: (doc) => {
+          apply2(doc);
+          const preview = doc.preview;
+          if (preview != null) {
+            addAgent(preview.agent, t("{name} was added to the draft. Save to keep it.", { name: preview.agent.name }));
+          }
+        }
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 14 }, children: t("Import") }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       "textarea",
       {
@@ -5003,6 +5163,148 @@ function CardsTab({
     ] }, row3.id)) }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 10 }, children: t("A card is instructions for an agent that can read files. Read the role text before you apply a card from someone you do not know.") })
   ] });
+}
+function RegistrySection({
+  get,
+  post,
+  busy,
+  setBusy,
+  onNotice,
+  onInstalled
+}) {
+  const [doc, setDoc] = (0, import_react3.useState)(null);
+  const [q, setQ] = (0, import_react3.useState)("");
+  const [tag, setTag] = (0, import_react3.useState)("");
+  const [loaded, setLoaded] = (0, import_react3.useState)(false);
+  const load = (0, import_react3.useCallback)(async (fresh) => {
+    try {
+      const next = await get(`/genkaku/team/cards/registry${fresh ? "?fresh=1" : ""}`);
+      setDoc(next);
+    } catch (e) {
+      setDoc({
+        offline: true,
+        error: e instanceof Error ? e.message : String(e),
+        updatedAt: "",
+        total: 0,
+        tags: [],
+        cards: []
+      });
+    } finally {
+      setLoaded(true);
+    }
+  }, [get]);
+  (0, import_react3.useEffect)(() => {
+    void load(false);
+  }, [load]);
+  const install = (0, import_react3.useCallback)(async (entry) => {
+    setBusy(`registry:${entry.id}`);
+    onNotice(null);
+    try {
+      onInstalled(await post("/genkaku/team/cards/registry", { id: entry.id }));
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }, [onInstalled, onNotice, post, setBusy]);
+  const query = q.trim().toLowerCase();
+  const visible = (doc?.cards ?? []).filter((entry) => {
+    if (tag !== "" && !entry.tags.includes(tag)) return false;
+    if (query === "") return true;
+    return [entry.name, entry.summary, entry.author?.name ?? "", entry.lang, ...entry.tags].join(" ").toLowerCase().includes(query);
+  });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...caption, marginTop: 14 }, children: t("From the network") }),
+    !loaded && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("Loading\u2026") }),
+    loaded && doc?.offline === true && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("The card list is unreachable ({error}). The local library still works.", {
+      error: doc.error ?? t("unknown error")
+    }) }),
+    loaded && doc != null && !doc.offline && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          import_dsh_client_ui_primitives.Input,
+          {
+            value: q,
+            placeholder: t("Search cards"),
+            "aria-label": t("Search cards"),
+            onChange: (e) => setQ(e.target.value)
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_dsh_client_ui_primitives.Button, { variant: "ghost", size: "sm", disabled: busy !== null, onClick: () => {
+          void load(true);
+        }, children: t("Refresh list") })
+      ] }),
+      doc.tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 4, flexWrap: "wrap", marginTop: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "button",
+          {
+            type: "button",
+            style: { ...chipButton(tag === "") },
+            onClick: () => setTag(""),
+            children: t("All")
+          }
+        ),
+        doc.tags.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+          "button",
+          {
+            type: "button",
+            style: chipButton(tag === entry.tag),
+            onClick: () => setTag(tag === entry.tag ? "" : entry.tag),
+            children: [
+              entry.tag,
+              " \xB7 ",
+              entry.count
+            ]
+          },
+          entry.tag
+        ))
+      ] }),
+      doc.cards.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 6 }, children: t("The list is empty right now.") }),
+      doc.cards.length > 0 && visible.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginTop: 6 }, children: t("No cards match.") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "grid", gap: 6, marginTop: 6 }, children: visible.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { border: "1px solid rgba(127,137,153,.22)", borderRadius: 8, padding: 10 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("strong", { style: { fontSize: 13 }, children: entry.name }),
+          entry.lang !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { ...dim, fontSize: 11 }, children: entry.lang }),
+          entry.author?.name != null && entry.author.name !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { ...dim, fontSize: 11 }, children: [
+            t("Author"),
+            ": ",
+            entry.author.name
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { marginLeft: "auto" }, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            import_dsh_client_ui_primitives.Button,
+            {
+              variant: "outline",
+              size: "sm",
+              disabled: busy !== null,
+              onClick: () => {
+                void install(entry);
+              },
+              children: busy === `registry:${entry.id}` ? t("Installing\u2026") : t("Install")
+            }
+          ) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { fontSize: 12, marginTop: 4 }, children: entry.summary }),
+        entry.tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 11, marginTop: 2 }, children: entry.tags.join(" \xB7 ") })
+      ] }, entry.id)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...dim, fontSize: 11, marginTop: 6 }, children: [
+        t("Curated by hand. To add a card, share it and press \u201CSubmit to the registry\u201D."),
+        doc.updatedAt !== "" ? ` \xB7 ${new Date(doc.updatedAt).toLocaleDateString()}` : ""
+      ] })
+    ] })
+  ] });
+}
+function chipButton(active) {
+  return {
+    background: active ? "rgba(127,137,153,.2)" : "none",
+    border: "1px solid rgba(127,137,153,.35)",
+    borderRadius: 999,
+    color: "inherit",
+    font: "inherit",
+    fontSize: 11,
+    padding: "2px 8px",
+    cursor: "pointer",
+    opacity: active ? 1 : 0.7
+  };
 }
 function CardView({
   card,

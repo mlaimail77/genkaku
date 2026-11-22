@@ -160,6 +160,8 @@ export interface Config {
   defaultPricePerHour: string
   /** 0.3: sponsored-placement catalog base URL. Unreachable = no ads. */
   adsUrl: string
+  /** Agent Routes: the curated card index. Unreachable = local library only. */
+  cardsUrl: string
 }
 
 const catalogEntry = z.object({
@@ -210,6 +212,13 @@ export const Config = z.object({
    * means "no ads", which is a supported state, not an error.
    */
   adsUrl: z.string().pattern(/^https?:\/\//).default('https://seed.genkaku.app/ads/v1'),
+  /**
+   * Agent Routes: where the curated card index lives. Same reasoning as
+   * `adsUrl` — the seed host is the network's data door — and the same
+   * fail-safe: an unreachable index means the registry tab shows "offline"
+   * while the local card library keeps working.
+   */
+  cardsUrl: z.string().pattern(/^https?:\/\//).default('https://seed.genkaku.app/cards/v1/index.json'),
 })
 
 /**
@@ -625,6 +634,7 @@ export class GenkakuRuntime {
           // 0.4: self-serve listings. The service validates and reviews; the
           // money is a campaign the user funds from their own wallet.
           adsServiceUrl: this.config.adsUrl,
+          cardsRegistryUrl: this.config.cardsUrl,
           walletPolicy,
           agentToken,
           adCampaign: {

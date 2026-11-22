@@ -388,5 +388,18 @@
   "Choose a specialist": "Choose a specialist",
   "Rewrite": "Rewrite",
   "Replace {name}": "Replace {name}",
-  "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it."
+  "Replaced {name} in the draft. Save to keep it.": "Replaced {name} in the draft. Save to keep it.",
+  "From the network": "From the network",
+  "Search cards": "Search cards",
+  "Refresh list": "Refresh list",
+  "All": "All",
+  "The list is empty right now.": "The list is empty right now.",
+  "No cards match.": "No cards match.",
+  "Install": "Install",
+  "Installing…": "Installing…",
+  "The card list is unreachable ({error}). The local library still works.": "The card list is unreachable ({error}). The local library still works.",
+  "unknown error": "unknown error",
+  "Curated by hand. To add a card, share it and press “Submit to the registry”.": "Curated by hand. To add a card, share it and press “Submit to the registry”.",
+  "Submit to the registry": "Submit to the registry",
+  "The card is too large for a prefilled issue. Its JSON was copied — paste it into the issue body.": "The card is too large for a prefilled issue. Its JSON was copied — paste it into the issue body."
 }

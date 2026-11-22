@@ -1,7 +1,7 @@
 {
   "name": "genkaku",
   "private": true,
-  "version": "0.7.0-rc.2",
+  "version": "0.8.0-rc.1",
   "description": "GenKaKu \u2014 DSH (DeepSeek Harness) worker and user plugins, libp2p inference and Solana USDC campaigns",
   "license": "AGPL-3.0-or-later",
   "type": "module",

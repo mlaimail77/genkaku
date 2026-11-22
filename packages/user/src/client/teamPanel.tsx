@@ -396,6 +396,38 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
     setTimeout(() => URL.revokeObjectURL(url), 1_000)
   }, [])
 
+  /**
+   * Publishing is a GitHub issue, not an upload endpoint: it costs no backend,
+   * carries the author's account as identity, and a maintainer reads the card
+   * before it reaches anyone. The issue body is the card plus the four things
+   * a reviewer needs to check.
+   */
+  const submitToRegistry = useCallback((card: Card): void => {
+    const body = [
+      '### Card',
+      '',
+      '```json',
+      JSON.stringify(card, undefined, 2),
+      '```',
+      '',
+      '### Checklist',
+      '',
+      '- [ ] The card has an ascii `id`, and the file will be named after it',
+      '- [ ] The prose is in the language named by `lang`',
+      '- [ ] I wrote this card, or I have the right to share it',
+      '- [ ] The role instructions do not ask the agent to read secrets or send data anywhere',
+    ].join('\n')
+    const base = 'https://github.com/mlaimail77/genkaku/issues/new'
+    const url = `${base}?title=${encodeURIComponent(`[card] ${card.name}`)}&body=${encodeURIComponent(body)}`
+    if (url.length > 7_000) {
+      void navigator.clipboard?.writeText(JSON.stringify(card, undefined, 2))
+      window.open(base, '_blank', 'noopener')
+      onNotice(t('The card is too large for a prefilled issue. Its JSON was copied — paste it into the issue body.'))
+      return
+    }
+    window.open(url, '_blank', 'noopener')
+  }, [onNotice])
+
   return (
     <div style={box}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
@@ -490,6 +522,7 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
             <Button variant="outline" size="sm" onClick={() => copy(share.url)}>{t('Copy link')}</Button>
             <Button variant="ghost" size="sm" onClick={() => copy(share.code)}>{t('Copy code')}</Button>
             <Button variant="ghost" size="sm" onClick={() => download(share.card)}>{t('Download file')}</Button>
+            <Button variant="ghost" size="sm" onClick={() => submitToRegistry(share.card)}>{t('Submit to the registry')}</Button>
             <Button variant="ghost" size="sm" onClick={() => setShare(null)}>{t('Done')}</Button>
           </div>
           <textarea style={{ ...area, marginTop: 6, fontSize: 11 }} rows={3} readOnly value={share.code} aria-label={t('Share code')} />
@@ -1162,7 +1195,22 @@ function CardsTab({
         {t('A card is one specialist as a file. The model it suggests is resolved against your own board when you apply it, so a card from another machine still works. Cards only carry specialist text — never a model id, a key, or a limit.')}
       </div>
 
-      <div style={{ ...caption }}>{t('Import')}</div>
+      <RegistrySection
+        get={get}
+        post={post}
+        busy={busy}
+        setBusy={setBusy}
+        onNotice={onNotice}
+        onInstalled={(doc) => {
+          apply(doc)
+          const preview = doc.preview as Preview | undefined
+          if (preview != null) {
+            addAgent(preview.agent, t('{name} was added to the draft. Save to keep it.', { name: preview.agent.name }))
+          }
+        }}
+      />
+
+      <div style={{ ...caption, marginTop: 14 }}>{t('Import')}</div>
       <textarea
         style={area}
         rows={3}
@@ -1254,6 +1302,204 @@ function CardsTab({
       </div>
     </>
   )
+}
+
+// ── Registry ─────────────────────────────────────────────────────────────────
+
+type RegistryEntry = {
+  id: string
+  name: string
+  lang: string
+  tags: string[]
+  author?: { name?: string }
+  summary: string
+}
+
+type RegistryDoc = {
+  offline: boolean
+  error?: string
+  updatedAt: string
+  total: number
+  tags: Array<{ tag: string; count: number }>
+  cards: RegistryEntry[]
+}
+
+/**
+ * The curated list. Deliberately read-only: there is no upload, no rating and
+ * no account, because those three turn a list of specialists into a marketplace
+ * that needs moderation. Publishing is a pull request or a prefilled issue.
+ *
+ * An unreachable index is not an error state — the local library above and the
+ * import box below both keep working, and this section says "offline".
+ */
+function RegistrySection({
+  get,
+  post,
+  busy,
+  setBusy,
+  onNotice,
+  onInstalled,
+}: {
+  get: (path: string) => Promise<Record<string, unknown>>
+  post: (path: string, body: unknown) => Promise<Record<string, unknown>>
+  busy: string | null
+  setBusy: (value: string | null) => void
+  onNotice: (text: string | null) => void
+  onInstalled: (doc: Record<string, unknown>) => void
+}) {
+  const [doc, setDoc] = useState<RegistryDoc | null>(null)
+  const [q, setQ] = useState('')
+  const [tag, setTag] = useState('')
+  const [loaded, setLoaded] = useState(false)
+
+  const load = useCallback(async (fresh: boolean): Promise<void> => {
+    try {
+      const next = await get(`/genkaku/team/cards/registry${fresh ? '?fresh=1' : ''}`)
+      setDoc(next as unknown as RegistryDoc)
+    } catch (e) {
+      setDoc({
+        offline: true,
+        error: e instanceof Error ? e.message : String(e),
+        updatedAt: '',
+        total: 0,
+        tags: [],
+        cards: [],
+      })
+    } finally {
+      setLoaded(true)
+    }
+  }, [get])
+
+  useEffect(() => { void load(false) }, [load])
+
+  const install = useCallback(async (entry: RegistryEntry): Promise<void> => {
+    setBusy(`registry:${entry.id}`)
+    onNotice(null)
+    try {
+      onInstalled(await post('/genkaku/team/cards/registry', { id: entry.id }))
+    } catch (e) {
+      onNotice(e instanceof Error ? e.message : String(e))
+    } finally {
+      setBusy(null)
+    }
+  }, [onInstalled, onNotice, post, setBusy])
+
+  const query = q.trim().toLowerCase()
+  const visible = (doc?.cards ?? []).filter((entry) => {
+    if (tag !== '' && !entry.tags.includes(tag)) return false
+    if (query === '') return true
+    return [entry.name, entry.summary, entry.author?.name ?? '', entry.lang, ...entry.tags]
+      .join(' ').toLowerCase().includes(query)
+  })
+
+  return (
+    <>
+      <div style={{ ...caption, marginTop: 14 }}>{t('From the network')}</div>
+
+      {!loaded && <div style={{ ...dim, fontSize: 12 }}>{t('Loading…')}</div>}
+
+      {loaded && doc?.offline === true && (
+        <div style={{ ...dim, fontSize: 12 }}>
+          {t('The card list is unreachable ({error}). The local library still works.', {
+            error: doc.error ?? t('unknown error'),
+          })}
+        </div>
+      )}
+
+      {loaded && doc != null && !doc.offline && (
+        <>
+          <div style={{ display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
+            <Input
+              value={q}
+              placeholder={t('Search cards')}
+              aria-label={t('Search cards')}
+              onChange={e => setQ(e.target.value)}
+            />
+            <Button variant="ghost" size="sm" disabled={busy !== null} onClick={() => { void load(true) }}>
+              {t('Refresh list')}
+            </Button>
+          </div>
+
+          {doc.tags.length > 0 && (
+            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginTop: 6 }}>
+              <button
+                type="button"
+                style={{ ...chipButton(tag === ''), }}
+                onClick={() => setTag('')}
+              >
+                {t('All')}
+              </button>
+              {doc.tags.map(entry => (
+                <button
+                  key={entry.tag}
+                  type="button"
+                  style={chipButton(tag === entry.tag)}
+                  onClick={() => setTag(tag === entry.tag ? '' : entry.tag)}
+                >
+                  {entry.tag} · {entry.count}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {doc.cards.length === 0 && (
+            <div style={{ ...dim, fontSize: 12, marginTop: 6 }}>{t('The list is empty right now.')}</div>
+          )}
+
+          {doc.cards.length > 0 && visible.length === 0 && (
+            <div style={{ ...dim, fontSize: 12, marginTop: 6 }}>{t('No cards match.')}</div>
+          )}
+
+          <div style={{ display: 'grid', gap: 6, marginTop: 6 }}>
+            {visible.map(entry => (
+              <div key={entry.id} style={{ border: '1px solid rgba(127,137,153,.22)', borderRadius: 8, padding: 10 }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'baseline', flexWrap: 'wrap' }}>
+                  <strong style={{ fontSize: 13 }}>{entry.name}</strong>
+                  {entry.lang !== '' && <span style={{ ...dim, fontSize: 11 }}>{entry.lang}</span>}
+                  {entry.author?.name != null && entry.author.name !== '' && (
+                    <span style={{ ...dim, fontSize: 11 }}>{t('Author')}: {entry.author.name}</span>
+                  )}
+                  <span style={{ marginLeft: 'auto' }}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={busy !== null}
+                      onClick={() => { void install(entry) }}
+                    >
+                      {busy === `registry:${entry.id}` ? t('Installing…') : t('Install')}
+                    </Button>
+                  </span>
+                </div>
+                <div style={{ fontSize: 12, marginTop: 4 }}>{entry.summary}</div>
+                {entry.tags.length > 0 && (
+                  <div style={{ ...dim, fontSize: 11, marginTop: 2 }}>{entry.tags.join(' · ')}</div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div style={{ ...dim, fontSize: 11, marginTop: 6 }}>
+            {t('Curated by hand. To add a card, share it and press “Submit to the registry”.')}
+            {doc.updatedAt !== '' ? ` · ${new Date(doc.updatedAt).toLocaleDateString()}` : ''}
+          </div>
+        </>
+      )}
+    </>
+  )
+}
+
+function chipButton(active: boolean): React.CSSProperties {
+  return {
+    background: active ? 'rgba(127,137,153,.2)' : 'none',
+    border: '1px solid rgba(127,137,153,.35)',
+    borderRadius: 999,
+    color: 'inherit',
+    font: 'inherit',
+    fontSize: 11,
+    padding: '2px 8px',
+    cursor: 'pointer',
+    opacity: active ? 1 : 0.7,
+  }
 }
 
 // ── Shared ───────────────────────────────────────────────────────────────────
