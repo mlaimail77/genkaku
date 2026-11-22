@@ -286,73 +286,6 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
     }
   }, [apply, onNotice, post])
 
-  if (error != null) {
-    return (
-      <div style={box}>
-        <div style={caption}>{t('Agent Routes')}</div>
-        <div style={{ ...dim, fontSize: 12 }}>{error}</div>
-      </div>
-    )
-  }
-
-  if (draft == null) {
-    return (
-      <div style={box}>
-        <div style={caption}>{t('Agent Routes')}</div>
-        <div style={{ ...dim, fontSize: 12 }}>{t('Loading…')}</div>
-      </div>
-    )
-  }
-
-  const patch = (changes: Partial<Config>): void => { setDraft({ ...draft, ...changes }) }
-  const patchAgent = (id: string, changes: Partial<Agent>): void => {
-    patch({ agents: draft.agents.map(agent => agent.id === id ? { ...agent, ...changes } : agent) })
-  }
-  const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config)
-  dirtyRef.current = dirty
-
-  /**
-   * Add a specialist to the draft. The id comes from the bridge or the
-   * template; a collision inside the *draft* (which the bridge cannot see) is
-   * resolved here, so the id the user reads is the id that gets saved.
-   */
-  const addAgent = (agent: Agent, note: string): void => {
-    if (draft.agents.length >= MAX_AGENTS) {
-      onNotice(t('Eight is the maximum. Remove one first.'))
-      return
-    }
-    const taken = new Set(draft.agents.map(row => row.id))
-    let id = agent.id
-    let suffix = 2
-    while (taken.has(id)) {
-      const tail = `-${suffix++}`
-      id = `${agent.id.slice(0, 32 - tail.length)}${tail}`
-    }
-    patch({ agents: [...draft.agents, { ...agent, id }] })
-    onNotice(note)
-  }
-
-  /** A rewrite replaces the specialist in place; the id stays, so the record does too. */
-  const replaceAgent = (id: string, agent: Agent): void => {
-    patch({
-      agents: draft.agents.map(row => row.id === id ? { ...agent, id } : row),
-    })
-    onNotice(t('Replaced {name} in the draft. Save to keep it.', { name: agent.name }))
-  }
-
-  const addTemplate = (template: Template): void => {
-    addAgent({
-      id: template.agent.id,
-      name: t(template.agent.name),
-      whenToUse: t(template.agent.whenToUse),
-      whenNotToUse: t(template.agent.whenNotToUse),
-      examples: template.agent.examples.map(key => t(key)),
-      route: { provider: 'genkaku', model: '' },
-      systemPrompt: t(template.agent.systemPrompt),
-      maxTokens: template.agent.maxTokens,
-    }, t('{name} was added to the draft. Save to keep it.', { name: t(template.agent.name) }))
-  }
-
   /**
    * Share either a library card or a specialist written here. The bridge owns
    * the route→hint conversion, so an unsaved draft can be shared without
@@ -427,6 +360,73 @@ export function AgentRoutes({ get, post, onNotice }: Props) {
     }
     window.open(url, '_blank', 'noopener')
   }, [onNotice])
+
+  if (error != null) {
+    return (
+      <div style={box}>
+        <div style={caption}>{t('Agent Routes')}</div>
+        <div style={{ ...dim, fontSize: 12 }}>{error}</div>
+      </div>
+    )
+  }
+
+  if (draft == null) {
+    return (
+      <div style={box}>
+        <div style={caption}>{t('Agent Routes')}</div>
+        <div style={{ ...dim, fontSize: 12 }}>{t('Loading…')}</div>
+      </div>
+    )
+  }
+
+  const patch = (changes: Partial<Config>): void => { setDraft({ ...draft, ...changes }) }
+  const patchAgent = (id: string, changes: Partial<Agent>): void => {
+    patch({ agents: draft.agents.map(agent => agent.id === id ? { ...agent, ...changes } : agent) })
+  }
+  const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config)
+  dirtyRef.current = dirty
+
+  /**
+   * Add a specialist to the draft. The id comes from the bridge or the
+   * template; a collision inside the *draft* (which the bridge cannot see) is
+   * resolved here, so the id the user reads is the id that gets saved.
+   */
+  const addAgent = (agent: Agent, note: string): void => {
+    if (draft.agents.length >= MAX_AGENTS) {
+      onNotice(t('Eight is the maximum. Remove one first.'))
+      return
+    }
+    const taken = new Set(draft.agents.map(row => row.id))
+    let id = agent.id
+    let suffix = 2
+    while (taken.has(id)) {
+      const tail = `-${suffix++}`
+      id = `${agent.id.slice(0, 32 - tail.length)}${tail}`
+    }
+    patch({ agents: [...draft.agents, { ...agent, id }] })
+    onNotice(note)
+  }
+
+  /** A rewrite replaces the specialist in place; the id stays, so the record does too. */
+  const replaceAgent = (id: string, agent: Agent): void => {
+    patch({
+      agents: draft.agents.map(row => row.id === id ? { ...agent, id } : row),
+    })
+    onNotice(t('Replaced {name} in the draft. Save to keep it.', { name: agent.name }))
+  }
+
+  const addTemplate = (template: Template): void => {
+    addAgent({
+      id: template.agent.id,
+      name: t(template.agent.name),
+      whenToUse: t(template.agent.whenToUse),
+      whenNotToUse: t(template.agent.whenNotToUse),
+      examples: template.agent.examples.map(key => t(key)),
+      route: { provider: 'genkaku', model: '' },
+      systemPrompt: t(template.agent.systemPrompt),
+      maxTokens: template.agent.maxTokens,
+    }, t('{name} was added to the draft. Save to keep it.', { name: t(template.agent.name) }))
+  }
 
   return (
     <div style={box}>
@@ -879,6 +879,7 @@ function AdvisorTab({
   const [previews, setPreviews] = useState<Preview[]>([])
   const [question, setQuestion] = useState('')
   const [loaded, setLoaded] = useState(false)
+  const [rewriteId, setRewriteId] = useState('')
 
   const load = useCallback(async (): Promise<void> => {
     try {
@@ -962,7 +963,6 @@ function AdvisorTab({
     && draft.agents.some(agent => agent.id === lastAdvisor.agentId)
     ? lastAdvisor.agentId
     : undefined
-  const [rewriteId, setRewriteId] = useState('')
 
   return (
     <>

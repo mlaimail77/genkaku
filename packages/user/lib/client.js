@@ -4259,59 +4259,6 @@ function AgentRoutes({ get, post, onNotice }) {
       setBusy(null);
     }
   }, [apply2, onNotice, post]);
-  if (error != null) {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: error })
-    ] });
-  }
-  if (draft == null) {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("Loading\u2026") })
-    ] });
-  }
-  const patch = (changes) => {
-    setDraft({ ...draft, ...changes });
-  };
-  const patchAgent = (id, changes) => {
-    patch({ agents: draft.agents.map((agent) => agent.id === id ? { ...agent, ...changes } : agent) });
-  };
-  const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config);
-  dirtyRef.current = dirty;
-  const addAgent = (agent, note) => {
-    if (draft.agents.length >= MAX_AGENTS) {
-      onNotice(t("Eight is the maximum. Remove one first."));
-      return;
-    }
-    const taken = new Set(draft.agents.map((row3) => row3.id));
-    let id = agent.id;
-    let suffix = 2;
-    while (taken.has(id)) {
-      const tail = `-${suffix++}`;
-      id = `${agent.id.slice(0, 32 - tail.length)}${tail}`;
-    }
-    patch({ agents: [...draft.agents, { ...agent, id }] });
-    onNotice(note);
-  };
-  const replaceAgent = (id, agent) => {
-    patch({
-      agents: draft.agents.map((row3) => row3.id === id ? { ...agent, id } : row3)
-    });
-    onNotice(t("Replaced {name} in the draft. Save to keep it.", { name: agent.name }));
-  };
-  const addTemplate = (template) => {
-    addAgent({
-      id: template.agent.id,
-      name: t(template.agent.name),
-      whenToUse: t(template.agent.whenToUse),
-      whenNotToUse: t(template.agent.whenNotToUse),
-      examples: template.agent.examples.map((key) => t(key)),
-      route: { provider: "genkaku", model: "" },
-      systemPrompt: t(template.agent.systemPrompt),
-      maxTokens: template.agent.maxTokens
-    }, t("{name} was added to the draft. Save to keep it.", { name: t(template.agent.name) }));
-  };
   const shareCard = (0, import_react3.useCallback)(async (value) => {
     setBusy("share");
     onNotice(null);
@@ -4373,6 +4320,59 @@ function AgentRoutes({ get, post, onNotice }) {
     }
     window.open(url, "_blank", "noopener");
   }, [onNotice]);
+  if (error != null) {
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: error })
+    ] });
+  }
+  if (draft == null) {
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12 }, children: t("Loading\u2026") })
+    ] });
+  }
+  const patch = (changes) => {
+    setDraft({ ...draft, ...changes });
+  };
+  const patchAgent = (id, changes) => {
+    patch({ agents: draft.agents.map((agent) => agent.id === id ? { ...agent, ...changes } : agent) });
+  };
+  const dirty = config != null && JSON.stringify(draft) !== JSON.stringify(config);
+  dirtyRef.current = dirty;
+  const addAgent = (agent, note) => {
+    if (draft.agents.length >= MAX_AGENTS) {
+      onNotice(t("Eight is the maximum. Remove one first."));
+      return;
+    }
+    const taken = new Set(draft.agents.map((row3) => row3.id));
+    let id = agent.id;
+    let suffix = 2;
+    while (taken.has(id)) {
+      const tail = `-${suffix++}`;
+      id = `${agent.id.slice(0, 32 - tail.length)}${tail}`;
+    }
+    patch({ agents: [...draft.agents, { ...agent, id }] });
+    onNotice(note);
+  };
+  const replaceAgent = (id, agent) => {
+    patch({
+      agents: draft.agents.map((row3) => row3.id === id ? { ...agent, id } : row3)
+    });
+    onNotice(t("Replaced {name} in the draft. Save to keep it.", { name: agent.name }));
+  };
+  const addTemplate = (template) => {
+    addAgent({
+      id: template.agent.id,
+      name: t(template.agent.name),
+      whenToUse: t(template.agent.whenToUse),
+      whenNotToUse: t(template.agent.whenNotToUse),
+      examples: template.agent.examples.map((key) => t(key)),
+      route: { provider: "genkaku", model: "" },
+      systemPrompt: t(template.agent.systemPrompt),
+      maxTokens: template.agent.maxTokens
+    }, t("{name} was added to the draft. Save to keep it.", { name: t(template.agent.name) }));
+  };
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: box, children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: caption, children: t("Agent Routes") }),
@@ -4789,6 +4789,7 @@ function AdvisorTab({
   const [previews, setPreviews] = (0, import_react3.useState)([]);
   const [question, setQuestion] = (0, import_react3.useState)("");
   const [loaded, setLoaded] = (0, import_react3.useState)(false);
+  const [rewriteId, setRewriteId] = (0, import_react3.useState)("");
   const load = (0, import_react3.useCallback)(async () => {
     try {
       const doc = await get("/genkaku/team/advice");
@@ -4856,7 +4857,6 @@ function AdvisorTab({
   const advisorRoute = draft.advisor ?? draft.main;
   const lastAdvisor = [...thread.messages].reverse().find((message) => message.role === "advisor");
   const rewriteTarget = lastAdvisor?.mode === "rewrite" && lastAdvisor.agentId != null && draft.agents.some((agent) => agent.id === lastAdvisor.agentId) ? lastAdvisor.agentId : void 0;
-  const [rewriteId, setRewriteId] = (0, import_react3.useState)("");
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...dim, fontSize: 12, marginBottom: 8 }, children: t("Describe what you actually ask an AI to do. The advisor proposes how to split it, and you apply the parts you agree with. This is one model call: free on the network, or your own key on a cloud model.") }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: row, children: [
