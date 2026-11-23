@@ -14,7 +14,6 @@ import type { Context as ClientContext } from '@deepseek-ai/cordis'
 import type { MainPanelId } from '@deepseek-ai/dsh-client-ui-layout/client'
 import { Button, Input } from '@deepseek-ai/dsh-client-ui-primitives'
 import { AdDock } from './adDock.tsx'
-import { AgentRoutes } from './teamPanel.tsx'
 import { remember } from './bridgeOrigin.ts'
 
 const PANEL_ID = 'genkaku-user' as MainPanelId
@@ -980,8 +979,6 @@ function Page() {
           </div>
         )}
       </div>
-
-      <AgentRoutes get={get} post={post} onNotice={setNotice} />
 
       <div style={box}>
         <div style={caption}>{t('Tips')}</div>

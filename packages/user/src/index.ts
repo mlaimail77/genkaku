@@ -13,7 +13,6 @@
 
 import { defineGenkakuPlugin } from '@genkaku/dsh-runtime'
 import { GenkakuAdapter } from './adapter.ts'
-import { TeamRuntime } from './team/runtime.ts'
 
 /** Provider route key; also the prefix users see in model lists. */
 export const PROVIDER = 'genkaku'
@@ -22,7 +21,7 @@ export const { name, inject, Config, apply } = defineGenkakuPlugin({
   pluginName: 'genkaku-user',
   settingsNs: 'genkaku-user',
   role: 'user',
-  injectExtra: ['llm', 'tools', 'subagents', 'agents'],
+  injectExtra: ['llm'],
   onStarted: (ctx, config) => {
     const log = ctx.logger('genkaku-user')
     // `config.port` is only the configured port. With the worker plugin
@@ -32,19 +31,6 @@ export const { name, inject, Config, apply } = defineGenkakuPlugin({
       port: () => config.port.get(),
       log: line => log.info(line),
     })
-
-    // Agent Routes: one synthetic `team` model, one `delegate` tool. The
-    // runtime is created after the adapter because an auto local route asks
-    // the adapter which worker models are actually online.
-    const team = new TeamRuntime({
-      keyDir: config.keyDir,
-      ctx,
-      log: line => log.info(line),
-      localModels: () => adapter.bridgeModels(),
-    })
-    adapter.setTeam(team)
-    team.start()
-    ctx.effect(() => () => team.stop(), 'genkaku-user: agent routes')
 
     // Installing the worker plugin next to this one makes the harness reload
     // plugins; a second register for the same provider throws and took the

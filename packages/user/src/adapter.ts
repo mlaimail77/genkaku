@@ -20,12 +20,7 @@ import type {
   TokenUsage,
   ToolCallId,
 } from '@deepseek-ai/dsh-llm'
-import { LlmAdapter, createSystemMessage } from '@deepseek-ai/dsh-llm'
-
-import { TEAM_MODEL_ID, type TeamConfig } from '@genkaku/protocol'
-
-import { resolveRoute, type ResolvedRoute, type TeamLocalModel } from './team/route.ts'
-import type { TeamHost, TeamRunResult } from './team/runtime.ts'
+import { LlmAdapter } from '@deepseek-ai/dsh-llm'
 
 type BridgeModel = {
   id: string
@@ -131,16 +126,8 @@ export class GenkakuAdapter extends LlmAdapter {
    */
   private origin: string | null = null
 
-  /** Set once the user plugin has wired the Agent Routes runtime. */
-  private team: TeamHost | null = null
-
   constructor(private readonly options: GenkakuAdapterOptions) {
     super()
-  }
-
-  /** The runtime is created after the adapter because it needs this bridge. */
-  setTeam(team: TeamHost | null): void {
-    this.team = team
   }
 
   /**
@@ -201,8 +188,6 @@ export class GenkakuAdapter extends LlmAdapter {
     try {
       rows = await this.bridgeModelRows()
     } catch (error) {
-      // An unreachable bridge hides the network rows, but Agent Routes can
-      // still have a cloud main model, so keep building the list below.
       this.options.log?.(`genkaku adapter: model listing failed (${String(error)})`)
     }
 
@@ -237,16 +222,6 @@ export class GenkakuAdapter extends LlmAdapter {
       }
     })
 
-    const team = this.team?.config()
-    if (team?.enabled === true) {
-      models.unshift({
-        provider,
-        id: TEAM_MODEL_ID,
-        name: 'GenKaKu · Agent Routes',
-        description: teamDescription(team),
-      })
-    }
-
     return models
   }
 
@@ -258,112 +233,8 @@ export class GenkakuAdapter extends LlmAdapter {
     return body.data ?? []
   }
 
-  /** One row per live (worker, model), enough for an auto local route. */
-  async bridgeModels(): Promise<TeamLocalModel[]> {
-    try {
-      return (await this.bridgeModelRows()).map((model) => {
-        const facts = model.genkaku ?? {}
-        const modelName = facts.model ?? model.id
-        return {
-          id: model.id,
-          name: facts.workerName == null || facts.workerName === ''
-            ? modelName
-            : `${facts.workerName} · ${modelName}`,
-          ...(facts.tier == null ? {} : { tier: facts.tier }),
-          ...(facts.latencyMs == null ? {} : { latencyMs: facts.latencyMs }),
-          ...(facts.pricePerHour == null ? {} : { pricePerHour: facts.pricePerHour }),
-          ...(facts.parameterSize == null ? {} : { parameterSize: facts.parameterSize }),
-        }
-      })
-    } catch {
-      return []
-    }
-  }
-
-  /**
-   * One entry point for both a normal network model and the synthetic team
-   * model. The team model never reaches the bridge's normal chat path: it
-   * resolves a main route and then re-enters either the bridge or the harness
-   * llm runtime with that route.
-   */
   override async *stream(options: GenerateOptions): AsyncIterable<StreamChunk> {
-    if (options.model === TEAM_MODEL_ID) {
-      yield* this.streamTeam(options)
-      return
-    }
     yield* this.streamDirect(options)
-  }
-
-  /**
-   * Agent Routes main turn.
-   *
-   * In model-decides mode the main model receives the delegate tool, which the
-   * harness only admits for this exact model id. In router-decides mode (or
-   * when the main model is a known chat-only local model) the specialist is
-   * chosen and run here, before the main call, and its answer travels as a
-   * system addendum. That is the fallback that lets a weak model still use a
-   * team.
-   */
-  private async *streamTeam(options: GenerateOptions): AsyncIterable<StreamChunk> {
-    const team = this.team
-    const config = team?.config()
-    if (team == null || config == null || !config.enabled) {
-      throw new Error('GenKaKu Agent Routes is off. Turn it on in the panel and pick this model again.')
-    }
-    if (config.main == null) {
-      throw new Error('GenKaKu Agent Routes has no main model. Choose one in the panel.')
-    }
-
-    const local = await this.bridgeModels()
-    const route = resolveRoute(config.main, local)
-    if (route == null) {
-      throw new Error('GenKaKu Agent Routes: no model is available for the main route (is a worker online?).')
-    }
-
-    // An auxiliary call — compaction, a title, a summary — is not a
-    // conversation turn: it must run on the main model with its own prompt and
-    // without a team policy, a router or a delegation.
-    if (options.purpose != null) {
-      if (route.provider === 'genkaku') {
-        yield* this.streamDirect({ ...options, provider: 'genkaku', model: route.model })
-        return
-      }
-      yield* team.stream({ ...options, provider: route.provider, model: route.model })
-      return
-    }
-
-    let prompt = withSystemAddendum(options, teamPolicy(config))
-    const localTier = route.provider === 'genkaku'
-      ? local.find(model => model.id === route.model)?.tier
-      : undefined
-    const routerMode = config.mode === 'router-decides'
-      || !config.mainSupportsTools
-      || localTier === 'chat'
-
-    if (routerMode) {
-      const task = lastUserText(prompt.messages)
-      const agentId = task === '' ? null : team.route(task)
-      if (agentId != null) {
-        const signal = options.signal ?? new AbortController().signal
-        let result: TeamRunResult | null = null
-        try {
-          result = await team.runForSession(agentId, task, options.sessionId, signal)
-        } catch (error) {
-          this.options.log?.(`genkaku adapter: router delegation failed (${String(error)})`)
-        }
-        if (result != null && result.ok && result.output.trim() !== '') {
-          prompt = withSystemAddendum({ ...options, ...prompt }, routerNote(result))
-        }
-      }
-    }
-
-    const routed = { ...options, ...prompt }
-    if (route.provider === 'genkaku') {
-      yield* this.streamDirect({ ...routed, provider: 'genkaku', model: route.model })
-      return
-    }
-
-    yield* team.stream({ ...routed, provider: route.provider, model: route.model })
   }
 
   /** Stream one completion from the network. */
@@ -505,97 +376,3 @@ export class GenkakuAdapter extends LlmAdapter {
   }
 }
 
-/**
- * The orchestration paragraph added to the main model's system prompt.
- *
- * The specialist list itself is not repeated here: the delegate tool's own
- * description carries it, so a model that cannot call tools never pays for
- * text it cannot act on. In router-decides mode the note explains the
- * specialist answer it may find below.
- */
-function teamPolicy(config: TeamConfig): string {
-  const lines = [config.policy.trim()]
-  if (config.mode === 'model-decides' && config.mainSupportsTools) {
-    lines.push(
-      `You may delegate at most ${config.maxDelegations} task(s) per turn with the delegate tool.`,
-    )
-  } else {
-    lines.push(
-      'A specialist may have already been consulted for this turn; treat its answer as '
-      + 'helpful work from a colleague and verify anything that looks uncertain.',
-    )
-  }
-  return lines.filter(line => line !== '').join('\n')
-}
-
-/** Picker subtitle: enough to see what the row will do before selecting it. */function teamDescription(config: TeamConfig): string {
-  const main = config.main == null
-    ? 'no main'
-    : config.main.provider === 'genkaku' && config.main.model === ''
-      ? 'auto local main'
-      : `${config.main.provider}/${config.main.model}`
-  const count = config.agents.length
-  return `${count} specialist${count === 1 ? '' : 's'} · `
-    + `${config.mode === 'router-decides' ? 'router decides' : 'model decides'} · ${main}`
-}
-
-/**
- * Add a paragraph to the system prompt without replacing its identity.
- *
- * Three shapes exist in practice: a loop-built request carries the prompt as
- * messages[0]; a hand-built one-shot sets `system`; and a bare one-shot has
- * neither, which is the only case that mints a message.
- */
-export function withSystemAddendum(
-  options: GenerateOptions,
-  addendum: string,
-): { messages: RequestMessage[]; system?: string } {
-  const text = addendum.trim()
-  if (text === '') {
-    return {
-      messages: options.messages,
-      ...(options.system === undefined ? {} : { system: options.system }),
-    }
-  }
-
-  if (options.system != null && options.system.trim() !== '') {
-    return { messages: options.messages, system: `${options.system.trim()}\n\n${text}` }
-  }
-
-  const first = options.messages[0]
-  if (first != null && first.role === 'system') {
-    const head = textOf(first.content).trim()
-    return {
-      messages: [
-        { ...first, content: [{ type: 'text', text: head === '' ? text : `${head}\n\n${text}` }] },
-        ...options.messages.slice(1),
-      ],
-      ...(options.system === undefined ? {} : { system: options.system }),
-    }
-  }
-
-  return {
-    messages: [createSystemMessage(text), ...options.messages],
-    ...(options.system === undefined ? {} : { system: options.system }),
-  }
-}
-
-/** The last user turn, which is what a router can actually reason about. */
-export function lastUserText(messages: readonly RequestMessage[]): string {
-  for (let index = messages.length - 1; index >= 0; index--) {
-    const message = messages[index]!
-    if (message.role === 'user') return textOf(message.content).trim()
-  }
-  return ''
-}
-
-/** What a router-decides main model is told before it writes the answer. */
-function routerNote(result: TeamRunResult): string {
-  return [
-    `A team specialist (${result.agent}) was consulted for the latest request and returned:`,
-    '',
-    result.output,
-    '',
-    'Use this work to answer the user. Do not expose the delegation machinery unless it matters.',
-  ].join('\n')
-}
